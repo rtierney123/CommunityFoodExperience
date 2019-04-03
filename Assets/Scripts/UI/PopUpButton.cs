@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class PopUpButton : MonoBehaviour
 {
-    public Image img;
+    public Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
-        img.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -21,6 +21,6 @@ public class PopUpButton : MonoBehaviour
     public void showPopUp()
     {
         Debug.Log("PopUp");
-        img.enabled = true;
+        canvas.enabled = true;
     }
 }

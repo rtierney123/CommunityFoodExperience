@@ -20,7 +20,7 @@ public class PopUpButton : MonoBehaviour
         {
             if (canvas.enabled)
             {
-                canvas.enabled = false;
+                //canvas.enabled = false;
             }
         }
           

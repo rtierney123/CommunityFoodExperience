@@ -22,7 +22,11 @@ namespace Movement
 
         private void OnTriggerEnter(Collider coll)
         {
-            playerHit = true;
+            if (coll.tag == "Player" || coll.tag=="Bus")
+            {
+                playerHit = true;
+            }
+           
         }
 
         public void setHit(bool isHit)

@@ -17,7 +17,7 @@ namespace Movement
         {
             
             busComplete = false;
-            StartCoroutine(takeBus());
+            StartCoroutine(followPath(bus, busPath));
         }
 
         // Update is called once per frame
@@ -34,7 +34,7 @@ namespace Movement
         IEnumerator takeBus()
         {
             followPath(bus, busPath);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
         }
 
         IEnumerator followPath(Transform obj, Transform path)

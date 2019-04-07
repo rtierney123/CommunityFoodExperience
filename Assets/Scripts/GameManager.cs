@@ -10,19 +10,24 @@ namespace Movement
         public Transform playerPath;
         public Transform busPath;
         public int speed;
-
         private bool busComplete;
+        
         // Start is called before the first frame update
         void Start()
         {
-            
-            busComplete = false;
-            StartCoroutine(followPath(bus, busPath));
+
+            busComplete = true;
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (busComplete)
+            {
+                StartCoroutine(followPath(bus, busPath));
+                busComplete = false;
+            }
             
         }
 
@@ -30,12 +35,15 @@ namespace Movement
         {
             StartCoroutine(followPath(player, playerPath));
         }
-
+        /*
         IEnumerator takeBus()
         {
-            followPath(bus, busPath);
-            yield return new WaitForSeconds(1);
+            Debug.Log("Start Path");
+        
+            
+            yield return StartCoroutine(followPath(bus, busPath));
         }
+        */
 
         IEnumerator followPath(Transform obj, Transform path)
         {
@@ -58,7 +66,7 @@ namespace Movement
                 rb.velocity = Vector2.zero;
 
             }
-            
+            busComplete = true;
         }
     }
 

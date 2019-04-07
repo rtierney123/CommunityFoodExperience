@@ -29,6 +29,7 @@ namespace Movement
 
         IEnumerator movePlayer()
         {
+            
             foreach (Transform child in path)
             {
                 

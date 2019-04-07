@@ -9,6 +9,7 @@ namespace Movement
         public Transform bus;
         public Transform playerPath;
         public Transform busPath;
+        public Bus busScript;
         public int speed;
         private bool busComplete;
         
@@ -61,13 +62,27 @@ namespace Movement
             
                 rb.velocity = step * (end - start);
                 obj.rotation = child.rotation;
+                if (obj.tag == "Bus" && busScript.getStopBus())
+                {
+                    rb.velocity = Vector2.zero;
+                    yield return new WaitForSeconds(1);
+                    Debug.Log("Continue");
+                    script.setHit(true);
+                    busScript.setStopBus(false);
+                }
+                
                 //Debug.Log("Waiting for princess to be rescued...");
                 yield return new WaitUntil(() => script.getHit());
                 //Debug.Log("Princess was rescued!");
-                rb.velocity = Vector2.zero;
+                
 
             }
-            busComplete = true;
+            rb.velocity = Vector2.zero;
+            if (obj.tag == "Bus")
+            {
+                busComplete = true;
+            }
+          
         }
     }
 

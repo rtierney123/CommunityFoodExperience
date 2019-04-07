@@ -60,6 +60,7 @@ namespace Movement
                 script.setHit(false);
             
                 rb.velocity = step * (end - start);
+                obj.rotation = child.rotation;
                 //Debug.Log("Waiting for princess to be rescued...");
                 yield return new WaitUntil(() => script.getHit());
                 //Debug.Log("Princess was rescued!");

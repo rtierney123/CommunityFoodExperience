@@ -23,7 +23,6 @@ namespace Movement
         private void OnTriggerEnter(Collider coll)
         {
             playerHit = true;
-            Debug.Log("Collision");
         }
 
         public void setHit(bool isHit)

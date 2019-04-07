@@ -37,11 +37,17 @@ namespace Movement
                 PathObj script = child.GetComponent<PathObj>();
            
                 float step = speed * Time.deltaTime;
-                playerRb.velocity = step * (end - start);
                 script.setHit(false);
-                Debug.Log("Waiting for princess to be rescued...");
+                /*
+                while (script.getHit())
+                {
+                    playerRb.velocity = step * (end - start);
+                }
+                */
+                playerRb.velocity = step * (end - start);
+                //Debug.Log("Waiting for princess to be rescued...");
                 yield return new WaitUntil(() => script.getHit());
-                Debug.Log("Princess was rescued!");
+                //Debug.Log("Princess was rescued!");
                 playerRb.velocity = Vector2.zero;
 
             }

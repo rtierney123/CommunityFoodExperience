@@ -66,7 +66,7 @@ namespace Movement
                 {
                     rb.velocity = Vector2.zero;
                     yield return new WaitForSeconds(1);
-                    Debug.Log("Continue");
+                    //Debug.Log("Continue");
                     script.setHit(true);
                     busScript.setStopBus(false);
                 }

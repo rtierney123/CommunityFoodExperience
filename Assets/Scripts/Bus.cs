@@ -22,7 +22,7 @@ public class Bus : MonoBehaviour
     {
         if (coll.tag == "Station" )
         {
-            Debug.Log("Stop bus");
+            //Debug.Log("Stop bus");
             setStopBus(true);
         }
 

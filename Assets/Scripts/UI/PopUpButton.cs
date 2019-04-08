@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class PopUpButton : MonoBehaviour
 {
-    public Canvas canvas;
+    public Transform popUp;
+    private Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-   
+        canvas = popUp.GetComponent<Canvas>();
     }
 
     // Update is called once per frame
@@ -29,5 +30,7 @@ public class PopUpButton : MonoBehaviour
     public void showPopUp()
     {
         canvas.enabled = true;
+       // popUp.rotation = Quaternion.Euler(0, 0, 0);
+        Debug.Log("Pop up shown");
     }
 }

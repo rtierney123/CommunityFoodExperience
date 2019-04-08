@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NonRotatingChild : MonoBehaviour
+public class GamePiece : MonoBehaviour
 {
-    Quaternion rotation;
+    private bool _isMoving;
+    public bool isMoving
+    {
+        get { return _isMoving; }
+        set { }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +21,7 @@ public class NonRotatingChild : MonoBehaviour
     {
         
     }
- 
-    void Awake()
-    {
-        rotation = transform.rotation;
-    }
-    void LateUpdate()
-    {
-        transform.rotation = rotation;
-    }
+
+
+    
 }

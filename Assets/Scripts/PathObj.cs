@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Movement
+namespace Manage
 {
     public class PathObj : MonoBehaviour
     {

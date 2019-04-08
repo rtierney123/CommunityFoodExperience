@@ -2,21 +2,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Touchable : Text
+namespace UI
 {
-    protected override void Awake()
+    public class Touchable : Text
     {
-        base.Awake();
+        protected override void Awake()
+        {
+            base.Awake();
+        }
     }
-}
- 
 
- 
- [CustomEditor(typeof(Touchable))]
-public class Touchable_Editor : Editor
-{
-    public override void OnInspectorGUI()
+
+
+    [CustomEditor(typeof(Touchable))]
+    public class Touchable_Editor : Editor
     {
-        // Do nothing
+        public override void OnInspectorGUI()
+        {
+            // Do nothing
+        }
     }
 }

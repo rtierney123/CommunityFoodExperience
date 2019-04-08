@@ -3,34 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopUpButton : MonoBehaviour
+namespace UI
 {
-    public Transform popUp;
-    private Canvas canvas;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PopUpButton : MonoBehaviour
     {
-        canvas = popUp.GetComponent<Canvas>();
-    }
+        public Transform popUp;
+        private Canvas canvas;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        // Start is called before the first frame update
+        void Start()
         {
-            if (canvas.enabled)
-            {
-                //canvas.enabled = false;
-            }
+            canvas = popUp.GetComponent<Canvas>();
         }
-          
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (canvas.enabled)
+                {
+                    //canvas.enabled = false;
+                }
+            }
+
+        }
+
+        public void showPopUp()
+        {
+            canvas.enabled = true;
+            // popUp.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Pop up shown");
+        }
     }
 
-    public void showPopUp()
-    {
-        canvas.enabled = true;
-       // popUp.rotation = Quaternion.Euler(0, 0, 0);
-        Debug.Log("Pop up shown");
-    }
 }

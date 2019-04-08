@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4207863116361125230}
   - component: {fileID: 8479251361770961036}
   - component: {fileID: 6000695999707328780}
-  m_Layer: 5
+  - component: {fileID: 653387082}
+  m_Layer: 9
   m_Name: Far_Location_Popup_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,9 +29,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904104837408729456}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.20000002, y: 0.20000002, z: 0}
   m_Children:
   - {fileID: 2099780582995400745}
   - {fileID: 2111650619105474885}
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.5508348, b: 0.17702031, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -141,6 +142,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &653387082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904104837408729456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b88718efe941b44080eef19762e7d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4679904908374759286
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +165,7 @@ GameObject:
   - component: {fileID: 367431808573232145}
   - component: {fileID: 3416631848461255020}
   - component: {fileID: 2958020528817846675}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: 'BusNote_Text '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '(Note: Can take bus to this location.)'
+  m_Text: 
 --- !u!1 &5122631503532468582
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +244,7 @@ GameObject:
   - component: {fileID: 2111650619105474885}
   - component: {fileID: 3430489254789487425}
   - component: {fileID: 5809113048402206477}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Transportation_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Transportation Options:'
+  m_Text: 
 --- !u!1 &7297652382018078239
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +323,7 @@ GameObject:
   - component: {fileID: 5151889051721458849}
   - component: {fileID: 2613615961769336631}
   - component: {fileID: 1923667176206037761}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Transportation_Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +347,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 605.87, y: 87.04}
+  m_SizeDelta: {x: 633.36, y: 87.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2613615961769336631
 CanvasRenderer:
@@ -366,10 +379,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 75
+    m_FontSize: 70
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 0
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -377,7 +390,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Car : 30 minutes'
+  m_Text: 'Take Bus : 1 token
+
+'
 --- !u!1 &7837118305533547039
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,8 +404,8 @@ GameObject:
   - component: {fileID: 2099780582995400745}
   - component: {fileID: 6903758045703089041}
   - component: {fileID: 7717960875665366172}
-  m_Layer: 5
-  m_Name: Description_Text
+  m_Layer: 9
+  m_Name: Bus_Description_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -456,7 +471,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Put description here
+  m_Text: 'For one token, you can take this bus to any location on route.
+
 
 '
 --- !u!1 &7867712549509229463
@@ -471,7 +487,7 @@ GameObject:
   - component: {fileID: 2191006967154276531}
   - component: {fileID: 3425326098075895271}
   - component: {fileID: 9020663317990395144}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Car_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +512,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 180, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2191006967154276531
 CanvasRenderer:
@@ -574,6 +590,17 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3425326098075895271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: takeBus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

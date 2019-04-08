@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bus : MonoBehaviour
+public class Bus : GamePiece
 {
     private bool stopBus;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isMoving = false;
     }
 
     // Update is called once per frame
@@ -22,7 +22,6 @@ public class Bus : MonoBehaviour
     {
         if (coll.tag == "Station" )
         {
-            //Debug.Log("Stop bus");
             setStopBus(true);
         }
 

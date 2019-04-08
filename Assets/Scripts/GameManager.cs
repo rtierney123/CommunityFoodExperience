@@ -75,6 +75,7 @@ namespace Manage
                 PathObj script = child.GetComponent<PathObj>();
                 script.setHit(false);
 
+                /*
                 Vector2 start = obj.position;
                 Vector2 end = child.position;
 
@@ -84,8 +85,8 @@ namespace Manage
 
                 rb.velocity = step * (end - start);
                 obj.rotation = child.rotation;
-              
-
+                */
+                StartCoroutine(goToPathObj(rb, obj, child, script));
                 if (obj.tag == "Bus" && busScript.getStopBus())
                 {
                     rb.velocity = Vector2.zero;
@@ -93,37 +94,41 @@ namespace Manage
                     script.setHit(true);
                     busScript.setStopBus(false);
                 }
-                //Corroutien---
-                
+                //Corroutine---
+               
 
                 //Debug.Log("Waiting for princess to be rescued...");
                 yield return new WaitUntil(() => script.getHit());
                 //Debug.Log("Princess was rescued!");
-                
+
 
             }
-            rb.velocity = Vector2.zero;
+
             if (obj.tag == "Bus")
             {
                 routeComplete = true;
             }
           
         }
-        /*
-        IEnumerator goToPathObj(Rigidbody rb, Transform obj, Transform pathObj)
+        
+        IEnumerator goToPathObj(Rigidbody rb, Transform obj, Transform pathObj, PathObj script)
         {
             Vector2 start = obj.position;
             Vector2 end = pathObj.position;
 
-
+            Vector3 startPosition = obj.position;
             float step = speed * Time.deltaTime;
+            while (!script.getHit())
+            {
+                //rb.velocity = step * (end - start);
+                obj.position = Vector3.Lerp(obj.position, pathObj.position, speed*Time.deltaTime);
+                obj.rotation = pathObj.rotation;
+                yield return new WaitForSeconds(.1f);
+            }
 
-
-            rb.velocity = step * (end - start);
-            obj.rotation = pathObj.rotation;
-            yield return new WaitForSeconds(1);
+          
         }
-        */
+        
     }
 
 }

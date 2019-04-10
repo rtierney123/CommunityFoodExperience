@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timer);
+        // Debug.Log(timer);
         if (timer >= 0.0f && canCount)
         {
             timer -= Time.deltaTime;

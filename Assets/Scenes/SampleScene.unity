@@ -333,13 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79da7cda31645a4381f0b3eeb3ab42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1041090033}
-  bus: {fileID: 1482131880}
-  playerPath: {fileID: 2043885865}
-  busPath: {fileID: 1670468696}
-  busScript: {fileID: 1482131885}
-  playerScript: {fileID: 1041090038}
-  speed: 20
 --- !u!4 &162555312
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,7 +1185,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 162555311}
+      - m_Target: {fileID: 1041090038}
         m_MethodName: travelPath
         m_Mode: 1
         m_Arguments:
@@ -2642,6 +2635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa561a0f2d3e2f42adcde3939b82b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
+  path: {fileID: 2043885865}
+  bus: {fileID: 1482131880}
 --- !u!1001 &1097767802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4182,7 +4178,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 162555311}
+      objectReference: {fileID: 1041090038}
+    - target: {fileID: 9020663317990395144, guid: d786b4a633cdfa246b10b33bf023b77c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: takeBus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d786b4a633cdfa246b10b33bf023b77c, type: 3}
 --- !u!224 &1473747358 stripped
@@ -4311,6 +4312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a290e5f982a24064c9f7ab3f5bf41e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
+  path: {fileID: 1670468696}
 --- !u!1001 &1490163836
 PrefabInstance:
   m_ObjectHideFlags: 0

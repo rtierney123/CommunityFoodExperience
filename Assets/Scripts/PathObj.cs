@@ -6,11 +6,11 @@ namespace Manage
 {
     public class PathObj : MonoBehaviour
     {
-        private bool playerHit;
+        private bool pieceHit;
         // Start is called before the first frame update
         void Start()
         {
-            playerHit = false;
+            pieceHit = false;
         }
 
         // Update is called once per frame
@@ -24,19 +24,19 @@ namespace Manage
         {
             if (coll.tag == "Player" || coll.tag=="Bus")
             {
-                playerHit = true;
+                pieceHit = true;
             }
            
         }
 
         public void setHit(bool isHit)
         {
-            playerHit = isHit;
+            pieceHit = isHit;
         }
         
         public bool getHit()
         {
-            return playerHit;
+            return pieceHit;
         }
     }
 }

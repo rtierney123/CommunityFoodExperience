@@ -6,16 +6,26 @@ using UnityEngine.UI;
 public class Bus : GamePiece
 {
     private bool stopBus;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        stopBus = true;
         isMoving = false;
+        pieceTransform = this.GetComponent<Transform>();
+        pathComplete = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (pathComplete)
+        {
+            StartCoroutine(followPath(pieceTransform, path));
+            pathComplete = false;
+        }
+
     }
 
     private void OnTriggerEnter(Collider coll)

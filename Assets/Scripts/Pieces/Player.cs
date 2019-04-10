@@ -11,7 +11,6 @@ public class Player : GamePiece
     // Start is called before the first frame update
     void Start()
     {
-        isMoving = false;
         pieceTransform = this.GetComponent<Transform>();
     }
 

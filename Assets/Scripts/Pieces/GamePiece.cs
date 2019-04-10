@@ -5,16 +5,11 @@ using UnityEngine;
 
 public class GamePiece : MonoBehaviour
 {
-    private bool _isMoving;
     protected bool pathComplete;
     protected Transform pieceTransform;
     public int speed;
     public Transform path;
-    public bool isMoving
-    {
-        get { return _isMoving; }
-        set { }
-    }
+    
     // Start is called before the first frame update
     void Start()
     {

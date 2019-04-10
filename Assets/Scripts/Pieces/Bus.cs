@@ -12,7 +12,6 @@ public class Bus : GamePiece
     void Start()
     {
         stopBus = true;
-        isMoving = false;
         pieceTransform = this.GetComponent<Transform>();
         pathComplete = true;
     }

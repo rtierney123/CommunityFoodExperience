@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Player : GamePiece
 {
     public Transform bus;
     public Text busButtonText;
+
     bool onBus;
     // Start is called before the first frame update
     void Start()

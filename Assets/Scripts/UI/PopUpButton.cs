@@ -32,8 +32,12 @@ namespace UI
         public void showPopUp()
         {
             canvas.enabled = true;
-            // popUp.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Pop up shown");
+
+        }
+
+        public void disablePopUp()
+        {
+            canvas.enabled = false;
         }
     }
 

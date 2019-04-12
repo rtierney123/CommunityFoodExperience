@@ -40,7 +40,7 @@ public class GamePiece : MonoBehaviour
                 if (bus.getStopBus())
                 {
                     rb.velocity = Vector2.zero;
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSeconds(3);
                     script.setHit(true);
                     bus.setStopBus(false);
                 }

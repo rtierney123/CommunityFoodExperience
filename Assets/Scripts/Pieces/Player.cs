@@ -8,7 +8,7 @@ public class Player : GamePiece
 {
     public Transform bus;
     public Text busButtonText;
-
+    public Transform foodPantry;
     bool onBus;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class Player : GamePiece
         else
         {
             this.GetComponent<Image>().enabled = true;
-            this.GetComponent<Transform>().position = bus.position;
+            this.GetComponent<Transform>().position = foodPantry.position;
             onBus = false;
             busButtonText.text = "Take Bus : 1 token";
         }

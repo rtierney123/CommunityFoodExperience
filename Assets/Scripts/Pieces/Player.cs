@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : GamePiece
 {
     public Transform bus;
-
+    public Text busButtonText;
     bool onBus;
     // Start is called before the first frame update
     void Start()
@@ -33,12 +33,14 @@ public class Player : GamePiece
         {
             this.GetComponent<Image>().enabled = false;
             onBus = true;
+            busButtonText.text = "Get off bus.";
         }
         else
         {
             this.GetComponent<Image>().enabled = true;
             this.GetComponent<Transform>().position = bus.position;
             onBus = false;
+            busButtonText.text = "Take Bus : 1 token";
         }
 
     }

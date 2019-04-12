@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text uiText;
     [SerializeField] private float mainTimer;
 
-    private float timer;
+    private float timer = 900;
     private bool canCount = true;
     private bool doOnce = false;
 

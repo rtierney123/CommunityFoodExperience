@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class PopUpButton : MonoBehaviour
+    public class ClickableLocation : MonoBehaviour
     {
-        public Transform popUp;
-        private Canvas canvas;
+        Ray ray;
+        RaycastHit hit;
+
 
         // Start is called before the first frame update
         void Start()
         {
-            canvas = popUp.GetComponent<Canvas>();
+        
         }
 
         // Update is called once per frame
@@ -21,24 +22,17 @@ namespace UI
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (canvas.enabled)
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
                 {
-                    //canvas.enabled = false;
+                    if (Input.GetMouseButtonDown(0))
+                        print(hit.collider.name);
                 }
             }
 
         }
 
-        public void showPopUp()
-        {
-            canvas.enabled = true;
-
-        }
-
-        public void disablePopUp()
-        {
-            canvas.enabled = false;
-        }
+  
     }
 
 }

@@ -39,7 +39,7 @@ public class ClickableCanvas : MonoBehaviour
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
-                Debug.Log("Hit tag " + result.gameObject.tag);
+                //Debug.Log("Hit tag " + result.gameObject.tag);
                 if (result.gameObject.tag != "Background")
                 {
                     justBackgroundClicked = false;
@@ -51,8 +51,7 @@ public class ClickableCanvas : MonoBehaviour
                 if(popUp != null)
                 {
                     if (allowClose)
-                    {
-                        Debug.Log("Close popup");
+                    { 
                         setPopUp(false);
                     }
                     
@@ -66,11 +65,22 @@ public class ClickableCanvas : MonoBehaviour
         popUp = gameObject;
         setPopUp(true);
         StartCoroutine(WaitAllowClose(allowWaitTime));
-
+       
     }
 
-    public void setPopUp(bool active)
+    void setPopUp(bool active)
     {
+        /*
+        if (active)
+        {
+            Debug.Log("show pupup");
+        } else
+        {
+            Debug.Log("close pupup");
+
+        }
+        */
+
         if (popUp != null)
         {
             popUp.SetActive(active);

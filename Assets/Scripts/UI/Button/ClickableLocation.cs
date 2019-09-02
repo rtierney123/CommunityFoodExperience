@@ -27,7 +27,12 @@ namespace UI
                 if (Physics.Raycast(ray, out hit))
                 {
                     if(Input.GetMouseButtonDown(0)) {
-                        canvasScript.openPopup(pop_up);
+
+                        if(!pop_up.activeSelf)
+                        {
+                            canvasScript.openPopup(pop_up);
+                        }
+                        
                     } 
           
                 }

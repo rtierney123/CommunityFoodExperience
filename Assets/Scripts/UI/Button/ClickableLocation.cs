@@ -10,6 +10,7 @@ namespace UI
         Ray ray;
         RaycastHit hit;
         public GameObject pop_up;
+        public ClickableCanvas canvasScript;
 
         // Start is called before the first frame update
         void Start()
@@ -26,7 +27,7 @@ namespace UI
                 if (Physics.Raycast(ray, out hit))
                 {
                     if(Input.GetMouseButtonDown(0)) {
-                        pop_up.SetActive(true);
+                        canvasScript.openPopup(pop_up);
                     } 
           
                 }

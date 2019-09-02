@@ -62,9 +62,13 @@ public class ClickableCanvas : MonoBehaviour
 
     public void openPopup(GameObject gameObject)
     {
-        popUp = gameObject;
-        setPopUp(true);
-        StartCoroutine(WaitAllowClose(allowWaitTime));
+        if(popUp != gameObject)
+        {
+            popUp = gameObject;
+            setPopUp(true);
+            StartCoroutine(WaitAllowClose(allowWaitTime));
+        }
+    
        
     }
 

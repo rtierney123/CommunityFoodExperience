@@ -43,7 +43,7 @@ namespace Manage
                 foreach (RaycastResult result in results)
                 {
                     //Debug.Log("Hit tag " + result.gameObject.tag);
-                    if (result.gameObject.tag != "Background")
+                    if (result.gameObject.tag == "Popup")
                     {
                         justBackgroundClicked = false;
                     }

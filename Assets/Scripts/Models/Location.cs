@@ -25,19 +25,14 @@ namespace Model
         // Update is called once per frame
         void Update()
         {
+
             if (Input.GetMouseButtonDown(0))
             {
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject)
                 {
-                    if(Input.GetMouseButtonDown(0)) {
-
-                        if(!popUp.activeSelf)
-                        {
-                            manager.startLocationPopup(this);
-                        }
-                        
-                    } 
+                    manager.startLocationPopup(this);
+                    Debug.Log(this.name);
           
                 }
             }

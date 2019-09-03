@@ -19,7 +19,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-            
+
         }
 
         // Update is called once per frame
@@ -44,6 +44,11 @@ namespace Manage
 
             player.localPosition = currentLocation.playerDropoff;
             timeRemaining = timeRemaining - travelTime;
+        }
+
+        public void closePopUp()
+        {
+            canvasController.closePopUp();
         }
 
         private int calculateTravelTime()

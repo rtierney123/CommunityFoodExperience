@@ -75,19 +75,13 @@ namespace Manage
 
         }
 
-        void setPopUp(bool active)
+        public void closePopUp()
         {
-            /*
-            if (active)
-            {
-                Debug.Log("show pupup");
-            } else
-            {
-                Debug.Log("close pupup");
+            setPopUp(false);
+        }
 
-            }
-            */
-
+        void setPopUp(bool active)
+        { 
             if (popUp != null)
             {
                 popUp.SetActive(active);

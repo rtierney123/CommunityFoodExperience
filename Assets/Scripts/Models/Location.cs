@@ -1,16 +1,20 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Model
 {
-    public class ClickableLocation : MonoBehaviour
+    public class Location : MonoBehaviour
     {
+        public Vector3 playerDropoff;
+        public LocationType locationType;
+        public GameObject popUp;
+        public GameManager manager;
+
         Ray ray;
         RaycastHit hit;
-        public GameObject pop_up;
-        public ClickableCanvas canvasScript;
 
         // Start is called before the first frame update
         void Start()
@@ -28,9 +32,9 @@ namespace UI
                 {
                     if(Input.GetMouseButtonDown(0)) {
 
-                        if(!pop_up.activeSelf)
+                        if(!popUp.activeSelf)
                         {
-                            canvasScript.openPopup(pop_up);
+                            manager.startLocationPopup(this);
                         }
                         
                     } 
@@ -38,6 +42,12 @@ namespace UI
                 }
             }
 
+        }
+
+
+        public GameObject getPopUp()
+        {
+            return popUp;
         }
 
     }

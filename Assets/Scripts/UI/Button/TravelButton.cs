@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TravelButton : MonoBehaviour
 {
+    public TravelType travelType;
+    public GameManager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,6 @@ public class TravelButton : MonoBehaviour
 
     public void travel()
     {
-        print("travel");
+        manager.travelToDestination(travelType);
     }
 }

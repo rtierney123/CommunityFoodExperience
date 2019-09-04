@@ -46,8 +46,8 @@ namespace Manage
                 //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
                 foreach (RaycastResult result in results)
                 {
-                    Debug.Log("Hit tag " + result.gameObject.tag);
-                    if (result.gameObject.tag != "Background")
+                    //Debug.Log("Hit tag " + result.gameObject.tag);
+                    if (result.gameObject.tag == "Popup")
                     {
                         justBackgroundClicked = false;
                     }

@@ -12,6 +12,8 @@ namespace Model
         public LocationType locationType;
         public GameObject popUp;
         public GameManager manager;
+        public MapLocations location;
+
 
         Ray ray;
         RaycastHit hit;
@@ -32,8 +34,6 @@ namespace Model
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject)
                 {
                     manager.startLocationPopup(this);
-                    Debug.Log(this.name);
-          
                 }
             }
 

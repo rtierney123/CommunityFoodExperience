@@ -12,6 +12,9 @@ namespace Manage
 
         public float allowWaitTime;
 
+        [HideInInspector]
+        public bool popUpOpen;
+
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
         GameObject popUp;
@@ -23,6 +26,7 @@ namespace Manage
             // Get both of the components we need to do this
             this.raycaster = GetComponent<GraphicRaycaster>();
             allowClose = true;
+            popUpOpen = false;
         }
 
         void Update()
@@ -42,7 +46,7 @@ namespace Manage
                 //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
                 foreach (RaycastResult result in results)
                 {
-                    //Debug.Log("Hit tag " + result.gameObject.tag);
+                    Debug.Log("Hit tag " + result.gameObject.tag);
                     if (result.gameObject.tag != "Background")
                     {
                         justBackgroundClicked = false;
@@ -85,6 +89,7 @@ namespace Manage
             if (popUp != null)
             {
                 popUp.SetActive(active);
+                popUpOpen = active;
             }
 
             if (!active)

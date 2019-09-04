@@ -13,8 +13,10 @@ namespace Manage
         public CanvasController canvasController;
 
         private int timeRemaining;
-        private Location currentLocation;
+        public Location currentLocation;
         private Location possibleDestination;
+        private bool busPopupOpen;
+        private bool busAtStop;
 
         // Start is called before the first frame update
         void Start()
@@ -31,10 +33,14 @@ namespace Manage
 
         public void startLocationPopup(Location location)
         {
-            possibleDestination = location;
+            if (!canvasController.popUpOpen)
+            {
+                possibleDestination = location;
 
-            GameObject popUp = location.getPopUp();
-            canvasController.openPopup(popUp);
+                GameObject popUp = location.getPopUp();
+                canvasController.openPopup(popUp);
+            }
+           
         }
 
         public void travelToDestination(TravelType travelType)
@@ -46,10 +52,11 @@ namespace Manage
             timeRemaining = timeRemaining - travelTime;
         }
 
-        public void closePopUp()
+        private void closePopup()
         {
             canvasController.closePopUp();
         }
+
 
         private int calculateTravelTime()
         {
@@ -58,8 +65,30 @@ namespace Manage
         
         public void handleBusStopEvent()
         {
-            Debug.Log("stop");
+           // Debug.Log("stop");
+            busAtStop = true;
         }
+
+        public void handleBusLeavingEvent()
+        {
+           // Debug.Log("leave stop");
+            busAtStop = false;
+            if (busPopupOpen)
+            {
+                canvasController.closePopUp();
+                busPopupOpen = false;
+            }
+        }
+
+        public void handleBusClickedEvent(Bus bus)
+        {
+            if (currentLocation.location == bus.Location)
+            {
+                canvasController.openPopup(bus.popUp);
+                busPopupOpen = true;
+            }
+        }
+
 
 
     }

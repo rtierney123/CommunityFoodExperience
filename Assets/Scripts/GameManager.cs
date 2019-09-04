@@ -56,6 +56,10 @@ namespace Manage
             return 0;
         }
         
+        public void handleBusStopEvent()
+        {
+            Debug.Log("stop");
+        }
 
 
     }

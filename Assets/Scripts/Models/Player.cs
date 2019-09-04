@@ -4,8 +4,8 @@ using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player 
+public class Player  : MonoBehaviour
 {
-
+    public string playerName;
 
 }

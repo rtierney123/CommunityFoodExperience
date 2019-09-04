@@ -9,6 +9,7 @@ namespace Manage
     
     public class GameManager : MonoBehaviour
     {
+        public Player playerScript;
         public Transform player;
         public CanvasController canvasController;
 
@@ -21,7 +22,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-
+           
         }
 
         // Update is called once per frame

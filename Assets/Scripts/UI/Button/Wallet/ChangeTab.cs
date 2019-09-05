@@ -12,6 +12,11 @@ public class ChangeTab : MonoBehaviour
     public GameObject transportationTab;
     public GameObject transportationTabBody;
 
+    void Start() {
+        setInactive();
+        selectWalletTab();
+    }
+
     public void selectWalletTab() {
         setInactive();
         walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);

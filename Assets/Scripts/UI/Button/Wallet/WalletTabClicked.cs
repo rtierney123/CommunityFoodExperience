@@ -10,12 +10,12 @@ public class WalletTabClicked : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        walletTab = GameObject.Find("WalletTab");
-        if (walletTab == null) {
-            print("Null");
-        } else {
-            print("Found");
-        }
+        // walletTab = GameObject.Find("WalletTab");
+        // if (walletTab == null) {
+        //     print("Null");
+        // } else {
+        //     print("Found");
+        // }
     }
 
     // Update is called once per frame

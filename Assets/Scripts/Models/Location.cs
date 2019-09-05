@@ -9,9 +9,9 @@ namespace Model
     public class Location : MonoBehaviour
     {
         public Vector3 playerDropoff;
-        public LocationType locationType;
         public GameObject popUp;
         public GameManager manager;
+        public LocationType locationType;
         public MapLocations location;
         public string locationName;
         public GameObject storePopup;

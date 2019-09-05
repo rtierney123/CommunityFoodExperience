@@ -51,7 +51,9 @@ namespace Manage
 
             player.localPosition = currentLocation.playerDropoff;
             timeRemaining = timeRemaining - travelTime;
+
             //show location popup
+            //canvas.showPopup(location.popUp);
         }
 
         private void closePopup()
@@ -67,13 +69,11 @@ namespace Manage
         
         public void handleBusStopEvent()
         {
-           // Debug.Log("stop");
             busAtStop = true;
         }
 
         public void handleBusLeavingEvent()
         {
-           // Debug.Log("leave stop");
             busAtStop = false;
             if (busPopupOpen)
             {

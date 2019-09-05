@@ -49,13 +49,11 @@ public class Bus : MonoBehaviour
     {
         busLocation = stopLocation;
         manager.handleBusStopEvent();
-        StartCoroutine(PauseThenResume(2));
     }
 
-    private IEnumerator PauseThenResume(float waitTime)
+    public void resumeRoute()
     {
-        animator.enabled = false;
-        yield return new WaitForSeconds(waitTime);
-        animator.enabled = true;
+        busLocation = MapLocations.OnRoad;
     }
+
 }

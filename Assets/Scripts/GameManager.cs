@@ -56,7 +56,7 @@ namespace Manage
             //canvas.showPopup(location.popUp);
         }
 
-        private void closePopup()
+        public void closePopup()
         {
             canvasController.closePopUp();
         }

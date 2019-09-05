@@ -13,7 +13,8 @@ namespace Model
         public GameObject popUp;
         public GameManager manager;
         public MapLocations location;
-
+        public string locationName;
+        public GameObject storePopup;
 
         Ray ray;
         RaycastHit hit;

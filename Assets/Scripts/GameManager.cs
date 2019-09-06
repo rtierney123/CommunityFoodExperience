@@ -11,9 +11,9 @@ namespace Manage
     {
         public Transform player;
         public CanvasController canvasController;
+        public Location currentLocation;
 
         private int timeRemaining;
-        private Location currentLocation;
         private Location possibleDestination;
         private bool busPopupOpen;
         private bool busAtStop;
@@ -76,6 +76,8 @@ namespace Manage
 
         public void handleBusClickedEvent(Bus bus)
         {
+            Debug.Log(currentLocation.mapLocation);
+            Debug.Log(bus.mapLocation);
             if (currentLocation.mapLocation == bus.mapLocation)
             {
                 canvasController.openPopup(bus.popUp);

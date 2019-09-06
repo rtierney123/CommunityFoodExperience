@@ -15,6 +15,8 @@ namespace Manage
         private int timeRemaining;
         private Location currentLocation;
         private Location possibleDestination;
+        private bool busPopupOpen;
+        private bool busAtStop;
 
         // Start is called before the first frame update
         void Start()
@@ -42,7 +44,7 @@ namespace Manage
             int travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
-            player.localPosition = currentLocation.playerDropoff;
+            player.localPosition = currentLocation.playerDropoff.position;
             timeRemaining = timeRemaining - travelTime;
         }
 
@@ -55,7 +57,32 @@ namespace Manage
         {
             return 0;
         }
-        
+
+        public void handleBusStopEvent()
+        {
+            busAtStop = true;
+        }
+
+        public void handleBusLeavingEvent()
+        {
+            busAtStop = false;
+            if (busPopupOpen)
+            {
+                canvasController.closePopUp();
+                busPopupOpen = false;
+            }
+        }
+
+        public void handleBusClickedEvent(Bus bus)
+        {
+            if (currentLocation.mapLocation == bus.mapLocation)
+            {
+                canvasController.openPopup(bus.popUp);
+                busPopupOpen = true;
+            }
+        }
+
+
 
 
     }

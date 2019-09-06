@@ -1,24 +1,16 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WalletButton : MonoBehaviour
 {
     public GameObject wallet;
+    public CanvasController canvasController;
 
     public void walletButtonClicked() {
-        if (wallet.activeSelf) {
-            disableWallet();
-        } else {
-            enableWallet();
-        }
+        if(!wallet.activeInHierarchy)
+            canvasController.openPopup(wallet);
     }
 
-    public void disableWallet() {
-        wallet.SetActive(false);
-    }
-
-    public void enableWallet() {
-        wallet.SetActive(true);
-    }
 }

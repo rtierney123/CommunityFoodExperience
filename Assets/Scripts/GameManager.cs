@@ -46,6 +46,7 @@ namespace Manage
 
             player.localPosition = currentLocation.playerDropoff.position;
             timeRemaining = timeRemaining - travelTime;
+            //add open pop-up for currentLocation
         }
 
         public void closePopUp()

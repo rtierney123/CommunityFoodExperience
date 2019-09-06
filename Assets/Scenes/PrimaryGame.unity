@@ -265,55 +265,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4181270246167768961}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &160027015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 160027016}
-  - component: {fileID: 160027017}
-  m_Layer: 0
-  m_Name: ChangeWalletTab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &160027016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160027015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 467282363}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &160027017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160027015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5940886d3334c5b84fc30e17aa9aee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walletTab: {fileID: 1519320927}
-  walletTabBody: {fileID: 844987776}
-  infoTab: {fileID: 839092837}
-  infoTabBody: {fileID: 384812313}
-  transportationTab: {fileID: 1870537483}
-  transportationTabBody: {fileID: 1855885091}
 --- !u!1001 &161150298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,7 +280,12 @@ PrefabInstance:
     - target: {fileID: 3212989306324054876, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212989306324054876, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Popup
       objectReference: {fileID: 0}
     - target: {fileID: 479001257815795752, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
@@ -365,7 +321,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 160027017}
+      objectReference: {fileID: 843397093}
     - target: {fileID: 919808203091343216, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -525,7 +481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 160027017}
+      objectReference: {fileID: 843397093}
     - target: {fileID: 6909589526788585190, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -535,6 +491,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 587236714698369381, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366500416683169828, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366500416683169828, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 566037535304181407, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Popup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd48241543b00471e9784d28347cabad, type: 3}
@@ -691,38 +667,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447307192}
   m_CullTransparentMesh: 0
---- !u!1 &467282362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 467282363}
-  m_Layer: 0
-  m_Name: Actions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &467282363
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467282362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 512, y: 382, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2130897151}
-  - {fileID: 160027016}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480071938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,10 +1178,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 843397091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c03e684080b5f4be9a9024990a68ae6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b5940886d3334c5b84fc30e17aa9aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallet: {fileID: 843397091}
+  walletTab: {fileID: 1519320927}
+  walletTabBody: {fileID: 844987776}
+  infoTab: {fileID: 839092837}
+  infoTabBody: {fileID: 384812313}
+  transportationTab: {fileID: 1870537483}
+  transportationTabBody: {fileID: 1855885091}
+  player: {fileID: 1023275073}
 --- !u!1 &844987776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6079683715585975241, guid: cd48241543b00471e9784d28347cabad,
@@ -1502,6 +1452,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1023275072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: abfe179bff6d3bb4fb09e3e76bf128af,
+    type: 3}
+  m_PrefabInstance: {fileID: 742126602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1023275073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023275072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa561a0f2d3e2f42adcde3939b82b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: John Smith
+  characterDescription: You are an elderly person (senior citizen) and you live alone
+    on a fixed income of $870 a month from Social Security. Your rent for a small
+    apartment is $600/month and you pay $50/month for electricity, $30 month for a
+    phone and $185/month for two prescriptions that are only partially coverd by Medicare.
+  phoneNum: (404) 888-9360
+  socialSecurity: XXX-XX-6789
+  address: 258 W.Real St. Atlanta, GA 30317
+  DOB: 01/01/2010
+  fixedIncome: 870
+  expenses: 855
+  money: 15
+  busTokens: 1
+  vita: 0
+  snap: 0
+  wic: 0
+  ctc: 0
+  eitc: 0
 --- !u!1 &1036915306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,9 +1857,10 @@ GameObject:
   - component: {fileID: 1370951856}
   - component: {fileID: 1370951855}
   - component: {fileID: 1370951858}
+  - component: {fileID: 1370951857}
   m_Layer: 0
   m_Name: WalletButton
-  m_TagString: Untagged
+  m_TagString: Popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,6 +1921,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370951853}
   m_CullTransparentMesh: 0
+--- !u!114 &1370951857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370951853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f35bfef481b45f4a8d1d90f4a8a672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallet: {fileID: 843397091}
+  canvasController: {fileID: 1664959847}
 --- !u!114 &1370951858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,7 +1975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130897152}
+      - m_Target: {fileID: 1370951857}
         m_MethodName: walletButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -2645,7 +2646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 160027017}
+      - m_Target: {fileID: 843397093}
         m_MethodName: selectTransportationTab
         m_Mode: 1
         m_Arguments:
@@ -3320,50 +3321,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122127790}
   m_CullTransparentMesh: 0
---- !u!1 &2130897150
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2130897151}
-  - component: {fileID: 2130897152}
-  m_Layer: 0
-  m_Name: WalletClicked
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2130897151
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130897150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 467282363}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2130897152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130897150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f35bfef481b45f4a8d1d90f4a8a672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallet: {fileID: 843397091}
 --- !u!1001 &3300537798625239303
 PrefabInstance:
   m_ObjectHideFlags: 0

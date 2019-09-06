@@ -22,7 +22,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-           
+            print("Game Start!!!");
         }
 
         // Update is called once per frame

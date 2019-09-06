@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
-    void start() {
-        this.gameObject.SetActive(false);
+    public GameObject wallet;
+    // Start is called before the first frame update
+    void Start()
+    {
+        wallet.SetActive(false);
     }
 }

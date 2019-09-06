@@ -15,8 +15,10 @@ public class CameraPan : MonoBehaviour
     {
 		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
 			MoveLeft();
+			ConstantMoving = false;
 		} else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
 			MoveRight();
+			ConstantMoving = false;
 		}
 		MoveFar();
     }

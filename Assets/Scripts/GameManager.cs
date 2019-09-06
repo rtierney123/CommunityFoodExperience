@@ -9,15 +9,12 @@ namespace Manage
     
     public class GameManager : MonoBehaviour
     {
-        public Player playerScript;
         public Transform player;
         public CanvasController canvasController;
 
         private int timeRemaining;
-        public Location currentLocation;
+        private Location currentLocation;
         private Location possibleDestination;
-        private bool busPopupOpen;
-        private bool busAtStop;
 
         // Start is called before the first frame update
         void Start()
@@ -34,14 +31,10 @@ namespace Manage
 
         public void startLocationPopup(Location location)
         {
-            if (!canvasController.popUpOpen)
-            {
-                possibleDestination = location;
+            possibleDestination = location;
 
-                GameObject popUp = location.getPopUp();
-                canvasController.openPopup(popUp);
-            }
-           
+            GameObject popUp = location.getPopUp();
+            canvasController.openPopup(popUp);
         }
 
         public void travelToDestination(TravelType travelType)
@@ -51,46 +44,18 @@ namespace Manage
 
             player.localPosition = currentLocation.playerDropoff;
             timeRemaining = timeRemaining - travelTime;
-
-            //show location popup
-            //canvas.showPopup(location.popUp);
         }
 
-        public void closePopup()
+        public void closePopUp()
         {
             canvasController.closePopUp();
         }
-
 
         private int calculateTravelTime()
         {
             return 0;
         }
         
-        public void handleBusStopEvent()
-        {
-            busAtStop = true;
-        }
-
-        public void handleBusLeavingEvent()
-        {
-            busAtStop = false;
-            if (busPopupOpen)
-            {
-                canvasController.closePopUp();
-                busPopupOpen = false;
-            }
-        }
-
-        public void handleBusClickedEvent(Bus bus)
-        {
-            if (currentLocation.location == bus.Location)
-            {
-                canvasController.openPopup(bus.popUp);
-                busPopupOpen = true;
-            }
-        }
-
 
 
     }

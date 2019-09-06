@@ -9,12 +9,9 @@ namespace Model
     public class Location : MonoBehaviour
     {
         public Vector3 playerDropoff;
+        public LocationType locationType;
         public GameObject popUp;
         public GameManager manager;
-        public LocationType locationType;
-        public MapLocations location;
-        public string locationName;
-        public GameObject storePopup;
 
         Ray ray;
         RaycastHit hit;
@@ -35,6 +32,8 @@ namespace Model
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject)
                 {
                     manager.startLocationPopup(this);
+                    Debug.Log(this.name);
+          
                 }
             }
 

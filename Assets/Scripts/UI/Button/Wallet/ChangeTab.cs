@@ -12,7 +12,10 @@ public class ChangeTab : MonoBehaviour
     public GameObject transportationTab;
     public GameObject transportationTabBody;
 
+    private Player player;
+
     void Start() {
+        player = new Player();
         setInactive();
         selectWalletTab();
     }
@@ -21,12 +24,38 @@ public class ChangeTab : MonoBehaviour
         setInactive();
         walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
         walletTabBody.SetActive(true);
+        foreach (Transform child in walletTabBody.transform) {
+            if (child.name == "CashValue") {
+                child.gameObject.GetComponent<Text>().text = player.money.ToString();
+            } else if (child.name == "SNAPValue") {
+                child.gameObject.GetComponent<Text>().text = player.snap ? "Yes" : "No";
+            } else if (child.name == "WICValue") {
+                child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
+            } else if (child.name == "EITCValue") {
+                child.gameObject.GetComponent<Text>().text = player.eitc ? "Yes" : "No";
+            } else if (child.name == "CTCValue") {
+                child.gameObject.GetComponent<Text>().text = player.ctc ? "Yes" : "No";
+            } 
+        }
     }
 
     public void selectInfoTab() {
         setInactive();
         infoTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
         infoTabBody.SetActive(true);
+        foreach (Transform child in infoTabBody.transform) {
+            if (child.name == "NameValue") {
+                child.gameObject.GetComponent<Text>().text = player.characterName;
+            } else if (child.name == "SSNValue") {
+                child.gameObject.GetComponent<Text>().text = player.socialSecurity;
+            } else if (child.name == "DOBValue") {
+                child.gameObject.GetComponent<Text>().text = player.DOB;
+            } else if (child.name == "TelValue") {
+                child.gameObject.GetComponent<Text>().text = player.phoneNum;
+            } else if (child.name == "AddressValue") {
+                child.gameObject.GetComponent<Text>().text = player.address;
+            } 
+        }
     }
 
     public void selectTransportationTab() {

@@ -42,7 +42,7 @@ namespace Manage
             int travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
-            player.localPosition = currentLocation.playerDropoff;
+            player.localPosition = currentLocation.playerDropoff.position;
             timeRemaining = timeRemaining - travelTime;
         }
 

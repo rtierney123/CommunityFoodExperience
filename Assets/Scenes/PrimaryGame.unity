@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 3212989306324054876, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 479001257815795752, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
@@ -767,6 +767,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480071938}
   m_CullTransparentMesh: 0
+--- !u!1 &517276940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 517276941}
+  m_Layer: 0
+  m_Name: Dropoff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &517276941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517276940}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0052471412, y: 0.022040233, z: 0.027997332}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 203573314}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &556828601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a81e15c1f45b046b40f7aed2a1309e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDropoff: {x: -1.86, y: 2.2, z: -3.52}
+  playerDropoff: {fileID: 1949259402}
   locationType: 1
   popUp: {fileID: 138330934}
   manager: {fileID: 2029715420}
@@ -1557,6 +1587,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 138330935}
     m_Modifications:
+    - target: {fileID: 4208409073955631712, guid: 098b76c4b00ba6c40a77bf3805b9d52b,
+        type: 3}
+      propertyPath: m_Name
+      value: Large_Button (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2041697777265380044, guid: 098b76c4b00ba6c40a77bf3805b9d52b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1661,11 +1696,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4208409073955631712, guid: 098b76c4b00ba6c40a77bf3805b9d52b,
-        type: 3}
-      propertyPath: m_Name
-      value: Large_Button (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1567614586324723418, guid: 098b76c4b00ba6c40a77bf3805b9d52b,
         type: 3}
@@ -2774,6 +2804,11 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 2029715420}
+    - target: {fileID: 6089803166306901883, guid: 0f942bea06e3f2140bc08351c50cd538,
+        type: 3}
+      propertyPath: playerDropoff
+      value: 
+      objectReference: {fileID: 517276941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f942bea06e3f2140bc08351c50cd538, type: 3}
 --- !u!1 &1935008766
@@ -2841,6 +2876,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1949259401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949259402}
+  m_Layer: 0
+  m_Name: Dropoff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1949259402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949259401}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 8.906427, y: 2.2, z: 2.004961}
+  m_LocalScale: {x: 1.3333334, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 556828604}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985965967
 GameObject:

@@ -8,6 +8,6 @@ public class Wallet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wallet.SetActive(false);
+        //wallet.SetActive(false);
     }
 }

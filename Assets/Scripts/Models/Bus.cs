@@ -10,18 +10,9 @@ public class Bus : MonoBehaviour
     public int stopLength;
     public GameManager manager;
     public GameObject popUp;
+    public MapLocations mapLocation;
 
     private Animator animator;
-
-    private MapLocations busLocation;
-    public MapLocations mapLocation
-    {
-
-        get { return busLocation; }
-
-        set { busLocation = value; }
-
-    }
 
     Ray ray;
     RaycastHit hit;
@@ -48,13 +39,13 @@ public class Bus : MonoBehaviour
 
     public void startStop(MapLocations stopLocation)
     {
-        busLocation = stopLocation;
+        mapLocation = stopLocation;
         manager.handleBusStopEvent();
     }
 
     public void resumeRoute()
     {
-        busLocation = MapLocations.OnRoad;
+        mapLocation = MapLocations.OnRoad;
     }
 
 }

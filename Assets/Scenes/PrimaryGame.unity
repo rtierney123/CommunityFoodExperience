@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 480071943}
   m_Layer: 0
   m_Name: NutritionButton
-  m_TagString: Untagged
+  m_TagString: Popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1565,6 +1565,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 161150298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &910787283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6089803164998895373, guid: 0f942bea06e3f2140bc08351c50cd538,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879750000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &912212747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1916,6 +1922,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7e6eb3aa4eac7684d81861e2ccad1908, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af5d808978f763a4394b011fbddf0d00, type: 3}
+--- !u!114 &1015902773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1162479504832260825, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2734149513645906077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad5a2459766d914cbbc79ec18552504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1023275073 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2400805853212428851, guid: d3680a4add988f342b82288fae3f5648,
@@ -2007,6 +2025,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036915306}
   m_CullTransparentMesh: 0
+--- !u!1 &1097594712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 572115744249254912, guid: 9a7bba8ebf7f4a04985aae17aeb6daee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224448926862085345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1206203095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5613195143219261467, guid: 9a7bba8ebf7f4a04985aae17aeb6daee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224448926862085345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1224996787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3842,9 +3878,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2070292709}
+  busStopTitle: {fileID: 1206203095}
   canvasController: {fileID: 1664959847}
   currentLocation: {fileID: 556828603}
-  bus: {fileID: 0}
+  bus: {fileID: 1015902773}
+  locationKeys: 010000000200000003000000
+  gameobjectValues:
+  - {fileID: 556828602}
+  - {fileID: 910787283}
+  - {fileID: 923743473}
 --- !u!4 &2029715421
 Transform:
   m_ObjectHideFlags: 0
@@ -4364,6 +4406,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1664959847}
+    - target: {fileID: 1311067654231761074, guid: 9a7bba8ebf7f4a04985aae17aeb6daee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: handleLeaveBusEvent
+      objectReference: {fileID: 0}
     - target: {fileID: 572115744120377433, guid: 9a7bba8ebf7f4a04985aae17aeb6daee,
         type: 3}
       propertyPath: manager
@@ -4538,6 +4585,21 @@ PrefabInstance:
       propertyPath: mapLocation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1162479504832260825, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+        type: 3}
+      propertyPath: farePopUp
+      value: 
+      objectReference: {fileID: 4376788986380788673}
+    - target: {fileID: 1162479504832260825, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+        type: 3}
+      propertyPath: stopPopUp
+      value: 
+      objectReference: {fileID: 1097594712}
+    - target: {fileID: 1162479504832260825, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+        type: 3}
+      propertyPath: currentLocation
+      value: 
+      objectReference: {fileID: 556828602}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08d5fa3981b12d45a4b1dcda97e869e, type: 3}
 --- !u!1 &3243962020415933488 stripped

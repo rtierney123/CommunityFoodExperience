@@ -12,7 +12,6 @@ public class Bus : MonoBehaviour
     public GameObject farePopUp;
     public GameObject stopPopUp;
     public MapLocations mapLocation;
-    public GameObject currentLocation;
 
     [HideInInspector]
     public bool atStop;
@@ -38,7 +37,7 @@ public class Bus : MonoBehaviour
             {
                 if (!playerOnBus)
                 {
-                    manager.handleBusClickedEvent(this);
+                    manager.handleBusClickedEvent();
                 }
               
                 Debug.Log(this.name);
@@ -51,6 +50,7 @@ public class Bus : MonoBehaviour
     {
         mapLocation = stopLocation;
         atStop = true;
+        manager.handleBusStoppedEvent();
     }
 
     public void resumeRoute()

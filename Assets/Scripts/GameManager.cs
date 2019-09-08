@@ -10,10 +10,16 @@ namespace Manage
     public class GameManager : MonoBehaviour
     {
         public GameObject player;
+        public Text busStopTitle;
 
         public CanvasController canvasController;
         public Location currentLocation;
         public Bus bus;
+
+        public Dictionary<MapLocations, GameObject> locationLookup;
+        [SerializeField] List<MapLocations> locationKeys;
+        [SerializeField] List<GameObject> gameobjectValues;
+    
 
         private int timeRemaining;
         private Location possibleDestination;
@@ -37,6 +43,7 @@ namespace Manage
             GameObject popUp = location.getPopUp();
             canvasController.openPopup(popUp);
         }
+
 
         public void travelToDestination(TravelType travelType)
         {
@@ -65,12 +72,17 @@ namespace Manage
          
         }
 
-        public void handleBusClickedEvent(Bus bus)
+        public void handleBusClickedEvent()
         {
             if (currentLocation.mapLocation == bus.mapLocation)
             {
                 canvasController.openPopup(bus.farePopUp);
             }
+        }
+
+        public void handleBusStoppedEvent()
+        {
+
         }
 
         public void handleTakeBusEvent()

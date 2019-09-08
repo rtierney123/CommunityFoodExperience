@@ -15,7 +15,8 @@ namespace Manage
 
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
-        GameObject popUp;
+        [HideInInspector]
+        public GameObject popUp;
         Vector3 playerStopLocation;
         bool allowClose;
 
@@ -25,6 +26,7 @@ namespace Manage
             // Get both of the components we need to do this
             this.raycaster = GetComponent<GraphicRaycaster>();
             allowClose = true;
+            popUp = null;
         }
 
         void Update()
@@ -67,11 +69,16 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
+            Debug.Log("open");
             if (popUp == null)
             {
+                Debug.Log("show open");
                 popUp = gameObject;
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
+            } else
+            {
+                Debug.Log(popUp.ToString());
             }
 
 
@@ -88,6 +95,7 @@ namespace Manage
         public void closePopUp()
         {
             setPopUp(false);
+            popUp = null;
         }
 
         public void setStopTitle(string title)

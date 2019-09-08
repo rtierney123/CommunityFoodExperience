@@ -41,7 +41,6 @@ public class Bus : MonoBehaviour
                     manager.handleBusClickedEvent();
                 }
               
-                Debug.Log(this.name);
 
             }
         }
@@ -53,10 +52,10 @@ public class Bus : MonoBehaviour
         atStop = true;
         if (playerOnBus)
         {
-            Debug.Log("blah");
             manager.handleBusStoppedEvent();
         }
         Debug.Log("start stop");
+        Debug.Log(stopLocation.ToString());
     }
 
     public void resumeRoute()
@@ -64,6 +63,7 @@ public class Bus : MonoBehaviour
         mapLocation = MapLocations.OnRoad;
         atStop = false;
         Debug.Log("resume route");
+        manager.handleBusLeavingEvent();
     }
 
 }

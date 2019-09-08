@@ -72,6 +72,17 @@ public class CameraPan : MonoBehaviour
 		ConstantMoving = true;
 		RightLeft = false;
 	}
+    public void JumpLeft()
+    {
+        this.transform.position = new Vector3(0, 10, -10);
+        this.transform.eulerAngles = new Vector3(45, 0, 0);
+    }
+
+    public void JumpRight()
+    {
+        this.transform.position = new Vector3(10, 10, -10);
+        this.transform.eulerAngles = new Vector3(45, 0, 0);
+    }
 	void MoveRight() {
 		if (transform.position.x >= 0.1f) {
 			var temp = transform.position;

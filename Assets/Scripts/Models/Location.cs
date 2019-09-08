@@ -11,6 +11,7 @@ namespace Model
         public Transform playerDropoff;
         public LocationType locationType;
         public GameObject popUp;
+        public GameObject mainScreen;
         public GameManager manager;
         public MapLocations mapLocation;
   

@@ -15,6 +15,7 @@ namespace Manage
         public Location currentLocation;
         public Bus bus;
         public CameraPan cameraPan;
+        public float locationScreenDelay;
 
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
@@ -32,14 +33,14 @@ namespace Manage
             locationLookup = new Dictionary<MapLocations, Location>();
             if (locationKeys.Count == locationValues.Count)
             {
-                for (int index = 0; index < locationKeys.Count; index += 2)
+                for (int index = 0; index < locationKeys.Count; index += 1)
                 {
                     locationLookup[locationKeys[index]] = locationValues[index];
+
                 }
             }
 
-            Debug.Log(locationKeys.Count);
-            Debug.Log(locationValues.Count);
+        
         }
 
      
@@ -52,10 +53,21 @@ namespace Manage
 
         public void startLocationPopup(Location location)
         {
-            possibleDestination = location;
+            if (!bus.playerOnBus)
+            {
+                if(currentLocation == location)
+                {
+                    StartCoroutine(OpenLocationScreen(currentLocation));
+                } else
+                {
+                    possibleDestination = location;
 
-            GameObject popUp = location.getPopUp();
-            canvasController.openPopup(popUp);
+                    GameObject popUp = location.getPopUp();
+                    canvasController.openPopup(popUp);
+                }
+        
+            }
+      
         }
 
 
@@ -66,7 +78,7 @@ namespace Manage
 
             player.transform.localPosition = currentLocation.playerDropoff.position;
             timeRemaining = timeRemaining - travelTime;
-            //add open pop-up for currentLocation
+            StartCoroutine(OpenLocationScreen(currentLocation));
         }
 
         public void closePopUp()
@@ -82,13 +94,20 @@ namespace Manage
 
         public void handleBusLeavingEvent()
         {
-            canvasController.closePopUp();
-         
+            if(canvasController.popUp == bus.farePopUp || canvasController.popUp == bus.stopPopUp)
+            {
+                canvasController.closePopUp();
+            }
+
         }
 
         public void handleBusClickedEvent()
         {
-            if (currentLocation.mapLocation == bus.mapLocation)
+            if (bus.playerOnBus && bus.atStop)
+            {
+                showLeaveBusDialog();
+            }
+            else if (currentLocation.mapLocation == bus.mapLocation)
             {
                 canvasController.openPopup(bus.farePopUp);
             }
@@ -96,13 +115,22 @@ namespace Manage
 
         public void handleBusStoppedEvent()
         {
-            Location busLocation;
-            Debug.Log("handleBus");
-            if(locationLookup != null && locationLookup.TryGetValue(bus.mapLocation, out busLocation))
+            if (bus.playerOnBus)
             {
-                Debug.Log("location found");
+                showLeaveBusDialog();
+            }
+          
+        }
+
+        private void showLeaveBusDialog()
+        {
+            Location busLocation;
+
+            if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
+            {
                 canvasController.openPopup(bus.stopPopUp);
-                canvasController.setStopTitle(currentLocation.name);
+                canvasController.setStopTitle(bus.mapLocation.ToString());
+                possibleDestination = busLocation;
             }
         }
 
@@ -114,12 +142,29 @@ namespace Manage
 
         public void handleLeaveBusEvent()
         {
-            player.transform.localPosition = currentLocation.playerDropoff.position;
+            currentLocation = possibleDestination;
+            travelToDestination(TravelType.Bus);
+            if(currentLocation.locationType == LocationType.FarLocation)
+            {
+                cameraPan.JumpRight();
+            } else
+            {
+                cameraPan.JumpLeft();
+            }
             player.SetActive(true);
             bus.playerOnBus = false;
 
         }
 
+
+        private IEnumerator OpenLocationScreen(Location locations)
+        {
+            yield return new WaitForSeconds(locationScreenDelay);
+            if (currentLocation.mainScreen != null)
+            {
+                canvasController.openPopup(currentLocation.mainScreen);
+            }
+        }
 
 
 

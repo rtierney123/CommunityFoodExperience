@@ -8,10 +8,12 @@ namespace Model
 {
     public class Location : MonoBehaviour
     {
-        public Vector3 playerDropoff;
+        public Transform playerDropoff;
         public LocationType locationType;
         public GameObject popUp;
         public GameManager manager;
+        public MapLocations mapLocation;
+  
 
         Ray ray;
         RaycastHit hit;

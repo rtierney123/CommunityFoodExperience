@@ -65,7 +65,7 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp != gameObject)
+            if (popUp == null)
             {
                 popUp = gameObject;
                 setPopUp(true);
@@ -73,6 +73,14 @@ namespace Manage
             }
 
 
+        }
+
+        public void closePopup(GameObject gameObject)
+        {
+            if(popUp == gameObject)
+            {
+                setPopUp(false);
+            }
         }
 
         public void closePopUp()

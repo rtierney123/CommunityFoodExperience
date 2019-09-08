@@ -9,11 +9,13 @@ namespace Manage
     
     public class GameManager : MonoBehaviour
     {
-        public Transform player;
+        public GameObject player;
+
         public CanvasController canvasController;
+        public Location currentLocation;
+        public Bus bus;
 
         private int timeRemaining;
-        private Location currentLocation;
         private Location possibleDestination;
 
         // Start is called before the first frame update
@@ -25,7 +27,6 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-
 
         }
 
@@ -42,8 +43,9 @@ namespace Manage
             int travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
-            player.localPosition = currentLocation.playerDropoff;
+            player.transform.localPosition = currentLocation.playerDropoff.position;
             timeRemaining = timeRemaining - travelTime;
+            //add open pop-up for currentLocation
         }
 
         public void closePopUp()
@@ -55,7 +57,37 @@ namespace Manage
         {
             return 0;
         }
-        
+
+
+        public void handleBusLeavingEvent()
+        {
+            canvasController.closePopUp();
+         
+        }
+
+        public void handleBusClickedEvent(Bus bus)
+        {
+            if (currentLocation.mapLocation == bus.mapLocation)
+            {
+                canvasController.openPopup(bus.farePopUp);
+            }
+        }
+
+        public void handleTakeBusEvent()
+        {
+            player.SetActive(false);
+            bus.playerOnBus = true;
+        }
+
+        public void handleLeaveBusEvent()
+        {
+            player.transform.localPosition = currentLocation.playerDropoff.position;
+            player.SetActive(true);
+            bus.playerOnBus = false;
+
+        }
+
+
 
 
     }

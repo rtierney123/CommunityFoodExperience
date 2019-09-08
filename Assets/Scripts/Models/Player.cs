@@ -24,11 +24,26 @@ public class Player : MonoBehaviour
     public bool wic = false;
     public bool ctc = false;
     public bool eitc = false;
-    int progress = 0;
-    int carbs = 0;
-    int protein = 0;
-    int fruits = 0;
-    int veggies = 0;
+
+    public int progress = 0;
+    
+    public int calories = 0;
+    public int grain = 0;
+    public int fat = 0;
+    public int protein = 0;
+    public int dairy = 0;
+    public int fruit = 0;
+    public int vegetabele = 0;
+    public int extra = 0;
+
+    public int requiredCalories = 5;
+    public int requiredGrain = 1;
+    public int requiredFat = 1;
+    public int requiredProtein = 3;
+    public int requiredDairy = 2;
+    public int requiredFruit = 1;
+    public int requiredVegetable = 2;
+    public int requiredExtra = 0;
 
     public Player() {}
 

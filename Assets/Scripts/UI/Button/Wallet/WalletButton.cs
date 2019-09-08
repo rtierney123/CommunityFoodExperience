@@ -9,8 +9,12 @@ public class WalletButton : MonoBehaviour
     public CanvasController canvasController;
 
     public void walletButtonClicked() {
-        if(!wallet.activeInHierarchy)
+        if(!wallet.activeInHierarchy) {
             canvasController.openPopup(wallet);
+        } else {
+            canvasController.closePopUp();
+        }
+
     }
 
 }

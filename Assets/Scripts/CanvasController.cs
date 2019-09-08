@@ -75,6 +75,14 @@ namespace Manage
 
         }
 
+        public void closePopup(GameObject gameObject)
+        {
+            if(popUp == gameObject)
+            {
+                setPopUp(false);
+            }
+        }
+
         public void closePopUp()
         {
             setPopUp(false);

@@ -9,8 +9,14 @@ public class Bus : MonoBehaviour
 {
     public int stopLength;
     public GameManager manager;
-    public GameObject popUp;
+    public GameObject farePopUp;
+    public GameObject stopPopUp;
     public MapLocations mapLocation;
+    public GameObject currentLocation;
+
+    [HideInInspector]
+    public bool atStop;
+    public bool playerOnBus;
 
     private Animator animator;
 
@@ -30,7 +36,11 @@ public class Bus : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject)
             {
-                manager.handleBusClickedEvent(this);
+                if (!playerOnBus)
+                {
+                    manager.handleBusClickedEvent(this);
+                }
+              
                 Debug.Log(this.name);
 
             }
@@ -40,12 +50,13 @@ public class Bus : MonoBehaviour
     public void startStop(MapLocations stopLocation)
     {
         mapLocation = stopLocation;
-        manager.handleBusStopEvent();
+        atStop = true;
     }
 
     public void resumeRoute()
     {
         mapLocation = MapLocations.OnRoad;
+        atStop = false;
     }
 
 }

@@ -10,13 +10,13 @@ namespace Manage
     public class GameManager : MonoBehaviour
     {
         public GameObject player;
+
         public CanvasController canvasController;
         public Location currentLocation;
+        public Bus bus;
 
         private int timeRemaining;
         private Location possibleDestination;
-        private bool busPopupOpen;
-        private bool busAtStop;
 
         // Start is called before the first frame update
         void Start()
@@ -58,39 +58,33 @@ namespace Manage
             return 0;
         }
 
-        public void handleBusStopEvent()
-        {
-            busAtStop = true;
-        }
 
         public void handleBusLeavingEvent()
         {
-            busAtStop = false;
-            if (busPopupOpen)
-            {
-                canvasController.closePopUp();
-                busPopupOpen = false;
-            }
+            canvasController.closePopUp();
+         
         }
 
         public void handleBusClickedEvent(Bus bus)
         {
             if (currentLocation.mapLocation == bus.mapLocation)
             {
-                canvasController.openPopup(bus.popUp);
-                busPopupOpen = true;
+                canvasController.openPopup(bus.farePopUp);
             }
         }
 
         public void handleTakeBusEvent()
         {
             player.SetActive(false);
+            bus.playerOnBus = true;
         }
 
         public void handleLeaveBusEvent()
         {
             player.transform.localPosition = currentLocation.playerDropoff.position;
             player.SetActive(true);
+            bus.playerOnBus = false;
+
         }
 
 

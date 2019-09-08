@@ -51,13 +51,19 @@ public class Bus : MonoBehaviour
     {
         mapLocation = stopLocation;
         atStop = true;
-        manager.handleBusStoppedEvent();
+        if (playerOnBus)
+        {
+            Debug.Log("blah");
+            manager.handleBusStoppedEvent();
+        }
+        Debug.Log("start stop");
     }
 
     public void resumeRoute()
     {
         mapLocation = MapLocations.OnRoad;
         atStop = false;
+        Debug.Log("resume route");
     }
 
 }

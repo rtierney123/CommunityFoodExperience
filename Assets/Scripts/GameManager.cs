@@ -17,26 +17,32 @@ namespace Manage
         public CameraPan cameraPan;
 
         public Dictionary<MapLocations, Location> locationLookup;
-        [SerializeField] List<MapLocations> locationKeys;
-        [SerializeField] List<Location> gameobjectValues;
+        public List<MapLocations> locationKeys;
+        public List<Location> locationValues;
     
 
         private int timeRemaining;
         private Location possibleDestination;
-        private bool gameStarted = false;
+
 
         // Start is called before the first frame update
         void Start()
         {
             print("Game Start!!!");
+            locationLookup = new Dictionary<MapLocations, Location>();
+            if (locationKeys.Count == locationValues.Count)
+            {
+                for (int index = 0; index < locationKeys.Count; index += 2)
+                {
+                    locationLookup[locationKeys[index]] = locationValues[index];
+                }
+            }
 
-
+            Debug.Log(locationKeys.Count);
+            Debug.Log(locationValues.Count);
         }
 
-        private void Awake()
-        {
-            gameStarted = true;
-        }
+     
 
         // Update is called once per frame
         void Update()
@@ -91,8 +97,10 @@ namespace Manage
         public void handleBusStoppedEvent()
         {
             Location busLocation;
+            Debug.Log("handleBus");
             if(locationLookup != null && locationLookup.TryGetValue(bus.mapLocation, out busLocation))
             {
+                Debug.Log("location found");
                 canvasController.openPopup(bus.stopPopUp);
                 canvasController.setStopTitle(currentLocation.name);
             }

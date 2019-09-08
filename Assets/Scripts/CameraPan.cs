@@ -16,7 +16,7 @@ public class CameraPan : MonoBehaviour
     public float rotationDamping = 3.0f;
 
 
-    private bool allowFollowBus; 
+    private bool allowFollowBus = false; 
     // Start is called before the first frame update
     void Start()
     {

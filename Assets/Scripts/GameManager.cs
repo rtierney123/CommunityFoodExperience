@@ -10,24 +10,32 @@ namespace Manage
     public class GameManager : MonoBehaviour
     {
         public GameObject player;
-        public Text busStopTitle;
 
         public CanvasController canvasController;
         public Location currentLocation;
         public Bus bus;
+        public CameraPan cameraPan;
 
-        public Dictionary<MapLocations, GameObject> locationLookup;
+        public Dictionary<MapLocations, Location> locationLookup;
         [SerializeField] List<MapLocations> locationKeys;
-        [SerializeField] List<GameObject> gameobjectValues;
+        [SerializeField] List<Location> gameobjectValues;
     
 
         private int timeRemaining;
         private Location possibleDestination;
+        private bool gameStarted = false;
 
         // Start is called before the first frame update
         void Start()
         {
             print("Game Start!!!");
+
+
+        }
+
+        private void Awake()
+        {
+            gameStarted = true;
         }
 
         // Update is called once per frame
@@ -82,7 +90,12 @@ namespace Manage
 
         public void handleBusStoppedEvent()
         {
-
+            Location busLocation;
+            if(locationLookup != null && locationLookup.TryGetValue(bus.mapLocation, out busLocation))
+            {
+                canvasController.openPopup(bus.stopPopUp);
+                canvasController.setStopTitle(currentLocation.name);
+            }
         }
 
         public void handleTakeBusEvent()

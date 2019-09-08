@@ -11,12 +11,14 @@ namespace Manage
     {
 
         public float allowWaitTime;
+        public Text busStopTitle;
 
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
         GameObject popUp;
         Vector3 playerStopLocation;
         bool allowClose;
+
 
         void Awake()
         {
@@ -88,6 +90,11 @@ namespace Manage
             setPopUp(false);
         }
 
+        public void setStopTitle(string title)
+        {
+            busStopTitle.text = title;
+        }
+
         void setPopUp(bool active)
         { 
             if (popUp != null)
@@ -107,6 +114,7 @@ namespace Manage
             yield return new WaitForSeconds(waitTime);
             allowClose = true;
         }
+
     }
 }
 

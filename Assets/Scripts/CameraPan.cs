@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class CameraPan : MonoBehaviour
 {
+
+    // The target we are following
+    public Transform target;
+    // The distance in the x-z plane to the target
+    public float distance = 10.0f;
+    // the height we want the camera to be above the target
+    public float height = 5.0f;
+    // How much we 
+    public float heightDamping = 2.0f;
+    public float rotationDamping = 3.0f;
+
+
+    private bool allowFollowBus; 
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +35,35 @@ public class CameraPan : MonoBehaviour
 		}
 		MoveFar();
     }
-	bool ConstantMoving;
+
+    // Place the script in the Camera-Control group in the component menu
+    [AddComponentMenu("Camera-Control/Smooth Follow")]
+
+    void LateUpdate()
+    {
+        if (allowFollowBus)
+        {
+
+            // Set the height of the camera
+            transform.position = new Vector3(target.position.x, this.transform.position.y, this.transform.position.z);
+
+            // Always look at the target
+            transform.LookAt(target);
+        }
+      
+    }
+
+    public void startFollowingBus()
+    {
+        allowFollowBus = true;
+    }
+
+    public void stopFollowingBus()
+    {
+        allowFollowBus = false;
+    }
+
+    bool ConstantMoving;
 	bool RightLeft;
 	public void SetRight() {
 		ConstantMoving = RightLeft = true;

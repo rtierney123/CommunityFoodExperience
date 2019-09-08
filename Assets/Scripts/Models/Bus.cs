@@ -15,6 +15,7 @@ public class Bus : MonoBehaviour
 
     [HideInInspector]
     public bool atStop;
+    [HideInInspector]
     public bool playerOnBus;
 
     private Animator animator;

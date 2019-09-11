@@ -8,7 +8,7 @@ using UnityEngine;
 public class Bus : MonoBehaviour
 {
     public int stopLength;
-    public GameManager manager;
+    public NavigationManager manager;
     public GameObject farePopUp;
     public GameObject stopPopUp;
     public MapLocations mapLocation;

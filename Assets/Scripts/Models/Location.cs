@@ -12,7 +12,7 @@ namespace Model
         public LocationType locationType;
         public GameObject popUp;
         public GameObject mainScreen;
-        public GameManager manager;
+        public NavigationManager manager;
         public MapLocations mapLocation;
   
 

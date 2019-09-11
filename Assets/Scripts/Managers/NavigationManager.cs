@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 namespace Manage
 {
-    
-    public class GameManager : MonoBehaviour
+    //does logic for navigating the map and showing navigation related pop-ups
+    public class NavigationManager : MonoBehaviour
     {
         public GameObject player;
 
         public CanvasController canvasController;
+        public GameManager gameManager;
         public Location currentLocation;
         public Bus bus;
         public CameraPan cameraPan;
@@ -20,9 +21,8 @@ namespace Manage
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
         public List<Location> locationValues;
-    
 
-        private int timeRemaining;
+        
         private Location possibleDestination;
 
 
@@ -77,7 +77,7 @@ namespace Manage
             currentLocation = possibleDestination;
 
             player.transform.localPosition = currentLocation.playerDropoff.position;
-            timeRemaining = timeRemaining - travelTime;
+            gameManager.subtractTime(travelTime);
             StartCoroutine(OpenLocationScreen(currentLocation));
         }
 

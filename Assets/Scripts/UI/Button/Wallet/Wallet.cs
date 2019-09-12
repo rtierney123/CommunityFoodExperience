@@ -12,6 +12,9 @@ public class Wallet : MonoBehaviour
     public GameObject transportationTab;
     public GameObject transportationTabBody;
 
+    public GameObject plusSign;
+    public GameObject minusSign;
+
     public Player player;
 
     void Start() {

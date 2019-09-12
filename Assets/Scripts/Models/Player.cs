@@ -17,13 +17,21 @@ public class Player : MonoBehaviour
     public string DOB = "01/01/2010";
     public int fixedIncome = 870;
     public int expenses = 855;
-    public int money = 15;
     public int busTokens = 1;
+
+
+    //Need to delete this and refactor wallet
     public bool vita = false;
     public bool snap = false;
     public bool wic = false;
     public bool ctc = false;
     public bool eitc = false;
+
+    public int money = 15;
+    public int snapFunds = 0;
+    public List<WICVoucher> wicVoichers;
+    public int ctcFunds = 0;
+    public int eitcFunds = 0;
 
     public int progress = 0;
     
@@ -45,7 +53,10 @@ public class Player : MonoBehaviour
     public int requiredVegetable = 2;
     public int requiredExtra = 0;
 
-    public Player() {}
+    private void Start()
+    {
+        wicVoichers = new List<WICVoucher>();
+    }
 
     //string[] foodAcquired = [];
 
@@ -88,4 +99,65 @@ public class Player : MonoBehaviour
         extra = food.extra;
 
     }
+
+    public void addCash(int cash)
+    {
+        money += cash;
+    }
+
+    public void subtractCash(int cash)
+    {
+        money -= cash;
+    }
+
+    public void addSnap(int funds)
+    {
+        snapFunds += funds;
+    }
+
+    public void subtractSnap(int funds)
+    {
+        snapFunds -= funds;
+    }
+
+    public void addEITC(int funds)
+    {
+        eitcFunds += funds;
+    }
+
+    public void subtractEITC(int funds)
+    {
+        eitcFunds -= funds;
+    }
+
+    public void addCTC(int funds)
+    {
+        ctcFunds += funds;
+    }
+
+    public void subtractCTC(int funds)
+    {
+        ctcFunds -= funds;
+    }
+
+    public void addVoucher(WICVoucher voucher)
+    {
+        wicVoichers.Add(voucher);
+    }
+
+    //TODO need to alter this logic to deal with what if multiple vouchers
+    //do I need to worry about this;
+    public void useVoucher(FoodType foodType)
+    {
+        if(wicVoichers.Count > 0)
+        {
+            wicVoichers[0].useVoucher(foodType);
+            if (wicVoichers[0].voucherUsedUp())
+            {
+                wicVoichers.RemoveAt(0);
+            }
+        }
+    }
+
+
 }

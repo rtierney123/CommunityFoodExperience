@@ -69,10 +69,8 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            Debug.Log("open");
             if (popUp == null)
             {
-                Debug.Log("show open");
                 popUp = gameObject;
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));

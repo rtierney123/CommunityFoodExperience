@@ -71,7 +71,21 @@ public class Player : MonoBehaviour
     {
         busTokens = value;
     }
-    
+
+
     //.....
 
+    // update player nutrition
+    public void addNutrition(Food food)
+    {
+        calories += food.calories;
+        grain += food.grain;
+        fat += food.fat;
+        protein += food.protein;
+        dairy += food.dairy;
+        fruit += food.fruit;
+        vegetabele += food.veg;
+        extra = food.extra;
+
+    }
 }

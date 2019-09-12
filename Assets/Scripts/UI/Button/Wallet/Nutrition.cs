@@ -7,6 +7,8 @@ public class Nutrition : MonoBehaviour
 {
     public GameObject nutrition;
     public Player player;
+
+    public GameObject plusSignPopup;
     // Start is called before the first frame update
     void Start()
     {

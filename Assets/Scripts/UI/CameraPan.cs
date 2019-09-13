@@ -84,29 +84,36 @@ public class CameraPan : MonoBehaviour
         this.transform.eulerAngles = new Vector3(45, 0, 0);
     }
 	void MoveRight() {
-		if (transform.position.x >= 0.1f) {
+		if (transform.position.x > 0f) {
 			var temp = transform.position;
 			temp.x -= .1f;
 			transform.position = temp;
-		}
+        }
+        else
+        {
+            JumpLeft();
+        }
 	}
 	void MoveLeft() {
-		if (transform.position.x <= 9.6f) {
+		if (transform.position.x < 10f) {
 			var temp = this.transform.position;
 			temp.x += .1f;
 			this.transform.position = temp;
-		}
+		} else
+        {
+            JumpRight();
+        }
 	}
 	void MoveFar() {
 		if (ConstantMoving) {
 			if (!RightLeft) {
 				MoveRight ();
-				if (this.transform.position.x > 9.6f) {
+				if (this.transform.position.x > 10f) {
 					ConstantMoving = false;
 				}
 			} else {
 				MoveLeft ();
-				if (this.transform.position.x < 0.1f) {
+				if (this.transform.position.x < 0f) {
 					ConstantMoving = false;
 				}
 			}

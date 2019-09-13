@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2069437315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2069437316}
+  m_Layer: 0
+  m_Name: Dropoff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2069437316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069437315}
+  m_LocalRotation: {x: -2.9363462e-10, y: 0.99990976, z: 0.000000021853724, w: 0.01343533}
+  m_LocalPosition: {x: 0.008594356, y: 0.022040235, z: 0.026270155}
+  m_LocalScale: {x: 0.00999879, y: 0.01, z: 0.009998792}
+  m_Children: []
+  m_Father: {fileID: 6089803164998474541}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6089803164998895373
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,10 +57,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6089803164998895373}
-  m_LocalRotation: {x: 2.9363462e-10, y: -0.99990976, z: -0.000000021853724, w: 0.01343533}
+  m_LocalRotation: {x: 0, y: -0.99990976, z: 0, w: 0.013438686}
   m_LocalPosition: {x: 1.6, y: 0.06, z: 0.87}
-  m_LocalScale: {x: 100.000015, y: 100, z: 100.000015}
-  m_Children: []
+  m_LocalScale: {x: 100.01211, y: 100, z: 100.01209}
+  m_Children:
+  - {fileID: 2069437316}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -178.46, z: 0}
@@ -59,12 +90,12 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
-  - {fileID: 2100002, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
-  - {fileID: 2100004, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
-  - {fileID: 2100006, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
-  - {fileID: 2100008, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
-  - {fileID: 2100010, guid: 05c11dfbe19680142952727f973f42c3, type: 3}
+  - {fileID: 2100000, guid: af5d808978f763a4394b011fbddf0d00, type: 3}
+  - {fileID: 2100000, guid: b7ef8a0e171e80448815d5c9d8d6682f, type: 2}
+  - {fileID: 2100000, guid: a99bce1908b4ec748a83a6c36a333a5f, type: 2}
+  - {fileID: 2100000, guid: 2cad94791199a7147841cf8145aacc33, type: 2}
+  - {fileID: 2100000, guid: 85202b14721316d4aa973e1c479192f8, type: 2}
+  - {fileID: 2100000, guid: 7e6eb3aa4eac7684d81861e2ccad1908, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a81e15c1f45b046b40f7aed2a1309e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDropoff: {x: 0.97, y: 2.2, z: 0.31}
+  playerDropoff: {fileID: 2069437316}
   locationType: 1
   popUp: {fileID: 0}
+  mainScreen: {fileID: 0}
   manager: {fileID: 0}
+  mapLocation: 2

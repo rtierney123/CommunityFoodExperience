@@ -22,7 +22,6 @@ namespace Manage
         public List<MapLocations> locationKeys;
         public List<Location> locationValues;
 
-        
         private Location possibleDestination;
 
 
@@ -62,8 +61,11 @@ namespace Manage
                 {
                     possibleDestination = location;
 
-                    GameObject popUp = location.getPopUp();
-                    canvasController.openPopup(popUp);
+                    NavigiationPopUp popUp = location.getPopUp();
+                    GameObject gameObject = popUp.gameObject;
+                    popUp.title.text = location.locationTitle;
+                    popUp.description.text = location.locationDescription;
+                    canvasController.openPopup(gameObject);
                 }
         
             }

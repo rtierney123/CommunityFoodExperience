@@ -11,11 +11,13 @@ namespace Model
     {
         public Transform playerDropoff;
         public LocationType locationType;
-        public GameObject popUp;
+        public NavigiationPopUp popUp;
         public GameObject mainScreen;
         public NavigationManager manager;
         public MapLocations mapLocation;
-  
+
+        public string locationTitle;
+        public string locationDescription;
 
         Ray ray;
         RaycastHit hit;
@@ -42,7 +44,7 @@ namespace Model
         }
 
 
-        public GameObject getPopUp()
+        public NavigiationPopUp getPopUp()
         {
             return popUp;
         }

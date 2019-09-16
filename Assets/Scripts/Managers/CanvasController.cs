@@ -19,14 +19,13 @@ namespace Manage
         public GameObject popUp;
         Vector3 playerStopLocation;
         bool allowClose;
-        bool allowOpen;
-        bool clickedUsed;
+
+
         void Awake()
         {
             // Get both of the components we need to do this
             this.raycaster = GetComponent<GraphicRaycaster>();
             allowClose = true;
-            allowOpen = true;
             popUp = null;
         }
 
@@ -70,12 +69,15 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp == null && allowOpen)
+            if (popUp == null)
             {
                 popUp = gameObject;
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
-            } 
+            } else
+            {
+                Debug.Log(popUp.ToString());
+            }
 
 
         }
@@ -85,14 +87,12 @@ namespace Manage
             if(popUp == gameObject)
             {
                 setPopUp(false);
-                StartCoroutine(WaitAllowOpen(allowWaitTime));
             }
         }
 
         public void closePopUp()
         {
             setPopUp(false);
-            StartCoroutine(WaitAllowOpen(allowWaitTime));
             popUp = null;
         }
 
@@ -119,13 +119,6 @@ namespace Manage
             allowClose = false;
             yield return new WaitForSeconds(waitTime);
             allowClose = true;
-        }
-
-        private IEnumerator WaitAllowOpen(float waitTime)
-        {
-            allowOpen = false;
-            yield return new WaitForSeconds(waitTime);
-            allowOpen = true;
         }
 
     }

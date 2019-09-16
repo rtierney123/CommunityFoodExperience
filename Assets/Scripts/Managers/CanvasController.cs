@@ -11,18 +11,23 @@ namespace Manage
     {
 
         public float allowWaitTime;
+        public Text busStopTitle;
 
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
-        GameObject popUp;
+        [HideInInspector]
+        public GameObject popUp;
         Vector3 playerStopLocation;
         bool allowClose;
-
+        bool allowOpen;
+        bool clickedUsed;
         void Awake()
         {
             // Get both of the components we need to do this
             this.raycaster = GetComponent<GraphicRaycaster>();
             allowClose = true;
+            allowOpen = true;
+            popUp = null;
         }
 
         void Update()
@@ -65,19 +70,35 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp != gameObject)
+            if (popUp == null && allowOpen)
             {
                 popUp = gameObject;
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
+            } 
+
+
+        }
+
+        public void closePopup(GameObject gameObject)
+        {
+            if(popUp == gameObject)
+            {
+                setPopUp(false);
+                StartCoroutine(WaitAllowOpen(allowWaitTime));
             }
-
-
         }
 
         public void closePopUp()
         {
             setPopUp(false);
+            StartCoroutine(WaitAllowOpen(allowWaitTime));
+            popUp = null;
+        }
+
+        public void setStopTitle(string title)
+        {
+            busStopTitle.text = title;
         }
 
         void setPopUp(bool active)
@@ -99,6 +120,14 @@ namespace Manage
             yield return new WaitForSeconds(waitTime);
             allowClose = true;
         }
+
+        private IEnumerator WaitAllowOpen(float waitTime)
+        {
+            allowOpen = false;
+            yield return new WaitForSeconds(waitTime);
+            allowOpen = true;
+        }
+
     }
 }
 

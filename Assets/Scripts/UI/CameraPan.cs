@@ -14,6 +14,7 @@ public class CameraPan : MonoBehaviour
     // How much we 
     public float heightDamping = 2.0f;
     public float rotationDamping = 3.0f;
+	public GameObject leftButton, rightButton;
 
 
     private bool allowFollowBus = false; 
@@ -34,6 +35,12 @@ public class CameraPan : MonoBehaviour
 			ConstantMoving = false;
 		}
 		MoveFar();
+		if (leftButton != null) {
+			leftButton.SetActive (this.transform.position.x >= .1f);
+		}
+		if (rightButton != null) {
+			rightButton.SetActive (this.transform.position.x <= 9.6f);
+		}
     }
 
     // Place the script in the Camera-Control group in the component menu
@@ -65,12 +72,20 @@ public class CameraPan : MonoBehaviour
 
     bool ConstantMoving;
 	bool RightLeft;
-	public void SetRight() {
+	public void SetRight(GameObject g) {
 		ConstantMoving = RightLeft = true;
+		if (rightButton == null)
+			rightButton = g;
+		if (leftButton != null)
+			leftButton.SetActive (true);
 	}
-	public void SetLeft() {
+	public void SetLeft(GameObject g) {
 		ConstantMoving = true;
 		RightLeft = false;
+		if (leftButton == null)
+			leftButton = g;
+		if (rightButton != null)
+			rightButton.SetActive (true);
 	}
     public void JumpLeft()
     {
@@ -84,36 +99,29 @@ public class CameraPan : MonoBehaviour
         this.transform.eulerAngles = new Vector3(45, 0, 0);
     }
 	void MoveRight() {
-		if (transform.position.x > 0f) {
+		if (transform.position.x >= 0.1f) {
 			var temp = transform.position;
 			temp.x -= .1f;
 			transform.position = temp;
-        }
-        else
-        {
-            JumpLeft();
-        }
+		}
 	}
 	void MoveLeft() {
-		if (transform.position.x < 10f) {
+		if (transform.position.x <= 9.6f) {
 			var temp = this.transform.position;
 			temp.x += .1f;
 			this.transform.position = temp;
-		} else
-        {
-            JumpRight();
-        }
+		}
 	}
 	void MoveFar() {
 		if (ConstantMoving) {
 			if (!RightLeft) {
 				MoveRight ();
-				if (this.transform.position.x > 10f) {
+				if (this.transform.position.x > 9.6f) {
 					ConstantMoving = false;
 				}
 			} else {
 				MoveLeft ();
-				if (this.transform.position.x < 0f) {
+				if (this.transform.position.x < 0.1f) {
 					ConstantMoving = false;
 				}
 			}

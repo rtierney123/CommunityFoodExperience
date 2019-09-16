@@ -6,7 +6,7 @@ using UnityEngine;
 public class TravelButton : MonoBehaviour
 {
     public TravelType travelType;
-    public GameManager manager;
+    public NavigationManager manager;
     // Start is called before the first frame update
     void Start()
     {

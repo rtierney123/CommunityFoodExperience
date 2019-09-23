@@ -5,11 +5,34 @@ using UnityEngine;
 namespace UI { 
     public class Store : PopUp
     {
-      
-        // Update is called once per frame
-        void Update()
-        {
 
+        public GameObject purchaseOptions;
+        public GameObject fundsPurchase;
+        public GameObject voucherPurchase;
+
+        public void openPurchaseOptions()
+        {
+            purchaseOptions.SetActive(true);
+
+        }
+
+        public void openFundsPurchase()
+        {
+            purchaseOptions.SetActive(false);
+            fundsPurchase.SetActive(true);
+        }
+
+        public void openVoucherPurchase()
+        {
+            purchaseOptions.SetActive(false);
+            voucherPurchase.SetActive(true);
+        }
+
+        public void closeAll()
+        {
+            purchaseOptions.SetActive(false);
+            fundsPurchase.SetActive(false);
+            voucherPurchase.SetActive(false);
         }
     }
 }

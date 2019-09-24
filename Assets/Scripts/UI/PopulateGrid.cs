@@ -10,7 +10,7 @@ public class PopulateGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        populateGrid();
+
     }
 
     // Update is called once per frame
@@ -19,12 +19,9 @@ public class PopulateGrid : MonoBehaviour
         
     }
 
-    private void populateGrid()
+    public void addItem(GameObject obj)
     {
-        GameObject newObject;
-        for(int i = 0; i < numberToCreate; i++)
-        {
-            newObject = (GameObject)Instantiate(foodObject, transform);
-        }
+       GameObject newObject = (GameObject)Instantiate(foodObject, transform);
     }
+
 }

@@ -35,23 +35,23 @@ public class Player : MonoBehaviour
 
     public int progress = 0;
     
-    public int calories = 0;
-    public int grain = 0;
-    public int fat = 0;
-    public int protein = 0;
-    public int dairy = 0;
-    public int fruit = 0;
-    public int vegetabele = 0;
-    public int extra = 0;
+    public double calories = 0;
+    public double grain = 0;
+    public double fat = 0;
+    public double protein = 0;
+    public double dairy = 0;
+    public double fruit = 0;
+    public double vegetabele = 0;
+    public double extra = 0;
 
-    public int requiredCalories = 5;
-    public int requiredGrain = 1;
-    public int requiredFat = 1;
-    public int requiredProtein = 3;
-    public int requiredDairy = 2;
-    public int requiredFruit = 1;
-    public int requiredVegetable = 2;
-    public int requiredExtra = 0;
+    public double requiredCalories = 5;
+    public double requiredGrain = 1;
+    public double requiredFat = 1;
+    public double requiredProtein = 3;
+    public double requiredDairy = 2;
+    public double requiredFruit = 1;
+    public double requiredVegetable = 2;
+    public double requiredExtra = 0;
 
     private void Start()
     {

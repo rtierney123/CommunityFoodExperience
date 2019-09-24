@@ -10,11 +10,19 @@ public class Cart : MonoBehaviour
     public PopulateGrid populateGrid;
     public Text totalText;
 
+    private double fruit;
+    private double veg;
+    private double grain;
+    private double fat;
+    private double dairy;
+    private double protein;
+    private double extra;
+    private double calories;
     private double totalPrice;
 
     public void Start()
     {
-  
+        
     }
     public void Update()
     {
@@ -26,7 +34,10 @@ public class Cart : MonoBehaviour
         if (inCart(position))
         {
             populateGrid.addItem(food.cartObject);
-            addCost(food.cost);
+            addItem(food);
+            // Debug.Log(totalPrice);
+            // Debug.Log(calories);
+            // Debug.Log(totalText.text);
         }
     }
 
@@ -42,11 +53,23 @@ public class Cart : MonoBehaviour
         }
     }
 
-    private void addCost(int cost)
-    {
-        totalPrice += cost;
-        totalText.text = totalPrice.ToString();
+    // private void addCost(int cost)
+    // {
+    //     totalPrice += cost;
+    //     totalText.text = totalPrice.ToString();
+    // }
 
+    private void addItem(Food food) {
+        totalPrice += food.cost;
+        totalText.text = totalPrice.ToString();
+        fruit += food.fruit;
+        veg += food.veg;
+        grain += food.grain;
+        fat += food.fat;
+        dairy += food.dairy;
+        protein += food.protein;
+        extra += food.extra;
+        calories += food.calories;
     }
 
 

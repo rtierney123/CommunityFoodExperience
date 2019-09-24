@@ -6,16 +6,16 @@ using UnityEngine.EventSystems;
 
 public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDragHandler
 {
-    public int fruit;
-    public int veg;
-    public int grain;
-    public int fat;
-    public int dairy;
-    public int protein;
-    public int extra;
-    public int calories;
+    public double fruit;
+    public double veg;
+    public double grain;
+    public double fat;
+    public double dairy;
+    public double protein;
+    public double extra;
+    public double calories;
 
-    public int cost;
+    public double cost;
 
     public GameObject cartObject;
 

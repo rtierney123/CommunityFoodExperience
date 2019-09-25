@@ -33,8 +33,7 @@ namespace UI {
         {
             if (canvasController != null)
             {
-                canvasController.closePopUp();
-                canvasController.openPopup(popUp);
+                canvasController.forcePopupOpen(popUp);
             }
         }
 
@@ -48,6 +47,13 @@ namespace UI {
             this.gameObject.SetActive(false);
         }
 
+        public void completePayment()
+        {
+            if (canvasController != null)
+            {
+                canvasController.closePopUp();
+            }
+        }
        
 
      

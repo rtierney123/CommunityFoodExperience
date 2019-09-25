@@ -765,6 +765,8 @@ MonoBehaviour:
   foodObject: {fileID: 6824823711066735047, guid: 3b622569eac695440ad13502610d4707,
     type: 3}
   numberToCreate: 5
+  minusPosition: {x: 0, y: 0}
+  minusSignObject: {fileID: 0}
 --- !u!1 &5461871599132833618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,6 +1880,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d9a465788d00b48bbba3ddc75bce66, type: 3}
+--- !u!224 &8690114865783511661 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9097868787869704257, guid: 03d9a465788d00b48bbba3ddc75bce66,
+    type: 3}
+  m_PrefabInstance: {fileID: 494096440994855468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &316188598250519924 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 195961296213526360, guid: 03d9a465788d00b48bbba3ddc75bce66,
@@ -1890,12 +1898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8690114865783511661 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9097868787869704257, guid: 03d9a465788d00b48bbba3ddc75bce66,
-    type: 3}
-  m_PrefabInstance: {fileID: 494096440994855468}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &534990514413411644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2295,6 +2297,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurchaseOptions
       objectReference: {fileID: 0}
+    - target: {fileID: 3162583395693313338, guid: f5e717d3f21cccb40864275a70d2b59c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3162583395693313339, guid: f5e717d3f21cccb40864275a70d2b59c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2399,6 +2406,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162583395693313339, guid: f5e717d3f21cccb40864275a70d2b59c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162583395693313339, guid: f5e717d3f21cccb40864275a70d2b59c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3162583395427144118, guid: f5e717d3f21cccb40864275a70d2b59c,
         type: 3}
@@ -2826,6 +2843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CashOption
       objectReference: {fileID: 0}
+    - target: {fileID: 6790062663682884853, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6790062663682884852, guid: f848c67f605f96c4c84068c6ee26711f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2930,6 +2952,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790062663682884852, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790062663682884852, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f848c67f605f96c4c84068c6ee26711f, type: 3}

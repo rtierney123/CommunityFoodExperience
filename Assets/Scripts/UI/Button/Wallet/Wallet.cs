@@ -32,13 +32,13 @@ public class Wallet : MonoBehaviour
             if (child.name == "CashValue") {
                 child.gameObject.GetComponent<Text>().text = player.money.ToString();
             } else if (child.name == "SNAPValue") {
-                child.gameObject.GetComponent<Text>().text = player.snap ? "Yes" : "No";
+                child.gameObject.GetComponent<Text>().text = player.snapFunds.ToString();
             } else if (child.name == "WICValue") {
-                child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
+                // child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
             } else if (child.name == "EITCValue") {
-                child.gameObject.GetComponent<Text>().text = player.eitc ? "Yes" : "No";
+                child.gameObject.GetComponent<Text>().text = player.eitcFunds.ToString();
             } else if (child.name == "CTCValue") {
-                child.gameObject.GetComponent<Text>().text = player.ctc ? "Yes" : "No";
+                child.gameObject.GetComponent<Text>().text = player.ctcFunds.ToString();
             } 
         }
     }

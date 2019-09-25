@@ -21,17 +21,17 @@ public class Player : MonoBehaviour
 
 
     //Need to delete this and refactor wallet
-    public bool vita = false;
-    public bool snap = false;
-    public bool wic = false;
-    public bool ctc = false;
-    public bool eitc = false;
+    // public bool vita = false;
+    // public bool snap = false;
+    // public bool wic = false;
+    // public bool ctc = false;
+    // public bool eitc = false;
 
-    public int money = 15;
-    public int snapFunds = 0;
+    public double money = 15;
+    public double snapFunds = 0;
     public List<WICVoucher> wicVoichers;
-    public int ctcFunds = 0;
-    public int eitcFunds = 0;
+    public double ctcFunds = 0;
+    public double eitcFunds = 0;
 
     public int progress = 0;
     
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     //.....
 
     // update player information
-    public void setMoney(int value)
+    public void setMoney(double value)
     {
         money = value;
     }
@@ -100,42 +100,42 @@ public class Player : MonoBehaviour
 
     }
 
-    public void addCash(int cash)
+    public void addCash(double cash)
     {
         money += cash;
     }
 
-    public void subtractCash(int cash)
+    public void subtractCash(double cash)
     {
         money -= cash;
     }
 
-    public void addSnap(int funds)
+    public void addSnap(double funds)
     {
         snapFunds += funds;
     }
 
-    public void subtractSnap(int funds)
+    public void subtractSnap(double funds)
     {
         snapFunds -= funds;
     }
 
-    public void addEITC(int funds)
+    public void addEITC(double funds)
     {
         eitcFunds += funds;
     }
 
-    public void subtractEITC(int funds)
+    public void subtractEITC(double funds)
     {
         eitcFunds -= funds;
     }
 
-    public void addCTC(int funds)
+    public void addCTC(double funds)
     {
         ctcFunds += funds;
     }
 
-    public void subtractCTC(int funds)
+    public void subtractCTC(double funds)
     {
         ctcFunds -= funds;
     }

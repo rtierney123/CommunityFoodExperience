@@ -80,7 +80,7 @@ namespace Manage
 
         }
 
-        public void closePopup(GameObject gameObject)
+        public void closePopUp(GameObject gameObject)
         {
             if(popUp == gameObject)
             {

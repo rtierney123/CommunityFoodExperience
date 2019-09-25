@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,30 +11,46 @@ namespace UI {
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;
 
+        public CanvasController canvasController;
+
+
         public void openPurchaseOptions()
         {
-            purchaseOptions.SetActive(true);
-
+            openPopUp(purchaseOptions);
         }
 
         public void openFundsPurchase()
         {
-            purchaseOptions.SetActive(false);
-            fundsPurchase.SetActive(true);
+            openPopUp(fundsPurchase);
         }
 
         public void openVoucherPurchase()
         {
-            purchaseOptions.SetActive(false);
-            voucherPurchase.SetActive(true);
+            openPopUp(voucherPurchase);
         }
 
-        public void closeAll()
+        public void openPopUp(GameObject popUp)
         {
-            purchaseOptions.SetActive(false);
-            fundsPurchase.SetActive(false);
-            voucherPurchase.SetActive(false);
+            if (canvasController != null)
+            {
+                canvasController.closePopUp();
+                canvasController.openPopup(popUp);
+            }
         }
+
+
+        public void closeScreen()
+        {
+            if (canvasController != null)
+            {
+                canvasController.closePopUp();
+            }
+            this.gameObject.SetActive(false);
+        }
+
+       
+
+     
     }
 }
 

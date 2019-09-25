@@ -24,6 +24,8 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     [HideInInspector]
     public bool isDragged;
     public Cart cart;
+    
+    private static int foodID { get; set; }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -41,6 +43,12 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     void Start()
     {
         resetPosition = transform.position;
+
+    }
+
+    void Awake()
+    {
+        foodID = foodID + 1;
     }
 
     // Update is called once per frame
@@ -53,4 +61,5 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     {
         cart = c;
     }
+
 }

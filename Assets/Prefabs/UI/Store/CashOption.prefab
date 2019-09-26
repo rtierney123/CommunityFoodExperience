@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 6790062662287266986}
   - component: {fileID: 6790062662287266987}
   - component: {fileID: 6790062662287266988}
+  - component: {fileID: 3464578616853423}
   m_Layer: 5
   m_Name: CompletePurchase
   m_TagString: Untagged
@@ -513,7 +514,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6790062662287266988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3464578616853423}
+        m_MethodName: pay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &6790062662287266987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -550,6 +562,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3464578616853423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6790062662287266990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7e885c8c7744d64bc370a44e1ef8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cashValue: {fileID: 6790062663875474219}
+  ctcValue: {fileID: 6790062662830719482}
+  eitcValue: {fileID: 6790062662966458549}
+  snapValue: {fileID: 6790062662619665541}
 --- !u!1 &6790062662334907786
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +744,7 @@ GameObject:
   - component: {fileID: 6790062662619665540}
   - component: {fileID: 6790062662619665541}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SnapValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,7 +1052,7 @@ GameObject:
   - component: {fileID: 6790062662830719481}
   - component: {fileID: 6790062662830719482}
   m_Layer: 5
-  m_Name: Text
+  m_Name: CtcValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1101,7 +1129,7 @@ GameObject:
   - component: {fileID: 6790062662966458548}
   - component: {fileID: 6790062662966458549}
   m_Layer: 5
-  m_Name: Text
+  m_Name: EitcValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1624,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6790062663682884852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1667,7 +1695,7 @@ GameObject:
   - component: {fileID: 6790062663875474218}
   - component: {fileID: 6790062663875474219}
   m_Layer: 5
-  m_Name: Text
+  m_Name: CashValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

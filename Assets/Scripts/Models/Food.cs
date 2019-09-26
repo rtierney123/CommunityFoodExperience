@@ -19,23 +19,39 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
 
     public GameObject cartObject;
 
-    private Vector3 resetPosition;
-
     [HideInInspector]
-    public bool isDragged;
     public Cart cart;
+
+    private Vector3 resetPosition;
+    private Transform startParent;
+ 
     
     private static int foodID { get; set; }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
+        OnBeginDrag(eventData);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+        transform.SetParent(canvas);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        cart.notifyDroppedFood(transform.position, this);
-        transform.position = resetPosition;
+        if(cart != null)
+        {
+            cart.notifyDroppedFood(transform.position, this);
+            transform.SetParent(startParent);
+            transform.position = resetPosition;
+        } else
+        {
+            Debug.Log("No cart");
+        }
+        
     }
 
 
@@ -43,7 +59,7 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     void Start()
     {
         resetPosition = transform.position;
-
+        startParent = this.transform.parent;
     }
 
     void Awake()
@@ -60,6 +76,11 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     public void setCart(Cart c)
     {
         cart = c;
+    }
+
+    public GameObject getGameObject()
+    {
+        return this.gameObject;
     }
 
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PopulateGrid : MonoBehaviour
 {
-    public GameObject foodObject;
-    public int numberToCreate;
+
     public Vector2 minusPosition;
     public GameObject minusSignObject;
 
@@ -23,7 +22,13 @@ public class PopulateGrid : MonoBehaviour
 
     public GameObject addItem(GameObject obj)
     {
-        GameObject mainIcon = (GameObject)Instantiate(foodObject, transform);
+        GameObject item = (GameObject)Instantiate(obj, transform);
+        return item;
+    }
+
+    public GameObject addCartItem(GameObject obj)
+    {
+        GameObject mainIcon = (GameObject)Instantiate(obj, transform);
         GameObject minus = (GameObject)Instantiate(minusSignObject, transform.position, Quaternion.identity, mainIcon.transform);
         minus.transform.localPosition = minusPosition;
 

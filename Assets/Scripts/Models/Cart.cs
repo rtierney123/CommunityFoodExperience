@@ -56,7 +56,7 @@ public class Cart : MonoBehaviour
         totalPrice += food.cost;
         updateTotal();
 
-        GameObject icon = populateGrid.addItem(food.cartObject);
+        GameObject icon = populateGrid.addCartItem(food.cartObject);
         foodInCart.Add(food);
 
         Transform minusObject = icon.transform.GetChild(0);

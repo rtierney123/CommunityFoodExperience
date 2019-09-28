@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -157,6 +158,11 @@ public class Player : MonoBehaviour
                 wicVoichers.RemoveAt(0);
             }
         }
+    }
+
+    public string formatFunds(double funds)
+    {
+        return String.Format("{0:0.##}", funds);
     }
 
 

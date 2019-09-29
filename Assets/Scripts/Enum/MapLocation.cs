@@ -4,4 +4,5 @@
     House = 1,
     CommunityFoodKitchen = 2,
     FoodTiger = 3,
+    CornerStore = 4
 }

@@ -92,8 +92,8 @@ public class Player : MonoBehaviour
     {
         calories += food.calories;
         grain += food.grain;
-        fat += food.fat;
-        protein += food.protein;
+        fat += food.macroFat;
+        protein += food.macroProtein;
         dairy += food.dairy;
         fruit += food.fruit;
         vegetabele += food.veg;

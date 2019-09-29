@@ -86,9 +86,9 @@ public class Cart : MonoBehaviour
         fruit += food.fruit;
         veg += food.veg;
         grain += food.grain;
-        fat += food.fat;
+        fat += food.macroFat;
         dairy += food.dairy;
-        protein += food.protein;
+        protein += food.macroProtein;
         extra += food.extra;
         calories += food.calories;
         totalText.text = totalPrice.ToString();
@@ -109,6 +109,7 @@ public class Cart : MonoBehaviour
     {
         totalPrice -= food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
+        /*
         fruit -= food.fruit;
         veg -= food.veg;
         grain -= food.grain;
@@ -117,6 +118,7 @@ public class Cart : MonoBehaviour
         protein -= food.protein;
         extra -= food.extra;
         calories -= food.calories;
+        */
         totalText.text = totalPrice.ToString();
         // updateTotal();
 

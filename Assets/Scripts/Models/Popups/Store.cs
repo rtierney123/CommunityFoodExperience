@@ -45,6 +45,7 @@ namespace UI {
 
         public void openVoucherPurchase()
         {
+            Debug.Log("Voucher");
             openPopUp(voucherPurchase);
         }
 

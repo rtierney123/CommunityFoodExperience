@@ -13,6 +13,7 @@ namespace UI {
         public CurrencyManager currencyManager;
         public CanvasController canvasController;
         public ErrorManager errorManager;
+        public GameObject successPopup;
 
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
@@ -91,14 +92,14 @@ namespace UI {
                     nutritionManager.addNutrition(item);
                 }
                 cart.clearAll();
-                closePopUps();
+                canvasController.forcePopupOpen(successPopup);
             } 
             
          
         }
 
 
-        private void closePopUps()
+        public void closePopUps()
         {
             if (canvasController != null)
             {

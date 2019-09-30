@@ -37,7 +37,7 @@ public class Cart : MonoBehaviour
     public void clearAll()
     {
         foodInCart.Clear();
-        populateGrid.cl
+        populateGrid.clearAll();
     }
 
 

@@ -40,7 +40,7 @@ public class PopulateGrid : MonoBehaviour
         Destroy(obj);
     }
 
-    public void clearAllItmes()
+    public void clearAll()
     {
         foreach ( GameObject child in this.transform)
         {

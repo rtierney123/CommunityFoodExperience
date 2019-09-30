@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class Nutrition : MonoBehaviour
 {
-    public GameObject nutrition;
     public Player player;
 
     public GameObject plusSignPopup;
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Transform child in nutrition.transform) {
+        foreach (Transform child in this.transform) {
             if (child.name == "CaloriesValue") {
                 child.gameObject.GetComponent<Text>().text = player.calories.ToString() + "/" + player.requiredCalories.ToString();
             } else if (child.name == "GrainValue") {

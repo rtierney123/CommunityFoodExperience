@@ -107,10 +107,10 @@ namespace Manage
             player.addVoucher(voucher);
         }
 
-        public void useVoucher(FoodType type)
+        public void useVoucher(Food food)
         {
             fundsSubtracted = true;
-            player.useVoucher(type);
+            player.useVoucher(food.wicType);
         }
     }
 }

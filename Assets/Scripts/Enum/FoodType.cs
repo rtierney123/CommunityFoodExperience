@@ -7,5 +7,6 @@ public enum FoodType
     Dairy = 3,
     Fruit = 4,
     Veg = 5,
-    Extra = 6
+    Extra = 6,
+    None = 7
 }

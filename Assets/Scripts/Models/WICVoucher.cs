@@ -12,25 +12,83 @@ public class WICVoucher : MonoBehaviour
 
     public void useVoucher(FoodType foodType)
     {
+        if (checkValid(foodType))
+        {
+            switch (foodType)
+            {
+                case FoodType.Fruit:
+                    fruitUsed = true;
+                    return;
+                case FoodType.Veg:
+                    vegUsed = true;
+                    return;
+                case FoodType.Grain:
+                    grainUsed = true;
+                    return;
+                case FoodType.Protein:
+                    proteinUsed = true;
+                    return;
+                case FoodType.Dairy:
+                    dairyUsed = true;
+                    return;
+            }
+        }
+  
+    }
+    public bool checkValid(FoodType foodType)
+    {
         switch (foodType)
         {
             case FoodType.Fruit:
-                fruitUsed = true;
-                break;
+                if (!fruitUsed)
+                {
+                    fruitUsed = true;
+                    return true;
+                } else
+                {
+                    return false;
+                }
             case FoodType.Veg:
-                vegUsed = true;
-                break;
+                if (!vegUsed)
+                {
+                    vegUsed = true;
+                    return true;
+                } else
+                {
+                    return false;
+                }
             case FoodType.Grain:
-                grainUsed = true;
-                break;
+                if (!grainUsed)
+                {
+                    grainUsed = true;
+                    return true;
+                } else
+                {
+                    return false;
+                }
             case FoodType.Protein:
-                proteinUsed = true;
-                break;
+                if (!proteinUsed)
+                {
+                    proteinUsed = true;
+                    return true;
+                } else
+                {
+                    return false;
+                }
             case FoodType.Dairy:
-                dairyUsed = true;
-                break;
+                if (!dairyUsed)
+                {
+                    dairyUsed = true;
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            default:
+                return false;
         }    
     }
+
 
     public bool voucherUsedUp()
     {

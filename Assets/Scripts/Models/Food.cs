@@ -30,8 +30,7 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
     public double macroFat;
     public double extra;
 
-
-
+    public FoodType wicType;
 
     public GameObject cartObject;
 
@@ -40,7 +39,11 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
 
     private Vector3 resetPosition;
     private Transform startParent;
- 
+
+    void Start()
+    {
+
+    }
     
     private static int foodID { get; set; }
 

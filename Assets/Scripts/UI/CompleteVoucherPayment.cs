@@ -7,11 +7,7 @@ public class CompleteVoucherPayment : MonoBehaviour
     public GameObject fruitCheck;
     public GameObject vegCheck;
     public GameObject proteinCheck;
-    public GameObject carbCheck;
+    public GameObject grainCheck;
     public GameObject dairyCheck;
 
-    public void checkValid()
-    {
-
-    }
 }

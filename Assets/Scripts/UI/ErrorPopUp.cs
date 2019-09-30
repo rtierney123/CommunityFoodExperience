@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ErrorPopUp : MonoBehaviour
+namespace UI
 {
-    public GameObject errorPopUp;
-    public void confirm() {
-        errorPopUp.SetActive(false);
+    public class ErrorPopUp : PopUp
+    {
+        public Text mainText;
+        public void setText(string message)
+        {
+            mainText.text = message;
+        }
     }
+
 }

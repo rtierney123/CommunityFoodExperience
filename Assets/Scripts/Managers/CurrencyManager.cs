@@ -55,7 +55,7 @@ namespace Manage
             minusSignPopUp.SetActive(false);
         }
 
-        public void addFunds(FundsType type, int amt)
+        public void addFunds(FundsType type, double amt)
         {
             fundsAdded = true;
             switch (type)
@@ -75,7 +75,7 @@ namespace Manage
             }
         }
 
-        public void subtractFunds(FundsType type, int amt)
+        public void subtractFunds(FundsType type, double amt)
         {
             fundsSubtracted = true;
             switch (type)

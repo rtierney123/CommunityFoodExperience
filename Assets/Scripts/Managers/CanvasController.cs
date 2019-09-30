@@ -21,6 +21,9 @@ namespace Manage
         bool allowClose;
         bool allowOpen;
         bool clickedUsed;
+
+        [HideInInspector]
+        public bool screenDisplayed;
         void Awake()
         {
             // Get both of the components we need to do this
@@ -28,6 +31,7 @@ namespace Manage
             allowClose = true;
             allowOpen = true;
             popUp = null;
+            screenDisplayed = false;
         }
 
         void Update()
@@ -100,6 +104,18 @@ namespace Manage
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             popUp = null;
+        }
+
+        public void openScreen(GameObject screen)
+        {
+            screen.SetActive(true);
+            screenDisplayed = true;
+        }
+
+        public void closeScreen(GameObject screen)
+        {
+            screen.SetActive(false);
+            screenDisplayed = false;
         }
 
         public void setStopTitle(string title)

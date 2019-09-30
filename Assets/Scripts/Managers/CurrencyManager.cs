@@ -26,15 +26,19 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-            if (fundsAdded && canvasController.popUp == null)
+            if(canvasController.popUp == null  && !canvasController.screenDisplayed)
             {
-                StartCoroutine(displayAddedFunds());
-            }
+                if (fundsAdded && canvasController.popUp == null)
+                {
+                    StartCoroutine(displayAddedFunds());
+                }
 
-            if (fundsSubtracted && canvasController.popUp == null)
-            {
-                StartCoroutine(displaySubtractedFunds());
+                if (fundsSubtracted && canvasController.popUp == null)
+                {
+                    StartCoroutine(displaySubtractedFunds());
+                }
             }
+            
 
 
         }
@@ -73,6 +77,7 @@ namespace Manage
                     player.addCTC(amt);
                     break;
             }
+            walletDisplay.updateWallet();
         }
 
         public void subtractFunds(FundsType type, double amt)
@@ -93,6 +98,7 @@ namespace Manage
                     player.subtractCTC(amt);
                     break;
             }
+            walletDisplay.updateWallet();
         }
 
         public void addWICVoucher(WICVoucher voucher)

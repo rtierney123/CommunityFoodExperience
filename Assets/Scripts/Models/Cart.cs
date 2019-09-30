@@ -38,6 +38,8 @@ public class Cart : MonoBehaviour
     {
         foodInCart.Clear();
         populateGrid.clearAll();
+        totalPrice = 0;
+        updateTotal();
     }
 
 

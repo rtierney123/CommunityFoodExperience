@@ -51,7 +51,6 @@ namespace UI {
 
         public void openVoucherPurchase()
         {
-            Debug.Log("Voucher");
             openPopUp(voucherPurchase);
         }
 
@@ -68,7 +67,7 @@ namespace UI {
         {
 
             closePopUps();
-            this.gameObject.SetActive(false);
+            canvasController.closeScreen(this.gameObject);
         }
 
 
@@ -91,6 +90,7 @@ namespace UI {
                 {
                     nutritionManager.addNutrition(item);
                 }
+                cart.clearAll();
                 closePopUps();
             } 
             

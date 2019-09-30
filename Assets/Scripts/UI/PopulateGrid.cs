@@ -42,9 +42,9 @@ public class PopulateGrid : MonoBehaviour
 
     public void clearAll()
     {
-        foreach ( GameObject child in this.transform)
+        foreach (Transform child in this.transform)
         {
-            removeItem(child);
+            removeItem(child.gameObject);
         }
     }
 

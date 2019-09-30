@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         dairy += food.dairy;
         fruit += food.fruit;
         vegetabele += food.veg;
-        extra = food.extra;
+        extra += food.extra;
 
     }
 

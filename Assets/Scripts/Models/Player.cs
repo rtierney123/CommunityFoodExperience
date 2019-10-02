@@ -156,11 +156,11 @@ public class Player : MonoBehaviour
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
-    public void useVoucher(FoodType foodType)
+    public void useVoucher(Food food)
     {
         if(wicVoicher != null)
         {
-            wicVoicher.checkValid(foodType);
+            wicVoicher.checkValid(food);
             if (wicVoicher.voucherUsedUp())
             {
                 wicVoicher = null;

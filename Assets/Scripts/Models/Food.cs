@@ -39,11 +39,6 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
 
     private Vector3 resetPosition;
     private Transform startParent;
-
-    void Start()
-    {
-
-    }
     
     private static int foodID { get; set; }
 

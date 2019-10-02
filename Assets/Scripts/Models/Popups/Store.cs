@@ -247,9 +247,9 @@ namespace UI {
 
         private bool validateWICPurchase()
         {
-           
+            return true;
             
-            return valid;
+           // return valid;
         }
 
         private void displayDuplicateError()

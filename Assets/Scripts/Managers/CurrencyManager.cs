@@ -110,7 +110,7 @@ namespace Manage
         public void useVoucher(Food food)
         {
             fundsSubtracted = true;
-            player.useVoucher(food.wicType);
+            player.useVoucher(food);
         }
     }
 }

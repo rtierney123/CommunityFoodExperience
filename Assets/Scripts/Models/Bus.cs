@@ -54,15 +54,15 @@ public class Bus : MonoBehaviour
         {
             manager.handleBusStoppedEvent();
         }
-        Debug.Log("start stop");
-        Debug.Log(stopLocation.ToString());
+       // Debug.Log("start stop");
+       // Debug.Log(stopLocation.ToString());
     }
 
     public void resumeRoute()
     {
         mapLocation = MapLocations.OnRoad;
         atStop = false;
-        Debug.Log("resume route");
+        //Debug.Log("resume route");
         manager.handleBusLeavingEvent();
     }
 

@@ -24,7 +24,7 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-            if (nutritionAdded && canvasController.popUp == null)
+            if (nutritionAdded && canvasController.popUp == null && !canvasController.screenDisplayed)
             {
                 StartCoroutine(displayAddedNutrition());
             }
@@ -34,6 +34,7 @@ namespace Manage
         {
             player.addNutrition(food);
             nutritionAdded = true;
+            nutritionDisplay.updateInfo();
         }
 
         public IEnumerator displayAddedNutrition()

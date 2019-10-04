@@ -28,19 +28,7 @@ public class Wallet : MonoBehaviour
         setInactive();
         walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
         walletTabBody.SetActive(true);
-        foreach (Transform child in walletTabBody.transform) {
-            if (child.name == "CashValue") {
-                child.gameObject.GetComponent<Text>().text = player.money.ToString();
-            } else if (child.name == "SNAPValue") {
-                child.gameObject.GetComponent<Text>().text = player.snapFunds.ToString();
-            } else if (child.name == "WICValue") {
-                // child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
-            } else if (child.name == "EITCValue") {
-                child.gameObject.GetComponent<Text>().text = player.eitcFunds.ToString();
-            } else if (child.name == "CTCValue") {
-                child.gameObject.GetComponent<Text>().text = player.ctcFunds.ToString();
-            } 
-        }
+        updateWallet();
     }
 
     public void selectInfoTab() {
@@ -68,6 +56,33 @@ public class Wallet : MonoBehaviour
         setInactive();
         transportationTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
         transportationTabBody.SetActive(true);
+    }
+
+    public void updateWallet()
+    {
+        foreach (Transform child in walletTabBody.transform)
+        {
+            if (child.name == "CashValue")
+            {
+                child.gameObject.GetComponent<Text>().text = player.money.ToString();
+            }
+            else if (child.name == "SNAPValue")
+            {
+                child.gameObject.GetComponent<Text>().text = player.snapFunds.ToString();
+            }
+            else if (child.name == "WICValue")
+            {
+                // child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
+            }
+            else if (child.name == "EITCValue")
+            {
+                child.gameObject.GetComponent<Text>().text = player.eitcFunds.ToString();
+            }
+            else if (child.name == "CTCValue")
+            {
+                child.gameObject.GetComponent<Text>().text = player.ctcFunds.ToString();
+            }
+        }
     }
 
     private void setInactive() {

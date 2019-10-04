@@ -40,4 +40,12 @@ public class PopulateGrid : MonoBehaviour
         Destroy(obj);
     }
 
+    public void clearAll()
+    {
+        foreach (Transform child in this.transform)
+        {
+            removeItem(child.gameObject);
+        }
+    }
+
 }

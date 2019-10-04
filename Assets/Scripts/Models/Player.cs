@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
 
     public double money = 15;
     public double snapFunds = 0;
-    public List<WICVoucher> wicVoichers;
     public double ctcFunds = 0;
     public double eitcFunds = 0;
 
@@ -54,9 +53,14 @@ public class Player : MonoBehaviour
     public double requiredVegetable = 2;
     public double requiredExtra = 0;
 
+    [HideInInspector]
+    public WICVoucher wicVoicher;
+    private bool wicUsed;
+
     private void Start()
     {
-        wicVoichers = new List<WICVoucher>();
+        wicVoicher = null;
+        wicUsed = false;
     }
 
     //string[] foodAcquired = [];
@@ -92,12 +96,12 @@ public class Player : MonoBehaviour
     {
         calories += food.calories;
         grain += food.grain;
-        fat += food.fat;
-        protein += food.protein;
+        fat += food.macroFat;
+        protein += food.macroProtein;
         dairy += food.dairy;
         fruit += food.fruit;
         vegetabele += food.veg;
-        extra = food.extra;
+        extra += food.extra;
 
     }
 
@@ -143,21 +147,28 @@ public class Player : MonoBehaviour
 
     public void addVoucher(WICVoucher voucher)
     {
-        wicVoichers.Add(voucher);
+        if (!wicUsed)
+        {
+            wicVoicher = voucher;
+        }
+       
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
-    public void useVoucher(FoodType foodType)
+    public void useVoucher(Food food)
     {
-        if(wicVoichers.Count > 0)
+        if(wicVoicher != null)
         {
-            wicVoichers[0].useVoucher(foodType);
-            if (wicVoichers[0].voucherUsedUp())
+            wicVoicher.checkValid(food);
+            if (wicVoicher.voucherUsedUp())
             {
-                wicVoichers.RemoveAt(0);
+                wicVoicher = null;
+                wicUsed = true;
             }
         }
+    
+        
     }
 
     public string formatFunds(double funds)

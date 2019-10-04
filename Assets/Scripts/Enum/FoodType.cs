@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 public enum FoodType
 {
-    Grain = 0,
-    Fat = 1,
-    Protein = 2,
-    Dairy = 3,
-    Fruit = 4,
-    Veg = 5,
-    Extra = 6
+    None = 0,
+    Grain = 1,
+    Fat = 2,
+    Protein = 3,
+    Dairy = 4,
+    Fruit = 5,
+    Veg = 6,
+    Extra = 7
+  
 }

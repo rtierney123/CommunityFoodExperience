@@ -10,45 +10,11 @@ public class Cart : MonoBehaviour
     public RectTransform cartTransform;
     public PopulateGrid populateGrid;
     public Text totalText;
+    [HideInInspector]
     public HashSet<Food> foodInCart;
-    private double totalPrice;
-    
-    private double fruit;
-    private double veg;
-    private double grain;
-    private double fat;
-    private double dairy;
-    private double protein;
-    private double extra;
-    private double calories;
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-    public double getFruit() {
-        return fruit;
-    }
-    public double getVeg() {
-        return veg;
-    }
-    public double getGrain() {
-        return grain;
-    }
-    public double getFat() {
-        return fat;
-    }
-    public double getDairy() {
-        return dairy;
-    }
-    public double getProtein() {
-        return protein;
-    }
-    public double getExtra() {
-        return extra;
-    }
-    public double getCalories() {
-        return calories;
-    }
+    
+    private double totalPrice;
   
     public void Start()
     {
@@ -68,6 +34,15 @@ public class Cart : MonoBehaviour
         }
     }
 
+    public void clearAll()
+    {
+        foodInCart.Clear();
+        populateGrid.clearAll();
+        totalPrice = 0;
+        updateTotal();
+    }
+
+
     private bool inCart(Vector3 position)
     {
         if (RectTransformUtility.RectangleContainsScreenPoint(cartTransform,
@@ -83,17 +58,8 @@ public class Cart : MonoBehaviour
     private void addItem(Food food) {
         totalPrice += food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
-        fruit += food.fruit;
-        veg += food.veg;
-        grain += food.grain;
-        fat += food.fat;
-        dairy += food.dairy;
-        protein += food.protein;
-        extra += food.extra;
-        calories += food.calories;
-        totalText.text = totalPrice.ToString();
 
-        // updateTotal();
+         updateTotal();
 
         GameObject icon = populateGrid.addCartItem(food.cartObject);
         foodInCart.Add(food);
@@ -109,25 +75,15 @@ public class Cart : MonoBehaviour
     {
         totalPrice -= food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
-        fruit -= food.fruit;
-        veg -= food.veg;
-        grain -= food.grain;
-        fat -= food.fat;
-        dairy -= food.dairy;
-        protein -= food.protein;
-        extra -= food.extra;
-        calories -= food.calories;
-        totalText.text = totalPrice.ToString();
-        // updateTotal();
+
+        updateTotal();
 
         populateGrid.removeItem(icon);
         foodInCart.Remove(food);
-
-        foodInCart.Remove(food);
     }
 
-    // private void updateTotal()
-    // {
-    //     totalText.text = totalPrice.ToString();
-    // }
+    private void updateTotal()
+    {
+        totalText.text = totalPrice.ToString();
+    }
 }

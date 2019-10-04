@@ -164,9 +164,8 @@ namespace Manage
             yield return new WaitForSeconds(locationScreenDelay);
             if (currentLocation.mainScreen != null)
             {
-                //canvasController.openPopup(currentLocation.mainScreen);
                 canvasController.closePopUp();
-                currentLocation.mainScreen.SetActive(true);
+                canvasController.openScreen(currentLocation.mainScreen);
             }
         }
 

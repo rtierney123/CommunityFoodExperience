@@ -26,15 +26,19 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-            if (fundsAdded && canvasController.popUp == null)
+            if(canvasController.popUp == null  && !canvasController.screenDisplayed)
             {
-                StartCoroutine(displayAddedFunds());
-            }
+                if (fundsAdded && canvasController.popUp == null)
+                {
+                    StartCoroutine(displayAddedFunds());
+                }
 
-            if (fundsSubtracted && canvasController.popUp == null)
-            {
-                StartCoroutine(displaySubtractedFunds());
+                if (fundsSubtracted && canvasController.popUp == null)
+                {
+                    StartCoroutine(displaySubtractedFunds());
+                }
             }
+            
 
 
         }
@@ -55,7 +59,7 @@ namespace Manage
             minusSignPopUp.SetActive(false);
         }
 
-        public void addFunds(FundsType type, int amt)
+        public void addFunds(FundsType type, double amt)
         {
             fundsAdded = true;
             switch (type)
@@ -73,9 +77,10 @@ namespace Manage
                     player.addCTC(amt);
                     break;
             }
+            walletDisplay.updateWallet();
         }
 
-        public void subtractFunds(FundsType type, int amt)
+        public void subtractFunds(FundsType type, double amt)
         {
             fundsSubtracted = true;
             switch (type)
@@ -93,6 +98,7 @@ namespace Manage
                     player.subtractCTC(amt);
                     break;
             }
+            walletDisplay.updateWallet();
         }
 
         public void addWICVoucher(WICVoucher voucher)
@@ -101,10 +107,10 @@ namespace Manage
             player.addVoucher(voucher);
         }
 
-        public void useVoucher(FoodType type)
+        public void useVoucher(Food food)
         {
             fundsSubtracted = true;
-            player.useVoucher(type);
+            player.useVoucher(food);
         }
     }
 }

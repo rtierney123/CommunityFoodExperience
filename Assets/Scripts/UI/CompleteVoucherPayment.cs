@@ -8,7 +8,7 @@ public class CompleteVoucherPayment : MonoBehaviour
 
     public Store store;
     public WICVoucher voucher;
-
+    
     void OnEnable()
     {
         Cart cart = store.cart;
@@ -20,6 +20,11 @@ public class CompleteVoucherPayment : MonoBehaviour
         {
             voucher.displayPotentialCheck(food);
         }
+    }
+
+    private void OnDisable()
+    {
+        voucher.clearTempChecks();
     }
 
 

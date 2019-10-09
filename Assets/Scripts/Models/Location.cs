@@ -37,7 +37,7 @@ namespace Model
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    manager.startLocationPopup(this);
+                    manager.startLocationScreen(this);
                 }
             }
 

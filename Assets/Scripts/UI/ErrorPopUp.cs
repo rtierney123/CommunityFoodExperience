@@ -8,6 +8,8 @@ namespace UI
     public class ErrorPopUp : PopUp
     {
         public Text mainText;
+
+
         public void setText(string message)
         {
             mainText.text = message;

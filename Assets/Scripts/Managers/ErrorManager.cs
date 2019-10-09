@@ -8,15 +8,13 @@ namespace Manage
     {
         public CanvasController canvasController;
         public ErrorPopUp standardErrorPopup;
-        public GameObject standardErrorGameObject;
 
         public void generateStandardMessage(string message)
         {
             
             standardErrorPopup.setText(message);
-            canvasController.forcePopupOpen(standardErrorGameObject);
-            Debug.Log("open error");
-
+            GameObject popup = standardErrorPopup.gameObject;
+            canvasController.forcePopupOpen(popup);
 
         }
     }

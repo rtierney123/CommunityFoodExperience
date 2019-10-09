@@ -653,7 +653,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3243962020415933489, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
 --- !u!224 &179024513 stripped
 RectTransform:
@@ -1679,11 +1680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2400805853212428851, guid: d3680a4add988f342b82288fae3f5648,
-        type: 3}
-      propertyPath: characterName
-      value: John Smith Jr
-      objectReference: {fileID: 0}
     - target: {fileID: 2400805852948190458, guid: d3680a4add988f342b82288fae3f5648,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2443,7 +2439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c45d90aa186b334eb27e03aed00cda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
 --- !u!1 &985786179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,10 +2919,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8428333099517556273, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.000000059604645
+      objectReference: {fileID: 0}
     - target: {fileID: 6455645553475273047, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -613
+      value: -605.2
       objectReference: {fileID: 0}
     - target: {fileID: 6455645553475273047, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
@@ -5094,7 +5094,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1193828603}
   standardErrorPopup: {fileID: 68553710}
-  standardErrorGameObject: {fileID: 68553707}
 --- !u!4 &1898436624
 Transform:
   m_ObjectHideFlags: 0

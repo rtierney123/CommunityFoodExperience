@@ -92,10 +92,8 @@ public class WICVoucher : MonoBehaviour
 
     public void clearTempChecks()
     {
-        Debug.Log("clear");
         if (!fruitUsed)
         {
-            Debug.Log("fruit");
             fruitCheck.SetActive(false);
         }
         if (!vegUsed)
@@ -122,45 +120,15 @@ public class WICVoucher : MonoBehaviour
         switch (foodType)
         {
             case FoodType.Fruit:
-                if (!fruitUsed)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return !fruitUsed;
             case FoodType.Veg:
-                if (!vegUsed)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return !vegUsed;
             case FoodType.Grain:
-                if (!grainUsed)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return !grainUsed;
             case FoodType.Protein:
-                if (!proteinUsed)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return !proteinUsed;
             case FoodType.Dairy:
-                if (!dairyUsed)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
+                return !dairyUsed;
             default:
                 return false;
         }    
@@ -177,7 +145,6 @@ public class WICVoucher : MonoBehaviour
         if (voucher.fruitUsed)
         {
             useVoucher(FoodType.Fruit);
-            Debug.Log("fruit copy");
         }
         if (voucher.vegUsed)
         {

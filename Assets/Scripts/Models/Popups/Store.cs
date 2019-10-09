@@ -52,7 +52,36 @@ namespace UI {
 
         public void openVoucherPurchase()
         {
-            openPopUp(voucherPurchase);
+            Debug.Log("open");
+            if (checkVoucherCart())
+            {
+                Debug.Log("voucher valid");
+                openPopUp(voucherPurchase);
+            }
+
+        }
+
+        private bool checkVoucherCart()
+        {
+            bool valid = true;
+            HashSet<Food> foods = cart.foodInCart;
+            foreach(Food food in foods)
+            {
+                FoodType foodType = food.wicType;
+                if(foodType == FoodType.None)
+                {
+                    valid = false;
+                    errorManager.generateStandardMessage("Non-wic item in cart.");
+                    Debug.Log("non-wic");
+                }
+                else if (!player.wicVoicher.checkValid(food))
+                {
+                    valid = false;
+                    errorManager.generateStandardMessage("Wic item category already used.");
+                }
+            }
+
+            return valid;
         }
 
         public void openPopUp(GameObject popUp)

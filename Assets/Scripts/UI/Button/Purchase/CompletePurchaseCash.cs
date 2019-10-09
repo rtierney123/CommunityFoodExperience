@@ -43,9 +43,6 @@ namespace UI
                 eitcValue.text = resetValue;
                 ctcValue.text = resetValue;
                 snapValue.text = resetValue;
-                Debug.Log("snap value "+ snap);
-
-
             }
             catch (FormatException)
             {

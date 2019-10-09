@@ -11,19 +11,20 @@ public class CompleteVoucherPayment : MonoBehaviour
     
     void OnEnable()
     {
+        Debug.Log("enabled");
         Cart cart = store.cart;
         HashSet<Food> foods = cart.foodInCart;
 
-        Debug.Log("voucher enabled");
-
+        Debug.Log(foods.Count);
         foreach(Food food in foods)
         {
             voucher.displayPotentialCheck(food);
         }
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
+        Debug.Log("clear");
         voucher.clearTempChecks();
     }
 

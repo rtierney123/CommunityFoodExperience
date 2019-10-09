@@ -30,6 +30,7 @@ public class WICVoucher : MonoBehaviour
             switch (foodType)
             {
                 case FoodType.Fruit:
+                    Debug.Log("fruit used");
                     fruitUsed = true;
                     displayPermCheck(fruitCheck);
                     return;
@@ -83,8 +84,10 @@ public class WICVoucher : MonoBehaviour
 
     public void clearTempChecks()
     {
+        Debug.Log("clear");
         if (!fruitUsed)
         {
+            Debug.Log("fruit");
             fruitCheck.SetActive(false);
         }
         if (!vegUsed)
@@ -113,7 +116,6 @@ public class WICVoucher : MonoBehaviour
             case FoodType.Fruit:
                 if (!fruitUsed)
                 {
-                    fruitUsed = true;
                     return true;
                 } else
                 {
@@ -122,7 +124,6 @@ public class WICVoucher : MonoBehaviour
             case FoodType.Veg:
                 if (!vegUsed)
                 {
-                    vegUsed = true;
                     return true;
                 } else
                 {
@@ -131,7 +132,6 @@ public class WICVoucher : MonoBehaviour
             case FoodType.Grain:
                 if (!grainUsed)
                 {
-                    grainUsed = true;
                     return true;
                 } else
                 {
@@ -140,7 +140,6 @@ public class WICVoucher : MonoBehaviour
             case FoodType.Protein:
                 if (!proteinUsed)
                 {
-                    proteinUsed = true;
                     return true;
                 } else
                 {
@@ -149,7 +148,6 @@ public class WICVoucher : MonoBehaviour
             case FoodType.Dairy:
                 if (!dairyUsed)
                 {
-                    dairyUsed = true;
                     return true;
                 } else
                 {

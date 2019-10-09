@@ -53,14 +53,12 @@ public class Player : MonoBehaviour
     public double requiredVegetable = 2;
     public double requiredExtra = 0;
 
-    [HideInInspector]
     public WICVoucher wicVoicher;
-    private bool wicUsed;
+    private bool hasWic = false;
 
     private void Start()
     {
-        wicVoicher = null;
-        wicUsed = false;
+        addVoucher();
     }
 
     //string[] foodAcquired = [];
@@ -145,13 +143,10 @@ public class Player : MonoBehaviour
         ctcFunds -= funds;
     }
 
-    public void addVoucher(WICVoucher voucher)
+    public void addVoucher()
     {
-        if (!wicUsed)
-        {
-            wicVoicher = voucher;
-        }
-
+        hasWic = true;
+        wicVoicher.gameObject.SetActive(true);
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers
@@ -160,12 +155,11 @@ public class Player : MonoBehaviour
     {
         if (wicVoicher != null)
         {
-            wicVoicher.checkValid(food);
-            if (wicVoicher.voucherUsedUp())
+            if (wicVoicher.checkValid(food))
             {
-                wicVoicher = null;
-                wicUsed = true;
+                wicVoicher.useVoucher(food);
             }
+
         }
 
 

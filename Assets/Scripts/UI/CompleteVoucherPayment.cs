@@ -11,11 +11,12 @@ public class CompleteVoucherPayment : MonoBehaviour
     
     void OnEnable()
     {
-        Debug.Log("enabled");
         Cart cart = store.cart;
         HashSet<Food> foods = cart.foodInCart;
 
-        Debug.Log(foods.Count);
+        Player player = store.player;
+        WICVoucher playerVoucher = player.wicVoicher;
+        voucher.copy(playerVoucher);
         foreach(Food food in foods)
         {
             voucher.displayPotentialCheck(food);

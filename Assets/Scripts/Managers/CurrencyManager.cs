@@ -104,7 +104,7 @@ namespace Manage
         public void addWICVoucher(WICVoucher voucher)
         {
             fundsAdded = true;
-            player.addVoucher(voucher);
+            player.addVoucher();
         }
 
         public void useVoucher(Food food)

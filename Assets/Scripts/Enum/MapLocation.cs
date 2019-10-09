@@ -1,8 +1,9 @@
 ﻿public enum MapLocations
 {
     OnRoad = 0,
-    House = 1,
-    CommunityFoodKitchen = 2,
+    BusStop = 1,
     FoodTiger = 3,
-    CornerStore = 4
+	WIC = 5,
+	FoodPantry = 6,
+	VitaSnap = 7,
 }

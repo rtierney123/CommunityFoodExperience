@@ -50,7 +50,7 @@ namespace Manage
 
         }
 
-        public void startLocationPopup(Location location)
+        public void startLocationScreen(Location location)
         {
             if (!bus.playerOnBus)
             {

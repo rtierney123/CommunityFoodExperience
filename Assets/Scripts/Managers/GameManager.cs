@@ -7,7 +7,7 @@ namespace Manage{
     public class GameManager : MonoBehaviour
     {
 
-        public int timeRemaining;
+        //public int timeRemaining;
 
         // Start is called before the first frame update
         void Start()
@@ -23,7 +23,7 @@ namespace Manage{
 
         public void subtractTime(int time)
         {
-            timeRemaining -= time;
+
         }
     }
 }

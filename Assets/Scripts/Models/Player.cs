@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
- 
+
 
     // temp player info. will place in better place later
     public string characterName = "John Smith";
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     public double eitcFunds = 0;
 
     public int progress = 0;
-    
+
     public double calories = 0;
     public double grain = 0;
     public double fat = 0;
@@ -68,14 +68,14 @@ public class Player : MonoBehaviour
     // view player information
     public int[] getNutrition()
     {
-    // return { carbs, protein, fruits, veggies};
-    return null;
+        // return { carbs, protein, fruits, veggies};
+        return null;
     }
     public int getProgress()
     {
         return progress;
     }
-    
+
     //.....
 
     // update player information
@@ -151,14 +151,14 @@ public class Player : MonoBehaviour
         {
             wicVoicher = voucher;
         }
-       
+
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
     public void useVoucher(Food food)
     {
-        if(wicVoicher != null)
+        if (wicVoicher != null)
         {
             wicVoicher.checkValid(food);
             if (wicVoicher.voucherUsedUp())
@@ -167,8 +167,8 @@ public class Player : MonoBehaviour
                 wicUsed = true;
             }
         }
-    
-        
+
+
     }
 
     public string formatFunds(double funds)
@@ -176,5 +176,15 @@ public class Player : MonoBehaviour
         return String.Format("{0:0.##}", funds);
     }
 
+    public string getInfo(FormQuestionType question)
+    {
+        switch(question)
+        {
+            case FormQuestionType.Name:
+                return name;
+        }
+        return "";
+            
+    }
 
 }

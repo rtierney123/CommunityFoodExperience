@@ -438,7 +438,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4393967337081976274}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.87225324
+  m_Size: 0.8680769
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1022,6 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d16ed96ded7314896209a166df3c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
   content: []
   cart: {fileID: 9142653146104956846}
   grid: {fileID: 3739203973467739710}
@@ -1083,7 +1084,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 300}
+  m_CellSize: {x: 150, y: 200}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 4
@@ -1431,10 +1432,10 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 150, y: 200}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 1
-  m_ConstraintCount: 4
+  m_ConstraintCount: 3
 --- !u!114 &5982146958608280917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,6 +2636,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5723337206866585330, guid: 4f28a24a9c27945dd88088ad0809c667,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 2144075669}
     - target: {fileID: 8638092898469777646, guid: 4f28a24a9c27945dd88088ad0809c667,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2740,21 +2746,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5723337206866585330, guid: 4f28a24a9c27945dd88088ad0809c667,
-        type: 3}
-      propertyPath: store
-      value: 
-      objectReference: {fileID: 2144075669}
-    - target: {fileID: 2513251349675234472, guid: 4f28a24a9c27945dd88088ad0809c667,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2144075669}
     - target: {fileID: 8972245905272638751, guid: 4f28a24a9c27945dd88088ad0809c667,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2513251349675234472, guid: 4f28a24a9c27945dd88088ad0809c667,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2144075669}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f28a24a9c27945dd88088ad0809c667, type: 3}
 --- !u!1 &1033238423152358964 stripped
@@ -3851,6 +3852,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 2144075669}
+    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: cashValue
+      value: 
+      objectReference: {fileID: 7342655980724768367}
+    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: eitcValue
+      value: 
+      objectReference: {fileID: 6063406070212819136}
+    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: ctcValue
+      value: 
+      objectReference: {fileID: 156176538360369933}
+    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
+        type: 3}
+      propertyPath: snapValue
+      value: 
+      objectReference: {fileID: 4520942391038248419}
     - target: {fileID: 6790062663682884852, guid: f848c67f605f96c4c84068c6ee26711f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3956,31 +3982,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
-        type: 3}
-      propertyPath: store
-      value: 
-      objectReference: {fileID: 2144075669}
-    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
-        type: 3}
-      propertyPath: cashValue
-      value: 
-      objectReference: {fileID: 7342655980724768367}
-    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
-        type: 3}
-      propertyPath: eitcValue
-      value: 
-      objectReference: {fileID: 6063406070212819136}
-    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
-        type: 3}
-      propertyPath: ctcValue
-      value: 
-      objectReference: {fileID: 156176538360369933}
-    - target: {fileID: 7952019397630498037, guid: f848c67f605f96c4c84068c6ee26711f,
-        type: 3}
-      propertyPath: snapValue
-      value: 
-      objectReference: {fileID: 4520942391038248419}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f848c67f605f96c4c84068c6ee26711f, type: 3}
 --- !u!1 &7342655980380476599 stripped

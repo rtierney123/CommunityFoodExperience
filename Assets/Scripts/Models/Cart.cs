@@ -64,8 +64,10 @@ public class Cart : MonoBehaviour
         GameObject icon = populateGrid.addCartItem(food.cartObject);
         foodInCart.Add(food);
 
-        Transform minusObject = icon.transform.GetChild(0);
+        Transform minusObject = icon.transform.GetChild(1);
+        minusObject.gameObject.SetActive(true);
         Button minusButton = minusObject.GetComponent<Button>();
+
         minusButton.onClick.AddListener(() => removeItemFromCart(food, icon));
 
         
@@ -80,6 +82,7 @@ public class Cart : MonoBehaviour
 
         populateGrid.removeItem(icon);
         foodInCart.Remove(food);
+        Debug.Log("item removed");
     }
 
     private void updateTotal()

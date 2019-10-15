@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
+    public CanvasController canvasController;
     public Food[] content;
     public Cart cart;
     public PopulateGrid grid;
@@ -14,6 +16,7 @@ public class Shelf : MonoBehaviour
         foreach(Food food in content)
         {
             food.setCart(cart);
+            food.canvasController = canvasController;
             grid.addItem(food.getGameObject());
         }
     }

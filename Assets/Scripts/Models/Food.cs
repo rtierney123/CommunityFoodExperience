@@ -1,16 +1,25 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDragHandler
 {
 
-    private string name;
-    [HideInInspector]
+    public Text nameText;
+    public Text caloriesText;
+    public Text fatText;
+    public Text proteinText;
+    public Text grainText;
+    public Text fruitText;
+    public Text vegText;
+    public Text extraText;
+
+    public string name;
     public double cost;
-    [HideInInspector]
     public double calories;
     private double fat;
     private double satFat;
@@ -36,6 +45,10 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
 
     [HideInInspector]
     public Cart cart;
+    [HideInInspector]
+    public CanvasController canvasController;
+
+    public GameObject backCard;
 
     private Vector3 resetPosition;
     private Transform startParent;
@@ -68,12 +81,41 @@ public class Food : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDr
         
     }
 
+    public void flipCardBack()
+    {
+        if(canvasController != null)
+        {
+            canvasController.openPopup(backCard);
+        } else
+        {
+            Debug.Log("CanvasController not set");
+        }
+    }
+
+    public void flipCardForward()
+    {
+        if (canvasController != null)
+        {
+            canvasController.closePopUp(backCard);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         resetPosition = transform.position;
         startParent = this.transform.parent;
+        cartObject = this.gameObject;
+
+        nameText.text = name;
+        caloriesText.text = calories.ToString();
+        fatText.text = fat.ToString();
+        proteinText.text = protein.ToString();
+        grainText.text = grain.ToString();
+        fruitText.text = fruit.ToString();
+        vegText.text = veg.ToString();
+        extraText.text = extra.ToString();
+
     }
 
     void Awake()

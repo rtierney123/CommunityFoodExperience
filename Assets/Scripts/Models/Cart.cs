@@ -57,12 +57,12 @@ public class Cart : MonoBehaviour
 
     private void addItem(FoodCard card) {
         Food food = card.food;
-        totalPrice += food.cost;
+        totalPrice += food.price;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 
          updateTotal();
 
-        GameObject icon = populateGrid.addCartItem(food.gameObject);
+        GameObject icon = populateGrid.addCartItem(card.gameObject);
         foodInCart.Add(food);
 
         Transform minusObject = icon.transform.GetChild(1);
@@ -77,7 +77,7 @@ public class Cart : MonoBehaviour
     private void removeItemFromCart(FoodCard card, GameObject icon)
     {
         Food food = card.food;
-        totalPrice -= food.cost;
+        totalPrice -= food.price;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 
         updateTotal();

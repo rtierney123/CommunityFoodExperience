@@ -5,32 +5,40 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
-public class Food : MonoBehaviour
+[System.Serializable]
+public class Food
 {
 
-    public string name { get; set; }
-    public double cost { get; set; }
-    public double calories { get; set; }
-    private double fat { get; set; }
-    private double satFat { get; set; }
-    private double cholestrol { get; set; }
-    private double sodium { get; set; }
-    private double carbs { get; set; }
-    private double fiber { get; set; }
-    private double sugar { get; set; }
-    private double protein { get; set; }
-    private bool wic { get; set; }
-
-    public double fruit { get; set; }
-    public double veg { get; set; }
-    public double grain { get; set; }
-    public double dairy { get; set; }
-    public double macroProtein { get; set; }
-    public double macroFat { get; set; }
-    public double extra { get; set; }
-
-
+    public string name;
+    public double price;
+    public double calories;
+    [SerializeField, HideInInspector]
+    public MyPlateNutrition nutrition;
     public FoodType wicType;
+
+    private double fat;
+    private double saturatedFat;
+    private double cholesterol;
+    private double sodium;
+    private double carbohydrates;
+    private double fiber;
+    private double sugar;
+    private double protein;
+    private bool wic;
+
+    private string imgPath;
+
+    [System.Serializable]
+    public class MyPlateNutrition
+    {
+        public double fruit;
+        public double veg;
+        public double grain;
+        public double dairy;
+        public double protein;
+        public double fat;
+        public double extra;
+    }
+
 
 }

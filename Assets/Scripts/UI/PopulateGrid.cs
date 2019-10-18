@@ -1,29 +1,22 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PopulateGrid : MonoBehaviour
 {
+    public CanvasController canvasController;
+    public Cart cart;
 
-    public Vector2 minusPosition;
-    public GameObject minusSignObject;
+    public FoodCard cardPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    public FoodCard addItemToShelf(Food food)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public GameObject addItem(GameObject obj)
-    {
-        GameObject item = (GameObject)Instantiate(obj, transform);
-        return item;
+        FoodCard foodCard = Instantiate<FoodCard>(cardPrefab, transform);
+        foodCard.setFood(food);
+        foodCard.setCart(cart);
+        foodCard.canvasController = canvasController;
+        return foodCard;
     }
 
     public GameObject addCartItem(GameObject obj)

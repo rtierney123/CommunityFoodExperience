@@ -85,14 +85,9 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         resetPosition = transform.position;
         startParent = this.transform.parent;
 
-        nameText.text = name;
-        caloriesText.text = FormatText.formatDouble(food.calories);
-        fatText.text = FormatText.formatDouble(food.macroFat);
-        proteinText.text = FormatText.formatDouble(food.macroProtein);
-        grainText.text = FormatText.formatDouble(food.grain);
-        fruitText.text = FormatText.formatDouble(food.fruit);
-        vegText.text = FormatText.formatDouble(food.veg);
-        extraText.text = FormatText.formatDouble(food.extra);
+        
+        display();
+   
 
     }
 
@@ -112,4 +107,29 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         return this.gameObject;
     }
 
+    public void setFood(Food foodItem)
+    {
+        food = foodItem;
+        display();
+    }
+
+    private void display()
+    {
+        Debug.Log("update display");
+        
+        if (food != null)
+        {
+            nameText.text = food.name;
+            caloriesText.text = FormatText.formatDouble(food.calories);
+            fatText.text = FormatText.formatDouble(food.nutrition.fat);
+            proteinText.text = FormatText.formatDouble(food.nutrition.protein);
+            grainText.text = FormatText.formatDouble(food.nutrition.grain);
+            fruitText.text = FormatText.formatDouble(food.nutrition.fruit);
+            vegText.text = FormatText.formatDouble(food.nutrition.veg);
+            extraText.text = FormatText.formatDouble(food.nutrition.extra);
+
+        }
+    }
+
+   
 }

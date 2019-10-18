@@ -93,13 +93,13 @@ public class Player : MonoBehaviour
     public void addNutrition(Food food)
     {
         calories += food.calories;
-        grain += food.grain;
-        fat += food.macroFat;
-        protein += food.macroProtein;
-        dairy += food.dairy;
-        fruit += food.fruit;
-        vegetabele += food.veg;
-        extra += food.extra;
+        grain += food.nutrition.grain;
+        fat += food.nutrition.fat;
+        protein += food.nutrition.protein;
+        dairy += food.nutrition.dairy;
+        fruit += food.nutrition.fruit;
+        vegetabele += food.nutrition.veg;
+        extra += food.nutrition.extra;
 
     }
 

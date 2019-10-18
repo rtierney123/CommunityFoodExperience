@@ -12,14 +12,13 @@ namespace UI {
         public NutritionManager nutritionManager;
         public CurrencyManager currencyManager;
         public CanvasController canvasController;
-        
+
         public ErrorManager errorManager;
         public GameObject successPopup;
 
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;
-
 
         public Text cashText;
         public Text eitcText;

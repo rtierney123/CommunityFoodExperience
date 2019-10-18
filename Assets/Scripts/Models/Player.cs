@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -176,6 +175,30 @@ public class Player : MonoBehaviour
         {
             case FormQuestionType.Name:
                 return name;
+            case FormQuestionType.Address:
+                return address;
+            case FormQuestionType.Phone:
+                return phoneNum;
+            case FormQuestionType.Num_Children:
+                return "0";
+            case FormQuestionType.Income:
+                return "" + fixedIncome;
+            case FormQuestionType.Children_Age:
+                return "";
+            case FormQuestionType.Aid:
+                return (snapFunds + ctcFunds + eitcFunds == 0) ? "NO":"YES";
+            case FormQuestionType.Single:
+                return "YES";
+            case FormQuestionType.Married:
+                return "NO";
+            case FormQuestionType.Joint_Tax:
+                return "NO";
+            case FormQuestionType.Residence:
+                return "YES";
+            case FormQuestionType.Income_Origin:
+                return "YES";
+            case FormQuestionType.Investment:
+                return "NO";
         }
         return "";
             

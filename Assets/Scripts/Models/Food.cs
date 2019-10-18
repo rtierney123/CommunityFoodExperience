@@ -1,44 +1,31 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< Updated upstream
 using UnityEngine.EventSystems;
-=======
->>>>>>> Stashed changes
+using UnityEngine.UI;
+
 
 public class Food : MonoBehaviour
 {
 
-<<<<<<< Updated upstream
-    private string name;
-    [HideInInspector]
-    public double cost;
-    [HideInInspector]
-    public double calories;
-    private double fat;
-    private double satFat;
-    private double cholestrol;
-    private double sodium;
-    private double carbs;
-    private double fiber;
-    private double sugar;
-    private double protein;
-    private bool wic;
-
-    public double fruit;
-    public double veg;
-    public double grain;
-    public double dairy;
-    public double macroProtein;
-    public double macroFat;
-    public double extra;
-
-    public FoodType wicType;
+    public Text nameText;
+    public Text caloriesText;
+    public Text fatText;
+    public Text proteinText;
+    public Text grainText;
+    public Text fruitText;
+    public Text vegText;
+    public Text extraText;
 
     public GameObject cartObject;
 
     [HideInInspector]
     public Cart cart;
+    [HideInInspector]
+    public CanvasController canvasController;
+
+    public GameObject backCard;
 
     private Vector3 resetPosition;
     private Transform startParent;
@@ -71,12 +58,41 @@ public class Food : MonoBehaviour
         
     }
 
+    public void flipCardBack()
+    {
+        if(canvasController != null)
+        {
+            canvasController.openPopup(backCard);
+        } else
+        {
+            Debug.Log("CanvasController not set");
+        }
+    }
+
+    public void flipCardForward()
+    {
+        if (canvasController != null)
+        {
+            canvasController.closePopUp(backCard);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         resetPosition = transform.position;
         startParent = this.transform.parent;
+        cartObject = this.gameObject;
+
+        nameText.text = name;
+        caloriesText.text = calories.ToString();
+        fatText.text = fat.ToString();
+        proteinText.text = protein.ToString();
+        grainText.text = grain.ToString();
+        fruitText.text = fruit.ToString();
+        vegText.text = veg.ToString();
+        extraText.text = extra.ToString();
+
     }
 
     void Awake()
@@ -100,30 +116,4 @@ public class Food : MonoBehaviour
         return this.gameObject;
     }
 
-=======
-    public string name { get; set; }
-    public double cost { get; set; }
-    public double calories { get; set; }
-    private double fat { get; set; }
-    private double satFat { get; set; }
-    private double cholestrol { get; set; }
-    private double sodium { get; set; }
-    private double carbs { get; set; }
-    private double fiber { get; set; }
-    private double sugar { get; set; }
-    private double protein { get; set; }
-    private bool wic { get; set; }
-
-    public double fruit { get; set; }
-    public double veg { get; set; }
-    public double grain { get; set; }
-    public double dairy { get; set; }
-    public double macroProtein { get; set; }
-    public double macroFat { get; set; }
-    public double extra { get; set; }
-
-
-    public FoodType wicType;
-
->>>>>>> Stashed changes
 }

@@ -29,8 +29,6 @@ public class PopulateGrid : MonoBehaviour
     public GameObject addCartItem(GameObject obj)
     {
         GameObject mainIcon = (GameObject)Instantiate(obj, transform);
-        GameObject minus = (GameObject)Instantiate(minusSignObject, transform.position, Quaternion.identity, mainIcon.transform);
-        minus.transform.localPosition = minusPosition;
 
         return mainIcon;
     }

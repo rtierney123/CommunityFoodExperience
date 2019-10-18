@@ -12,6 +12,7 @@ namespace UI {
         public NutritionManager nutritionManager;
         public CurrencyManager currencyManager;
         public CanvasController canvasController;
+        
         public ErrorManager errorManager;
         public GameObject successPopup;
 
@@ -64,8 +65,8 @@ namespace UI {
         private bool checkVoucherCart()
         {
             bool valid = true;
-            HashSet<Food> foods = cart.foodInCart;
-            foreach(Food food in foods)
+            HashSet<FoodCard> foods = cart.foodInCart;
+            foreach(FoodCard food in foods)
             {
                 FoodType foodType = food.wicType;
                 if(foodType == FoodType.None)
@@ -106,7 +107,7 @@ namespace UI {
             bool valid = validateWICPurchase();
             if (valid)
             {
-                foreach (Food food in cart.foodInCart)
+                foreach (FoodCard food in cart.foodInCart)
                 {
                     nutritionManager.addNutrition(food);
                     currencyManager.useVoucher(food);
@@ -131,7 +132,7 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
-                foreach (Food item in cart.foodInCart)
+                foreach (FoodCard item in cart.foodInCart)
                 {
                     nutritionManager.addNutrition(item);
                 }
@@ -207,7 +208,7 @@ namespace UI {
 
             if (voucher != null)
             {
-                foreach (Food food in cart.foodInCart)
+                foreach (FoodCard food in cart.foodInCart)
                 {
                     if (valid)
                     {

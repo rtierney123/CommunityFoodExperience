@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public Food[] content;
+=======
+    public CanvasController canvasController;
+    public FoodCard[] content;
+>>>>>>> Stashed changes
     public Cart cart;
     public PopulateGrid grid;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Food food in content)
+        foreach(FoodCard food in content)
         {
             food.setCart(cart);
             grid.addItem(food.getGameObject());

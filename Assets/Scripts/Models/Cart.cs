@@ -11,21 +11,21 @@ public class Cart : MonoBehaviour
     public PopulateGrid populateGrid;
     public Text totalText;
     [HideInInspector]
-    public HashSet<Food> foodInCart;
+    public HashSet<FoodCard> foodInCart;
 
     
     private double totalPrice;
   
     public void Start()
     {
-        foodInCart = new HashSet<Food>();
+        foodInCart = new HashSet<FoodCard>();
     }
     public void Update()
     {
      
     }
 
-    public void notifyDroppedFood(Vector3 position, Food food)
+    public void notifyDroppedFood(Vector3 position, FoodCard food)
     {
         if (inCart(position))
         {
@@ -55,7 +55,7 @@ public class Cart : MonoBehaviour
         }
     }
 
-    private void addItem(Food food) {
+    private void addItem(FoodCard food) {
         totalPrice += food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 
@@ -71,7 +71,7 @@ public class Cart : MonoBehaviour
         
     }
 
-    private void removeItemFromCart(Food food, GameObject icon)
+    private void removeItemFromCart(FoodCard food, GameObject icon)
     {
         totalPrice -= food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;

@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
     //.....
 
     // update player nutrition
-    public void addNutrition(Food food)
+    public void addNutrition(FoodCard food)
     {
         calories += food.calories;
         grain += food.grain;
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
-    public void useVoucher(Food food)
+    public void useVoucher(FoodCard food)
     {
         if (wicVoicher != null)
         {

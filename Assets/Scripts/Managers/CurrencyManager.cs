@@ -107,7 +107,7 @@ namespace Manage
             player.addVoucher();
         }
 
-        public void useVoucher(Food food)
+        public void useVoucher(FoodCard food)
         {
             fundsSubtracted = true;
             player.useVoucher(food);

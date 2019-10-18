@@ -30,7 +30,7 @@ namespace Manage
             }
         }
 
-        public void addNutrition(Food food)
+        public void addNutrition(FoodCard food)
         {
             player.addNutrition(food);
             nutritionAdded = true;

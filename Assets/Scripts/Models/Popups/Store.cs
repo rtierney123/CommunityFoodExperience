@@ -65,8 +65,8 @@ namespace UI {
         private bool checkVoucherCart()
         {
             bool valid = true;
-            HashSet<FoodCard> foods = cart.foodInCart;
-            foreach(FoodCard food in foods)
+            HashSet<Food> foods = cart.foodInCart;
+            foreach(Food food in foods)
             {
                 FoodType foodType = food.wicType;
                 if(foodType == FoodType.None)
@@ -107,7 +107,7 @@ namespace UI {
             bool valid = validateWICPurchase();
             if (valid)
             {
-                foreach (FoodCard food in cart.foodInCart)
+                foreach (Food food in cart.foodInCart)
                 {
                     nutritionManager.addNutrition(food);
                     currencyManager.useVoucher(food);
@@ -132,7 +132,7 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
-                foreach (FoodCard item in cart.foodInCart)
+                foreach (Food item in cart.foodInCart)
                 {
                     nutritionManager.addNutrition(item);
                 }
@@ -208,7 +208,7 @@ namespace UI {
 
             if (voucher != null)
             {
-                foreach (FoodCard food in cart.foodInCart)
+                foreach (Food food in cart.foodInCart)
                 {
                     if (valid)
                     {

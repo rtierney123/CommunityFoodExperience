@@ -11,14 +11,14 @@ public class Cart : MonoBehaviour
     public PopulateGrid populateGrid;
     public Text totalText;
     [HideInInspector]
-    public HashSet<FoodCard> foodInCart;
+    public HashSet<Food> foodInCart;
 
     
     private double totalPrice;
   
     public void Start()
     {
-        foodInCart = new HashSet<FoodCard>();
+        foodInCart = new HashSet<Food>();
     }
     public void Update()
     {
@@ -55,26 +55,28 @@ public class Cart : MonoBehaviour
         }
     }
 
-    private void addItem(FoodCard food) {
+    private void addItem(FoodCard card) {
+        Food food = card.food;
         totalPrice += food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 
          updateTotal();
 
-        GameObject icon = populateGrid.addCartItem(food.cartObject);
+        GameObject icon = populateGrid.addCartItem(food.gameObject);
         foodInCart.Add(food);
 
         Transform minusObject = icon.transform.GetChild(1);
         minusObject.gameObject.SetActive(true);
         Button minusButton = minusObject.GetComponent<Button>();
 
-        minusButton.onClick.AddListener(() => removeItemFromCart(food, icon));
+        minusButton.onClick.AddListener(() => removeItemFromCart(card, icon));
 
         
     }
 
-    private void removeItemFromCart(FoodCard food, GameObject icon)
+    private void removeItemFromCart(FoodCard card, GameObject icon)
     {
+        Food food = card.food;
         totalPrice -= food.cost;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 

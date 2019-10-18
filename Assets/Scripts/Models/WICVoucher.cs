@@ -22,7 +22,7 @@ public class WICVoucher : MonoBehaviour
     public GameObject grainCheck;
     public GameObject dairyCheck;
 
-    public void useVoucher(FoodCard food)
+    public void useVoucher(Food food)
     {
         FoodType foodType = food.wicType;
         if (checkValid(food))
@@ -63,7 +63,7 @@ public class WICVoucher : MonoBehaviour
 
     }
 
-    public void displayPotentialCheck(FoodCard food)
+    public void displayPotentialCheck(Food food)
     {
         FoodType foodType = food.wicType;
 
@@ -114,7 +114,7 @@ public class WICVoucher : MonoBehaviour
         }
     }
 
-    public bool checkValid(FoodCard food)
+    public bool checkValid(Food food)
     {
         FoodType foodType = food.wicType;
         switch (foodType)

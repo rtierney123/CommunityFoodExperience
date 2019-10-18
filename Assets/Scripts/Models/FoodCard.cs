@@ -5,6 +5,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Utility;
 
 public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IEndDragHandler
 {
@@ -18,13 +19,12 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Text vegText;
     public Text extraText;
 
-
+    [HideInInspector]
+    public Food food { get; set; }
     [HideInInspector]
     public Cart cart { get; set; }
     [HideInInspector]
     public CanvasController canvasController { get; set; }
-    [HideInInspector]
-    public static Food food { get; set; }
 
     public GameObject backCard;
 
@@ -86,13 +86,13 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         startParent = this.transform.parent;
 
         nameText.text = name;
-        caloriesText.text = calories.ToString();
-        fatText.text = fat.ToString();
-        proteinText.text = protein.ToString();
-        grainText.text = grain.ToString();
-        fruitText.text = fruit.ToString();
-        vegText.text = veg.ToString();
-        extraText.text = extra.ToString();
+        caloriesText.text = FormatText.formatDouble(food.calories);
+        fatText.text = FormatText.formatDouble(food.macroFat);
+        proteinText.text = FormatText.formatDouble(food.macroProtein);
+        grainText.text = FormatText.formatDouble(food.grain);
+        fruitText.text = FormatText.formatDouble(food.fruit);
+        vegText.text = FormatText.formatDouble(food.veg);
+        extraText.text = FormatText.formatDouble(food.extra);
 
     }
 

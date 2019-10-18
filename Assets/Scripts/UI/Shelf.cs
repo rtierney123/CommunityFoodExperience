@@ -9,15 +9,16 @@ public class Shelf : MonoBehaviour
     public CanvasController canvasController;
     public Cart cart;
     public PopulateGrid grid;
+    public List<FoodCard> foodCards;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(FoodCard food in content)
+        foreach(FoodCard foodCard in foodCards)
         {
-            food.setCart(cart);
-            food.canvasController = canvasController;
-            grid.addItem(food.getGameObject());
+            foodCard.setCart(cart);
+            foodCard.canvasController = canvasController;
+            grid.addItem(foodCard.getGameObject());
         }
     }
 

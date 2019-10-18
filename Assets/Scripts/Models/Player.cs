@@ -177,29 +177,29 @@ public class Player : MonoBehaviour
             case FormQuestionType.Name:
                 return name;
             case FormQuestionType.Address:
-                return name;
+                return address;
             case FormQuestionType.Phone:
                 return phoneNum;
             case FormQuestionType.Num_Children:
-                return 0;
+                return "0";
             case FormQuestionType.Income:
-                return fixedIncome;
+                return "" + fixedIncome;
             case FormQuestionType.Children_Age:
-                return null;
+                return "";
             case FormQuestionType.Aid:
-                return (snapFunds + ctcFunds + eitcFunds == 0);
+                return (snapFunds + ctcFunds + eitcFunds == 0) ? "NO":"YES";
             case FormQuestionType.Single:
-                return true;
+                return "YES";
             case FormQuestionType.Married:
-                return false;
+                return "NO";
             case FormQuestionType.Joint_Tax:
-                return false;
+                return "NO";
             case FormQuestionType.Residence:
-                return true;
+                return "YES";
             case FormQuestionType.Income_Origin:
-                return true;
+                return "YES";
             case FormQuestionType.Investment:
-                return false;
+                return "NO";
         }
         return "";
             

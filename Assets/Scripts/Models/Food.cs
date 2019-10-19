@@ -17,6 +17,7 @@ public class Food
     [SerializeField]
     public FoodType wicType;
     public bool wic;
+    public bool premade;
 
     private double fat;
     private double saturatedFat;

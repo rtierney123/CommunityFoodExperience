@@ -144,6 +144,10 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             if(food.wic)
             {
                 wicText.gameObject.SetActive(true);
+                if(food.wicType != FoodType.None)
+                {
+                    print(food.wicType);
+                }
             }
 
         }

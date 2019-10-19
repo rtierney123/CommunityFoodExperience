@@ -1,4 +1,5 @@
 ﻿
+[System.Serializable]
 public enum FoodType
 {
     None = 0,

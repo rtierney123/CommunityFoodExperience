@@ -14,6 +14,7 @@ public class Food
     public double calories;
     [SerializeField, HideInInspector]
     public MyPlateNutrition nutrition;
+    [SerializeField]
     public FoodType wicType;
     public bool wic;
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 public class PopulateGrid : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PopulateGrid : MonoBehaviour
         FoodCard foodCard = Instantiate<FoodCard>(cardPrefab, transform);
         foodCard.setFood(food);
         foodCard.setCart(cart);
+        ResourceHandler.setImage(foodCard.foodImage, food.imgPath);
         foodCard.canvasController = canvasController;
         return foodCard;
     }

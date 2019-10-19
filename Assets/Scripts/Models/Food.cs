@@ -26,7 +26,8 @@ public class Food
     private double protein;
     private bool wic;
 
-    private string imgPath;
+    [HideInInspector]
+    public string imgPath;
 
     [System.Serializable]
     public class MyPlateNutrition

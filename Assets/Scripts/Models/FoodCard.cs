@@ -19,6 +19,8 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Text vegText;
     public Text extraText;
 
+    public Image foodImage;
+
     [HideInInspector]
     public Food food { get; set; }
     [HideInInspector]

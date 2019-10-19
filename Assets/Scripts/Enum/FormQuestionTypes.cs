@@ -16,5 +16,14 @@ public enum FormQuestionType
     Joint_Tax = 9,
     Residence = 10,
     Income_Origin = 11,
-    Investment = 12
+    Investment = 12,
+    City = 13,
+    State = 14,
+    Zip = 15,
+    Federal_Assistance = 16,
+    First_Name = 17,
+    Last_Name = 18,
+    Middle_Name = 19,
+    Annual_Income = 20
+
 }

@@ -25,7 +25,7 @@ public class Cart : MonoBehaviour
      
     }
 
-    public void notifyDroppedFood(Vector3 position, FoodCard food)
+    public void notifyDroppedFood(Vector3 position, Food food)
     {
         if (inCart(position))
         {
@@ -55,26 +55,25 @@ public class Cart : MonoBehaviour
         }
     }
 
-    private void addItem(FoodCard card) {
-        Food food = card.food;
+    private void addItem(Food food) {
         totalPrice += food.price;
         totalPrice = Math.Round(totalPrice * 100) / 100;
 
          updateTotal();
 
-        GameObject icon = populateGrid.addCartItem(card.gameObject);
+        FoodCard card = populateGrid.addItem(food);
         foodInCart.Add(food);
 
-        Transform minusObject = icon.transform.GetChild(1);
+        Transform minusObject = card.transform.GetChild(1);
         minusObject.gameObject.SetActive(true);
         Button minusButton = minusObject.GetComponent<Button>();
 
-        minusButton.onClick.AddListener(() => removeItemFromCart(card, icon));
+        minusButton.onClick.AddListener(() => removeItemFromCart(card));
 
         
     }
 
-    private void removeItemFromCart(FoodCard card, GameObject icon)
+    private void removeItemFromCart(FoodCard card)
     {
         Food food = card.food;
         totalPrice -= food.price;
@@ -82,7 +81,7 @@ public class Cart : MonoBehaviour
 
         updateTotal();
 
-        populateGrid.removeItem(icon);
+        populateGrid.removeItem(card.gameObject);
         foodInCart.Remove(food);
         Debug.Log("item removed");
     }

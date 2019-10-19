@@ -68,7 +68,7 @@ namespace UI {
             foreach(Food food in foods)
             {
                 FoodType foodType = food.wicType;
-                if(foodType == FoodType.None)
+                if(!food.wic)
                 {
                     valid = false;
                     errorManager.generateStandardMessage("Non-wic item in cart.");

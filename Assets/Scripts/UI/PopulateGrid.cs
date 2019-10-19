@@ -11,22 +11,15 @@ public class PopulateGrid : MonoBehaviour
 
     public FoodCard cardPrefab;
 
-    public FoodCard addItemToShelf(Food food)
+    public FoodCard addItem(Food food)
     {
         FoodCard foodCard = Instantiate<FoodCard>(cardPrefab, transform);
         foodCard.setFood(food);
         foodCard.setCart(cart);
-        ResourceHandler.setImage(foodCard.foodImage, food.imgPath);
         foodCard.canvasController = canvasController;
         return foodCard;
     }
 
-    public GameObject addCartItem(GameObject obj)
-    {
-        GameObject mainIcon = (GameObject)Instantiate(obj, transform);
-
-        return mainIcon;
-    }
 
     public void removeItem(GameObject obj)
     {

@@ -15,6 +15,7 @@ public class Food
     [SerializeField, HideInInspector]
     public MyPlateNutrition nutrition;
     public FoodType wicType;
+    public bool wic;
 
     private double fat;
     private double saturatedFat;
@@ -24,7 +25,7 @@ public class Food
     private double fiber;
     private double sugar;
     private double protein;
-    private bool wic;
+   
 
     [HideInInspector]
     public string imgPath;
@@ -40,6 +41,5 @@ public class Food
         public double fat;
         public double extra;
     }
-
 
 }

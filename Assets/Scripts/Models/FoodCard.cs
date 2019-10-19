@@ -19,6 +19,11 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Text vegText;
     public Text extraText;
 
+    public Text costText;
+
+    public Text wicText;
+    public Text premadeText;
+
     public Image foodImage;
 
     [HideInInspector]
@@ -52,7 +57,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     {
         if(cart != null)
         {
-            cart.notifyDroppedFood(transform.position, this);
+            cart.notifyDroppedFood(transform.position, food);
             transform.SetParent(startParent);
             transform.position = resetPosition;
         } else
@@ -117,8 +122,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
     private void display()
     {
-        Debug.Log("update display");
-        
         if (food != null)
         {
             nameText.text = food.name;
@@ -129,6 +132,19 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             fruitText.text = FormatText.formatDouble(food.nutrition.fruit);
             vegText.text = FormatText.formatDouble(food.nutrition.veg);
             extraText.text = FormatText.formatDouble(food.nutrition.extra);
+
+            int index = food.imgPath.IndexOf(".");
+            string fixedPath = "";
+            if (index > 0)
+                 fixedPath = food.imgPath.Substring(1, index-1);
+            ResourceHandler.setImage(foodImage, fixedPath);
+
+            costText.text = FormatText.formatCost(food.price);
+
+            if(food.wic)
+            {
+                wicText.gameObject.SetActive(true);
+            }
 
         }
     }

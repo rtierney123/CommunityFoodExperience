@@ -8,6 +8,11 @@ namespace Utility{
     {
         public static bool testFilePath(string filePath)
         {
+            /*
+            string mainPath = Application.dataPath;
+            filePath = mainPath + filePath;
+            */
+            Debug.Log(filePath);
             if (System.IO.File.Exists(filePath))
             {
                 Debug.Log("file exists");
@@ -20,14 +25,27 @@ namespace Utility{
             }
         }
 
-        public static void setImage(Image image, string filePath)
+        public static Sprite setImage(Image image, string filePath)
         {
-            bool pathExists = ResourceHandler.testFilePath(filePath);
-            if (pathExists)
+            Debug.Log(filePath);
+         
+            Sprite sprite = Resources.Load<Sprite>(filePath);
+            
+            if (sprite == null)
             {
-                Debug.Log("set image");
-                image.sprite = Resources.Load<Sprite>(filePath);
+                Debug.Log("null sprite");
             }
+            else
+            {
+                int imageScale = 60;
+                float imageWidth = (float)sprite.bounds.size.x * imageScale;
+                float imageHeight = (float)sprite.bounds.size.y * imageScale;
+                image.sprite = sprite;
+                image.rectTransform.sizeDelta = new Vector2(imageWidth, imageHeight);
+                return image.sprite;
+            }
+            return sprite;
+            
 
         }
     }

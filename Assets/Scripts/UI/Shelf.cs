@@ -19,9 +19,8 @@ public class Shelf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string mainPath =  Application.dataPath;
+        string mainPath = Application.dataPath;
         jsonLocation = mainPath + jsonLocation;
-
         bool pathExists = ResourceHandler.testFilePath(jsonLocation);
         if (pathExists)
         {
@@ -31,7 +30,7 @@ public class Shelf : MonoBehaviour
 
             foreach (Food food in foods.list)
             {
-                grid.addItemToShelf(food);
+                grid.addItem(food);
             }
 
         }

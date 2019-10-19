@@ -10,6 +10,11 @@ namespace Utility
         {
             return number.ToString();
         }
+
+        public static string formatCost(double number)
+        {
+            return "$" + number.ToString();
+        }
     }
 }
 

@@ -27,6 +27,8 @@ namespace UI {
 
         public Cart cart;
 
+        public WICVoucher voucher;
+
 
         private void Start()
         {
@@ -38,7 +40,7 @@ namespace UI {
             displayPlayerInfo();
         }
 
-        public void displayPlayerInfo()
+        private void displayPlayerInfo()
         {
             double cash = player.money;
             double eitc = player.eitcFunds;
@@ -49,6 +51,8 @@ namespace UI {
             eitcText.text = player.formatFunds(eitc);
             ctcText.text = player.formatFunds(ctc);
             snapText.text = player.formatFunds(snap);
+
+            voucher.copy(player.wicVoicher);
         }
 
         public void openPurchaseOptions()
@@ -126,6 +130,7 @@ namespace UI {
 
                 cart.clearAll();
                 canvasController.forcePopupOpen(successPopup);
+                displayPlayerInfo();
             }
 
 
@@ -148,6 +153,7 @@ namespace UI {
                 }
                 cart.clearAll();
                 canvasController.forcePopupOpen(successPopup);
+                displayPlayerInfo();
             } 
             
          

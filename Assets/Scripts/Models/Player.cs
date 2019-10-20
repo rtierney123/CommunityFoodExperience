@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
 
 
     // temp player info. will place in better place later
-    public string characterName = "John Smith";
-    public string firstName = "John";
+    public string characterName = "Sam Smith";
+    public string firstName = "Sam";
     public string middleName = "";
     public string lastName = "Smith";
     public string characterDescription = "You are an elderly person (senior citizen) and you live alone on a fixed income of $870 a month from Social Security. Your rent for a small apartment is $600/month and you pay $50/month for electricity, $30 month for a phone and $185/month for two prescriptions that are only partially coverd by Medicare.";
@@ -22,6 +22,12 @@ public class Player : MonoBehaviour
     public string state = "GA";
     public string zip = "30317";
     public string DOB = "01/01/2010";
+    public string federalAssistance = "Yes";
+    public string inUSSixMonth = "Yes";
+    public string allIncomeInUS = "No";
+    public string incomeLessThan3150 = "Yes";
+    public string numOfChildren = "3";
+    public string childrenAges = "2, 3, 4";
     public int fixedIncome = 870;
     public double annualIncome = 5000;
     public int expenses = 855;
@@ -173,6 +179,7 @@ public class Player : MonoBehaviour
     }
 
     public string getFullName() {
+        print(firstName);
         return firstName + (String.IsNullOrEmpty(middleName) ? "" : (" " + middleName)) + " " + lastName;
     }
 
@@ -189,32 +196,32 @@ public class Player : MonoBehaviour
     {
         switch(question)
         {
-            case FormQuestionType.Name:
+            case FormQuestionType.FullName:
                 return getFullName();
             case FormQuestionType.Address:
                 return address;
             case FormQuestionType.Phone:
                 return phoneNum;
             case FormQuestionType.Num_Children:
-                return "0";
-            case FormQuestionType.Income:
+                return numOfChildren;
+            case FormQuestionType.Monthly_Income:
                 return "" + fixedIncome;
             case FormQuestionType.Children_Age:
-                return "";
+                return childrenAges;
             case FormQuestionType.Aid:
-                return (snapFunds + ctcFunds + eitcFunds == 0) ? "NO":"YES";
+                return (snapFunds + ctcFunds + eitcFunds == 0) ? "No":"Yes";
             case FormQuestionType.Single:
-                return "YES";
+                return "Yes";
             case FormQuestionType.Married:
-                return "NO";
+                return "No";
             case FormQuestionType.Joint_Tax:
-                return "NO";
-            case FormQuestionType.Residence:
-                return "YES";
-            case FormQuestionType.Income_Origin:
-                return "YES";
-            case FormQuestionType.Investment:
-                return "NO";
+                return "No";
+            case FormQuestionType.In_US_More_Than_Six_Month:
+                return "Yes";
+            case FormQuestionType.All_Income_In_US:
+                return "Yes";
+            case FormQuestionType.Income_Less_than_3150:
+                return "Yes";
             case FormQuestionType.First_Name:
                 return firstName;
             case FormQuestionType.Last_Name:
@@ -229,6 +236,8 @@ public class Player : MonoBehaviour
                 return zip;
             case FormQuestionType.Annual_Income:
                 return "" + annualIncome;
+            case FormQuestionType.Federal_Assistance:
+                return federalAssistance;
         }
         return "";
             

@@ -23,6 +23,7 @@ namespace UI
             {
                 FormQuestionType question = item.questionType;
                 string info = player.getInfo(question);
+                print(info);
 
                 StartCoroutine(item.fillOutText(info));
                 yield return new WaitUntil(() => item.fillingOutText == false);

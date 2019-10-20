@@ -179,6 +179,7 @@ public class Player : MonoBehaviour
     }
 
     public string getFullName() {
+        print(firstName);
         return firstName + (String.IsNullOrEmpty(middleName) ? "" : (" " + middleName)) + " " + lastName;
     }
 

@@ -155,8 +155,7 @@ namespace UI {
                 canvasController.forcePopupOpen(successPopup);
                 displayPlayerInfo();
             } 
-            
-         
+
         }
 
 
@@ -176,7 +175,19 @@ namespace UI {
 
         private bool validateFundsPurchase(double cash, double eitc, double ctc, double snap)
         {
-            
+            HashSet<Food> cartFood = cart.foodInCart;
+            if (snap > 0)
+            {
+                foreach (Food food in cart.foodInCart)
+                {
+                    if (food.premade)
+                    {
+                        errorManager.generateStandardMessage("Cannot use SNAP funds on premade food.");
+                        return false;
+                    }
+                }
+            }
+           
             if (player.money < cash)
             {
                 errorManager.generateStandardMessage( "Not enough cash.");

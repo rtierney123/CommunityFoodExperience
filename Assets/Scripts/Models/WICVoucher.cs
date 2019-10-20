@@ -38,7 +38,6 @@ public class WICVoucher : MonoBehaviour
         switch (foodType)
         {
             case FoodType.Fruit:
-                Debug.Log("fruit used");
                 fruitUsed = true;
                 displayPermCheck(fruitCheck);
                 return;

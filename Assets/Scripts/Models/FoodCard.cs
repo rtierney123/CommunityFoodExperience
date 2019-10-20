@@ -25,13 +25,13 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Text premadeText;
 
     public Image foodImage;
+    public CanvasController canvasController;
 
     [HideInInspector]
     public Food food { get; set; }
     [HideInInspector]
     public Cart cart { get; set; }
-    [HideInInspector]
-    public CanvasController canvasController { get; set; }
+
 
     public GameObject backCard;
 
@@ -71,6 +71,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     {
         if(canvasController != null)
         {
+            Debug.Log("flip card back");
             canvasController.openPopup(backCard);
         } else
         {
@@ -83,6 +84,9 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         if (canvasController != null)
         {
             canvasController.closePopUp(backCard);
+        } else
+        {
+            Debug.Log("Cannot flip, canvas controller is null.");
         }
     }
 
@@ -144,10 +148,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             if(food.wic)
             {
                 wicText.gameObject.SetActive(true);
-                if(food.wicType != FoodType.None)
-                {
-                    print(food.wicType);
-                }
             }
             if (food.premade)
             {

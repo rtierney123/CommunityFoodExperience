@@ -27,7 +27,6 @@ namespace Utility{
 
         public static Sprite setImage(Image image, string filePath)
         {
-            Debug.Log(filePath);
          
             Sprite sprite = Resources.Load<Sprite>(filePath);
             

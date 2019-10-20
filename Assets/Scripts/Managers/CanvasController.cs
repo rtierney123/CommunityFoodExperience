@@ -94,8 +94,7 @@ namespace Manage
         {
             if(popUp == gameObject)
             {
-                setPopUp(false);
-                StartCoroutine(WaitAllowOpen(allowWaitTime));
+                closePopUp();
             }
         }
 

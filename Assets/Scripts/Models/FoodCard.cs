@@ -149,7 +149,10 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
                     print(food.wicType);
                 }
             }
-
+            if (food.premade)
+            {
+                premadeText.gameObject.SetActive(true);
+            }
         }
     }
 

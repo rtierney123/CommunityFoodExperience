@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI { 
+namespace UI {
     public class Store : PopUp
     {
         public Player player;
@@ -30,10 +30,21 @@ namespace UI {
 
         private void Start()
         {
+            displayPlayerInfo();
+        }
+
+        private void OnEnable()
+        {
+            displayPlayerInfo();
+        }
+
+        public void displayPlayerInfo()
+        {
             double cash = player.money;
             double eitc = player.eitcFunds;
             double ctc = player.ctcFunds;
             double snap = player.snapFunds;
+
             cashText.text = player.formatFunds(cash);
             eitcText.text = player.formatFunds(eitc);
             ctcText.text = player.formatFunds(ctc);

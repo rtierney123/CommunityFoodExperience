@@ -20,7 +20,7 @@ public enum FormQuestionType
     City = 13,
     State = 14,
     Zip = 15,
-    Federal_Assistance = 16,
+    SNAP_or_WIC_Aid = 16,
     First_Name = 17,
     Last_Name = 18,
     Middle_Name = 19,

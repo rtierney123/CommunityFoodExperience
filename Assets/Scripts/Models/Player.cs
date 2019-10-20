@@ -11,12 +11,19 @@ public class Player : MonoBehaviour
 
     // temp player info. will place in better place later
     public string characterName = "John Smith";
+    public string firstName = "John";
+    public string middleName = "";
+    public string lastName = "Smith";
     public string characterDescription = "You are an elderly person (senior citizen) and you live alone on a fixed income of $870 a month from Social Security. Your rent for a small apartment is $600/month and you pay $50/month for electricity, $30 month for a phone and $185/month for two prescriptions that are only partially coverd by Medicare.";
     public string phoneNum = "(404) 888-9360";
     public string socialSecurity = "XXX-XX-6789";
     public string address = "258 W.Real St. Atlanta, GA 30317";
+    public string city = "Atlanta";
+    public string state = "GA";
+    public string zip = "30317";
     public string DOB = "01/01/2010";
     public int fixedIncome = 870;
+    public double annualIncome = 5000;
     public int expenses = 855;
     public int busTokens = 1;
 
@@ -165,6 +172,14 @@ public class Player : MonoBehaviour
 
     }
 
+    public string getFullName() {
+        return firstName + (String.IsNullOrEmpty(middleName) ? "" : (" " + middleName)) + " " + lastName;
+    }
+
+    public string getFullAddress() {
+        return address + ", " + city + ", " + state + ", " + zip;
+    }
+
     public string formatFunds(double funds)
     {
         return String.Format("{0:0.##}", funds);
@@ -175,7 +190,7 @@ public class Player : MonoBehaviour
         switch(question)
         {
             case FormQuestionType.Name:
-                return name;
+                return getFullName();
             case FormQuestionType.Address:
                 return address;
             case FormQuestionType.Phone:
@@ -200,6 +215,20 @@ public class Player : MonoBehaviour
                 return "YES";
             case FormQuestionType.Investment:
                 return "NO";
+            case FormQuestionType.First_Name:
+                return firstName;
+            case FormQuestionType.Last_Name:
+                return lastName;
+            case FormQuestionType.Middle_Name:
+                return middleName;
+            case FormQuestionType.City:
+                return city;
+            case FormQuestionType.State:
+                return state;
+            case FormQuestionType.Zip:
+                return zip;
+            case FormQuestionType.Annual_Income:
+                return "" + annualIncome;
         }
         return "";
             

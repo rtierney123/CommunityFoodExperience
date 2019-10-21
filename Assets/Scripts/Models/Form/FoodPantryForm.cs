@@ -24,7 +24,7 @@ namespace UI
         protected override void successAction()
         {
             messageManager.generateStandardSuccessMessage("Welcome to the Food Pantry");
-            canvasController.openScreen(nextScreen);
+            StartCoroutine(delayOpenNextScreen());
         }
 
         protected override void failureAction()

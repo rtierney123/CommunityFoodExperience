@@ -9,9 +9,6 @@ namespace UI
     public class Form : Screen
     {
         public Player player;
-        public MessageManager messageManager;
-        public float delayTime;
-        public GameObject nextScreen;
         public List<TextWrapper> textItems;
 
         private bool fillingOutItem;
@@ -67,13 +64,12 @@ namespace UI
 
         }
 
-        public int closeTime;
 
         private void displayNotAllowedMessage()
         {
             string message = notAllowedMessage();
             messageManager.generateStandardErrorMessage(message);
-            StartCoroutine(waitToClose(closeTime));
+            StartCoroutine(delayCloseScreen());
         }
 
         protected virtual bool checkAllowed()
@@ -86,10 +82,7 @@ namespace UI
             return "not allowed";
         }
 
-        IEnumerator waitToClose(float waitTime)
-        {
-            yield return new WaitForSeconds(waitTime);
-        }
+      
     }
 }
 

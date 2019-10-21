@@ -6,10 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI {
-    public class Store : BaseLocation
+    public class Store : BaseStore
     {
         public GameObject successPopup;
-
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;
@@ -18,8 +17,6 @@ namespace UI {
         public Text eitcText;
         public Text ctcText;
         public Text snapText;
-
-        public Cart cart;
 
         public WICVoucher voucher;
 
@@ -110,13 +107,10 @@ namespace UI {
             {
                 foreach (Food food in cart.foodInCart)
                 {
-                    nutritionManager.addNutrition(food);
                     currencyManager.useVoucher(food);
-
                 }
 
-                cart.clearAll();
-                canvasController.forcePopupOpen(successPopup);
+              
                 displayPlayerInfo();
             }
 
@@ -134,12 +128,8 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
-                foreach (Food item in cart.foodInCart)
-                {
-                    nutritionManager.addNutrition(item);
-                }
-                cart.clearAll();
-                canvasController.forcePopupOpen(successPopup);
+                messageManager.generateStandardSuccessMessage("Purchase complete.");
+                completePayment();
                 displayPlayerInfo();
             } 
 

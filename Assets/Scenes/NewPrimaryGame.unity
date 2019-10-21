@@ -1757,6 +1757,11 @@ PrefabInstance:
       propertyPath: address
       value: 258 W.Real St.
       objectReference: {fileID: 0}
+    - target: {fileID: 2400805853212428851, guid: d3680a4add988f342b82288fae3f5648,
+        type: 3}
+      propertyPath: zip
+      value: 30317
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3680a4add988f342b82288fae3f5648, type: 3}
 --- !u!114 &408229918 stripped
@@ -1788,6 +1793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FoodPantryForm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320921975189881767, guid: 8229dec9bc2199b428960e35f81222ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5625201847945526151, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
@@ -1894,21 +1904,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5625201847945526151, guid: 8229dec9bc2199b428960e35f81222ac,
+    - target: {fileID: 8073458665984706377, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5338542
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625201847945526151, guid: 8229dec9bc2199b428960e35f81222ac,
+      propertyPath: canvasController
+      value: 
+      objectReference: {fileID: 1193828603}
+    - target: {fileID: 8073458665984706377, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5338542
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625201847945526151, guid: 8229dec9bc2199b428960e35f81222ac,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5338542
-      objectReference: {fileID: 0}
+      propertyPath: nextScreen
+      value: 
+      objectReference: {fileID: 1466564533}
     - target: {fileID: 8073458665984706377, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
       propertyPath: player
@@ -1921,9 +1926,9 @@ PrefabInstance:
       objectReference: {fileID: 1898436623}
     - target: {fileID: 8073458665984706377, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
-      propertyPath: canvasController
-      value: 
-      objectReference: {fileID: 1193828603}
+      propertyPath: delayTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8229dec9bc2199b428960e35f81222ac, type: 3}
 --- !u!224 &468586160 stripped
@@ -3758,6 +3763,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!1 &1466564533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8225819187943142177, guid: d0a9811b6afd146929d9d71bb41b12d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5256765828946822103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1597268728
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,21 +5167,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3200490789593201525, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5338542
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200490789593201525, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5338542
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200490789593201525, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5338542
-      objectReference: {fileID: 0}
     - target: {fileID: 1066384322510129300, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5276,11 +5272,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6399002362735915935, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7218237086381815839, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5301,34 +5292,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4869767458545352471, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 408229918}
-    - target: {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 408229918}
-    - target: {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: nutritionManager
-      value: 
-      objectReference: {fileID: 985786181}
-    - target: {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: currencyManager
-      value: 
-      objectReference: {fileID: 1648199821}
-    - target: {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6,
+    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: canvasController
       value: 
       objectReference: {fileID: 1193828603}
-    - target: {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6,
+    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
-      propertyPath: errorManager
+      propertyPath: messageManager
       value: 
       objectReference: {fileID: 1898436623}
     - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
@@ -5346,36 +5317,6 @@ PrefabInstance:
       propertyPath: currencyManager
       value: 
       objectReference: {fileID: 1648199821}
-    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: canvasController
-      value: 
-      objectReference: {fileID: 1193828603}
-    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: errorManager
-      value: 
-      objectReference: {fileID: 1898436623}
-    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: form
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: messageManager
-      value: 
-      objectReference: {fileID: 1898436623}
-    - target: {fileID: 7220740254840720599, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 408229918}
-    - target: {fileID: 7220740254840720599, guid: d0a9811b6afd146929d9d71bb41b12d6,
-        type: 3}
-      propertyPath: messageManager
-      value: 
-      objectReference: {fileID: 1898436623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
 --- !u!1001 &5419959106079238034

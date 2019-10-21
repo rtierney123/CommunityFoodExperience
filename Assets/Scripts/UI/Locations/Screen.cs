@@ -6,18 +6,37 @@ using UnityEngine;
 public class Screen : MonoBehaviour
 {
     public CanvasController canvasController;
-    // Start is called before the first frame update
-    void Start()
+    public MessageManager messageManager;
+    public GameObject nextScreen;
+    public float delayTime;
+
+    public IEnumerator delayOpenNextScreen()
     {
-        
+        yield return new WaitForSeconds(delayTime);
+        openNextScreen();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void openNextScreen()
     {
-        
+        StartCoroutine(delayCloseScreen());
+        canvasController.openScreen(nextScreen);
     }
 
+
+
+    protected IEnumerator delayCloseScreen()
+    {
+        yield return new WaitForSeconds(delayTime);
+        closeScreen();
+    }
+
+
+    public void closeScreen()
+    {
+        closePopUps();
+        canvasController.closeScreen(this.gameObject);
+    }
 
     public void closePopUps()
     {
@@ -26,4 +45,6 @@ public class Screen : MonoBehaviour
             canvasController.closePopUp();
         }
     }
+
+
 }

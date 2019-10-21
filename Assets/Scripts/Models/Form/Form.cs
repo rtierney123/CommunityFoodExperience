@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class Form : MonoBehaviour
+    public class Form : Screen
     {
-        public List<TextWrapper> textItems;
         public Player player;
+        public MessageManager messageManager;
+        public float delayTime;
+        public GameObject nextScreen;
+        public List<TextWrapper> textItems;
 
         private bool fillingOutItem;
 
@@ -30,7 +34,7 @@ namespace UI
                 item.resetTextWrapper();
                 Debug.Log("on to next");
             }
-
+            Debug.Log("done filling out form");
             onFormFilled();
 
         }
@@ -61,6 +65,30 @@ namespace UI
         protected virtual void failureAction()
         {
 
+        }
+
+        public int closeTime;
+
+        private void displayNotAllowedMessage()
+        {
+            string message = notAllowedMessage();
+            messageManager.generateStandardErrorMessage(message);
+            StartCoroutine(waitToClose(closeTime));
+        }
+
+        protected virtual bool checkAllowed()
+        {
+            return false;
+        }
+
+        protected virtual string notAllowedMessage()
+        {
+            return "not allowed";
+        }
+
+        IEnumerator waitToClose(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }

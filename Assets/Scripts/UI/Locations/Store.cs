@@ -80,13 +80,13 @@ namespace UI {
                 if(!food.wic)
                 {
                     valid = false;
-                    errorManager.generateStandardMessage("Non-wic item in cart.");
+                    messageManager.generateStandardErrorMessage("Non-wic item in cart.");
                     Debug.Log("non-wic");
                 }
                 else if (!player.wicVoicher.checkValid(food))
                 {
                     valid = false;
-                    errorManager.generateStandardMessage("Wic item category already used.");
+                    messageManager.generateStandardErrorMessage("Wic item category already used.");
                 }
             }
 
@@ -147,7 +147,7 @@ namespace UI {
 
         public void displayMustBeNumberError()
         {
-            errorManager.generateStandardMessage("Input must be a number.");
+            messageManager.generateStandardErrorMessage("Input must be a number.");
         }
 
         private bool validateFundsPurchase(double cash, double eitc, double ctc, double snap)
@@ -159,7 +159,7 @@ namespace UI {
                 {
                     if (food.premade)
                     {
-                        errorManager.generateStandardMessage("Cannot use SNAP funds on premade food.");
+                        messageManager.generateStandardErrorMessage("Cannot use SNAP funds on premade food.");
                         return false;
                     }
                 }
@@ -167,28 +167,28 @@ namespace UI {
            
             if (player.money < cash)
             {
-                errorManager.generateStandardMessage( "Not enough cash.");
+                messageManager.generateStandardErrorMessage( "Not enough cash.");
                 return false;
             }
             else if (player.ctcFunds < ctc)
             {
-                errorManager.generateStandardMessage("Not enough CTC fund.");
+                messageManager.generateStandardErrorMessage("Not enough CTC fund.");
                 return false;
 
             }
             else if (player.eitcFunds < eitc)
             {
-                errorManager.generateStandardMessage("Not enough EITC fund.");
+                messageManager.generateStandardErrorMessage("Not enough EITC fund.");
                 return false;
             }
             else if (player.snapFunds < snap)
             {
-                errorManager.generateStandardMessage("Not enough SNAP fund.");
+                messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
                 return false;
             }
             else if (roundTwoDecimal(cash + ctc + eitc + snap) != roundTwoDecimal(Convert.ToDouble(cart.totalText.text)))
             {
-                errorManager.generateStandardMessage("Total amount does not match");
+                messageManager.generateStandardErrorMessage("Total amount does not match");
                 return false;
             }
             else
@@ -280,7 +280,7 @@ namespace UI {
                         else
                         {
                             valid = false;
-                            errorManager.generateStandardMessage("Cannot use WIC on items in cart.");
+                            messageManager.generateStandardErrorMessage("Cannot use WIC on items in cart.");
                         }
                     }
 
@@ -291,7 +291,7 @@ namespace UI {
 
         private void displayDuplicateError()
         {
-            errorManager.generateStandardMessage("Cannot use WIC on two foods of the same type.");
+            messageManager.generateStandardErrorMessage("Cannot use WIC on two foods of the same type.");
         }
 
         private double roundTwoDecimal(double num)

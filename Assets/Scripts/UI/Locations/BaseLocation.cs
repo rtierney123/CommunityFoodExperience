@@ -5,14 +5,13 @@ using UnityEngine;
 
 namespace UI
 {
-    public class BaseLocation : MonoBehaviour
+    public class BaseLocation : Screen
     {
 
         public Player player;
         public NutritionManager nutritionManager;
         public CurrencyManager currencyManager;
-        public CanvasController canvasController;
-        public ErrorManager errorManager;
+        public MessageManager messageManager;
         // Start is called before the first frame update
         void Start()
         {
@@ -32,13 +31,6 @@ namespace UI
             canvasController.closeScreen(this.gameObject);
         }
 
-        public void closePopUps()
-        {
-            if (canvasController != null)
-            {
-                canvasController.closePopUp();
-            }
-        }
     }
 }
 

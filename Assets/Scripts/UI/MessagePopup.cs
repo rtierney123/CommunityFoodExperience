@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ErrorPopUp : PopUp
+    public class MessagePopup : PopUp
     {
         public Text mainText;
 

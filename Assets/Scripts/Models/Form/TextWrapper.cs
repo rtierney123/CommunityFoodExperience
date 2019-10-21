@@ -17,6 +17,7 @@ namespace UI
         private void Start()
         {
             doneWithFillingOut = false;
+            displayText.text = "";
         }
 
         public void startFillOutText(string info)

@@ -12,16 +12,21 @@ namespace UI
         public Text displayText;
 
         [HideInInspector]
-        public bool fillingOutText;
+        public bool doneWithFillingOut;
 
         private void Start()
         {
-            fillingOutText = false;
+            doneWithFillingOut = false;
+        }
+
+        public void startFillOutText(string info)
+        {
+            StartCoroutine(fillOutText(info));
         }
 
         public IEnumerator fillOutText(string info)
         {
-            fillingOutText = true;
+           
             string currentString = "";
             foreach (char ch in info)
             {
@@ -29,7 +34,15 @@ namespace UI
                 displayText.text = currentString;
                 yield return new WaitForSeconds(fillOutDelayTime);
             }
-            fillingOutText = false;
+            Debug.Log("done");
+            //set to true to continue coutroutine
+            doneWithFillingOut = true;
+        }
+
+        public void resetTextWrapper()
+        {
+            //reset to fill out form again
+            doneWithFillingOut = false;
         }
 
     }

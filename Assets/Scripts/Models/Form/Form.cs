@@ -23,11 +23,12 @@ namespace UI
             {
                 FormQuestionType question = item.questionType;
                 string info = player.getInfo(question);
-                print(info);
+                Debug.Log(info);
 
-                StartCoroutine(item.fillOutText(info));
-                yield return new WaitUntil(() => item.fillingOutText == false);
-
+                item.startFillOutText(info);
+                yield return new WaitUntil(() => item.doneWithFillingOut);
+                item.resetTextWrapper();
+                Debug.Log("on to next");
             }
 
             onFormFilled();
@@ -47,17 +48,17 @@ namespace UI
         }
 
 
-        protected bool checkValid()
+        protected virtual bool checkValid()
         {
             return true;
         }
 
-        protected void successAction()
+        protected virtual void successAction()
         {
 
         }
 
-        protected void failureAction()
+        protected virtual void failureAction()
         {
 
         }

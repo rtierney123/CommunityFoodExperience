@@ -34,12 +34,12 @@ public class Player : MonoBehaviour
     public int busTokens = 1;
 
 
-    //Need to delete this and refactor wallet
-    // public bool vita = false;
-    // public bool snap = false;
-    // public bool wic = false;
-    // public bool ctc = false;
-    // public bool eitc = false;
+    public bool vita = false;
+    public bool snap = false;
+    public bool wic = false;
+    public bool ctc = false;
+    public bool eitc = false;
+    public bool usedFoodPantry = false;
 
     public double money = 15;
     public double snapFunds = 0;
@@ -179,7 +179,6 @@ public class Player : MonoBehaviour
     }
 
     public string getFullName() {
-        print(firstName);
         return firstName + (String.IsNullOrEmpty(middleName) ? "" : (" " + middleName)) + " " + lastName;
     }
 

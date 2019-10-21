@@ -8,11 +8,6 @@ namespace Utility{
     {
         public static bool testFilePath(string filePath)
         {
-            /*
-            string mainPath = Application.dataPath;
-            filePath = mainPath + filePath;
-            */
-            Debug.Log(filePath);
             if (System.IO.File.Exists(filePath))
             {
                 Debug.Log("file exists");
@@ -20,6 +15,7 @@ namespace Utility{
             }
             else
             {
+                //Debug.Log(filePath);
                 Debug.Log("file does not exist");
                 return false;
             }

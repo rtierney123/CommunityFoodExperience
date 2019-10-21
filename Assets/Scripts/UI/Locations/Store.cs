@@ -6,14 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI {
-    public class Store : PopUp
+    public class Store : BaseLocation
     {
-        public Player player;
-        public NutritionManager nutritionManager;
-        public CurrencyManager currencyManager;
-        public CanvasController canvasController;
-
-        public ErrorManager errorManager;
         public GameObject successPopup;
 
         public GameObject purchaseOptions;
@@ -108,13 +102,6 @@ namespace UI {
         }
 
 
-        public void closeScreen()
-        {
-
-            closePopUps();
-            canvasController.closeScreen(this.gameObject);
-        }
-
 
         public void completeVoucherPayment()
         {
@@ -157,16 +144,6 @@ namespace UI {
             } 
 
         }
-
-
-        public void closePopUps()
-        {
-            if (canvasController != null)
-            {
-                canvasController.closePopUp();
-            }
-        }
-
 
         public void displayMustBeNumberError()
         {

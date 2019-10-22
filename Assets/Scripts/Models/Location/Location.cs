@@ -13,11 +13,13 @@ namespace Model
         public LocationType locationType;
         public NavigiationPopUp popUp;
         public GameObject mainScreen;
-        public NavigationManager manager;
+        public NavigationManager navigationManager;
+        public CanvasController canvasController;
         public MapLocations mapLocation;
 
         public string locationTitle;
         public string locationDescription;
+        public float delayTime;
 
         Ray ray;
         RaycastHit hit;
@@ -37,10 +39,15 @@ namespace Model
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    manager.startLocationScreen(this);
+                    navigationManager.startLocationScreen(this);
                 }
             }
 
+        }
+
+        public virtual void onEnter()
+        {
+            StartCoroutine(OpenLocationScreen());
         }
 
 
@@ -49,6 +56,15 @@ namespace Model
             return popUp;
         }
 
+        public IEnumerator OpenLocationScreen()
+        {
+            yield return new WaitForSeconds(delayTime);
+            if (mainScreen != null)
+            {
+                canvasController.closePopUp();
+                canvasController.openScreen(mainScreen);
+            }
+        }
     }
 
 }

@@ -11,7 +11,7 @@ namespace Manage
         public MessagePopup standardSuccessPopup;
         public void generateStandardErrorMessage(string message)
         {
-            
+
             standardErrorPopup.setText(message);
             GameObject popup = standardErrorPopup.gameObject;
             canvasController.forcePopupOpen(popup);

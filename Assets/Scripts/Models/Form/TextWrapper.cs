@@ -35,7 +35,6 @@ namespace UI
                 displayText.text = currentString;
                 yield return new WaitForSeconds(fillOutDelayTime);
             }
-            Debug.Log("done");
             //set to true to continue coutroutine
             doneWithFillingOut = true;
         }

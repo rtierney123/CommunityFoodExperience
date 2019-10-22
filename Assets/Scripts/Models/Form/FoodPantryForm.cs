@@ -6,6 +6,10 @@ namespace UI
 {
     public class FoodPantryForm : Form
     {
+        public override bool checkAlreadyEntered()
+        {
+            return player.usedFoodPantry;
+        }
 
         protected override bool checkValid()
         {
@@ -23,13 +27,17 @@ namespace UI
 
         protected override void successAction()
         {
+            player.usedFoodPantry = true;
             messageManager.generateStandardSuccessMessage("Welcome to the Food Pantry");
-            StartCoroutine(delayOpenNextScreen());
+            StartCoroutine(delayOpenNextScreen(nextActionTime));
+            player.usedFoodPantry = true;
         }
 
         protected override void failureAction()
         {
             messageManager.generateStandardErrorMessage("Must be in 30317 or 30307 area code.");
+            StartCoroutine(delayCloseScreen(nextActionTime));
+            player.usedFoodPantry = true;
         }
 
     }

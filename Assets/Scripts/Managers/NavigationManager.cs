@@ -56,7 +56,7 @@ namespace Manage
             {
                 if(currentLocation == location)
                 {
-                    StartCoroutine(OpenLocationScreen(currentLocation));
+                    currentLocation.onEnter();
                 } else
                 {
                     possibleDestination = location;
@@ -80,7 +80,7 @@ namespace Manage
 
             player.transform.localPosition = currentLocation.playerDropoff.position;
             gameManager.subtractTime(travelTime);
-            StartCoroutine(OpenLocationScreen(currentLocation));
+            currentLocation.onEnter();
         }
 
         public void closePopUp()
@@ -156,17 +156,6 @@ namespace Manage
             player.SetActive(true);
             bus.playerOnBus = false;
 
-        }
-
-
-        private IEnumerator OpenLocationScreen(Location locations)
-        {
-            yield return new WaitForSeconds(locationScreenDelay);
-            if (currentLocation.mainScreen != null)
-            {
-                canvasController.closePopUp();
-                canvasController.openScreen(currentLocation.mainScreen);
-            }
         }
 
 

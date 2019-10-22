@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 public class Player : MonoBehaviour
 {
@@ -22,24 +23,26 @@ public class Player : MonoBehaviour
     public string state = "GA";
     public string zip = "30317";
     public string DOB = "01/01/2010";
-    public string federalAssistance = "Yes";
-    public string inUSSixMonth = "Yes";
-    public string allIncomeInUS = "No";
-    public string incomeLessThan3150 = "Yes";
-    public string numOfChildren = "3";
+    public bool federalAssistance;
+    public int numOfChildren = 3;
     public string childrenAges = "2, 3, 4";
     public int fixedIncome = 870;
     public double annualIncome = 5000;
     public int expenses = 855;
     public int busTokens = 1;
 
+    public bool single;
+    public bool married;
+    public bool jointTax;
 
-    public bool vita = false;
-    public bool snap = false;
-    public bool wic = false;
-    public bool ctc = false;
-    public bool eitc = false;
-    public bool usedFoodPantry = false;
+
+    public bool vita;
+    public bool snap;
+    public bool wic;
+    public bool usedVita;
+    public bool usedFoodPantry;
+    public bool inUSSixMonth;
+    public bool allIncomeInUS;
 
     public double money = 15;
     public double snapFunds = 0;
@@ -202,7 +205,7 @@ public class Player : MonoBehaviour
             case FormQuestionType.Phone:
                 return phoneNum;
             case FormQuestionType.Num_Children:
-                return numOfChildren;
+                return numOfChildren.ToString();
             case FormQuestionType.Monthly_Income:
                 return "" + fixedIncome;
             case FormQuestionType.Children_Age:
@@ -210,17 +213,19 @@ public class Player : MonoBehaviour
             case FormQuestionType.Aid:
                 return (snapFunds + ctcFunds + eitcFunds == 0) ? "No":"Yes";
             case FormQuestionType.Single:
-                return "Yes";
+                return FormatText.formatBool(single);
             case FormQuestionType.Married:
-                return "No";
+                return FormatText.formatBool(married);
             case FormQuestionType.Joint_Tax:
-                return "No";
+                return FormatText.formatBool(jointTax);
             case FormQuestionType.In_US_More_Than_Six_Month:
-                return "Yes";
+                return FormatText.formatBool(inUSSixMonth);
             case FormQuestionType.All_Income_In_US:
-                return "Yes";
+                return FormatText.formatBool(allIncomeInUS);
             case FormQuestionType.Income_Less_than_3150:
-                return "Yes";
+                double monthlyIncome = getMonthlyIncome();
+                bool valid = monthlyIncome <= 3150;
+                return FormatText.formatBool(valid);
             case FormQuestionType.First_Name:
                 return firstName;
             case FormQuestionType.Last_Name:
@@ -236,10 +241,15 @@ public class Player : MonoBehaviour
             case FormQuestionType.Annual_Income:
                 return "" + annualIncome;
             case FormQuestionType.Federal_Assistance:
-                return federalAssistance;
+                return FormatText.formatBool(federalAssistance);
         }
         return "";
             
+    }
+
+    public double getMonthlyIncome()
+    {
+        return annualIncome / 12;
     }
 
 }

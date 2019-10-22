@@ -16,11 +16,19 @@ public class Screen : MonoBehaviour
         openNextScreen();
 
     }
+    public IEnumerator delayOpenNextScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        openNextScreen();
+    }
 
     public void openNextScreen()
     {
         StartCoroutine(delayCloseScreen());
-        canvasController.openScreen(nextScreen);
+        if(nextScreen != null)
+        {
+            canvasController.openScreen(nextScreen);
+        }
     }
 
 
@@ -28,6 +36,12 @@ public class Screen : MonoBehaviour
     protected IEnumerator delayCloseScreen()
     {
         yield return new WaitForSeconds(delayTime);
+        closeScreen();
+    }
+
+    protected IEnumerator delayCloseScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         closeScreen();
     }
 

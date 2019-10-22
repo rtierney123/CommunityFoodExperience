@@ -15,6 +15,17 @@ namespace Utility
         {
             return "$" + number.ToString();
         }
+
+        public static string formatBool(bool value)
+        {
+            if (value)
+            {
+                return "Yes";
+            } else
+            {
+                return "No";
+            }
+        }
     }
 }
 

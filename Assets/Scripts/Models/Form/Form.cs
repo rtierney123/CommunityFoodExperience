@@ -10,12 +10,17 @@ namespace UI
     {
         public Player player;
         public List<TextWrapper> textItems;
-
+        public float nextActionTime;
         private bool fillingOutItem;
 
         private void OnEnable()
         {
             StartCoroutine(fillOutForm());
+        }
+
+        public virtual bool checkAlreadyEntered()
+        {
+            return true;
         }
 
         private IEnumerator fillOutForm()
@@ -24,14 +29,11 @@ namespace UI
             {
                 FormQuestionType question = item.questionType;
                 string info = player.getInfo(question);
-                Debug.Log(info);
 
                 item.startFillOutText(info);
                 yield return new WaitUntil(() => item.doneWithFillingOut);
                 item.resetTextWrapper();
-                Debug.Log("on to next");
             }
-            Debug.Log("done filling out form");
             onFormFilled();
 
         }
@@ -61,25 +63,7 @@ namespace UI
 
         protected virtual void failureAction()
         {
-
-        }
-
-
-        private void displayNotAllowedMessage()
-        {
-            string message = notAllowedMessage();
-            messageManager.generateStandardErrorMessage(message);
-            StartCoroutine(delayCloseScreen());
-        }
-
-        protected virtual bool checkAllowed()
-        {
-            return false;
-        }
-
-        protected virtual string notAllowedMessage()
-        {
-            return "not allowed";
+       
         }
 
       

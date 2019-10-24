@@ -15,7 +15,6 @@ namespace Manage
         public GameManager gameManager;
         public Location currentLocation;
         public Bus bus;
-        public CameraPan cameraPan;
         public float locationScreenDelay;
 
         public Dictionary<MapLocations, Location> locationLookup;
@@ -93,6 +92,15 @@ namespace Manage
             return 0;
         }
 
+        public void handleTakeCar()
+        {
+            travelToDestination(TravelType.Car);
+        }
+
+        public void handleTakeWalk()
+        {
+            travelToDestination(TravelType.Walk);
+        }
 
         public void handleBusLeavingEvent()
         {
@@ -140,22 +148,16 @@ namespace Manage
         {
             player.SetActive(false);
             bus.playerOnBus = true;
+            Debug.Log("take bus");
         }
 
         public void handleLeaveBusEvent()
         {
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
-            if(currentLocation.locationType == LocationType.FarLocation)
-            {
-                cameraPan.JumpRight();
-            } else
-            {
-                cameraPan.JumpLeft();
-            }
             player.SetActive(true);
             bus.playerOnBus = false;
-
+            Debug.Log("leave bus");
         }
 
 

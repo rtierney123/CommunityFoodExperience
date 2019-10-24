@@ -6,4 +6,7 @@
 	WIC = 5,
 	FoodPantry = 6,
 	VitaSnap = 7,
+    House = 8,
+    CornerStore = 9,
+    CommunityKitchen
 }

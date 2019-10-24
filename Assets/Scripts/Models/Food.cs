@@ -31,6 +31,8 @@ public class Food
 
     [HideInInspector]
     public string imgPath;
+    [HideInInspector]
+    public string location;
 
     [System.Serializable]
     public class MyPlateNutrition

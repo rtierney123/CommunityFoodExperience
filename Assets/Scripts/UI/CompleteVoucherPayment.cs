@@ -6,7 +6,7 @@ using UnityEngine;
 public class CompleteVoucherPayment : MonoBehaviour
 {
 
-    public Store store;
+    public BaseStore store;
     public WICVoucher voucher;
     
     void OnEnable()

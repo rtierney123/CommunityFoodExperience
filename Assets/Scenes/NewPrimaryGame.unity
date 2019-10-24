@@ -497,7 +497,7 @@ PrefabInstance:
     - target: {fileID: 4316393837583729596, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.000000059604645
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 2532446042908876984, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
@@ -554,6 +554,11 @@ PrefabInstance:
       propertyPath: canvasController
       value: 
       objectReference: {fileID: 1193828603}
+    - target: {fileID: 8165681286050678826, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+        type: 3}
+      propertyPath: jsonLocation
+      value: /JSON Assets/food/foodTiger.json
+      objectReference: {fileID: 0}
     - target: {fileID: 2410311436751362421, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_IsActive
@@ -601,6 +606,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
         type: 3}
+    - target: {fileID: 7132067824693175001, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 669531727825879130, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
 --- !u!224 &24160614 stripped
@@ -919,6 +934,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5256765828946822103}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &145702560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5256765828946822103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145702559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e792233fe89eb545933e1b0853133f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &166907424
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4808,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodPantry
       objectReference: {fileID: 0}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: popUp
+      value: 
+      objectReference: {fileID: 650168525}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: mainScreen
+      value: 
+      objectReference: {fileID: 646318561}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: navigationManager
+      value: 
+      objectReference: {fileID: 1817381251}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: canvasController
+      value: 
+      objectReference: {fileID: 1193828603}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: form
+      value: 
+      objectReference: {fileID: 646318562}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: messageManager
+      value: 
+      objectReference: {fileID: 1898436623}
     - target: {fileID: 2815977043173975596, guid: dc81b2eb11ba74740ac7e62fafadce0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4836,36 +4893,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: popUp
-      value: 
-      objectReference: {fileID: 650168525}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: mainScreen
-      value: 
-      objectReference: {fileID: 646318561}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: navigationManager
-      value: 
-      objectReference: {fileID: 1817381251}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: canvasController
-      value: 
-      objectReference: {fileID: 1193828603}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: form
-      value: 
-      objectReference: {fileID: 646318562}
-    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
-        type: 3}
-      propertyPath: messageManager
-      value: 
-      objectReference: {fileID: 1898436623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc81b2eb11ba74740ac7e62fafadce0b, type: 3}
 --- !u!4 &2919530899070165618 stripped
@@ -4906,6 +4933,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 408229918}
+    - target: {fileID: 1935432039882808593, guid: 8229dec9bc2199b428960e35f81222ac,
+        type: 3}
+      propertyPath: nextActionTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2649837904438190559, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5135,6 +5167,11 @@ PrefabInstance:
       propertyPath: currencyManager
       value: 
       objectReference: {fileID: 1648199821}
+    - target: {fileID: 6811252286494710315, guid: d0a9811b6afd146929d9d71bb41b12d6,
+        type: 3}
+      propertyPath: messageManager
+      value: 
+      objectReference: {fileID: 1898436623}
     - target: {fileID: 957441022895004891, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_IsActive
@@ -5160,6 +5197,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 408229918}
+    - target: {fileID: 6730899225631018372, guid: d0a9811b6afd146929d9d71bb41b12d6,
+        type: 3}
+      propertyPath: jsonLocation
+      value: /JSON Assets/food/foodPantry.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145852593941634570, guid: d0a9811b6afd146929d9d71bb41b12d6,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 145702560}
+    - target: {fileID: 2724329733516985165, guid: d0a9811b6afd146929d9d71bb41b12d6,
+        type: 3}
+      propertyPath: canvasController
+      value: 
+      objectReference: {fileID: 1193828603}
     m_RemovedComponents:
     - {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
@@ -5488,6 +5540,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: VitaServices
       objectReference: {fileID: 0}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: popUp
+      value: 
+      objectReference: {fileID: 650168525}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: mainScreen
+      value: 
+      objectReference: {fileID: 1467993689}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: navigationManager
+      value: 
+      objectReference: {fileID: 1817381251}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: canvasController
+      value: 
+      objectReference: {fileID: 1193828603}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: form
+      value: 
+      objectReference: {fileID: 1467993691}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: messageManager
+      value: 
+      objectReference: {fileID: 1898436623}
     - target: {fileID: 8486443654964655455, guid: d38413f001f5aea4da8a660d4aff4f47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5543,36 +5625,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: popUp
-      value: 
-      objectReference: {fileID: 650168525}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: mainScreen
-      value: 
-      objectReference: {fileID: 1467993689}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: navigationManager
-      value: 
-      objectReference: {fileID: 1817381251}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: canvasController
-      value: 
-      objectReference: {fileID: 1193828603}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: form
-      value: 
-      objectReference: {fileID: 1467993691}
-    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
-        type: 3}
-      propertyPath: messageManager
-      value: 
-      objectReference: {fileID: 1898436623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38413f001f5aea4da8a660d4aff4f47, type: 3}
 --- !u!4 &8699011154430484814 stripped

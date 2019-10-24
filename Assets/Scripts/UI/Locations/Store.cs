@@ -109,8 +109,8 @@ namespace UI {
                 {
                     currencyManager.useVoucher(food);
                 }
-
-              
+                messageManager.generateStandardSuccessMessage("Purchase complete.");
+                completePayment();
                 displayPlayerInfo();
             }
 

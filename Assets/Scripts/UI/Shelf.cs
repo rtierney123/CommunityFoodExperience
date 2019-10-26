@@ -20,23 +20,29 @@ public class Shelf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            Debug.Log("webgl");
-            jsonLocation = Path.Combine(Application.streamingAssetsPath, jsonLocation);
-            StartCoroutine(GetRequest(jsonLocation));
-        } else
-        {
-            jsonLocation = Application.dataPath + "/StreamingAssets" + jsonLocation;
-            bool valid = ResourceHandler.testFilePath(jsonLocation);
-            Debug.Log(valid);
+            jsonLocation = "/StreamingAssets" + jsonLocation;
             Debug.Log(jsonLocation);
-            generateAssets(jsonLocation);
+            StartCoroutine(GetRequest(jsonLocation));
         }
-        
+        else
+        {
+            string mainPath = Application.dataPath;
+            jsonLocation = mainPath + "/StreamingAssets" + jsonLocation;
+            Debug.Log(jsonLocation);
+            bool pathExists = ResourceHandler.testFilePath(jsonLocation);
+            if (pathExists)
+            {
+                string json = File.ReadAllText(jsonLocation);
+                generateFoodAssets(json);
+
+            }
+        }
 
     }
+
 
     IEnumerator GetRequest(string uri)
     {
@@ -55,14 +61,15 @@ public class Shelf : MonoBehaviour
             else
             {
                 Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                Debug.Log(webRequest.downloadHandler.text);
                 string json = webRequest.downloadHandler.text;
 
-                generateAssets(json);
+                generateFoodAssets(json);
             }
         }
     }
 
-    public void generateAssets(string jsonText)
+    public void generateFoodAssets(string jsonText)
     {
         foods = JsonUtility.FromJson<FoodList>(jsonText);
 
@@ -72,7 +79,6 @@ public class Shelf : MonoBehaviour
             grid.addItem(food);
         }
     }
-
 
     [Serializable]
     public class FoodList

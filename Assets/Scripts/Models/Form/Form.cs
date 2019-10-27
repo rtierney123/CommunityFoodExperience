@@ -20,7 +20,7 @@ namespace UI
 
         public virtual bool checkAlreadyEntered()
         {
-            return true;
+            return false;
         }
 
         private IEnumerator fillOutForm()

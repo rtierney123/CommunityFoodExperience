@@ -7,9 +7,9 @@ namespace UI {
     public class PopUp : MonoBehaviour
     {
         // Start is called before the first frame update
-        void Start()
+        protected virtual void Start()
         {
-            setChildrentoParent();
+            setChildrentoParent(this.transform);
 
         }
 
@@ -19,12 +19,13 @@ namespace UI {
 
         }
 
-        private void setChildrentoParent()
+        private void setChildrentoParent(Transform transform)
         {
-            foreach (Transform child in this.gameObject.transform)
-
+            foreach (Transform child in transform)
+            {
                 child.gameObject.tag = this.gameObject.tag;
-    
+                setChildrentoParent(child);
+            }
         }
     }
 

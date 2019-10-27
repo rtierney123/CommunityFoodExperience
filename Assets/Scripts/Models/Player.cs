@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public double annualIncome = 5000;
     public int expenses = 855;
     public int busTokens = 1;
+    public bool busPass = true;
+    public bool hasCar = true;
 
     public bool single;
     public bool married;

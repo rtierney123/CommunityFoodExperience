@@ -8,6 +8,7 @@ namespace Utility{
     {
         public static bool testFilePath(string filePath)
         {
+            Debug.Log(filePath);
             if (System.IO.File.Exists(filePath))
             {
                 Debug.Log("file exists");

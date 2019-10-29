@@ -39,8 +39,6 @@ namespace Manage
                     StartCoroutine(displaySubtractedFunds());
                 }
             }
-            
-
 
         }
 
@@ -112,6 +110,20 @@ namespace Manage
         {
             fundsSubtracted = true;
             player.useVoucher(food);
+        }
+
+        public void addToken()
+        {
+            fundsAdded = true;
+            player.busTokens++;
+            walletDisplay.updateWallet();
+        }
+
+        public void removeToken()
+        {
+            fundsSubtracted = true;
+            player.busTokens--;
+            walletDisplay.updateWallet();
         }
     }
 }

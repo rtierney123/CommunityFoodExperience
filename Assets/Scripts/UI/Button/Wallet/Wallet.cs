@@ -19,7 +19,7 @@ namespace UI
 
         public GameObject busPass;
         public GameObject carCard;
-        public GameObject tokenPrefab;
+        public TokenHolder tokenHolder;
 
         public Player player;
 
@@ -33,7 +33,6 @@ namespace UI
 
         public void selectWalletTab()
         {
-            Debug.Log("wallet");
             setInactive();
             walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
             walletTabBody.SetActive(true);
@@ -42,7 +41,6 @@ namespace UI
 
         public void selectInfoTab()
         {
-            Debug.Log("info");
             setInactive();
             infoTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
             infoTabBody.SetActive(true);
@@ -73,10 +71,37 @@ namespace UI
 
         public void selectTransportationTab()
         {
-            Debug.Log("transportation");
             setInactive();
             transportationTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
             transportationTabBody.SetActive(true);
+        }
+
+        public void updateTransportationDisplay()
+        {
+            if (player.busPass)
+            {
+                busPass.SetActive(true);
+            }
+            else
+            {
+                busPass.SetActive(false);
+            }
+
+            if (player.hasCar)
+            {
+                carCard.SetActive(true);
+            }
+            else
+            {
+                carCard.SetActive(false);
+            }
+
+            tokenHolder.clearTokens();
+            for (int i = 0; i < player.busTokens; i++)
+            {
+                tokenHolder.addToken();
+            }
+
         }
 
         public void updateWallet()
@@ -105,23 +130,7 @@ namespace UI
                 }
             }
 
-            if (player.busPass)
-            {
-                busPass.SetActive(true);
-            }
-            else
-            {
-                busPass.SetActive(false);
-            }
-
-            if (player.hasCar)
-            {
-                carCard.SetActive(true);
-            }
-            else
-            {
-                carCard.SetActive(false);
-            }
+            updateTransportationDisplay();
         }
 
         private void setInactive()

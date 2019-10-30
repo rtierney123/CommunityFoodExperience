@@ -6,16 +6,37 @@ using UnityEngine.UI;
 using Utility;
 namespace UI
 {
-    public class TicketPurchasePopup : PopUp
+    public class TicketPurchasePopup : PurchasePopup
     {
         public Text numTicketText;
         public Text costTotalText;
         public double ticketCost;
-        public GameObject paymentPopup;
         public GameObject farePopup;
+        public GameObject chooseTicketDisplay;
+        public GameObject paymentDisplay;
         public CanvasController canvasController;
         private int numTickets;
-        
+
+        public CurrencyManager currencyManager;
+        public MessageManager messageManager;
+
+        private void OnEnable()
+        {
+            openChooseTickeDisplay();
+        }
+
+        public override void pay()
+        {
+            base.pay();
+            if (currencyManager.validatePayment(cash, ctc, eitc, 0))
+            {
+                currencyManager.subtractFunds(FundsType.Cash, cash);
+                currencyManager.subtractFunds(FundsType.CTC, ctc);
+                currencyManager.subtractFunds(FundsType.EITC, eitc);
+                messageManager.generateStandardSuccessMessage("Payment successful");
+            }
+        }
+
         public void addTicket()
         {
             if(numTickets < 100)
@@ -34,9 +55,16 @@ namespace UI
             }
         }
 
-        public void openPaymentPopup()
+        public void openPaymentDisplay()
         {
-            canvasController.forcePopupOpen(paymentPopup);
+            chooseTicketDisplay.SetActive(false);
+            paymentDisplay.SetActive(true);
+        }
+
+        public void openChooseTickeDisplay()
+        {
+            chooseTicketDisplay.SetActive(true);
+            paymentDisplay.SetActive(false);
         }
 
         public void cancel()

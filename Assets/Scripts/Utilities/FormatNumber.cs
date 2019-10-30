@@ -1,17 +1,13 @@
-﻿using Manage;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UI
+namespace Utility
 {
-    public class CompleteTicketPurchasePopup : PurchasePopup
+    public static class FormatNumber
     {
-     
-
-
-        private double roundTwoDecimal(double num)
+        public static double roundTwoDecimal(double num)
         {
             return Math.Round(num * 100) / 100;
         }

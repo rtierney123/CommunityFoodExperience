@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using Utility;
 
 namespace Manage
 {
     public class CurrencyManager : MonoBehaviour
     {
         public CanvasController canvasController;
+        public MessageManager messageManager;
         public Wallet walletDisplay;
         public Player player;
         public int changeDisplayTime;
@@ -58,6 +60,7 @@ namespace Manage
             minusSignPopUp.SetActive(false);
         }
 
+
         public void addFunds(FundsType type, double amt)
         {
             fundsAdded = true;
@@ -78,6 +81,43 @@ namespace Manage
             }
             walletDisplay.updateWallet();
         }
+
+
+        public bool validatePayment(double cash, double ctc, double eitc, double snap)
+        {
+            if (player.money < cash)
+            {
+                messageManager.generateStandardErrorMessage("Not enough cash.");
+                return false;
+            }
+            else if (player.ctcFunds < ctc)
+            {
+                messageManager.generateStandardErrorMessage("Not enough CTC fund.");
+                return false;
+
+            }
+            else if (player.eitcFunds < eitc)
+            {
+                messageManager.generateStandardErrorMessage("Not enough EITC fund.");
+                return false;
+            }
+            else if (player.snapFunds < snap)
+            {
+                messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
+                return false;
+            }
+            else if (FormatNumber.roundTwoDecimal(cash + ctc + eitc + snap) != FormatNumber.roundTwoDecimal(0))
+            {
+                messageManager.generateStandardErrorMessage("Total amount does not match");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+      
 
         public void subtractFunds(FundsType type, double amt)
         {

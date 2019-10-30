@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,9 @@ namespace UI
         public Text numTicketText;
         public Text costTotalText;
         public double ticketCost;
+        public GameObject paymentPopup;
+        public GameObject farePopup;
+        public CanvasController canvasController;
         private int numTickets;
         
         public void addTicket()
@@ -29,7 +33,16 @@ namespace UI
                 updateTicket();
             }
         }
-  
+
+        public void openPaymentPopup()
+        {
+            canvasController.forcePopupOpen(paymentPopup);
+        }
+
+        public void cancel()
+        {
+            canvasController.forcePopupOpen(farePopup);
+        }
 
         private void updateTicket()
         {
@@ -37,6 +50,7 @@ namespace UI
             double totalCost = numTickets * ticketCost;
             costTotalText.text = FormatText.formatCost(totalCost);
         }
+
 
     }
 

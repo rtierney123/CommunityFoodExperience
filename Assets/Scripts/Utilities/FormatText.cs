@@ -11,6 +11,11 @@ namespace Utility
             return number.ToString();
         }
 
+        public static string formatInt(int number)
+        {
+            return number.ToString();
+        }
+
         public static string formatCost(double number)
         {
             string s = "$" + number.ToString();

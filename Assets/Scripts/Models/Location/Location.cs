@@ -21,8 +21,13 @@ namespace Model
         public string locationDescription;
         public float delayTime;
 
+        public GameObject map;
+        public Material[] mats; // size 9: 2 elements each
+
         Ray ray;
         RaycastHit hit;
+
+        bool over = false;
 
         // Start is called before the first frame update
         void Start()
@@ -32,17 +37,38 @@ namespace Model
 
         // Update is called once per frame
         void Update()
-        {
-
-            if (Input.GetMouseButtonDown(0))
+        {   
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
+                over = true;
+                var elements = map.GetComponent<Renderer>().materials;
+                elements[0] = Resources.Load<Material>("Materials/map " + locationTitle);
+                elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
+                
+                // comment out line below to disable building hilight
+                map.GetComponent<Renderer>().materials = elements;
+                // Debug.Log("this: " + locationTitle);
+
+                // enter buildings
+                if (Input.GetMouseButtonDown(0))
                 {
                     navigationManager.startLocationScreen(this);
                 }
             }
-
+            else
+            {
+                // reset map
+                if (over)
+                {
+                    var elements = map.GetComponent<Renderer>().materials;
+                    elements[0] = Resources.Load<Material>("Materials/map");
+                    elements[1] = Resources.Load<Material>("Materials/map");
+                    map.GetComponent<Renderer>().materials = elements;
+                    
+                    over = false;
+                }
+            }
         }
 
         public virtual void onEnter()
@@ -61,7 +87,7 @@ namespace Model
             yield return new WaitForSeconds(delayTime);
             if (mainScreen != null)
             {
-                canvasController.closePopUp();
+                canvasController.closePopUp ();
                 canvasController.openScreen(mainScreen);
             }
         }

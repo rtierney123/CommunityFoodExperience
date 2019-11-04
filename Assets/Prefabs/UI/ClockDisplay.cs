@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Manage;
 
 
 public class ClockDisplay : MonoBehaviour
@@ -35,12 +36,13 @@ public class ClockDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (GameManager.isPause) {
+			return;
+		}
 		TimeSpan time = (DateTime.Now - startTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
 		string result = runTimeToDayTime(runTimeRatio);
 		txt.text = result;
-		//Debug.Log(runTimeRatio);
-		//Debug.Log();
 	}
 }

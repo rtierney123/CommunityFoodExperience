@@ -8,6 +8,7 @@ namespace Manage{
     //does logic for determining when the endgame is and when the player has satified all goals
     public class GameManager : MonoBehaviour
     {
+        public static bool isPause = false; 
 
         //public int timeRemaining;
 
@@ -32,6 +33,14 @@ namespace Manage{
         public void subtractTime(int time)
         {
 
+        }
+
+        public void pause() {
+            isPause = true;
+        }
+
+        public void unpause() {
+            isPause = false;
         }
     }
 }

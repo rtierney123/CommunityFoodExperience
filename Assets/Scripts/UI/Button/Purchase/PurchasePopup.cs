@@ -22,17 +22,28 @@ namespace UI
         public virtual void pay()
         {
 
-            cash = string.IsNullOrEmpty(cashValue.text) ? 0 : Convert.ToDouble(cashValue.text);
-            ctc = string.IsNullOrEmpty(ctcValue.text) ? 0 : Convert.ToDouble(ctcValue.text);
-            eitc = string.IsNullOrEmpty(eitcValue.text) ? 0 : Convert.ToDouble(eitcValue.text);
-            snap = string.IsNullOrEmpty(snapValue.text) ? 0 : Convert.ToDouble(snapValue.text);
-
-
             string resetValue = "";
-            cashValue.text = resetValue;
-            eitcValue.text = resetValue;
-            ctcValue.text = resetValue;
-            snapValue.text = resetValue;
+
+            if (cashValue != null)
+            {
+                cash = string.IsNullOrEmpty(cashValue.text) ? 0 : Convert.ToDouble(cashValue.text);
+                cashValue.text = resetValue;
+            }
+            if (eitcValue != null)
+            {
+                eitc = string.IsNullOrEmpty(eitcValue.text) ? 0 : Convert.ToDouble(eitcValue.text);
+                eitcValue.text = resetValue;
+            }
+            if (ctcValue != null)
+            {
+                ctc = string.IsNullOrEmpty(ctcValue.text) ? 0 : Convert.ToDouble(ctcValue.text);
+                ctcValue.text = resetValue;
+            }
+            if (snapValue != null)
+            {
+                snap = string.IsNullOrEmpty(snapValue.text) ? 0 : Convert.ToDouble(snapValue.text);
+                snapValue.text = resetValue;
+            }
 
         }
     }

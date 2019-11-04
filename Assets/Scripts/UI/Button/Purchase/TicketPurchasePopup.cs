@@ -9,7 +9,8 @@ namespace UI
     public class TicketPurchasePopup : PurchasePopup
     {
         public Text numTicketText;
-        public Text costTotalText;
+        public Text costTotalText1;
+        public Text costTotalText2;
         public double ticketCost;
         public GameObject farePopup;
         public GameObject chooseTicketDisplay;
@@ -27,6 +28,7 @@ namespace UI
 
         public override void pay()
         {
+            canvasController.addToPopUpBackLog(this.gameObject);
             base.pay();
             if (currencyManager.validatePayment(cash, ctc, eitc, 0))
             {
@@ -34,7 +36,7 @@ namespace UI
                 currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.EITC, eitc);
                 messageManager.generateStandardSuccessMessage("Payment successful");
-            }
+            } 
         }
 
         public void addTicket()
@@ -76,9 +78,9 @@ namespace UI
         {
             numTicketText.text = FormatText.formatInt(numTickets);
             double totalCost = numTickets * ticketCost;
-            costTotalText.text = FormatText.formatCost(totalCost);
+            costTotalText1.text = FormatText.formatCost(totalCost);
+            costTotalText2.text = FormatText.formatCost(totalCost);
         }
-
 
     }
 

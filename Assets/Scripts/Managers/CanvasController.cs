@@ -17,6 +17,7 @@ namespace Manage
         GraphicRaycaster raycaster;
         [HideInInspector]
         public GameObject popUp;
+        private Queue<GameObject> popUpBackLog;
         Vector3 playerStopLocation;
         bool allowClose;
         bool allowOpen;
@@ -32,6 +33,7 @@ namespace Manage
             allowOpen = true;
             popUp = null;
             screenDisplayed = false;
+            popUpBackLog = new Queue<GameObject>();
         }
 
         void Update()
@@ -64,12 +66,18 @@ namespace Manage
                     {
                         if (allowClose)
                         {
-                            setPopUp(false);
+                            closePopUp();
                         }
 
                     }
                 }
             }
+        }
+
+        public void addToPopUpBackLog(GameObject gameObject)
+        {
+            Debug.Log("add to backlog");
+            popUpBackLog.Enqueue(gameObject);
         }
 
         public void openPopup(GameObject gameObject)
@@ -102,7 +110,15 @@ namespace Manage
         {
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
-            popUp = null;
+            if(popUpBackLog.Count > 0)
+            {
+                Debug.Log("open backlog");
+                popUp = popUpBackLog.Dequeue();
+                setPopUp(true);
+            } else
+            {
+                popUp = null;
+            }
         }
 
         public void openScreen(GameObject screen)

@@ -83,7 +83,7 @@ namespace Manage
         }
 
 
-        public bool validatePayment(double cash, double ctc, double eitc, double snap)
+        public bool validatePayment(double cash, double ctc, double eitc, double snap, double totalDue)
         {
             if (player.money < cash)
             {
@@ -106,7 +106,7 @@ namespace Manage
                 messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
                 return false;
             }
-            else if (FormatNumber.roundTwoDecimal(cash + ctc + eitc + snap) != FormatNumber.roundTwoDecimal(0))
+            else if (FormatNumber.roundTwoDecimal(cash + ctc + eitc + snap) != FormatNumber.roundTwoDecimal(totalDue))
             {
                 messageManager.generateStandardErrorMessage("Total amount does not match");
                 return false;

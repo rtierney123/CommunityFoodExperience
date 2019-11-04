@@ -30,7 +30,7 @@ namespace UI
         {
             canvasController.addToPopUpBackLog(this.gameObject);
             base.pay();
-            if (currencyManager.validatePayment(cash, ctc, eitc, 0))
+            if (currencyManager.validatePayment(cash, ctc, eitc, 0, ticketCost*numTickets))
             {
                 currencyManager.subtractFunds(FundsType.Cash, cash);
                 currencyManager.subtractFunds(FundsType.CTC, ctc);

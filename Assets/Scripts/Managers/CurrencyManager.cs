@@ -152,18 +152,23 @@ namespace Manage
             player.useVoucher(food);
         }
 
-        public void addToken()
+        public void addTokens(int numTokens)
         {
             fundsAdded = true;
-            player.busTokens++;
+            player.busTokens += numTokens;
             walletDisplay.updateWallet();
         }
 
         public void removeToken()
         {
-            fundsSubtracted = true;
-            player.busTokens--;
-            walletDisplay.updateWallet();
+            
+            if(player.busTokens > 0)
+            {
+                fundsSubtracted = true;
+                player.busTokens--;
+                walletDisplay.updateWallet();
+            } 
+          
         }
     }
 }

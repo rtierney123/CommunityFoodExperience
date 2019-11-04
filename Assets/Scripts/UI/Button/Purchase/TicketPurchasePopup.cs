@@ -35,6 +35,7 @@ namespace UI
                 currencyManager.subtractFunds(FundsType.Cash, cash);
                 currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.EITC, eitc);
+                currencyManager.addTokens(numTickets);
                 messageManager.generateStandardSuccessMessage("Payment successful");
             } 
         }

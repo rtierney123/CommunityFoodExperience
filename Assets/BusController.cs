@@ -26,7 +26,7 @@ public class BusController : MonoBehaviour
 	void OnMouseOver()
 	{
 		//if bus can be highlighed condition here
-		material.color = new Color(0xff, 0xf9, 0x82);
+		material.color = new Color(255, 255, 0);
 	}
 
 	void OnMouseExit()

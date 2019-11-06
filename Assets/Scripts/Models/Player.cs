@@ -6,11 +6,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 
+[System.Serializable]
 public class Player : MonoBehaviour
 {
 
 
     // temp player info. will place in better place later
+
+    public ChildList children;
+    [Serializable]
+    public class ChildList
+    {
+        public Child[] list;
+    }
+
     public string firstName = "Sam";
     public string middleName = "";
     public string lastName = "Smith";
@@ -214,7 +223,7 @@ public class Player : MonoBehaviour
             case FormQuestionType.Phone:
                 return phoneNum;
             case FormQuestionType.Num_Children:
-                return numOfChildren.ToString();
+                return children.list.Length.ToString();
             case FormQuestionType.Monthly_Income:
                 return "" + fixedIncome;
             case FormQuestionType.Children_Age:

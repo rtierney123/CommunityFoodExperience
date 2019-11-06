@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containsText: 0
   doneWithFillingOut: 0
+  questionType: 0
   check1: {fileID: 6974942264574107457}
   check2: {fileID: 7811042224555634071}
 --- !u!1 &27133587561484849
@@ -424,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390.1, y: -75}
+  m_AnchoredPosition: {x: -393, y: -75}
   m_SizeDelta: {x: 565.9, y: 28.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3340666234884052284
@@ -660,6 +661,7 @@ MonoBehaviour:
   - {fileID: 8723649055326072953}
   - {fileID: 5159330718049335184}
   nextActionTime: 1
+  currencyManager: {fileID: 0}
 --- !u!1 &4041278311912638587
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containsText: 0
   doneWithFillingOut: 0
+  questionType: 0
   check1: {fileID: 1883772643261915956}
   check2: {fileID: 3284430972548477713}
 --- !u!1 &6136536793849603523
@@ -1736,25 +1739,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Child_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 2465644131991727057, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -594
       objectReference: {fileID: 0}
-    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Preg_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 5567132118986313935, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -347.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Child_Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Preg_Check
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b1b0efb0fd4db41b10b118ba1e746d, type: 3}
@@ -1886,25 +1889,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Child_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 2465644131991727057, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -594
       objectReference: {fileID: 0}
-    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Preg_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 5567132118986313935, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -347.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Child_Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Preg_Check
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b1b0efb0fd4db41b10b118ba1e746d, type: 3}
@@ -3576,25 +3579,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Child_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 2465644131991727057, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -594
       objectReference: {fileID: 0}
-    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Preg_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 5567132118986313935, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -347.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Child_Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Preg_Check
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b1b0efb0fd4db41b10b118ba1e746d, type: 3}
@@ -3726,25 +3729,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Child_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 2465644131991727057, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -594
       objectReference: {fileID: 0}
-    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
-        type: 3}
-      propertyPath: m_Name
-      value: Preg_Check
-      objectReference: {fileID: 0}
     - target: {fileID: 5567132118986313935, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -347.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577607454976110356, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Child_Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526012666583421962, guid: b1b1b0efb0fd4db41b10b118ba1e746d,
+        type: 3}
+      propertyPath: m_Name
+      value: Preg_Check
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b1b0efb0fd4db41b10b118ba1e746d, type: 3}

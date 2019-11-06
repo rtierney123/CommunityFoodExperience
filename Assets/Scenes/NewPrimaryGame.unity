@@ -4689,7 +4689,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1193828603}
-        m_MethodName: openScreen
+        m_MethodName: openScreenAndPause
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 838739124}
@@ -5739,6 +5739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowWaitTime: 0.01
   busStopTitle: {fileID: 938420659}
+  busAnimator: {fileID: 1838183075}
   popUp: {fileID: 0}
   screenDisplayed: 0
 --- !u!114 &1193828604
@@ -7145,8 +7146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fd16779056b104ea6168b222820c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  material: {fileID: 0}
+  animator: {fileID: 1838183075}
+  material: {fileID: 2100000, guid: dd3d163990db0534e9e91e9e51d141c9, type: 2}
+--- !u!95 &1838183075 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2734149513842268863, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+    type: 3}
+  m_PrefabInstance: {fileID: 347434143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1859507668
 PrefabInstance:
   m_ObjectHideFlags: 0

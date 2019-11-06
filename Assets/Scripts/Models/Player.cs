@@ -36,8 +36,6 @@ public class Player : MonoBehaviour
     public int birthYear = 2000;
     public bool federalAssistance;
     public bool pregant;
-    public int numOfChildren = 3;
-    public string childrenAges = "2, 3, 4";
     public int fixedIncome = 870;
     public double annualIncome = 5000;
     public double hourlyIncome = 10;
@@ -227,7 +225,7 @@ public class Player : MonoBehaviour
             case FormQuestionType.Monthly_Income:
                 return "" + fixedIncome;
             case FormQuestionType.Children_Age:
-                return childrenAges;
+                return "";
             case FormQuestionType.Aid:
                 return (snapFunds + ctcFunds + eitcFunds == 0) ? "No":"Yes";
             case FormQuestionType.Single:
@@ -290,6 +288,11 @@ public class Player : MonoBehaviour
         string month = FormatText.formatInt(birthMonth); 
         string year = FormatText.formatInt(birthYear);
         return day + "/" + month + "/" + year;
+    }
+
+    public int getNumofChildren()
+    {
+        return children.list.Length;
     }
 
 }

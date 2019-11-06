@@ -50,7 +50,7 @@ namespace UI
             else
             {
                 double monthlyIncome = player.getMonthlyIncome();
-                int numChildren = player.numOfChildren;
+                int numChildren = player.getNumofChildren();
 
                 switch (numChildren)
                 {
@@ -188,7 +188,7 @@ namespace UI
             }
             if (eitcEligbility)
             {
-                int numChildren = player.numOfChildren;
+                int numChildren = player.getNumofChildren();
 
                 switch (numChildren)
                 {

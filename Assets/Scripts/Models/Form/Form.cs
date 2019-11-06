@@ -9,7 +9,7 @@ namespace UI
     public class Form : Screen
     {
         public Player player;
-        public List<TextWrapper> textItems;
+        public List<FormWrapper> textItems;
         public float nextActionTime;
         private bool fillingOutItem;
 
@@ -25,12 +25,21 @@ namespace UI
 
         private IEnumerator fillOutForm()
         {
-            foreach (TextWrapper item in textItems)
+            foreach (FormWrapper item in textItems)
             {
                 FormQuestionType question = item.questionType;
-                string info = player.getInfo(question);
+ 
+                if (item.containsText)
+                {
+                    string info = player.getInfoText(question);
+                    Debug.Log(info);
+                    item.setText(info);
+                } else
+                {
+                    item.setCheck(CheckmarkType.Check1);
+                }
 
-                item.startFillOutText(info);
+                item.fillOut();
                 yield return new WaitUntil(() => item.doneWithFillingOut);
                 item.resetTextWrapper();
             }

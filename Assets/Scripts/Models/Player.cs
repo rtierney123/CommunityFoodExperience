@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 
 
     // temp player info. will place in better place later
-    public string characterName = "Sam Smith";
     public string firstName = "Sam";
     public string middleName = "";
     public string lastName = "Smith";
@@ -22,12 +21,18 @@ public class Player : MonoBehaviour
     public string city = "Atlanta";
     public string state = "GA";
     public string zip = "30317";
-    public string DOB = "01/01/2010";
+    public string primaryLanguage = "English";
+    public int birthMonth = 12;
+    public int birthDay = 1;
+    public int birthYear = 2000;
     public bool federalAssistance;
+    public bool pregant;
     public int numOfChildren = 3;
     public string childrenAges = "2, 3, 4";
     public int fixedIncome = 870;
     public double annualIncome = 5000;
+    public double hourlyIncome = 10;
+    public int numInHouse = 2;
     public int expenses = 855;
     public int busTokens = 1;
     public bool busPass = true;
@@ -43,6 +48,7 @@ public class Player : MonoBehaviour
     public bool wic;
     public bool usedVita;
     public bool usedFoodPantry;
+    public bool usedWIC;
     public bool inUSSixMonth;
     public bool allIncomeInUS;
 
@@ -59,7 +65,7 @@ public class Player : MonoBehaviour
     public double protein = 0;
     public double dairy = 0;
     public double fruit = 0;
-    public double vegetabele = 0;
+    public double vegetable = 0;
     public double extra = 0;
 
     public double requiredCalories = 5;
@@ -77,6 +83,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         addVoucher();
+        wicVoicher.gameObject.SetActive(false);
     }
 
     //string[] foodAcquired = [];
@@ -116,7 +123,7 @@ public class Player : MonoBehaviour
         protein += food.nutrition.protein;
         dairy += food.nutrition.dairy;
         fruit += food.nutrition.fruit;
-        vegetabele += food.nutrition.veg;
+        vegetable += food.nutrition.veg;
         extra += food.nutrition.extra;
 
     }
@@ -196,7 +203,7 @@ public class Player : MonoBehaviour
         return String.Format("{0:0.##}", funds);
     }
 
-    public string getInfo(FormQuestionType question)
+    public string getInfoText(FormQuestionType question)
     {
         switch(question)
         {
@@ -244,6 +251,20 @@ public class Player : MonoBehaviour
                 return "" + annualIncome;
             case FormQuestionType.Federal_Assistance:
                 return FormatText.formatBool(federalAssistance);
+            case FormQuestionType.Birth_Day:
+                return FormatText.formatInt(birthDay);
+            case FormQuestionType.Birth_Month:
+                return FormatText.formatInt(birthMonth);
+            case FormQuestionType.Birth_Year:
+                return FormatText.formatInt(birthYear);
+            case FormQuestionType.Hourly_Wage:
+                return FormatText.formatDouble(hourlyIncome);
+            case FormQuestionType.Num_In_Household:
+                return FormatText.formatDouble(numInHouse);
+            case FormQuestionType.Primary_Language:
+                return primaryLanguage;
+            case FormQuestionType.Is_Pregnant:
+                return FormatText.formatBool(pregant);
         }
         return "";
             
@@ -252,6 +273,14 @@ public class Player : MonoBehaviour
     public double getMonthlyIncome()
     {
         return annualIncome / 12;
+    }
+
+    public string getDOB()
+    {
+        string day = FormatText.formatInt(birthDay);
+        string month = FormatText.formatInt(birthMonth); 
+        string year = FormatText.formatInt(birthYear);
+        return day + "/" + month + "/" + year;
     }
 
 }

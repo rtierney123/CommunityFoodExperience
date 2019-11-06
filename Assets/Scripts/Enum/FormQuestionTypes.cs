@@ -50,6 +50,9 @@ public enum FormQuestionType
     Has_Mispresent_Identity_Member = 38,
     Has_Guity_Drug_Member = 39,
     Has_Guity_Foodstamp_Member = 40,
+    Birth_Month = 41,
+    Birth_Day = 42,
+    Birth_Year = 43,
     Joint_Tax = 9,
     Children_Age = 5,
     Aid = 6

@@ -140,7 +140,7 @@ namespace Manage
             walletDisplay.updateWallet();
         }
 
-        public void addWICVoucher(WICVoucher voucher)
+        public void addWICVoucher()
         {
             fundsAdded = true;
             player.addVoucher();

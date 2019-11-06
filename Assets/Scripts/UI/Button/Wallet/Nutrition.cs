@@ -50,7 +50,7 @@ public class Nutrition : MonoBehaviour
             }
             else if (child.name == "VegetableValue")
             {
-                child.gameObject.GetComponent<Text>().text = player.vegetabele.ToString() + "/" + player.requiredVegetable.ToString();
+                child.gameObject.GetComponent<Text>().text = player.vegetable.ToString() + "/" + player.requiredVegetable.ToString();
             }
             else if (child.name == "ExtraValue")
             {

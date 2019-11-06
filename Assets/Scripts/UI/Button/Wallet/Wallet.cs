@@ -48,7 +48,7 @@ namespace UI
             {
                 if (child.name == "NameValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.characterName;
+                    child.gameObject.GetComponent<Text>().text = player.getFullName();
                 }
                 else if (child.name == "SSNValue")
                 {
@@ -56,7 +56,7 @@ namespace UI
                 }
                 else if (child.name == "DOBValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.DOB;
+                    child.gameObject.GetComponent<Text>().text = player.getDOB();
                 }
                 else if (child.name == "TelValue")
                 {

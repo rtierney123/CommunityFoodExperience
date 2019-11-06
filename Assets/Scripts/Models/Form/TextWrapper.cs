@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class TextWrapper : MonoBehaviour
+    public class TextWrapper : FormWrapper
     {
-        public FormQuestionType questionType;
         public float fillOutDelayTime;
         public Text displayText;
 
-        [HideInInspector]
-        public bool doneWithFillingOut;
+        private void Awake()
+        {
+           containsText = true;
+        }
 
         private void Start()
         {
@@ -20,9 +21,9 @@ namespace UI
             displayText.text = "";
         }
 
-        public void startFillOutText(string info)
+        public override void fillOut()
         {
-            StartCoroutine(fillOutText(info));
+            StartCoroutine(fillOutText(contents));
         }
 
         public IEnumerator fillOutText(string info)
@@ -37,12 +38,6 @@ namespace UI
             }
             //set to true to continue coutroutine
             doneWithFillingOut = true;
-        }
-
-        public void resetTextWrapper()
-        {
-            //reset to fill out form again
-            doneWithFillingOut = false;
         }
 
     }

@@ -127,7 +127,7 @@ namespace Manage
             screen.SetActive(true);
             screenDisplayed = true;
         }
-		
+
 		public void openScreenAndPause(GameObject screen)
 		{
 			screen.SetActive(true);

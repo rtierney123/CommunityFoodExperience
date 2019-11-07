@@ -10,6 +10,7 @@ namespace Manage
     public class NavigationManager : MonoBehaviour
     {
         public GameObject player;
+        public GameObject startScreen;
 
         public CanvasController canvasController;
         public GameManager gameManager;
@@ -27,6 +28,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
+            startScreen.active = true;
             print("Game Start!!!");
             locationLookup = new Dictionary<MapLocations, Location>();
             if (locationKeys.Count == locationValues.Count)

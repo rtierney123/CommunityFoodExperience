@@ -8,6 +8,7 @@ using Manage;
 
 public class ClockDisplay : MonoBehaviour
 {
+	public GameObject endScreen;
 	public bool running;
 	public uint runtimeMiliSeconds;
 	private DateTime startTime;
@@ -47,6 +48,11 @@ public class ClockDisplay : MonoBehaviour
 		TimeSpan time = (DateTime.Now - startTime - this.pauseTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
+
+		if (runTimeRatio >= 1f) {
+			endScreen.active = true;
+		}
+
 		string result = runTimeToDayTime(runTimeRatio);
 		txt.text = result;
 	}

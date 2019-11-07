@@ -86,8 +86,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        addVoucher();
-        wicVoicher.gameObject.SetActive(false);
     }
 
     //string[] foodAcquired = [];

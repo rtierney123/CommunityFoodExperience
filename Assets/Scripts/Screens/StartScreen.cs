@@ -11,7 +11,6 @@ public class StartScreen : MonoBehaviour
     public GameObject startScreen;
 
     void Start() {
-        print("WOW");
         canvasController.pause();
     }
 

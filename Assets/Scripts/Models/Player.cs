@@ -49,13 +49,6 @@ public class Player : MonoBehaviour
     public bool married;
     public bool jointTax;
 
-
-    public bool vita;
-    public bool snap;
-    public bool wic;
-    public bool usedVita;
-    public bool usedFoodPantry;
-    public bool usedWIC;
     public bool inUSSixMonth;
     public bool allIncomeInUS;
 
@@ -81,6 +74,11 @@ public class Player : MonoBehaviour
     public double fruit = 0;
     public double vegetable = 0;
     public double extra = 0;
+
+    public bool usedVita = false;
+    public bool usedFoodPantry = false;
+    public bool usedWIC = false;
+    public bool usedSnap = false;
 
     public WICVoucher wicVoicher;
     private bool hasWic = false;

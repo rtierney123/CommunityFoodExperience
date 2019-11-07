@@ -8,10 +8,19 @@ public class FormWrapper : MonoBehaviour
     public bool containsText;
     [HideInInspector]
     public bool doneWithFillingOut;
+    [HideInInspector]
+    public bool initialized = false;
 
     public FormQuestionType questionType;
     protected string contents = "";
     protected CheckmarkType checkChoice = CheckmarkType.None;
+
+
+    protected virtual void Awake()
+    {
+        initialized = true;
+    }
+
     public virtual void fillOut()
     {
 

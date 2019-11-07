@@ -6,6 +6,11 @@ namespace UI
 {
     public class SnapForm : Form
     {
+        public override bool checkAlreadyEntered()
+        {
+            return false;
+        }
+
         protected override bool checkValid()
         {
             return true;

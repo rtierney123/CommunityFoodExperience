@@ -25,6 +25,12 @@ namespace UI
 
         private IEnumerator fillOutForm()
         {
+            //make sure all text items are intialized
+            foreach (FormWrapper item in textItems)
+            {
+                yield return new WaitUntil(() => item.initialized);
+            }
+
             foreach (FormWrapper item in textItems)
             {
                 FormQuestionType question = item.questionType;
@@ -40,6 +46,7 @@ namespace UI
                 }
 
                 item.fillOut();
+                yield return new WaitForSeconds((float).5);
                 yield return new WaitUntil(() => item.doneWithFillingOut);
                 item.resetTextWrapper();
             }

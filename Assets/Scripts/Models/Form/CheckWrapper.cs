@@ -7,9 +7,10 @@ public class CheckWrapper : FormWrapper
     public GameObject check1;
     public GameObject check2;
 
-    private void Awake()
+    protected override void Awake()
     {
         containsText = false;
+        base.Awake();
     }
 
     private void Start()

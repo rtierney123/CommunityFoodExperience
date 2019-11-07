@@ -10,9 +10,10 @@ namespace UI
         public float fillOutDelayTime;
         public Text displayText;
 
-        private void Awake()
+        protected override void Awake()
         {
            containsText = true;
+            base.Awake();
         }
 
         private void Start()

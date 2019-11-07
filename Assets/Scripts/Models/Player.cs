@@ -64,7 +64,14 @@ public class Player : MonoBehaviour
     public double ctcFunds = 0;
     public double eitcFunds = 0;
 
-    public int progress = 0;
+    public double requiredCalories = 5;
+    public double requiredGrain = 1;
+    public double requiredFat = 1;
+    public double requiredProtein = 3;
+    public double requiredDairy = 2;
+    public double requiredFruit = 1;
+    public double requiredVegetable = 2;
+    public double requiredExtra = 0;
 
     public double calories = 0;
     public double grain = 0;
@@ -74,15 +81,6 @@ public class Player : MonoBehaviour
     public double fruit = 0;
     public double vegetable = 0;
     public double extra = 0;
-
-    public double requiredCalories = 5;
-    public double requiredGrain = 1;
-    public double requiredFat = 1;
-    public double requiredProtein = 3;
-    public double requiredDairy = 2;
-    public double requiredFruit = 1;
-    public double requiredVegetable = 2;
-    public double requiredExtra = 0;
 
     public WICVoucher wicVoicher;
     private bool hasWic = false;
@@ -100,10 +98,6 @@ public class Player : MonoBehaviour
     {
         // return { carbs, protein, fruits, veggies};
         return null;
-    }
-    public int getProgress()
-    {
-        return progress;
     }
 
     //.....

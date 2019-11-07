@@ -43,15 +43,7 @@ namespace UI {
             ctcText.text = player.formatFunds(ctc);
             snapText.text = player.formatFunds(snap);
 
-            if (player.hasWic)
-            {
-                voucher.gameObject.SetActive(true);
-                voucher.copy(player.wicVoicher);
-            } else
-            {
-                voucher.gameObject.SetActive(false);
-            }
-            
+            voucher.copy(player.wicVoicher);
         }
 
         public void openPurchaseOptions()
@@ -78,25 +70,21 @@ namespace UI {
         private bool checkVoucherCart()
         {
             bool valid = true;
-            Dictionary<Food, int> foods = cart.foodInCart;
-            foreach(KeyValuePair<Food, int> food in foods)
+            HashSet<Food> foods = cart.foodInCart;
+            foreach(Food food in foods)
             {
-                for(int i = 0; i < food.Value; i++)
+                FoodType foodType = food.wicType;
+                if(!food.wic)
                 {
-                    FoodType foodType = food.Key.wicType;
-                    if (!food.Key.wic)
-                    {
-                        valid = false;
-                        messageManager.generateStandardErrorMessage("Non-wic item in cart.");
-                        Debug.Log("non-wic");
-                    }
-                    else if (!player.wicVoicher.checkValid(food.Key))
-                    {
-                        valid = false;
-                        messageManager.generateStandardErrorMessage("Wic item category already used.");
-                    }
+                    valid = false;
+                    messageManager.generateStandardErrorMessage("Non-wic item in cart.");
+                    Debug.Log("non-wic");
                 }
-               
+                else if (!player.wicVoicher.checkValid(food))
+                {
+                    valid = false;
+                    messageManager.generateStandardErrorMessage("Wic item category already used.");
+                }
             }
 
             return valid;
@@ -117,7 +105,7 @@ namespace UI {
             bool valid = validateWICPurchase();
             if (valid)
             {
-                foreach (Food food in cart.foodInCart.Keys)
+                foreach (Food food in cart.foodInCart)
                 {
                     currencyManager.useVoucher(food);
                 }
@@ -154,10 +142,10 @@ namespace UI {
 
         private bool validateFundsPurchase(double cash, double eitc, double ctc, double snap)
         {
-            Dictionary<Food, int> cartFood = cart.foodInCart;
+            HashSet<Food> cartFood = cart.foodInCart;
             if (snap > 0)
             {
-                foreach (Food food in cart.foodInCart.Keys)
+                foreach (Food food in cart.foodInCart)
                 {
                     if (food.premade)
                     {
@@ -214,13 +202,13 @@ namespace UI {
 
             if (voucher != null)
             {
-                foreach (KeyValuePair<Food, int> food in cart.foodInCart)
+                foreach (Food food in cart.foodInCart)
                 {
                     if (valid)
                     {
-                        if (voucher.checkValid(food.Key))
+                        if (voucher.checkValid(food))
                         {
-                            switch (food.Key.wicType)
+                            switch (food.wicType)
                             {
                                 case FoodType.Fruit:
                                     if (fruitUsed)

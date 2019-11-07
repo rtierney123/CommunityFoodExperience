@@ -81,11 +81,12 @@ public class Player : MonoBehaviour
     public bool usedSnap = false;
 
     public WICVoucher wicVoicher;
-    [HideInInspector]
-    public bool hasWic = false;
+    private bool hasWic = false;
 
     private void Start()
     {
+        addVoucher();
+        wicVoicher.gameObject.SetActive(false);
     }
 
     //string[] foodAcquired = [];

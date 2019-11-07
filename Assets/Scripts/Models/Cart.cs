@@ -11,14 +11,14 @@ public class Cart : MonoBehaviour
     public PopulateGrid populateGrid;
     public Text totalText;
     [HideInInspector]
-    public Dictionary<Food, int> foodInCart;
+    public HashSet<Food> foodInCart;
 
     
     private double totalPrice;
   
     public void Start()
     {
-        foodInCart = new Dictionary<Food, int>();
+        foodInCart = new HashSet<Food>();
     }
     public void Update()
     {
@@ -42,17 +42,6 @@ public class Cart : MonoBehaviour
         updateTotal();
     }
 
-    public int getCartCount()
-    {
-        int count = 0;
-        foreach (int num in foodInCart.Values)
-        {
-            count += num;
-        }
-
-        return 0;
-    }
-
 
     private bool inCart(Vector3 position)
     {
@@ -73,17 +62,7 @@ public class Cart : MonoBehaviour
          updateTotal();
 
         FoodCard card = populateGrid.addItem(food);
-        if (foodInCart.ContainsKey(food))
-        {
-            int count;
-            foodInCart.TryGetValue(food, out count);
-
-            count++;
-            foodInCart.Add(food, count);
-        } else
-        {
-            foodInCart.Add(food, 1);
-        }
+        foodInCart.Add(food);
 
         Transform minusObject = card.transform.GetChild(1);
         minusObject.gameObject.SetActive(true);
@@ -109,10 +88,6 @@ public class Cart : MonoBehaviour
 
     private void updateTotal()
     {
-        if(totalText != null)
-        {
-            totalText.text = totalPrice.ToString();
-        }
-       
+        totalText.text = totalPrice.ToString();
     }
 }

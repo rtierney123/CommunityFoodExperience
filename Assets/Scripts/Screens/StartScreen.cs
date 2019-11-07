@@ -10,16 +10,11 @@ public class StartScreen : MonoBehaviour
     // public ClockDisplay clock;
     public GameObject startScreen;
 
-    void Start() {
-        canvasController.pause();
+    void Update() {
+        if (canvasController) {
+            canvasController.pause();
+        }
     }
-
-    // void Update() {
-    //     if (canvasController) {
-    //         print("WOW");
-    //         canvasController.pause();
-    //     }
-    // }
 
     public void startButtonClicked() {
         canvasController.resume();

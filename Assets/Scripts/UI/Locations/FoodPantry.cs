@@ -10,7 +10,8 @@ namespace UI
         {
             if (!transactionComplete)
             {
-                if (cart.getCartCount() > 2)
+                HashSet<Food> foods = cart.foodInCart;
+                if (foods.Count > 2)
                 {
                     messageManager.generateStandardErrorMessage("Cannot have more than 2 items in cart.");
                     return false;

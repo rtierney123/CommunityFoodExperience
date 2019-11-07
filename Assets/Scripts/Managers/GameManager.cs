@@ -34,14 +34,6 @@ namespace Manage{
         {
 
         }
-
-        public void pause() {
-            isPause = true;
-        }
-
-        public void unpause() {
-            isPause = false;
-        }
     }
 }
 

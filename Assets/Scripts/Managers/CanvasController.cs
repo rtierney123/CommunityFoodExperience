@@ -13,6 +13,7 @@ namespace Manage
         public float allowWaitTime;
         public Text busStopTitle;
 		public Animator busAnimator;
+        public ClockDisplay clock;
 
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
@@ -132,14 +133,26 @@ namespace Manage
 		{
 			screen.SetActive(true);
 			screenDisplayed = true;
-			busAnimator.enabled = false;
+            pause();
 		}
+
+        public void resume() {
+            clock.resume();
+            busAnimator.enabled = true;
+        }
+
+        public void pause() {
+			busAnimator.enabled = false;
+            clock.pause();
+        }
 
         public void closeScreen(GameObject screen)
         {
             screen.SetActive(false);
             screenDisplayed = false;
 			if (!busAnimator.enabled) busAnimator.enabled = true;
+            if (!clock.running) clock.resume();
+
         }
 
         public void setStopTitle(string title)

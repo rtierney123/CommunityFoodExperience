@@ -8,15 +8,20 @@ using Manage;
 
 public class ClockDisplay : MonoBehaviour
 {
+	public bool running;
 	public uint runtimeMiliSeconds;
 	private DateTime startTime;
 	public uint amStartTime;
 	public uint pmEndTime;
 	public Text txt;
 	public Animator anim;
+	public TimeSpan pauseTime;
+	public DateTime pauseStart;
+	
     // Start is called before the first frame update
     void Start()
     {
+		running = false;
 		anim.speed = 0.0001f;
 		startTime = DateTime.Now;
 	}
@@ -36,13 +41,23 @@ public class ClockDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (GameManager.isPause) {
+		if (!this.running) {
 			return;
 		}
-		TimeSpan time = (DateTime.Now - startTime);
+		TimeSpan time = (DateTime.Now - startTime - this.pauseTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
 		string result = runTimeToDayTime(runTimeRatio);
 		txt.text = result;
+	}
+
+	public void pause() {
+		this.running = false;
+		this.pauseStart = DateTime.Now;
+	}
+
+	public void resume() {
+		this.pauseTime += DateTime.Now - this.pauseStart;
+		this.running = true;
 	}
 }

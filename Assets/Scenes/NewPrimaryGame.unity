@@ -3539,6 +3539,18 @@ PrefabInstance:
       objectReference: {fileID: 1648199821}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586e1929d8b514ac08de6302185e99fc, type: 3}
+--- !u!114 &853834537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 179024512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e41b3cf42b14e44927d871798bb57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &857779315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5006,6 +5018,7 @@ MonoBehaviour:
   allowWaitTime: 0.01
   busStopTitle: {fileID: 938420659}
   busAnimator: {fileID: 1838183075}
+  clock: {fileID: 853834537}
   popUp: {fileID: 0}
   screenDisplayed: 0
 --- !u!114 &1193828604
@@ -5234,9 +5247,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1215728259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13080422f37ca449b23bdfec6366406, type: 3}
+  m_Script: {fileID: 11500000, guid: c797618d5dabf4efb9577da29cc6f743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasController: {fileID: 1193828603}
+  startScreen: {fileID: 1215728259}
 --- !u!114 &1233574594 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3349256610717233584, guid: 254b62bb271e3174e9e512355264900e,
@@ -7385,7 +7400,7 @@ PrefabInstance:
     - target: {fileID: 1413004140857093459, guid: 1221763571db549e39eaa398f6f647f7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1413004140857093458, guid: 1221763571db549e39eaa398f6f647f7,
         type: 3}
@@ -7550,7 +7565,7 @@ PrefabInstance:
     - target: {fileID: 7751111960012410149, guid: 1221763571db549e39eaa398f6f647f7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: startButtonClicked
       objectReference: {fileID: 0}
     - target: {fileID: 7751111960012410149, guid: 1221763571db549e39eaa398f6f647f7,
         type: 3}

@@ -12,12 +12,12 @@ public class CompleteVoucherPayment : MonoBehaviour
     void OnEnable()
     {
         Cart cart = store.cart;
-        HashSet<Food> foods = cart.foodInCart;
+        Dictionary<Food, int> foods = cart.foodInCart;
 
         Player player = store.player;
         WICVoucher playerVoucher = player.wicVoicher;
         voucher.copy(playerVoucher);
-        foreach(Food food in foods)
+        foreach(Food food in foods.Keys)
         {
             voucher.displayPotentialCheck(food);
         }

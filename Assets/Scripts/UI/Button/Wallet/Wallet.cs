@@ -52,7 +52,7 @@ namespace UI
                 }
                 else if (child.name == "SSNValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.socialSecurity;
+                    child.gameObject.GetComponent<Text>().text = player.ssn;
                 }
                 else if (child.name == "DOBValue")
                 {
@@ -60,7 +60,7 @@ namespace UI
                 }
                 else if (child.name == "TelValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.phoneNum;
+                    child.gameObject.GetComponent<Text>().text = player.phone;
                 }
                 else if (child.name == "AddressValue")
                 {

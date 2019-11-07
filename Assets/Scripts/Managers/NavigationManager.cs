@@ -28,7 +28,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-            startScreen.active = true;
+            startScreen.SetActive( true);
             print("Game Start!!!");
             locationLookup = new Dictionary<MapLocations, Location>();
             if (locationKeys.Count == locationValues.Count)

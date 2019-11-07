@@ -38,7 +38,6 @@ namespace UI
                 if (item.containsText)
                 {
                     string info = player.getInfoText(question);
-                    Debug.Log(info);
                     item.setText(info);
                 } else
                 {

@@ -13,38 +13,39 @@ public class Player : MonoBehaviour
 
     // temp player info. will place in better place later
 
-    public ChildList children;
-    [Serializable]
-    public class ChildList
-    {
-        public Child[] list;
-    }
-
     public string firstName = "Sam";
     public string middleName = "";
     public string lastName = "Smith";
     public string characterDescription = "You are an elderly person (senior citizen) and you live alone on a fixed income of $870 a month from Social Security. Your rent for a small apartment is $600/month and you pay $50/month for electricity, $30 month for a phone and $185/month for two prescriptions that are only partially coverd by Medicare.";
-    public string phoneNum = "(404) 888-9360";
-    public string socialSecurity = "XXX-XX-6789";
-    public string address = "258 W.Real St. Atlanta, GA 30317";
+    public string phone = "(404) 888-9360";
+    public string ssn = "XXX-XX-6789";
+    public string address = "258 W.Real St. Atlanta";
     public string city = "Atlanta";
     public string state = "GA";
     public string zip = "30317";
     public string primaryLanguage = "English";
+    public int age = 78;
     public int birthMonth = 12;
     public int birthDay = 1;
-    public int birthYear = 2000;
-    public bool federalAssistance;
-    public bool pregant;
-    public int fixedIncome = 870;
+
+    public ChildList children;
+    [Serializable]
+    public class ChildList
+    {
+        public FamilyMember[] list;
+    }
+
+    public int socialSecurityIncome = 870;
     public double annualIncome = 5000;
-    public double hourlyIncome = 10;
     public int numInHouse = 2;
     public int expenses = 855;
+
     public int busTokens = 1;
     public bool busPass = true;
     public bool hasCar = true;
 
+
+    public bool pregant;
     public bool single;
     public bool married;
     public bool jointTax;
@@ -56,6 +57,10 @@ public class Player : MonoBehaviour
     public double snapFunds = 0;
     public double ctcFunds = 0;
     public double eitcFunds = 0;
+
+    //MIGHT NEED TO DELETE THIS
+    public bool federalAssistance;
+    public double hourlyIncome = 10;
 
     public double requiredCalories = 5;
     public double requiredGrain = 1;
@@ -81,7 +86,8 @@ public class Player : MonoBehaviour
     public bool usedSnap = false;
 
     public WICVoucher wicVoicher;
-    private bool hasWic = false;
+    [HideInInspector]
+    public bool hasWic = false;
 
     private void Start()
     {
@@ -211,11 +217,11 @@ public class Player : MonoBehaviour
             case FormQuestionType.Address:
                 return address;
             case FormQuestionType.Phone:
-                return phoneNum;
+                return phone;
             case FormQuestionType.Num_Children:
                 return children.list.Length.ToString();
             case FormQuestionType.Monthly_Income:
-                return "" + fixedIncome;
+                return "" + socialSecurityIncome;
             case FormQuestionType.Children_Age:
                 return "";
             case FormQuestionType.Aid:
@@ -255,7 +261,8 @@ public class Player : MonoBehaviour
             case FormQuestionType.Birth_Month:
                 return FormatText.formatInt(birthMonth);
             case FormQuestionType.Birth_Year:
-                return FormatText.formatInt(birthYear);
+                int y = getBirthYear();
+                return FormatText.formatInt(y);
             case FormQuestionType.Hourly_Wage:
                 return FormatText.formatDouble(hourlyIncome);
             case FormQuestionType.Num_In_Household:
@@ -277,9 +284,18 @@ public class Player : MonoBehaviour
     public string getDOB()
     {
         string day = FormatText.formatInt(birthDay);
-        string month = FormatText.formatInt(birthMonth); 
-        string year = FormatText.formatInt(birthYear);
+        string month = FormatText.formatInt(birthMonth);
+        int y = getBirthYear();
+        string year = FormatText.formatInt(y);
         return day + "/" + month + "/" + year;
+    }
+
+    public int getBirthYear()
+    {
+        DateTime moment = DateTime.Today;
+
+        int year = moment.Year - age;
+        return year;
     }
 
     public int getNumofChildren()

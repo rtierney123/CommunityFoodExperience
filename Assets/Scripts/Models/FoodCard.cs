@@ -41,6 +41,24 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
    
     private static int foodID { get; set; }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        resetPosition = transform.position;
+        startParent = this.transform.parent;
+
+
+        display();
+
+        canvasController = GameObject.Find("Canvas").GetComponent<CanvasController>();
+    }
+
+    void Awake()
+    {
+        foodID = foodID + 1;
+    }
+
+
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
@@ -88,23 +106,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         {
             Debug.Log("Cannot flip, canvas controller is null.");
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        resetPosition = transform.position;
-        startParent = this.transform.parent;
-
-        
-        display();
-   
-
-    }
-
-    void Awake()
-    {
-        foodID = foodID + 1;
     }
 
 

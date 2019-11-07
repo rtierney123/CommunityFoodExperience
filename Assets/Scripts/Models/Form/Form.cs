@@ -74,12 +74,12 @@ namespace UI
 
         protected virtual void successAction()
         {
-
+            StartCoroutine(delayCloseScreen(nextActionTime));
         }
 
         protected virtual void failureAction()
         {
-       
+            StartCoroutine(delayCloseScreen(nextActionTime));
         }
 
       

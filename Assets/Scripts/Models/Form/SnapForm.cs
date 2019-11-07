@@ -87,12 +87,16 @@ namespace UI
             string successStr = formatSuccessString(snapAmt);
             messageManager.generateStandardSuccessMessage(successStr);
             player.usedSnap = true;
+
+            base.successAction();
         }
 
         protected override void failureAction()
         {
             messageManager.generateStandardErrorMessage(errorString);
             player.usedSnap = true;
+
+            base.failureAction();
         }
 
         private string formatSuccessString(double amt)

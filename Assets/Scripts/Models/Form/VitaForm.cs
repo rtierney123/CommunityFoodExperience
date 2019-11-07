@@ -221,16 +221,19 @@ namespace UI
             {
                 StartCoroutine(showOneSuccessOneError(eitcStatusString, ctcStatusString));
             }
-            StartCoroutine(delayCloseScreen(nextActionTime));
+
             player.usedVita = true;
+
+            base.successAction();
 
         }
 
         protected override void failureAction()
         {
             StartCoroutine(showTwoError(eitcStatusString, ctcStatusString));
-            StartCoroutine(delayCloseScreen(nextActionTime));
             player.usedVita = true;
+
+            base.failureAction();
         }
 
 

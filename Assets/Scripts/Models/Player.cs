@@ -81,7 +81,8 @@ public class Player : MonoBehaviour
     public bool usedSnap = false;
 
     public WICVoucher wicVoicher;
-    private bool hasWic = false;
+    [HideInInspector]
+    public bool hasWic = false;
 
     private void Start()
     {

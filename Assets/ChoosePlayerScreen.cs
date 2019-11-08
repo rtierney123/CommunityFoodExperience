@@ -23,14 +23,8 @@ public class ChoosePlayerScreen : Screen
 
     private void Start()
     {
-        PlayerList pList = new PlayerList();
-        pList.list = new PlayerInfo[1];
-        pList.list[0] = player.playerInfo;
-        string listJson = JsonUtility.ToJson(player);
-        //Debug.Log(listJson);
         populatePlayerList();
-        List<String> names = retrievePlayerNames();
-        playerDropdown.AddOptions(names);
+    
     }
 
     public void populatePlayerList()
@@ -52,7 +46,10 @@ public class ChoosePlayerScreen : Screen
                 generatePlayerAssets(json);
 
             }
+            fillDropDown();
         }
+
+       
     }
 
     IEnumerator GetRequest(string uri)
@@ -76,13 +73,19 @@ public class ChoosePlayerScreen : Screen
                 string json = webRequest.downloadHandler.text;
 
                 generatePlayerAssets(json);
+                fillDropDown();
             }
         }
     }
 
+    public void fillDropDown()
+    {
+        List<String> names = retrievePlayerNames();
+        playerDropdown.AddOptions(names);
+    }
+
     public void generatePlayerAssets(string json)
     {
-        Debug.Log(json);
         players = JsonUtility.FromJson<PlayerList>(json);
     }
 

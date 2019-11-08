@@ -7,7 +7,6 @@ using Manage;
 
 public class EndScreen : MonoBehaviour
 {
-    public CanvasController canvasController;
     // public ClockDisplay clock;
     public GameObject endScreen;
     public Player player;
@@ -22,13 +21,10 @@ public class EndScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canvasController) {
-            canvasController.pause();
-        }
+        
     }
 
     public void endButtonClicked() {
-        canvasController.pause();
         endScreen.SetActive(true);
     }
 

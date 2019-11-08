@@ -14,7 +14,7 @@ public class ChoosePlayerScreen : Screen
     public Player player;
     private PlayerInfo playerInfo;
     [HideInInspector]
-    public PlayerList players;
+    public PlayerList playerChoices;
     [Serializable]
     public class PlayerList
     {
@@ -82,16 +82,17 @@ public class ChoosePlayerScreen : Screen
     {
         List<String> names = retrievePlayerNames();
         playerDropdown.AddOptions(names);
+        setPlayerFromDropDown();
     }
 
     public void generatePlayerAssets(string json)
     {
-        players = JsonUtility.FromJson<PlayerList>(json);
+        playerChoices = JsonUtility.FromJson<PlayerList>(json);
     }
 
     public List<String> retrievePlayerNames()
     {
-        PlayerInfo[] list = players.list;
+        PlayerInfo[] list = playerChoices.list;
         List<string> names = new List<string>();
 
         foreach (PlayerInfo info in list)
@@ -108,8 +109,9 @@ public class ChoosePlayerScreen : Screen
         return names;
     }
 
-    public void setPlayer(int index)
+    public void setPlayerFromDropDown()
     {
-        
+        int index = playerDropdown.value;
+        player.setPlayerInfo( playerChoices.list[index]);
     }
 }

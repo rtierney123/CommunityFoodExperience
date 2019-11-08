@@ -43,6 +43,13 @@ public class Player : MonoBehaviour
     {
     }
 
+    public void setPlayerInfo(PlayerInfo info)
+    {
+        playerInfo = info;
+        money = playerInfo.getStartingCash();
+
+    }
+
     //string[] foodAcquired = [];
 
     // view player information

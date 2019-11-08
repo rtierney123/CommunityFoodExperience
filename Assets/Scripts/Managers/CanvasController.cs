@@ -23,6 +23,7 @@ namespace Manage
         bool allowOpen;
         bool clickedUsed;
 
+        private GameObject screenOpen;
         [HideInInspector]
         public bool screenDisplayed;
         void Awake()
@@ -123,13 +124,29 @@ namespace Manage
 
         public void openScreen(GameObject screen)
         {
+            closeScreen();
+            screenOpen = screen;
             screen.SetActive(true);
             screenDisplayed = true;
+        }
+
+        public void closeScreen()
+        {
+            if(screenOpen != null)
+            {
+                screenOpen.SetActive(false);
+                screenDisplayed = false;
+            } else
+            {
+                Debug.Log("no screen open");
+            }
+          
         }
 
         public void closeScreen(GameObject screen)
         {
             screen.SetActive(false);
+            screenOpen = null;
             screenDisplayed = false;
         }
 

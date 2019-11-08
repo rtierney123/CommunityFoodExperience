@@ -11,16 +11,22 @@ namespace Manage{
         public Player player;
         public static bool isPause = false;
 
-        public GameObject startScreen;
         public GameObject pauseScreen;
+        public GameObject startScreen;
 
         public CanvasController canvasController;
         public ClockDisplay clock;
         public Animator busAnimator;
 
+        public bool openStartScreenOnPlay;
         void Start()
         {
-            pause();
+            if (openStartScreenOnPlay)
+            {
+                canvasController.openScreen(startScreen);
+                pause();
+            }
+           
         }
 
         public void subtractTime(int time)
@@ -31,13 +37,20 @@ namespace Manage{
         public void startGame()
         {
             resume();
-            canvasController.closeScreen(startScreen);
+            canvasController.closeScreen();
         }
 
         public void pauseGame()
         {
+            Debug.Log("pause game");
             pause();
             canvasController.openScreen(pauseScreen);
+        }
+
+        public void resumeGame()
+        {
+            resume();
+            canvasController.closeScreen(pauseScreen);
         }
 
 
@@ -50,6 +63,7 @@ namespace Manage{
         {
             clock.resume();
             busAnimator.enabled = true;
+            Debug.Log("bus enabled");
         }
 
         public void pause()

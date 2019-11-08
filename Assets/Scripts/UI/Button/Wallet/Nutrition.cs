@@ -13,13 +13,12 @@ public class Nutrition : MonoBehaviour
     void Start()
     {
         updateInfo();
-        playerInfo = playerInfo;
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        playerInfo = player.playerInfo;
     }
 
     public void updateInfo()

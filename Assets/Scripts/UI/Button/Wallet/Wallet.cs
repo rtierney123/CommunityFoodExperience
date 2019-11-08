@@ -26,10 +26,15 @@ namespace UI
         
         protected override void Start()
         {
-            playerInfo = player.playerInfo;
             setInactive();
             selectWalletTab();
             base.Start();
+        }
+
+        private void OnEnable()
+        {
+
+            playerInfo = player.playerInfo;
         }
 
         public void selectWalletTab()

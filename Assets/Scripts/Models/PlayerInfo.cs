@@ -55,6 +55,7 @@ public class PlayerInfo
     public double requiredVegetable = 2;
     public double requiredExtra = 0;
 
+    //do not put in json
     public bool federalAssistance;
 
     public string getFullName()
@@ -165,5 +166,11 @@ public class PlayerInfo
     public int getNumofChildren()
     {
         return children.childList.Length;
+    }
+
+    public double getStartingCash()
+    {
+        double monthlyCash = socialSecurityIncome + monthlyIncome - expenses;
+        return monthlyCash / 30;
     }
 }

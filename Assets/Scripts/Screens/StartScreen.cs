@@ -4,10 +4,8 @@ using UnityEngine;
 using UI;
 using Manage;
 
-public class StartScreen : MonoBehaviour
+public class StartScreen : Screen
 {
-    public CanvasController canvasController;
-    // public ClockDisplay clock;
     public GameObject startScreen;
 
     void Update() {

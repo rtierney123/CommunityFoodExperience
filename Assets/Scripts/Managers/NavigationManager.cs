@@ -28,8 +28,6 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-            startScreen.SetActive( true);
-            print("Game Start!!!");
             locationLookup = new Dictionary<MapLocations, Location>();
             if (locationKeys.Count == locationValues.Count)
             {
@@ -39,8 +37,6 @@ namespace Manage
 
                 }
             }
-
-        
         }
 
      

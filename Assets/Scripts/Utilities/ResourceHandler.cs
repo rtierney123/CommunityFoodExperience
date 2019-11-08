@@ -41,8 +41,12 @@ namespace Utility{
                 return image.sprite;
             }
             return sprite;
-            
+        }
 
+        public static void copyValues<T>(T from, T to)
+        {
+            var json = JsonUtility.ToJson(from);
+            JsonUtility.FromJsonOverwrite(json, to);
         }
     }
 

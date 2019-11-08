@@ -1,30 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace UI
 {
-    public class FoodPantry : BaseStore
+    public class CommunityKitchenStore : BaseStore
     {
         private bool transactionComplete = false;
         public override bool validateCart()
         {
             if (!transactionComplete)
             {
-                if (cart.getCartCount() > 2)
+
+                if (cart.getCartCount() > 1)
                 {
-                    messageManager.generateStandardErrorMessage("Cannot have more than 2 items in cart.");
+                    messageManager.generateStandardErrorMessage("Cannot have more than 1 bowl of soup.");
                     return false;
                 }
                 else
                 {
                     return true;
                 }
-            } else
+            }
+            else
             {
                 messageManager.generateStandardErrorMessage("Complete a transaction here twice.");
                 return false;
             }
-          
+
         }
 
         public void completeFreeTransaction()
@@ -36,8 +39,7 @@ namespace UI
                 completePayment();
                 StartCoroutine(delayCloseScreen());
             }
-         
+
         }
     }
 }
-

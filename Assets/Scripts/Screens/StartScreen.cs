@@ -8,11 +8,16 @@ public class StartScreen : Screen
 {
     public GameObject startScreen;
 
-    void Update() {
-        if (canvasController) {
-            canvasController.pause();
-        }
+    void Start() {
+        canvasController.pause();
     }
+
+    // void Update() {
+    //     if (canvasController) {
+    //         print("WOW");
+    //         canvasController.pause();
+    //     }
+    // }
 
     public void startButtonClicked() {
         canvasController.resume();

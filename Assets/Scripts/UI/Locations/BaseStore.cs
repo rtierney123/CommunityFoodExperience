@@ -20,9 +20,13 @@ namespace UI
 
         public virtual void completePayment()
         {
-            foreach (Food item in cart.foodInCart)
+            foreach (KeyValuePair<Food, int> item in cart.foodInCart)
             {
-                nutritionManager.addNutrition(item);
+                for(int i = 0; i < item.Value; i++)
+                {
+                    nutritionManager.addNutrition(item.Key);
+                }
+      
             }
             cart.clearAll();
         }

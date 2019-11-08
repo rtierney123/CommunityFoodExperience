@@ -22,10 +22,11 @@ namespace UI
         public TokenHolder tokenHolder;
 
         public Player player;
-
+        public PlayerInfo playerInfo;
+        
         protected override void Start()
         {
-
+            playerInfo = player.playerInfo;
             setInactive();
             selectWalletTab();
             base.Start();
@@ -48,23 +49,23 @@ namespace UI
             {
                 if (child.name == "NameValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.getFullName();
+                    child.gameObject.GetComponent<Text>().text = playerInfo.getFullName();
                 }
                 else if (child.name == "SSNValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.ssn;
+                    child.gameObject.GetComponent<Text>().text = playerInfo.ssn;
                 }
                 else if (child.name == "DOBValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.getDOB();
+                    child.gameObject.GetComponent<Text>().text = playerInfo.getDOB();
                 }
                 else if (child.name == "TelValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.phone;
+                    child.gameObject.GetComponent<Text>().text = playerInfo.phone;
                 }
                 else if (child.name == "AddressValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.address;
+                    child.gameObject.GetComponent<Text>().text = playerInfo.address;
                 }
             }
         }
@@ -78,7 +79,7 @@ namespace UI
 
         public void updateTransportationDisplay()
         {
-            if (player.busPass)
+            if (playerInfo.busPass)
             {
                 busPass.SetActive(true);
             }
@@ -87,7 +88,7 @@ namespace UI
                 busPass.SetActive(false);
             }
 
-            if (player.hasCar)
+            if (playerInfo.hasCar)
             {
                 carCard.SetActive(true);
             }

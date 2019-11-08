@@ -12,17 +12,22 @@ public class ChoosePlayerScreen : Screen
     public string playerJsonLocation;
     public Dropdown playerDropdown;
     public Player player;
-
+    private PlayerInfo playerInfo;
     [HideInInspector]
     public PlayerList players;
     [Serializable]
     public class PlayerList
     {
-        public Player[] list;
+        public PlayerInfo[] list;
     }
 
     private void Start()
     {
+        PlayerList pList = new PlayerList();
+        pList.list = new PlayerInfo[1];
+        pList.list[0] = player.playerInfo;
+        string listJson = JsonUtility.ToJson(player);
+        //Debug.Log(listJson);
         populatePlayerList();
         List<String> names = retrievePlayerNames();
         playerDropdown.AddOptions(names);
@@ -34,14 +39,12 @@ public class ChoosePlayerScreen : Screen
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             jsonLocation = "/StreamingAssets" + playerJsonLocation;
-            Debug.Log(jsonLocation);
             StartCoroutine(GetRequest(jsonLocation));
         }
         else
         {
             string mainPath = Application.dataPath;
             jsonLocation = mainPath + "/StreamingAssets" + playerJsonLocation;
-            Debug.Log(jsonLocation);
             bool pathExists = ResourceHandler.testFilePath(jsonLocation);
             if (pathExists)
             {
@@ -79,17 +82,24 @@ public class ChoosePlayerScreen : Screen
 
     public void generatePlayerAssets(string json)
     {
+        Debug.Log(json);
         players = JsonUtility.FromJson<PlayerList>(json);
     }
 
     public List<String> retrievePlayerNames()
     {
-        Player[] list = players.list;
+        PlayerInfo[] list = players.list;
         List<string> names = new List<string>();
 
-        foreach (Player player in list)
+        foreach (PlayerInfo info in list)
         {
-            names.Add(player.getFullName());
+            if(player != null)
+            {
+                names.Add(info.getFullName());
+            } else {
+                Debug.Log("Player is null. Problem with json");
+            }
+       
         }
 
         return names;

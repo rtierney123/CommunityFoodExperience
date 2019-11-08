@@ -30,7 +30,7 @@ namespace UI
 
         public void usePass()
         {
-            if (player.busPass)
+            if (player.playerInfo.busPass)
             {
                 navigationManager.handleTakeBusEvent();
             } else

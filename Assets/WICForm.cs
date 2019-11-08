@@ -17,10 +17,10 @@ namespace UI
 
         protected override bool checkValid()
         {
-            double monthlyIncome = player.getMonthlyIncome();
-            int numHouse = player.numInHouse;
+            double monthlyIncome = playerInfo.getMonthlyIncome();
+            int numHouse = playerInfo.numInHouse;
             //GOTTA ADD CHECK FOR CHILDREN UNDER 5
-            if (player.pregant)
+            if (playerInfo.pregant)
             {
                 errorMessage = "Made too much income to receive WIC benefits.";
                 switch (numHouse){

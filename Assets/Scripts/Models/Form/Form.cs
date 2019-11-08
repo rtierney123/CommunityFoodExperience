@@ -9,10 +9,15 @@ namespace UI
     public class Form : Screen
     {
         public Player player;
+        public PlayerInfo playerInfo;
         public List<FormWrapper> textItems;
         public float nextActionTime;
         private bool fillingOutItem;
 
+        private void Start()
+        {
+            playerInfo = player.playerInfo;
+        }
         private void OnEnable()
         {
             StartCoroutine(fillOutForm());
@@ -37,7 +42,7 @@ namespace UI
  
                 if (item.containsText)
                 {
-                    string info = player.getInfoText(question);
+                    string info = playerInfo.getInfoText(question);
                     item.setText(info);
                 } else
                 {

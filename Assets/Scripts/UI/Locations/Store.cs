@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 namespace UI {
     public class Store : BaseStore
@@ -38,10 +39,11 @@ namespace UI {
             double ctc = player.ctcFunds;
             double snap = player.snapFunds;
 
-            cashText.text = player.formatFunds(cash);
-            eitcText.text = player.formatFunds(eitc);
-            ctcText.text = player.formatFunds(ctc);
-            snapText.text = player.formatFunds(snap);
+            cashText.text = FormatText.formatCost(cash);
+            eitcText.text = FormatText.formatCost(eitc);
+            ctcText.text = FormatText.formatCost(ctc);
+            snapText.text = FormatText.formatCost(snap);
+
 
             if (player.hasWic)
             {

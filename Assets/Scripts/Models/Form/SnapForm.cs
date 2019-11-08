@@ -19,8 +19,8 @@ namespace UI
         
         protected override bool checkValid()
         {
-            int numHouseHold = player.numInHouse;
-            double monthlyIncome = player.getMonthlyIncome();
+            int numHouseHold = playerInfo.numInHouse;
+            double monthlyIncome = playerInfo.getMonthlyIncome();
 
             bool valid = true;
             switch (numHouseHold)
@@ -67,7 +67,7 @@ namespace UI
 
         protected override void successAction()
         {
-            double monthlyIncome = player.getMonthlyIncome();
+            double monthlyIncome = playerInfo.getMonthlyIncome();
             double snapAmt = 0;
             if(monthlyIncome <= 799)
             {

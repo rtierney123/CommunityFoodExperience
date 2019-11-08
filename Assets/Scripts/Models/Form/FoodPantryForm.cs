@@ -13,8 +13,8 @@ namespace UI
 
         protected override bool checkValid()
         {
-            Debug.Log(player.zip);
-            if (player.zip == "30317" || player.zip == "30307")
+            Debug.Log(playerInfo.zip);
+            if (playerInfo.zip == "30317" || playerInfo.zip == "30307")
             {
                 Debug.Log("correct zip");
                 return true;
@@ -27,7 +27,6 @@ namespace UI
 
         protected override void successAction()
         {
-            player.usedFoodPantry = true;
             messageManager.generateStandardSuccessMessage("Welcome to the Food Pantry");
             StartCoroutine(delayOpenNextScreen(nextActionTime));
             player.usedFoodPantry = true;

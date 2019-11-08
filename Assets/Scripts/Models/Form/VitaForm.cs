@@ -42,20 +42,20 @@ namespace UI
         {
             bool valid = true;
             
-            if (player.federalAssistance)
+            if (playerInfo.federalAssistance)
             {
                 ctcStatusString = "Cannot receive CTC benefits while on financial aid.";
                 valid = false;
             }
             else
             {
-                double monthlyIncome = player.getMonthlyIncome();
-                int numChildren = player.getNumofChildren();
+                double monthlyIncome = playerInfo.getMonthlyIncome();
+                int numChildren = playerInfo.getNumofChildren();
 
                 switch (numChildren)
                 {
                     case 0:
-                        if (player.single)
+                        if (playerInfo.single)
                         {
                             if(monthlyIncome > 1235)
                             {
@@ -63,7 +63,7 @@ namespace UI
                                 valid = false;
                             }
                         }
-                        else if (player.married)
+                        else if (playerInfo.married)
                         {
                             if (monthlyIncome > 1694)
                             {
@@ -73,7 +73,7 @@ namespace UI
                         }
                         break;
                     case 1:
-                        if (player.single)
+                        if (playerInfo.single)
                         {
                             if (monthlyIncome > 3261)
                             {
@@ -81,7 +81,7 @@ namespace UI
                                 valid = false;
                             }
                         }
-                        else if (player.married)
+                        else if (playerInfo.married)
                         {
                             if (monthlyIncome > 3721)
                             {
@@ -91,7 +91,7 @@ namespace UI
                         }
                         break;
                     case 2:
-                        if (player.single)
+                        if (playerInfo.single)
                         {
                             if (monthlyIncome > 3705)
                             {
@@ -99,7 +99,7 @@ namespace UI
                                 valid = false;
                             }
                         }
-                        else if (player.married)
+                        else if (playerInfo.married)
                         {
                             if (monthlyIncome > 4165)
                             {
@@ -109,7 +109,7 @@ namespace UI
                         }
                         break;
                     default:
-                        if (player.single)
+                        if (playerInfo.single)
                         {
                             if (monthlyIncome > 3979)
                             {
@@ -117,7 +117,7 @@ namespace UI
                                 valid = false;
                             }
                         }
-                        else if (player.married)
+                        else if (playerInfo.married)
                         {
                             if (monthlyIncome > 4439)
                             {
@@ -135,23 +135,23 @@ namespace UI
         private bool checkEITCEligibility()
         {
             bool valid = true;
-            double monthlyIncome = player.getMonthlyIncome();
+            double monthlyIncome = playerInfo.getMonthlyIncome();
 
-            if (player.married && player.jointTax)
+            if (playerInfo.married && playerInfo.jointTax)
             {
                if(monthlyIncome > 9167)
                 {
                     eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                     valid = false;
                 }
-            } else if(player.married && !player.jointTax)
+            } else if(playerInfo.married && !playerInfo.jointTax)
             {
                 if (monthlyIncome > 4583)
                 {
                     eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                     valid = false;
                 }
-            } else if (player.single)
+            } else if (playerInfo.single)
             {
                 if (monthlyIncome > 6250)
                 {
@@ -188,7 +188,7 @@ namespace UI
             }
             if (eitcEligbility)
             {
-                int numChildren = player.getNumofChildren();
+                int numChildren = playerInfo.getNumofChildren();
 
                 switch (numChildren)
                 {

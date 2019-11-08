@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public int busTokens = 0;
 
-    public double money = 15;
+    public double money = 0;
     public double snapFunds = 0;
     public double ctcFunds = 0;
     public double eitcFunds = 0;
@@ -43,10 +43,40 @@ public class Player : MonoBehaviour
     {
     }
 
+    public void resetPlayer()
+    {
+        busTokens = 0;
+
+        money = 0;
+        snapFunds = 0;
+        ctcFunds = 0;
+        eitcFunds = 0;
+
+
+        calories = 0;
+        grain = 0;
+         fat = 0;
+         protein = 0;
+        dairy = 0;
+        fruit = 0;
+        vegetable = 0;
+        extra = 0;
+
+        usedVita = false;
+        usedFoodPantry = false;
+        usedWIC = false;
+        usedSnap = false;
+
+        wicVoicher = null;
+        hasWic = false;
+
+    }
+
     public void setPlayerInfo(PlayerInfo info)
     {
         playerInfo = info;
         money = playerInfo.getStartingCash();
+        busTokens = playerInfo.startingBusTokens;
 
     }
 

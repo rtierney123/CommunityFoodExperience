@@ -111,6 +111,7 @@ public class ChoosePlayerScreen : Screen
 
     public void setPlayerFromDropDown()
     {
+        player.resetPlayer();
         int index = playerDropdown.value;
         player.setPlayerInfo( playerChoices.list[index]);
     }

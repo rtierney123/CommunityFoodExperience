@@ -18,6 +18,7 @@ public class ClockDisplay : MonoBehaviour
 	public Animator anim;
 	public TimeSpan pauseTime;
 	public DateTime pauseStart;
+	public GameManager gameManager;
 	
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class ClockDisplay : MonoBehaviour
 
 		if (runTimeRatio >= 1f) {
 			endScreen.active = true;
+			gameManager.pause();
 		}
 
 		string result = runTimeToDayTime(runTimeRatio);

@@ -13,7 +13,6 @@ public class Nutrition : MonoBehaviour
     void Start()
     {
         updateInfo();
-       
     }
 
     private void OnEnable()
@@ -23,6 +22,7 @@ public class Nutrition : MonoBehaviour
 
     public void updateInfo()
     {
+        playerInfo = player.playerInfo;
         foreach (Transform child in this.transform)
         {
             if (child.name == "CaloriesValue")

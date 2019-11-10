@@ -11,10 +11,16 @@ public class EndScreen : MonoBehaviour
     public GameObject endScreen;
     public Player player;
     private PlayerInfo playerInfo;
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         updateInfo();
+    }
+
+    private void OnEnable()
+    {
         playerInfo = player.playerInfo;
     }
 
@@ -26,6 +32,7 @@ public class EndScreen : MonoBehaviour
 
     public void endButtonClicked() {
         endScreen.SetActive(true);
+        gameManager.pause();
     }
 
     public void updateInfo()

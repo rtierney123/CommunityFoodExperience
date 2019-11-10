@@ -38,6 +38,9 @@ public class Screen : MonoBehaviour
         if (prevScreen != null)
         {
             canvasController.openScreen(prevScreen);
+        } else
+        {
+            canvasController.closeScreen();
         }
     }
 

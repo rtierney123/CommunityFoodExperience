@@ -138,11 +138,11 @@ namespace UI
             {
                 if (child.name == "CashValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.money.ToString();
+                    child.gameObject.GetComponent<Text>().text = formatFunds(player.money);
                 }
                 else if (child.name == "SNAPValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.snapFunds.ToString();
+                    child.gameObject.GetComponent<Text>().text = formatFunds(player.snapFunds);
                 }
                 else if (child.name == "WICValue")
                 {
@@ -150,11 +150,11 @@ namespace UI
                 }
                 else if (child.name == "EITCValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.eitcFunds.ToString();
+                    child.gameObject.GetComponent<Text>().text = formatFunds(player.eitcFunds);
                 }
                 else if (child.name == "CTCValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = player.ctcFunds.ToString();
+                    child.gameObject.GetComponent<Text>().text = formatFunds(player.ctcFunds);
                 }
             }
 
@@ -170,7 +170,10 @@ namespace UI
             infoTabBody.SetActive(false);
             transportationTabBody.SetActive(false);
         }
-
+    public string formatFunds(double funds)
+    {
+      return System.String.Format("{0:C}", funds);
     }
+  }
 
 }

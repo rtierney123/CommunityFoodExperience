@@ -23,11 +23,7 @@ public class PlayerInfo
     [Serializable]
     public class ChildList
     {
-        public FamilyMember[] childList;
-        public ChildList() {
-            childList = new FamilyMember[]{};
-            //childList = new FamilyMember[]{new FamilyMember()};
-        }
+        public FamilyMember[] childList = { };
     }
 
     public double socialSecurityIncome = 870;
@@ -74,7 +70,7 @@ public class PlayerInfo
 
     public string formatFunds(double funds)
     {
-        return String.Format("{0:0.##}", funds);
+        return String.Format("{0:C}", funds);
     }
 
     public string getInfoText(FormQuestionType question)
@@ -174,7 +170,7 @@ public class PlayerInfo
 
     public double getStartingCash()
     {
-        double monthlyCash = socialSecurityIncome + monthlyIncome - expenses;
-        return monthlyCash / 30;
-    }
+        double monthlyCash = monthlyIncome - expenses;
+        return monthlyCash > 0 ? Math.Floor(monthlyCash / 30 * 100)/100 : 0;
+  }
 }

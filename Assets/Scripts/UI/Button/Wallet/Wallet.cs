@@ -80,7 +80,7 @@ namespace UI
                     child.gameObject.GetComponent<Text>().text = playerInfo.address;
                 }
                 else if (child.name == "IncomeValue") {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.monthlyIncome + "/month";
+                    child.gameObject.GetComponent<Text>().text = "$" + playerInfo.monthlyIncome + "/month";
                 }
                 else if (child.name == "Description") {
                     child.gameObject.GetComponent<Text>().text = playerInfo.description;

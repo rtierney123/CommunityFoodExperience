@@ -19,6 +19,7 @@ namespace UI
 
         public GameObject busPass;
         public GameObject carCard;
+        public GameObject transportationText;
         public TokenHolder tokenHolder;
 
         public Player player;
@@ -64,6 +65,12 @@ namespace UI
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.getDOB();
                 }
+                else if (child.name == "MarriedValue") {
+                    child.gameObject.GetComponent<Text>().text = playerInfo.married ? "Yes" : "No";
+                }
+                else if (child.name == "AgeValue") {
+                    child.gameObject.GetComponent<Text>().text = "" + playerInfo.age;
+                }
                 else if (child.name == "TelValue")
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.phone;
@@ -71,6 +78,12 @@ namespace UI
                 else if (child.name == "AddressValue")
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.address;
+                }
+                else if (child.name == "IncomeValue") {
+                    child.gameObject.GetComponent<Text>().text = playerInfo.monthlyIncome + "/month";
+                }
+                else if (child.name == "Description") {
+                    child.gameObject.GetComponent<Text>().text = playerInfo.description;
                 }
             }
         }
@@ -84,8 +97,10 @@ namespace UI
 
         public void updateTransportationDisplay()
         {
+            bool hasTransporation = false;
             if (playerInfo.busPass)
             {
+                hasTransporation = true;
                 busPass.SetActive(true);
             }
             else
@@ -95,6 +110,7 @@ namespace UI
 
             if (playerInfo.hasCar)
             {
+                hasTransporation = true;
                 carCard.SetActive(true);
             }
             else
@@ -105,9 +121,15 @@ namespace UI
             tokenHolder.clearTokens();
             for (int i = 0; i < player.busTokens; i++)
             {
+                hasTransporation = true;
                 tokenHolder.addToken();
             }
 
+            if (!hasTransporation) {
+                transportationText.SetActive(true);
+            } else {
+                transportationText.SetActive(false);
+            }
         }
 
         public void updateWallet()

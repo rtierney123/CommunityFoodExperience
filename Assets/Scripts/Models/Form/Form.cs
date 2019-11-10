@@ -12,7 +12,12 @@ namespace UI
         public PlayerInfo playerInfo;
         public List<FormWrapper> textItems;
         public float nextActionTime;
+        public ClockDisplay clock;
         private bool fillingOutItem;
+
+        //five minute
+        private uint lossTime = 5;
+
 
         private void Start()
         {
@@ -68,6 +73,7 @@ namespace UI
             {
                 failureAction();
             }
+            clock.addRunningTime(lossTime);
         }
 
 

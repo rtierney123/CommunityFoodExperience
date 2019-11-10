@@ -17,6 +17,7 @@ public class ClockDisplay : MonoBehaviour
 	public Text txt;
 	public Animator anim;
 	public TimeSpan pauseTime;
+    public TimeSpan lossTime;
 	public DateTime pauseStart;
 	public GameManager gameManager;
 	
@@ -46,7 +47,7 @@ public class ClockDisplay : MonoBehaviour
 		if (!this.running) {
 			return;
 		}
-		TimeSpan time = (DateTime.Now - startTime - this.pauseTime);
+		TimeSpan time = (DateTime.Now - startTime - this.pauseTime - lossTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
 
@@ -68,4 +69,10 @@ public class ClockDisplay : MonoBehaviour
 		this.pauseTime += DateTime.Now - this.pauseStart;
 		this.running = true;
 	}
+
+    public void addRunningTime(double min)
+    {
+        DateTime lossTime = DateTime.Now.AddMinutes(min);
+        this.lossTime += DateTime.Now - lossTime;
+    }
 }

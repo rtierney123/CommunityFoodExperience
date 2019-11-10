@@ -13,7 +13,7 @@ namespace Manage
         public GameObject startScreen;
 
         public CanvasController canvasController;
-        public GameManager gameManager;
+        public ClockDisplay clock;
         public Location currentLocation;
         public Bus bus;
         public float locationScreenDelay;
@@ -72,11 +72,11 @@ namespace Manage
 
         public void travelToDestination(TravelType travelType)
         {
-            int travelTime = calculateTravelTime();
+            double travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
             player.transform.localPosition = currentLocation.playerDropoff.position;
-            gameManager.subtractTime(travelTime);
+            clock.addRunningTime(travelTime);
             currentLocation.onEnter();
         }
 
@@ -85,9 +85,10 @@ namespace Manage
             canvasController.closePopUp();
         }
 
-        private int calculateTravelTime()
+        private double calculateTravelTime()
         {
-            return 0;
+            //constant 3 minutes right now
+            return 1;
         }
 
         public void handleTakeCar()

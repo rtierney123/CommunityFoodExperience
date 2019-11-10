@@ -1,4 +1,11 @@
-﻿using System;
+﻿
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 using Utility;
 
 [System.Serializable]
@@ -23,8 +30,11 @@ public class PlayerInfo
     [Serializable]
     public class ChildList
     {
-        public FamilyMember[] childList = { };
+        public FamilyMember[] childList = {};
     }
+
+    // temp json workaround
+    public string c_hack;
 
     public double socialSecurityIncome = 870;
     public double monthlyIncome = 5000;
@@ -84,11 +94,11 @@ public class PlayerInfo
             case FormQuestionType.Phone:
                 return phone;
             case FormQuestionType.Num_Children:
-                return children.childList.Length.ToString();
+                return getNumofChildren().ToString();
             case FormQuestionType.Monthly_Income:
                 return "" + socialSecurityIncome;
             case FormQuestionType.Children_Age:
-                return "";
+                return c_hack;
             case FormQuestionType.Aid:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Single:
@@ -123,6 +133,8 @@ public class PlayerInfo
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Birth_Day:
                 return FormatText.formatInt(birthDay);
+            case FormQuestionType.SNN:
+              return ssn;
             case FormQuestionType.Birth_Month:
                 return FormatText.formatInt(birthMonth);
             case FormQuestionType.Birth_Year:
@@ -165,12 +177,15 @@ public class PlayerInfo
 
     public int getNumofChildren()
     {
-        return children.childList.Length;
+        return c_hack.Equals("") ? 0 : c_hack.Split(',').Length;
+        //return children.childList.Length;
     }
 
     public double getStartingCash()
     {
         double monthlyCash = monthlyIncome - expenses;
-        return monthlyCash > 0 ? Math.Floor(monthlyCash / 30 * 100)/100 : 0;
+        double cashForDay = Math.Floor(monthlyCash / 30 / numInHouse * 100) / 100;
+        return monthlyCash > 0 ? cashForDay : 0;
   }
 }
+    

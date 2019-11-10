@@ -8,6 +8,7 @@ public class Screen : MonoBehaviour
     public CanvasController canvasController;
     public MessageManager messageManager;
     public GameObject nextScreen;
+    public GameObject prevScreen;
     public float delayTime;
 
     public IEnumerator delayOpenNextScreen()
@@ -31,6 +32,14 @@ public class Screen : MonoBehaviour
         }
     }
 
+    public void openPrevScreen()
+    {
+        StartCoroutine(delayCloseScreen());
+        if (prevScreen != null)
+        {
+            canvasController.openScreen(prevScreen);
+        }
+    }
 
 
     protected IEnumerator delayCloseScreen()

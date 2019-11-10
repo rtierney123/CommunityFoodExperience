@@ -24,6 +24,10 @@ public class PlayerInfo
     public class ChildList
     {
         public FamilyMember[] childList;
+        public ChildList() {
+            childList = new FamilyMember[]{};
+            //childList = new FamilyMember[]{new FamilyMember()};
+        }
     }
 
     public double socialSecurityIncome = 870;

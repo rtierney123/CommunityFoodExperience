@@ -195,7 +195,7 @@ namespace Manage
 
         private void generateMapEdges()
         {
-            double scale = .3f;
+            double scale = .08f;
 
             distmap.Add(Tuple.Create("House", "Community Food Kitchen"), 2 * scale);
             distmap.Add(Tuple.Create("House", "Mo's Corner Store"), 3 * scale);

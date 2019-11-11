@@ -51,7 +51,16 @@ namespace UI
                     item.setText(info);
                 } else
                 {
-                    item.setCheck(CheckmarkType.Check1);
+                    bool type = playerInfo.getInfoBool(question);
+                    if (type)
+                    {
+                        item.setCheck(CheckmarkType.Check1);
+                    }
+                    else
+                    {
+                        item.setCheck(CheckmarkType.Check2);
+                    }
+                   
                 }
 
                 item.fillOut();

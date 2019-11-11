@@ -83,6 +83,11 @@ public class PlayerInfo
         return String.Format("{0:C}", funds);
     }
 
+    public bool getInfoBool(FormQuestionType quetiion)
+    {
+        return true;
+    }
+
     public string getInfoText(FormQuestionType question)
     {
         switch (question)

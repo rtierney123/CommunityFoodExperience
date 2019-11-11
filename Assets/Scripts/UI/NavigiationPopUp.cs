@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,10 @@ public class NavigiationPopUp : MonoBehaviour
 {
     public Text title;
     public Text description;
+    public Text carText;
+    public Text walkText;
+
+    public NavigationManager manager;
 
     [HideInInspector]
     public GameObject popUp;
@@ -19,6 +24,5 @@ public class NavigiationPopUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

@@ -46,7 +46,7 @@ namespace Model
                 elements[0] = Resources.Load<Material>("Materials/map " + locationTitle);
                 elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
                 
-                // comment out line below to disable building hilight
+                // comment out line below to disable building highlight
                 map.GetComponent<Renderer>().materials = elements;
                 // Debug.Log("this: " + locationTitle);
 

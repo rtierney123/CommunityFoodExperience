@@ -75,4 +75,10 @@ public class ClockDisplay : MonoBehaviour
         DateTime lossTime = DateTime.Now.AddMinutes(min);
         this.lossTime += DateTime.Now - lossTime;
     }
+
+    public double realToGameMin(double d)
+    {
+        double inGameHours = 12 + pmEndTime - amStartTime;
+        return 60 * 60 * inGameHours / runtimeMiliSeconds * 1000 * d;
+    }
 }

@@ -111,7 +111,7 @@ public class Cart : MonoBehaviour
     {
         if(totalText != null)
         {
-            totalText.text = System.String.Format("{0:C}", totalPrice);
+            totalText.text = totalText.text = totalPrice.ToString();
         }
        
     }

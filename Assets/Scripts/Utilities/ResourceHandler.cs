@@ -21,18 +21,18 @@ namespace Utility{
             }
         }
 
-        public static Sprite setImage(Image image, string filePath)
+        public static Sprite setImage(Image image, string filePath, int scale = 60)
         {
          
             Sprite sprite = Resources.Load<Sprite>(filePath);
             
             if (sprite == null)
             {
-                Debug.Log("null sprite");
+                Debug.Log("null sprite: " + filePath);
             }
             else
             {
-                int imageScale = 60;
+                int imageScale = scale;
                 float imageWidth = (float)sprite.bounds.size.x * imageScale;
                 float imageHeight = (float)sprite.bounds.size.y * imageScale;
                 image.sprite = sprite;

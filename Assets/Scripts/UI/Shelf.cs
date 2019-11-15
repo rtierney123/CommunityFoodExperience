@@ -13,7 +13,8 @@ public class Shelf : MonoBehaviour
 
     public PopulateGrid grid;
     public string jsonLocation;
-
+    public Image foodImage_c;
+    public GameObject detailPopup;
 
     private FoodList foods { get; set; }
 

@@ -25,7 +25,9 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Text premadeText;
 
     public Image foodImage;
+    public Shelf shelf;
     public CanvasController canvasController;
+    public NavigationManager navManager;
 
     [HideInInspector]
     public Food food { get; set; }
@@ -34,7 +36,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
 
     public GameObject backCard;
-
+    public GameObject detailPopup;
    
     private Vector3 resetPosition;
     private Transform startParent;
@@ -51,6 +53,8 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         display();
 
         canvasController = GameObject.Find("Canvas").GetComponent<CanvasController>();
+        shelf = GameObject.Find("Shelf").GetComponent<Shelf>();
+        navManager = GameObject.Find("NavigationManager").GetComponent<NavigationManager>();
     }
 
     void Awake()
@@ -83,6 +87,66 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             Debug.Log("No cart");
         }
         
+    }
+
+    public void openDetails()
+    {
+        if (canvasController != null)
+        {
+            //detailPopup = GameObject.Find("FoodDetailPopup").GetComponent<GameObject>();
+            int index = food.imgPath.IndexOf(".");
+            string fixedPath = "";
+            if (index > 0)
+                fixedPath = food.imgPath.Substring(1, index - 1);
+            // Change folder "food Icons" -> "food cards"
+            int index_c = fixedPath.IndexOf('/');
+            int index_c2 = fixedPath.IndexOf('/', index_c + 1);
+            string fixedPath_c = fixedPath.Substring(0, index_c + 1) + "Food Cards";
+            string name = fixedPath.Substring(index_c2, fixedPath.Length - index_c2) + "_c";
+            //Debug.Log(fixedPath_c);
+
+            if (ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name, 40) == null)
+            {
+                Debug.Log(navManager.currentLocation.locationTitle);
+                string appendix = "";
+                if (navManager.currentLocation.locationTitle.Equals("Food Tiger"))
+                {
+                    fixedPath_c += "/ft";
+                    appendix = "_ft";
+                }
+                else if (navManager.currentLocation.locationTitle.Equals("Mo's Corner Store"))
+                {
+                    fixedPath_c += "/cs";
+                    appendix = "_cs";
+                }
+                else if (navManager.currentLocation.locationTitle.Equals("Food Pantry"))
+                {
+                    fixedPath_c += "/fp";
+                    appendix = "_fp";
+                }
+                Debug.Log("corrected: " + fixedPath_c + name + appendix);
+
+                ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name + appendix, 40);
+            }
+            canvasController.openPopup(shelf.detailPopup);
+        }
+        else
+        {
+            Debug.Log("CanvasController not set");
+        }
+    }
+
+    public void closeDetails()
+    {
+        if (canvasController != null)
+        {
+            Debug.Log("close details");
+            canvasController.closePopUp(detailPopup);
+        }
+        else
+        {
+            Debug.Log("CanvasController not set");
+        }
     }
 
     public void flipCardBack()

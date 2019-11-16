@@ -13,6 +13,7 @@ namespace Manage{
 
         public GameObject pauseScreen;
         public GameObject startScreen;
+        public GameObject endScreen;
 
         public CanvasController canvasController;
         public ClockDisplay clock;
@@ -70,6 +71,12 @@ namespace Manage{
         {
             busAnimator.enabled = false;
             clock.pause();
+        }
+
+        public void endGame()
+        {
+            canvasController.openScreen(endScreen);
+            pause();
         }
 
     }

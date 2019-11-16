@@ -13,6 +13,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     public int lineWaitTimeMax;
     public Text numMealsText;
     public ClockDisplay clock;
+    public Player player;
 
 
     private void Start()
@@ -38,18 +39,26 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 
     public void waitInLine()
     {
-        if (mealRemaining > 0)
+        if (!player.useCommunityKitchen)
         {
-            updateMeals(1);
-            float rand = Random.Range(0, lineWaitTimeMax);
-            int lossTime = (int)rand;
-            clock.addRunningTime(lossTime);
-            messageManager.generateStandardSuccessMessage("'Here is some vegatable soup.'");
-        }
-        else if (mealRemaining == 0)
+            if (mealRemaining > 0)
+            {
+                updateMeals(1);
+                float rand = Random.Range(0, lineWaitTimeMax);
+                int lossTime = (int)rand;
+                clock.addRunningTime(lossTime);
+                player.useCommunityKitchen = true;
+                messageManager.generateStandardSuccessMessage("'Here is some vegatable soup.'");
+            }
+            else if (mealRemaining == 0)
+            {
+                messageManager.generateStandardErrorMessage("'Sorry, we ran out of meals to give out today.'");
+            }
+        } else
         {
-            messageManager.generateStandardErrorMessage("'Sorry, we ran out of meals to give out today.'");
+            messageManager.generateStandardErrorMessage("'Hey, I already saw you here. We cannot give you more soup.'");
         }
+       
     }
 
     private void updateMeals(int mealsEaten)

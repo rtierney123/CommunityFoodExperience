@@ -3236,6 +3236,7 @@ MonoBehaviour:
   usedFoodPantry: 0
   usedWIC: 0
   usedSnap: 0
+  useCommunityKitchen: 0
   wicVoicher: {fileID: 0}
   hasWic: 0
 --- !u!114 &410626958 stripped
@@ -6866,7 +6867,7 @@ PrefabInstance:
     - target: {fileID: 6800054983885311208, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
@@ -6936,7 +6937,7 @@ PrefabInstance:
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -99.9
       objectReference: {fileID: 0}
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
@@ -6956,12 +6957,12 @@ PrefabInstance:
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287355028055545639, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
@@ -7068,6 +7069,21 @@ PrefabInstance:
       propertyPath: randomMax
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: lineWaitTimeMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 1362943300}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 408229920}
     - target: {fileID: 972735010843025981, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

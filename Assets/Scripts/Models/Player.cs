@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public bool usedFoodPantry = false;
     public bool usedWIC = false;
     public bool usedSnap = false;
+    public bool useCommunityKitchen = false;
 
     public WICVoucher wicVoicher;
     [HideInInspector]

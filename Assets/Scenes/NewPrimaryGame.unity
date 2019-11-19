@@ -1479,12 +1479,12 @@ PrefabInstance:
     - target: {fileID: 8428333099517556273, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6455645553475273047, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -603.8
+      value: -599.9
       objectReference: {fileID: 0}
     - target: {fileID: 8943054645778002943, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
@@ -1548,6 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3816863785250693200, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
+    - {fileID: 717309874508908259, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
 --- !u!224 &24160614 stripped
 RectTransform:
@@ -3615,7 +3616,7 @@ PrefabInstance:
     - target: {fileID: 5524237495889696201, guid: 7ab52aae5e851a64c972f2d2477a95c5,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 5524237495889696201, guid: 7ab52aae5e851a64c972f2d2477a95c5,
         type: 3}
@@ -3767,6 +3768,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.7529412
       objectReference: {fileID: 0}
+    - target: {fileID: 1058821039467210677, guid: 7ab52aae5e851a64c972f2d2477a95c5,
+        type: 3}
+      propertyPath: cartTransform
+      value: 
+      objectReference: {fileID: 1748053744}
+    - target: {fileID: 1058821039467210677, guid: 7ab52aae5e851a64c972f2d2477a95c5,
+        type: 3}
+      propertyPath: populateGrid
+      value: 
+      objectReference: {fileID: 845014803}
     - target: {fileID: 6053362484665622820, guid: 7ab52aae5e851a64c972f2d2477a95c5,
         type: 3}
       propertyPath: m_IsActive
@@ -3784,6 +3795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4878762389762258469, guid: 7ab52aae5e851a64c972f2d2477a95c5, type: 3}
+    - {fileID: 9131193858602881174, guid: 7ab52aae5e851a64c972f2d2477a95c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ab52aae5e851a64c972f2d2477a95c5, type: 3}
 --- !u!224 &611379642 stripped
 RectTransform:
@@ -4512,6 +4524,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 611379641}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &845014802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3857618010462666064, guid: 7ab52aae5e851a64c972f2d2477a95c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 611379641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &845014803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845014802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731550fbfb51aee4992b15f463e42b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 1193828603}
+  cart: {fileID: 469212439}
+  cardPrefab: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
+    type: 3}
 --- !u!1001 &863965806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4767,6 +4801,28 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 863965806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &869507211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4811501146784770853, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+    type: 3}
+  m_PrefabInstance: {fileID: 24160613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &869507212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869507211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731550fbfb51aee4992b15f463e42b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 1193828603}
+  cart: {fileID: 607945052}
+  cardPrefab: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
+    type: 3}
 --- !u!1 &893176253
 GameObject:
   m_ObjectHideFlags: 0
@@ -6266,6 +6322,28 @@ Transform:
   m_Father: {fileID: 630504628}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1202459707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7998186497735323275, guid: d0a9811b6afd146929d9d71bb41b12d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5256765828946822103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1202459708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202459707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731550fbfb51aee4992b15f463e42b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 1193828603}
+  cart: {fileID: 1441867282}
+  cardPrefab: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
+    type: 3}
 --- !u!1 &1215728259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1413004140857093459, guid: 1221763571db549e39eaa398f6f647f7,
@@ -7904,6 +7982,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6098889240226719025, guid: ab78966d72c5c3540bfd21a6ef003ffc,
     type: 3}
   m_PrefabInstance: {fileID: 5099628104406313106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1748053744 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6177471932679805775, guid: 7ab52aae5e851a64c972f2d2477a95c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 611379641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765342647
 GameObject:
@@ -11549,22 +11633,22 @@ PrefabInstance:
     - target: {fileID: 6755606078716073582, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6755606078716073582, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6755606078716073582, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6755606078716073582, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6755606078716073582, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
@@ -11619,7 +11703,7 @@ PrefabInstance:
     - target: {fileID: 8479620177197139193, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -629.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8479620177197139193, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
@@ -11659,12 +11743,12 @@ PrefabInstance:
     - target: {fileID: 1089775111244227862, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1089775111244227862, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1719336714171205138, guid: d0a9811b6afd146929d9d71bb41b12d6,
         type: 3}
@@ -11774,6 +11858,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3109398692303277141, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
     - {fileID: 1784163849612617214, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
+    - {fileID: 2724329733516985165, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0a9811b6afd146929d9d71bb41b12d6, type: 3}
 --- !u!1001 &5419959106079238034
 PrefabInstance:

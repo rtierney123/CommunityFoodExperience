@@ -8,7 +8,7 @@ using System;
 public class Cart : MonoBehaviour
 {
     public RectTransform cartTransform;
-    public PopulateGrid populateGrid;
+    public PopulateCart populateGrid;
     public Text totalText;
     [HideInInspector]
     public Dictionary<Food, int> foodInCart;
@@ -30,7 +30,11 @@ public class Cart : MonoBehaviour
         if (inCart(position))
         {
             addItem(food);
+            Debug.Log("add item");
 
+        } else
+        {
+            Debug.Log("not in cart");
         }
     }
 

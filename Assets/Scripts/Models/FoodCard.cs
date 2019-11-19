@@ -33,7 +33,8 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public Food food { get; set; }
     [HideInInspector]
     public Cart cart { get; set; }
-
+    [HideInInspector]
+    public bool inCart = false;
 
     public GameObject backCard;
     public GameObject detailPopup;
@@ -65,8 +66,12 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
-        OnBeginDrag(eventData);
+        if (!inCart)
+        {
+            transform.position = Input.mousePosition;
+            OnBeginDrag(eventData);
+        }
+     
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -77,15 +82,20 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(cart != null)
+        if (!inCart)
         {
-            cart.notifyDroppedFood(transform.position, food);
-            transform.SetParent(startParent);
-            transform.position = resetPosition;
-        } else
-        {
-            Debug.Log("No cart");
+            if (cart != null)
+            {
+                cart.notifyDroppedFood(transform.position, food);
+                transform.SetParent(startParent);
+                transform.position = resetPosition;
+            }
+            else
+            {
+                Debug.Log("No cart");
+            }
         }
+      
         
     }
 

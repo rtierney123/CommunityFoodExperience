@@ -11,7 +11,7 @@ public class PopulateGrid : MonoBehaviour
 
     public FoodCard cardPrefab;
 
-    public FoodCard addItem(Food food)
+    public virtual FoodCard addItem(Food food)
     {
         FoodCard foodCard = Instantiate<FoodCard>(cardPrefab, transform);
         foodCard.setFood(food);

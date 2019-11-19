@@ -11,7 +11,7 @@ using Utility;
 public class Shelf : MonoBehaviour
 {
 
-    public PopulateGrid grid;
+    public PopulateShelf grid;
     public string jsonLocation;
     public Image foodImage_c;
     public GameObject detailPopup;

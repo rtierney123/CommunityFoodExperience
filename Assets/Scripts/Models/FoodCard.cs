@@ -50,7 +50,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         resetPosition = transform.position;
         startParent = this.transform.parent;
 
-
         display();
 
         canvasController = GameObject.Find("Canvas").GetComponent<CanvasController>();

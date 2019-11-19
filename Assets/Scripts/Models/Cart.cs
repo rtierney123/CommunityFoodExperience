@@ -83,7 +83,7 @@ public class Cart : MonoBehaviour
             foodInCart.TryGetValue(food, out count);
 
             count++;
-            foodInCart.Add(food, count);
+            foodInCart[food] = count;
         } else
         {
             foodInCart.Add(food, 1);

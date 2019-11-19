@@ -12,8 +12,19 @@ namespace UI
         public MessageManager messageManager;
         public NavigationManager navigationManager;
         public Player player;
+        public Animator busAnimator;
         public GameObject purchasePopup;
 
+        private void OnEnable()
+        {
+            busAnimator.enabled = false;
+            Debug.Log("bus stopped");
+        }
+        private void OnDisable()
+        {
+            busAnimator.enabled = true;
+            Debug.Log("bus continue");
+        }
         public void useToken()
         {
             if(player.busTokens > 0)

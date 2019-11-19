@@ -16,6 +16,7 @@ namespace UI
         public GameObject chooseTicketDisplay;
         public GameObject paymentDisplay;
         public CanvasController canvasController;
+        public Animator busAnimator;
         private int numTickets;
 
         public CurrencyManager currencyManager;
@@ -24,6 +25,14 @@ namespace UI
         private void OnEnable()
         {
             openChooseTickeDisplay();
+            busAnimator.enabled = false;
+            Debug.Log("bus stopped");
+        }
+
+        private void OnDisable()
+        {
+            busAnimator.enabled = true;
+            Debug.Log("bus continue");
         }
 
         public override void pay()

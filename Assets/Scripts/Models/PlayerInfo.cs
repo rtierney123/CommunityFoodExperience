@@ -192,5 +192,35 @@ public class PlayerInfo
         double cashForDay = Math.Floor(monthlyCash / 30 / numInHouse * 100) / 100;
         return monthlyCash > 0 ? cashForDay : 0;
   }
+    public String getStartingTransportationString()
+    {
+        string returnStr = "";
+        string carStr = "";
+        string busPassStr = "";
+        string ticketStr = "";
+        if(hasCar)
+        {
+            carStr = "You own a car. You can use this to travel anywhere.";
+            returnStr = carStr + " ";
+        }
+        if (busPass)
+        {
+            busPassStr = "You possess a bus pass. You can use this instead of ticket on the bus unlimited times.";
+            returnStr = returnStr + busPassStr + " ";
+        }
+        if(startingBusTokens > 0)
+        {
+            ticketStr = "You possess {0} tickets. You can use each one of these to get from one stop to another.";
+            ticketStr = string.Format(ticketStr, startingBusTokens);
+            returnStr = returnStr + ticketStr + " ";
+        }
+
+        if(!hasCar && !busPass && startingBusTokens == 0)
+        {
+            returnStr = "You do not have a car, bus pass or bus tokens. You can walk in your local neighborhood or purchase a bus pass or bus tokens from the bus driver.";
+        }
+
+        return returnStr;
+    }
 }
     

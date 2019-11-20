@@ -141,26 +141,30 @@ public class WICVoucher : MonoBehaviour
 
     public void copy(WICVoucher voucher)
     {
-        if (voucher.fruitUsed)
+        if(voucher != null)
         {
-            useVoucher(FoodType.Fruit);
+            if (voucher.fruitUsed)
+            {
+                useVoucher(FoodType.Fruit);
+            }
+            if (voucher.vegUsed)
+            {
+                useVoucher(FoodType.Veg);
+            }
+            if (voucher.grainUsed)
+            {
+                useVoucher(FoodType.Grain);
+            }
+            if (voucher.proteinUsed)
+            {
+                useVoucher(FoodType.Protein);
+            }
+            if (voucher.dairyUsed)
+            {
+                useVoucher(FoodType.Dairy);
+            }
         }
-        if (voucher.vegUsed)
-        {
-            useVoucher(FoodType.Veg);
-        }
-        if (voucher.grainUsed)
-        {
-            useVoucher(FoodType.Grain);
-        }
-        if (voucher.proteinUsed)
-        {
-            useVoucher(FoodType.Protein);
-        }
-        if (voucher.dairyUsed)
-        {
-            useVoucher(FoodType.Dairy);
-        }
+        
     }
 
     private void displayPermCheck(GameObject gameObject)

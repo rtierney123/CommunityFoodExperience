@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
     public bool useCommunityKitchen = false;
 
     public WICVoucher wicVoicher;
-    [HideInInspector]
-
     public bool hasWic = false;
 
 

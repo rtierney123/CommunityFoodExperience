@@ -13,6 +13,11 @@ namespace UI
         public CurrencyManager currencyManager;
         public Cart cart;
 
+        private void OnDisable()
+        {
+            cart.clearAll();
+        }
+
         public virtual bool validateCart()
         {
             return true;

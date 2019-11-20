@@ -4274,6 +4274,19 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1817381251}
+    - target: {fileID: 650168525, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
+      propertyPath: carButton
+      value: 
+      objectReference: {fileID: 751967155}
+    - target: {fileID: 650168525, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 408229920}
+    - target: {fileID: 3105198965180359374, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_Name
+      value: Car_Button
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1256688742602213023, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
@@ -4623,6 +4636,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4f6858fbf301b4f8499eed63efc68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &751967150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3105198965180359374, guid: 1f533b28bd2465f4bb74f506259c4e78,
+    type: 3}
+  m_PrefabInstance: {fileID: 650168521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &751967152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 338314135487952500, guid: 1f533b28bd2465f4bb74f506259c4e78,
+    type: 3}
+  m_PrefabInstance: {fileID: 650168521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751967150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &751967155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751967150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97011fd7ab9324e938d162b9eb37f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 751967152}
 --- !u!1 &809881357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2111447938064086255, guid: 7ab52aae5e851a64c972f2d2477a95c5,
@@ -5785,7 +5829,7 @@ PrefabInstance:
     - target: {fileID: 4181270246298201271, guid: ee4319aa5f64bf74d94786b2abec42b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 27477774161726655, guid: ee4319aa5f64bf74d94786b2abec42b7,
         type: 3}

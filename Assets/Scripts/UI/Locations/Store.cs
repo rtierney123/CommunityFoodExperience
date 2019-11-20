@@ -32,6 +32,7 @@ namespace UI {
         private void OnEnable()
         {
             displayPlayerInfo();
+            checkWIC();
         }
 
         private void checkWIC()

@@ -16,11 +16,6 @@ namespace UI
             base.Awake();
         }
 
-        private void Start()
-        {
-            doneWithFillingOut = false;
-            displayText.text = "";
-        }
 
         public override void fillOut()
         {
@@ -41,6 +36,11 @@ namespace UI
             doneWithFillingOut = true;
         }
 
+        public override void resetWrapper()
+        {
+            base.resetWrapper();
+            displayText.text = "";
+        }
     }
 }
 

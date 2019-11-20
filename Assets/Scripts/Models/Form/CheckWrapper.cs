@@ -13,12 +13,6 @@ public class CheckWrapper : FormWrapper
         base.Awake();
     }
 
-    private void Start()
-    {
-        doneWithFillingOut = false;
-        check1.SetActive(false);
-        check2.SetActive(false);
-    }
 
     public override void fillOut()
     {
@@ -40,5 +34,11 @@ public class CheckWrapper : FormWrapper
         doneWithFillingOut = true;
     }
 
+    public override void resetWrapper()
+    {
+        base.resetWrapper();
+        check1.SetActive(false);
+        check2.SetActive(false);
+    }
 
 }

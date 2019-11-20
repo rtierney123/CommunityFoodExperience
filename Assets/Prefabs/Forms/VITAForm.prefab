@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 67005849972118926}
   - component: {fileID: 3740913860436032114}
   - component: {fileID: 6853016755971145917}
+  - component: {fileID: 1467993692}
   m_Layer: 0
   m_Name: VITAForm
   m_TagString: Untagged
@@ -143,9 +144,54 @@ MonoBehaviour:
   canvasController: {fileID: 0}
   messageManager: {fileID: 0}
   nextScreen: {fileID: 0}
-  delayTime: 1
+  prevScreen: {fileID: 0}
+  delayTime: 2
   player: {fileID: 0}
-  textItems:
+  playerInfo:
+    firstName: Sam
+    middleName: 
+    lastName: Smith
+    description: You are an elderly person (senior citizen) and you live alone on
+      a fixed income of $870 a month from Social Security. Your rent for a small apartment
+      is $600/month and you pay $50/month for electricity, $30 month for a phone and
+      $185/month for two prescriptions that are only partially coverd by Medicare.
+    phone: (404) 888-9360
+    ssn: XXX-XX-6789
+    address: 258 W.Real St. Atlanta
+    city: Atlanta
+    state: GA
+    zip: 30317
+    primaryLanguage: English
+    age: 78
+    birthMonth: 12
+    birthDay: 1
+    children:
+      childList: []
+    c_hack: 
+    socialSecurityIncome: 870
+    monthlyIncome: 5000
+    numInHouse: 2
+    expenses: 855
+    startingBusTokens: 1
+    busPass: 1
+    hasCar: 1
+    pregant: 0
+    single: 0
+    married: 0
+    jointTax: 0
+    inUSSixMonth: 0
+    allIncomeInUS: 0
+    hourlyIncome: 10
+    requiredCalories: 5
+    requiredGrain: 1
+    requiredFat: 1
+    requiredProtein: 3
+    requiredDairy: 2
+    requiredFruit: 1
+    requiredVegetable: 2
+    requiredExtra: 0
+    federalAssistance: 0
+  formItems:
   - {fileID: 4960557353196011082}
   - {fileID: 6056496298025749414}
   - {fileID: 4886497519132406408}
@@ -154,9 +200,28 @@ MonoBehaviour:
   - {fileID: 7139159287110389849}
   - {fileID: 8182978781698568857}
   - {fileID: 495531827132621998}
-  ctcAmt: 0
-  eitcAmt: 0
+  nextActionTime: 4
+  clock: {fileID: 0}
+  ctcAmt: 2.74
+  eitcAmtNoChild: 1.38
+  eitcAmtOneChild: 4.6
+  eitcAmtTwoChild: 5
+  eitcAmtMoreThreeChild: 4.25
   currencyManager: {fileID: 0}
+--- !u!114 &1467993692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433631391496842670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 4
+  m_AspectRatio: 0.001
 --- !u!1001 &741248249937123954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,6 +344,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: VITA Services
       objectReference: {fileID: 0}
+    - target: {fileID: 7989355143784863541, guid: 4b993718ec5b96a4a8eaf23d2b4228a9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6853016755971145917}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b993718ec5b96a4a8eaf23d2b4228a9, type: 3}
 --- !u!224 &6538984280090676364 stripped
@@ -563,6 +633,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ba79cb2233fad45aa8c0360377212f, type: 3}
+--- !u!224 &8098636356556711012 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7929241131184320530, guid: 10ba79cb2233fad45aa8c0360377212f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2192813316404417654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1504783957147345632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 760089221052593814, guid: 10ba79cb2233fad45aa8c0360377212f,
@@ -575,12 +651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8098636356556711012 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7929241131184320530, guid: 10ba79cb2233fad45aa8c0360377212f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2192813316404417654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5286155605240153118
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class Screen : MonoBehaviour
     }
 
 
-    public void closeScreen()
+    public virtual void closeScreen()
     {
         closePopUps();
         canvasController.closeScreen(this.gameObject);

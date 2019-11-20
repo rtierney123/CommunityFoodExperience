@@ -21,6 +21,11 @@ public class FormWrapper : MonoBehaviour
         initialized = true;
     }
 
+    private void Start()
+    {
+        resetWrapper();
+    }
+
     public virtual void fillOut()
     {
 
@@ -36,9 +41,11 @@ public class FormWrapper : MonoBehaviour
         checkChoice = check;
     }
 
-    public void resetTextWrapper()
+    public virtual void resetWrapper()
     {
         //reset to fill out form again
         doneWithFillingOut = false;
     }
+
+
 }

@@ -20,6 +20,7 @@ namespace UI
         string ctcStatusString;
         string eitcStatusString;
 
+
         public override bool checkAlreadyEntered()
         {
             return player.usedVita;
@@ -258,6 +259,8 @@ namespace UI
             yield return new WaitForSeconds(delayTime);
             messageManager.generateStandardErrorMessage(msg2);
         }
+
+      
 
     }
 }

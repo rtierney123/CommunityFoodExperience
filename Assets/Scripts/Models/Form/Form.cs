@@ -10,9 +10,10 @@ namespace UI
     {
         public Player player;
         public PlayerInfo playerInfo;
-        public List<FormWrapper> textItems;
+        public List<FormWrapper> formItems;
         public float nextActionTime;
         public ClockDisplay clock;
+        public bool signed = false;
         private bool fillingOutItem;
 
         //five minute
@@ -25,6 +26,7 @@ namespace UI
         }
         private void OnEnable()
         {
+            Debug.Log("start filling out form");
             StartCoroutine(fillOutForm());
         }
 
@@ -33,15 +35,18 @@ namespace UI
             return false;
         }
 
+  
         private IEnumerator fillOutForm()
         {
             //make sure all text items are intialized
-            foreach (FormWrapper item in textItems)
+            foreach (FormWrapper item in formItems)
             {
+                Debug.Log(item.ToString());
                 yield return new WaitUntil(() => item.initialized);
             }
+            Debug.Log("all initialized");
 
-            foreach (FormWrapper item in textItems)
+            foreach (FormWrapper item in formItems)
             {
                 FormQuestionType question = item.questionType;
  
@@ -66,7 +71,6 @@ namespace UI
                 item.fillOut();
                 yield return new WaitForSeconds((float).5);
                 yield return new WaitUntil(() => item.doneWithFillingOut);
-                item.resetTextWrapper();
             }
             onFormFilled();
 
@@ -93,15 +97,28 @@ namespace UI
 
         protected virtual void successAction()
         {
-            StartCoroutine(delayCloseScreen(nextActionTime));
+
         }
 
         protected virtual void failureAction()
         {
-            StartCoroutine(delayCloseScreen(nextActionTime));
+
         }
 
-      
+        public override void closeScreen()
+        {
+            base.closeScreen();
+            if (!signed)
+            {
+                foreach (FormWrapper wrapper in formItems)
+                {
+                    wrapper.resetWrapper();
+                }
+            }
+
+        }
+
+
     }
 }
 

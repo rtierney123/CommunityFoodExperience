@@ -90,10 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 4
   fillOutDelayTime: 0.1
   displayText: {fileID: 8130893039792210200}
-  doneWithFillingOut: 0
 --- !u!1 &1850835124810275327
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +107,7 @@ GameObject:
   - component: {fileID: 2649837904438190559}
   - component: {fileID: 1712060181519437347}
   - component: {fileID: 1935432039882808593}
+  - component: {fileID: 646318564}
   m_Layer: 0
   m_Name: FoodPantryForm
   m_TagString: Untagged
@@ -168,9 +171,54 @@ MonoBehaviour:
   canvasController: {fileID: 0}
   messageManager: {fileID: 0}
   nextScreen: {fileID: 0}
+  prevScreen: {fileID: 0}
   delayTime: 1
   player: {fileID: 0}
-  textItems:
+  playerInfo:
+    firstName: Sam
+    middleName: 
+    lastName: Smith
+    description: You are an elderly person (senior citizen) and you live alone on
+      a fixed income of $870 a month from Social Security. Your rent for a small apartment
+      is $600/month and you pay $50/month for electricity, $30 month for a phone and
+      $185/month for two prescriptions that are only partially coverd by Medicare.
+    phone: (404) 888-9360
+    ssn: XXX-XX-6789
+    address: 258 W.Real St. Atlanta
+    city: Atlanta
+    state: GA
+    zip: 30317
+    primaryLanguage: English
+    age: 78
+    birthMonth: 12
+    birthDay: 1
+    children:
+      childList: []
+    c_hack: 
+    socialSecurityIncome: 870
+    monthlyIncome: 5000
+    numInHouse: 2
+    expenses: 855
+    startingBusTokens: 1
+    busPass: 1
+    hasCar: 1
+    pregant: 0
+    single: 0
+    married: 0
+    jointTax: 0
+    inUSSixMonth: 0
+    allIncomeInUS: 0
+    hourlyIncome: 10
+    requiredCalories: 5
+    requiredGrain: 1
+    requiredFat: 1
+    requiredProtein: 3
+    requiredDairy: 2
+    requiredFruit: 1
+    requiredVegetable: 2
+    requiredExtra: 0
+    federalAssistance: 0
+  formItems:
   - {fileID: 1522099080551883701}
   - {fileID: 4079266619008794697}
   - {fileID: 2047007267375624125}
@@ -183,7 +231,22 @@ MonoBehaviour:
   - {fileID: 8080847190607167479}
   - {fileID: 6267680444540640598}
   - {fileID: 4790875171009961992}
-  nextActionTime: 4
+  nextActionTime: 2
+  clock: {fileID: 0}
+--- !u!114 &646318564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850835124810275327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 0.001
 --- !u!1 &2151126132643765718
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,10 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 3
   fillOutDelayTime: 0.1
   displayText: {fileID: 8966477314101654573}
-  doneWithFillingOut: 0
 --- !u!1 &2198583899029760076
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,10 +433,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 15
   fillOutDelayTime: 0.1
   displayText: {fileID: 9167066209678901687}
-  doneWithFillingOut: 0
 --- !u!1 &2373670748758336941
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,10 +602,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 16
   fillOutDelayTime: 0.1
   displayText: {fileID: 4795990568349015783}
-  doneWithFillingOut: 0
 --- !u!1 &3694952881702850237
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,10 +698,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 13
   fillOutDelayTime: 0.1
   displayText: {fileID: 5976868654646454086}
-  doneWithFillingOut: 0
 --- !u!1 &4016106893711985218
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,10 +794,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 5
   fillOutDelayTime: 0.1
   displayText: {fileID: 6199510273634165689}
-  doneWithFillingOut: 0
 --- !u!1 &5688810809360653448
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,10 +890,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 1
   fillOutDelayTime: 0.1
   displayText: {fileID: 3406886274080060787}
-  doneWithFillingOut: 0
 --- !u!1 &6474807069908293469
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,10 +986,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 17
   fillOutDelayTime: 0.1
   displayText: {fileID: 4066228160293273254}
-  doneWithFillingOut: 0
 --- !u!1 &8020513395499061624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,10 +1082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 14
   fillOutDelayTime: 0.1
   displayText: {fileID: 1079615132118677635}
-  doneWithFillingOut: 0
 --- !u!1 &8029677647873232221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,10 +1178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 2
   fillOutDelayTime: 0.1
   displayText: {fileID: 1070206384165545126}
-  doneWithFillingOut: 0
 --- !u!1 &8383662730431493281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,10 +1274,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 18
   fillOutDelayTime: 0.1
   displayText: {fileID: 1580137417173032282}
-  doneWithFillingOut: 0
 --- !u!1 &9020494114304800937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,10 +1370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4f300d16a2bf247ab6550d7c89b5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsText: 0
+  doneWithFillingOut: 0
+  initialized: 0
   questionType: 19
   fillOutDelayTime: 0.1
   displayText: {fileID: 2061027764098142546}
-  doneWithFillingOut: 0
 --- !u!1001 &7184362808711280084
 PrefabInstance:
   m_ObjectHideFlags: 0

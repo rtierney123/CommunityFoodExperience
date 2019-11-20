@@ -19,6 +19,8 @@ namespace UI {
         public Text ctcText;
         public Text snapText;
 
+        public DisableableButton wicButton;
+
         public WICVoucher voucher;
 
 
@@ -30,6 +32,20 @@ namespace UI {
         private void OnEnable()
         {
             displayPlayerInfo();
+        }
+
+        private void checkWIC()
+        {
+            if (player.hasWic)
+            {
+                wicButton.enable();
+                Debug.Log("has wic");
+            }
+            else
+            {
+                wicButton.disable();
+                Debug.Log("does not have wic");
+            }
         }
 
         private void displayPlayerInfo()

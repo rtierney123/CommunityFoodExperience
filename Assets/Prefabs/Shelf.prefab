@@ -513,8 +513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -673, y: -375}
-  m_SizeDelta: {x: 846.2, y: 650.5}
+  m_AnchoredPosition: {x: -660, y: -160}
+  m_SizeDelta: {x: 820, y: 450}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2050175330133442801
 MonoBehaviour:
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d16ed96ded7314896209a166df3c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
+  grid: {fileID: 3476701700681014394}
   jsonLocation: 
   foodImage_c: {fileID: 0}
   detailPopup: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 3798490694922652044}
   - component: {fileID: 7682086733718094804}
   - component: {fileID: 80870871295310831}
-  - component: {fileID: 6474422714243164299}
+  - component: {fileID: 3476701700681014394}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -583,10 +583,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 20
+    m_Right: 20
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &6474422714243164299
+--- !u!114 &3476701700681014394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -617,12 +617,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6874038113738031278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b811ecba6c11c4e94becbe89b4999e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7dde86a80d7ad874085d2bb68469211a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 0}
   cart: {fileID: 0}
   cardPrefab: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
+    type: 3}
+  foodCardHolder: {fileID: 8474088493630445495, guid: ae94d0154da456248955f430b6f93f75,
     type: 3}
 --- !u!1 &7115517539211643967
 GameObject:
@@ -662,8 +664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &366236944955628707
 CanvasRenderer:

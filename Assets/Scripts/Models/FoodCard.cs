@@ -39,15 +39,17 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     public GameObject backCard;
     public GameObject detailPopup;
    
-    private Vector3 resetPosition;
-    private Transform startParent;
+    public Vector3 resetPosition;
+    public Transform startParent;
    
     private static int foodID { get; set; }
+
+    private Transform canvasTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        resetPosition = transform.position;
+        resetPosition = transform.localPosition ;
         startParent = this.transform.parent;
 
         display();
@@ -55,6 +57,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         canvasController = GameObject.Find("Canvas").GetComponent<CanvasController>();
         shelf = GameObject.Find("Shelf").GetComponent<Shelf>();
         navManager = GameObject.Find("NavigationManager").GetComponent<NavigationManager>();
+        canvasTransform = GameObject.FindGameObjectWithTag("Canvas").transform;
     }
 
     void Awake()
@@ -75,8 +78,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
-        transform.SetParent(canvas);
+        transform.SetParent(canvasTransform);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -87,7 +89,8 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             {
                 cart.notifyDroppedFood(transform.position, food);
                 transform.SetParent(startParent);
-                transform.position = resetPosition;
+                transform.localPosition = resetPosition;
+                Debug.Log(resetPosition);
             }
             else
             {

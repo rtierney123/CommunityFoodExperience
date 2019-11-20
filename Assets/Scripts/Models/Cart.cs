@@ -30,11 +30,6 @@ public class Cart : MonoBehaviour
         if (inCart(position))
         {
             addItem(food);
-            Debug.Log("add item");
-
-        } else
-        {
-            Debug.Log("not in cart");
         }
     }
 

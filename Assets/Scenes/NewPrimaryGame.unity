@@ -1521,6 +1521,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 250.33
       objectReference: {fileID: 0}
+    - target: {fileID: 2221098839586101625, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3676134774427929342, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1541,11 +1546,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 125
       objectReference: {fileID: 0}
-    - target: {fileID: 2221098839586101625, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
+    - target: {fileID: 8790271969424323008, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: populateGrid
+      value: 
+      objectReference: {fileID: 869507212}
     m_RemovedComponents:
     - {fileID: 3816863785250693200, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
     - {fileID: 717309874508908259, guid: ebcd39cffe1b96d42ac02fc5922dc06f, type: 3}
@@ -7208,56 +7213,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: canvasController
-      value: 
-      objectReference: {fileID: 1193828603}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: messageManager
-      value: 
-      objectReference: {fileID: 1898436623}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: delayTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: mealRemaining
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: numMealsText
-      value: 
-      objectReference: {fileID: 1851632702}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 982130610}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: randomMax
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: lineWaitTimeMax
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: clock
-      value: 
-      objectReference: {fileID: 1362943300}
-    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 408229920}
     - target: {fileID: 608607174515387773, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7318,6 +7273,56 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: canvasController
+      value: 
+      objectReference: {fileID: 1193828603}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: messageManager
+      value: 
+      objectReference: {fileID: 1898436623}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: delayTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: mealRemaining
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: numMealsText
+      value: 
+      objectReference: {fileID: 1851632702}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 982130610}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: randomMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: lineWaitTimeMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 1362943300}
+    - target: {fileID: 818266551835103048, guid: 76938f17fdf5416459a6ff5e4ef2271f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 408229920}
     - target: {fileID: 972735010843025981, guid: 76938f17fdf5416459a6ff5e4ef2271f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -10397,6 +10402,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5414259292032938107, guid: fc2e069992adb864b939b949b227475d,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2074088334793771852, guid: fc2e069992adb864b939b949b227475d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10771,11 +10781,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5414259292032938107, guid: fc2e069992adb864b939b949b227475d,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc2e069992adb864b939b949b227475d, type: 3}

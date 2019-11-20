@@ -113,7 +113,6 @@ namespace Manage
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if(popUpBackLog!= null && popUpBackLog.Count > 0)
             {
-                Debug.Log("open backlog");
                 popUp = popUpBackLog.Dequeue();
                 setPopUp(true);
             } else

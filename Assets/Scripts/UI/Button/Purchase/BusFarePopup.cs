@@ -14,16 +14,48 @@ namespace UI
         public Player player;
         public Animator busAnimator;
         public GameObject purchasePopup;
+        public DisableableButton useTicketButton;
+        public DisableableButton useBusPassButton;
 
         private void OnEnable()
         {
             busAnimator.enabled = false;
-            Debug.Log("bus stopped");
+            checkTickets();
+            checkPass();
         }
+
+        private void checkTickets()
+        {
+            if (player.busTokens > 0)
+            {
+                useTicketButton.enable();
+            }
+            else
+            {
+                useTicketButton.disable();
+            }
+        }
+
+        private void checkPass()
+        {
+            if (player.playerInfo.busPass)
+            {
+                useBusPassButton.enable();
+            }
+            else
+            {
+                useBusPassButton.disable();
+            }
+        }
+
         private void OnDisable()
         {
-            busAnimator.enabled = true;
-            Debug.Log("bus continue");
+            if(busAnimator != null)
+            {
+                busAnimator.enabled = true;
+                Debug.Log("bus continue");
+            }
+      
         }
         public void useToken()
         {

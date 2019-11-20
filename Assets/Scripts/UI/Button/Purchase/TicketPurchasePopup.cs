@@ -31,8 +31,12 @@ namespace UI
 
         private void OnDisable()
         {
-            busAnimator.enabled = true;
-            Debug.Log("bus continue");
+            if(busAnimator != null)
+            {
+                busAnimator.enabled = true;
+                Debug.Log("bus continue");
+            }
+          
         }
 
         public override void pay()

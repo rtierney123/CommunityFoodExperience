@@ -9,7 +9,6 @@ using Utility;
 namespace UI {
     public class Store : BaseStore
     {
-        public GameObject successPopup;
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;
@@ -18,6 +17,8 @@ namespace UI {
         public Text eitcText;
         public Text ctcText;
         public Text snapText;
+
+        public DisableableButton wicButton;
 
         public WICVoucher voucher;
 
@@ -109,6 +110,10 @@ namespace UI {
             if (canvasController != null)
             {
                 canvasController.forcePopupOpen(popUp);
+                Debug.Log("open popup");
+            } else
+            {
+                Debug.Log("nope");
             }
         }
 

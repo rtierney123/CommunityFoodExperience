@@ -41,7 +41,7 @@ namespace UI
         public void selectWalletTab()
         {
             setInactive();
-            walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            walletTab.GetComponent<Image>().color = new Color32(128, 128, 128, 255);
             walletTabBody.SetActive(true);
             updateWallet();
         }
@@ -49,7 +49,7 @@ namespace UI
         public void selectInfoTab()
         {
             setInactive();
-            infoTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            infoTab.GetComponent<Image>().color = new Color32(128, 128, 128, 255);
             infoTabBody.SetActive(true);
             foreach (Transform child in infoTabBody.transform)
             {
@@ -91,7 +91,7 @@ namespace UI
         public void selectTransportationTab()
         {
             setInactive();
-            transportationTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            transportationTab.GetComponent<Image>().color = new Color32(128, 128, 128, 255);
             transportationTabBody.SetActive(true);
         }
 
@@ -163,9 +163,9 @@ namespace UI
 
         private void setInactive()
         {
-            walletTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
-            infoTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
-            transportationTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
+            walletTab.GetComponent<Image>().color = new Color32(183, 183, 183, 255);
+            infoTab.GetComponent<Image>().color = new Color32(183, 183, 183, 255);
+            transportationTab.GetComponent<Image>().color = new Color32(183, 183, 183, 255);
             walletTabBody.SetActive(false);
             infoTabBody.SetActive(false);
             transportationTabBody.SetActive(false);

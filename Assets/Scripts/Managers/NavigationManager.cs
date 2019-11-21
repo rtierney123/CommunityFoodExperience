@@ -42,6 +42,19 @@ namespace Manage
             generateMapEdges();
         }
 
+        public void reset() {
+            locationLookup = new Dictionary<MapLocations, Location>();
+            if (locationKeys.Count == locationValues.Count)
+            {
+                for (int index = 0; index < locationKeys.Count; index += 1)
+                {
+                    locationLookup[locationKeys[index]] = locationValues[index];
+
+                }
+            }
+            distmap = new Dictionary<Tuple<string, string>, double>();
+            generateMapEdges();
+        }
      
 
         // Update is called once per frame

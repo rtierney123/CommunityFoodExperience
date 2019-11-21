@@ -16,6 +16,8 @@ namespace Manage{
         public GameObject endScreen;
 
         public CanvasController canvasController;
+        public NavigationManager navigationManager;
+        public Bus bus;
         public ClockDisplay clock;
         public Animator busAnimator;
 
@@ -79,6 +81,24 @@ namespace Manage{
             pause();
         }
 
+        public void restartGame()
+        {
+            canvasController.closePopUp();
+            canvasController.closeScreen();
+            canvasController.reset();
+            player.resetPlayer();
+            clock.reset();
+            bus.reset();
+            navigationManager.reset();
+
+            if (openStartScreenOnPlay)
+            {
+                canvasController.openScreen(startScreen);
+                pause();
+            } else {
+                startGame();
+            }
+        }
     }
 }
 

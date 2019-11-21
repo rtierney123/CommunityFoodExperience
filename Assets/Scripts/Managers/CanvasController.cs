@@ -37,6 +37,15 @@ namespace Manage
             popUpBackLog = new Queue<GameObject>();
         }
 
+        public void reset() {
+            this.raycaster = GetComponent<GraphicRaycaster>();
+            allowClose = true;
+            allowOpen = true;
+            popUp = null;
+            screenDisplayed = false;
+            popUpBackLog = new Queue<GameObject>();
+        }
+
         void Update()
         {
             //Check if the left Mouse button is clicked

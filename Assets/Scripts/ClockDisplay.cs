@@ -47,6 +47,24 @@ public class ClockDisplay : MonoBehaviour
         }
 	}
 
+    public void reset() {
+        running = false;
+		anim.speed = 0.0001f;
+		startTime = DateTime.Now;
+
+        eventCallers = new List<IClockEventCaller>();
+        foreach (GameObject gameObject in clockCallerGameObjects)
+        {
+            try
+            {
+                IClockEventCaller caller = gameObject.GetComponent<IClockEventCaller>();
+                eventCallers.Add(caller);
+            } catch(Exception ex)
+            {
+                Debug.Log(ex.ToString());
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()

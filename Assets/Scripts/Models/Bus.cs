@@ -1,9 +1,9 @@
-﻿
-using Manage;
-using Model;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using Manage;
 
 public class Bus : MonoBehaviour
 {
@@ -28,7 +28,8 @@ public class Bus : MonoBehaviour
     }
 
     public void reset() {
-        animator = gameObject.GetComponent<Animator>();
+        mapLocation = MapLocations.OnRoad;
+        atStop = true;
     }
 
     // Update is called once per frame

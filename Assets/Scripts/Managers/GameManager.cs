@@ -88,8 +88,9 @@ namespace Manage{
             canvasController.reset();
             player.resetPlayer();
             clock.reset();
-            bus.reset();
+            //clock.resume();
             navigationManager.reset();
+            bus.reset();
 
             if (openStartScreenOnPlay)
             {

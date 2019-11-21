@@ -9,7 +9,6 @@ using Utility;
 namespace UI {
     public class Store : BaseStore
     {
-        public GameObject successPopup;
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;

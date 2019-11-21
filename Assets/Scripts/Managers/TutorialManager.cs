@@ -38,7 +38,7 @@ namespace Manage
             this.tutorialScene.SetActive(false);
         }
 
-        void Start()
+        void OnEnable()
         {
             this.displayInstruction.text = this.instructions[this.curIndex];
             this.displayImage.sprite = images[this.curIndex];

@@ -30,10 +30,6 @@ public class EndScreen : MonoBehaviour
         
     }
 
-    public void endButtonClicked() {
-        endScreen.SetActive(true);
-        gameManager.pause();
-    }
 
     public void updateInfo()
     {

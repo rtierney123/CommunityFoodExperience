@@ -44,9 +44,8 @@ public class Player : MonoBehaviour
 
     public void resetPlayer()
     {
-        busTokens = 0;
+        resetToStarting();
 
-        money = 0;
         snapFunds = 0;
         ctcFunds = 0;
         eitcFunds = 0;
@@ -68,15 +67,18 @@ public class Player : MonoBehaviour
 
         wicVoicher = null;
         hasWic = false;
-
     }
 
     public void setPlayerInfo(PlayerInfo info)
     {
         playerInfo = info;
+        resetToStarting();
+    }
+
+    public void resetToStarting()
+    {
         money = playerInfo.getStartingCash();
         busTokens = playerInfo.startingBusTokens;
-
     }
 
     //string[] foodAcquired = [];

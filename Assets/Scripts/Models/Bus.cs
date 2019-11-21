@@ -27,10 +27,6 @@ public class Bus : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
-    public void reset() {
-        animator = gameObject.GetComponent<Animator>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -66,4 +62,24 @@ public class Bus : MonoBehaviour
         manager.handleBusLeavingEvent();
     }
 
+    public void pauseAnimation()
+    {
+        animator.enabled = false;
+    }
+    
+    public void resumeAnimation()
+    {
+        animator.enabled = true;
+    }
+
+    public void startAnimation()
+    {
+        resetAnimation();
+        resumeAnimation();
+    }
+
+    public void resetAnimation()
+    {
+        animator.Play("", 0, 0f);
+    }
 }

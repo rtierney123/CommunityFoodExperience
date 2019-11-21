@@ -29,9 +29,7 @@ public class ClockDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		running = false;
-		anim.speed = 0.0001f;
-		startTime = DateTime.Now;
+        resetAnimation();
 
         eventCallers = new List<IClockEventCaller>();
         foreach (GameObject gameObject in clockCallerGameObjects)
@@ -47,23 +45,22 @@ public class ClockDisplay : MonoBehaviour
         }
 	}
 
-    public void reset() {
+    public void resetAnimation()
+    {
         running = false;
-		anim.speed = 0.0001f;
-		startTime = DateTime.Now;
+        anim.enabled = false;
+        currentHour = 0;
+        currentMin = 0;
+        lossTime = TimeSpan.Zero;
+        pauseTime = TimeSpan.Zero;
+    }
 
-        eventCallers = new List<IClockEventCaller>();
-        foreach (GameObject gameObject in clockCallerGameObjects)
-        {
-            try
-            {
-                IClockEventCaller caller = gameObject.GetComponent<IClockEventCaller>();
-                eventCallers.Add(caller);
-            } catch(Exception ex)
-            {
-                Debug.Log(ex.ToString());
-            }
-        }
+    public void startAnimation() {
+        running = true;
+        anim.enabled = true;
+        startTime = DateTime.Now;
+        pauseTime = TimeSpan.Zero;
+        Debug.Log("start clock");
     }
 
     // Update is called once per frame

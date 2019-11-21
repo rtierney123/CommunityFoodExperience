@@ -19,9 +19,9 @@ namespace Manage{
         public NavigationManager navigationManager;
         public Bus bus;
         public ClockDisplay clock;
-        public Animator busAnimator;
 
         public bool openStartScreenOnPlay;
+
         void Start()
         {
             if (openStartScreenOnPlay)
@@ -29,7 +29,11 @@ namespace Manage{
                 canvasController.openScreen(startScreen);
                 pause();
             }
-           
+            else
+            {
+                startGame();
+            }
+
         }
 
         public void subtractTime(int time)
@@ -39,7 +43,9 @@ namespace Manage{
 
         public void startGame()
         {
-            resume();
+            clock.startAnimation();
+            bus.startAnimation();
+            navigationManager.reset();
             canvasController.closeScreen();
         }
 
@@ -65,13 +71,12 @@ namespace Manage{
         public void resume()
         {
             clock.resume();
-            busAnimator.enabled = true;
-            Debug.Log("bus enabled");
+            bus.resumeAnimation();
         }
 
         public void pause()
         {
-            busAnimator.enabled = false;
+            bus.pauseAnimation();
             clock.pause();
         }
 
@@ -83,21 +88,25 @@ namespace Manage{
 
         public void restartGame()
         {
+            resetGameComponents();
+            startGame();
+        }
+
+        public void quitGame()
+        {
+            resetGameComponents();
+            canvasController.openScreen(startScreen);
+            pause();
+           
+        }
+        public void resetGameComponents()
+        {
             canvasController.closePopUp();
             canvasController.closeScreen();
-            canvasController.reset();
             player.resetPlayer();
-            clock.reset();
-            bus.reset();
+            clock.resetAnimation();
+            bus.resetAnimation();
             navigationManager.reset();
-
-            if (openStartScreenOnPlay)
-            {
-                canvasController.openScreen(startScreen);
-                pause();
-            } else {
-                startGame();
-            }
         }
     }
 }

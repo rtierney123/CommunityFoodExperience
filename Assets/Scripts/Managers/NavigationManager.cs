@@ -16,6 +16,7 @@ namespace Manage
         public CanvasController canvasController;
         public ClockDisplay clock;
         public Location currentLocation;
+        public Location startLocation;
         public Bus bus;
         public float locationScreenDelay;
 
@@ -43,17 +44,7 @@ namespace Manage
         }
 
         public void reset() {
-            locationLookup = new Dictionary<MapLocations, Location>();
-            if (locationKeys.Count == locationValues.Count)
-            {
-                for (int index = 0; index < locationKeys.Count; index += 1)
-                {
-                    locationLookup[locationKeys[index]] = locationValues[index];
-
-                }
-            }
-            distmap = new Dictionary<Tuple<string, string>, double>();
-            generateMapEdges();
+            dropPlayerOff(startLocation);
         }
      
 
@@ -108,9 +99,14 @@ namespace Manage
             double travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
-            player.transform.localPosition = currentLocation.playerDropoff.position;
+            dropPlayerOff(currentLocation);
             clock.addRunningTime(travelTime);
             currentLocation.onEnter();
+        }
+
+        private void dropPlayerOff(Location location)
+        {
+            player.transform.localPosition = currentLocation.playerDropoff.position;
         }
 
         public void closePopUp()

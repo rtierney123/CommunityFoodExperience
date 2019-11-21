@@ -10,12 +10,10 @@ public class DisableableButton : MonoBehaviour
     public void disable()
     {
         button.interactable = false;
-        Debug.Log("Deactivate button");
     }
 
     public void enable()
     {
         button.interactable = true;
-        Debug.Log("Activate button");
     }
 }

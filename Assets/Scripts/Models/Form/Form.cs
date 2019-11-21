@@ -13,6 +13,7 @@ namespace UI
         public List<FormWrapper> formItems;
         public float nextActionTime;
         public ClockDisplay clock;
+        public DisableableButton signButton;
         public bool signed = false;
         private bool fillingOutItem;
 
@@ -23,6 +24,7 @@ namespace UI
         private void Start()
         {
             playerInfo = player.playerInfo;
+            signButton.disable();
         }
         private void OnEnable()
         {
@@ -78,6 +80,16 @@ namespace UI
 
         private void onFormFilled()
         {
+            activateSignButton();
+        }
+
+        private void activateSignButton()
+        {
+            signButton.enable();
+        }
+
+        public void checkAcceptance()
+        {
             if (checkValid())
             {
                 successAction();
@@ -88,7 +100,6 @@ namespace UI
             }
             clock.addRunningTime(lossTime);
         }
-
 
         protected virtual bool checkValid()
         {

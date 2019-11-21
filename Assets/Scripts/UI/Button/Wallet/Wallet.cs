@@ -24,12 +24,17 @@ namespace UI
 
         public Player player;
         public PlayerInfo playerInfo;
+
+        private Color selectColor;
+        private Color inactiveColor;
         
         protected override void Start()
         {
-            setInactive();
-            selectWalletTab();
             base.Start();
+            selectColor = new Color32(192, 118, 5, 255);
+            inactiveColor = new Color32(255, 150, 0, 255);
+            selectWalletTab();
+            
         }
 
         private void OnEnable()
@@ -41,7 +46,7 @@ namespace UI
         public void selectWalletTab()
         {
             setInactive();
-            walletTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            walletTab.GetComponent<Image>().color = selectColor;
             walletTabBody.SetActive(true);
             updateWallet();
         }
@@ -49,7 +54,7 @@ namespace UI
         public void selectInfoTab()
         {
             setInactive();
-            infoTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            infoTab.GetComponent<Image>().color = selectColor;
             infoTabBody.SetActive(true);
             foreach (Transform child in infoTabBody.transform)
             {
@@ -91,7 +96,7 @@ namespace UI
         public void selectTransportationTab()
         {
             setInactive();
-            transportationTab.GetComponent<Image>().color = new Color32(171, 117, 0, 255);
+            transportationTab.GetComponent<Image>().color = selectColor;
             transportationTabBody.SetActive(true);
         }
 
@@ -163,9 +168,9 @@ namespace UI
 
         private void setInactive()
         {
-            walletTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
-            infoTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
-            transportationTab.GetComponent<Image>().color = new Color32(231, 201, 88, 255);
+            walletTab.GetComponent<Image>().color = inactiveColor;
+            infoTab.GetComponent<Image>().color = inactiveColor;
+            transportationTab.GetComponent<Image>().color = inactiveColor;
             walletTabBody.SetActive(false);
             infoTabBody.SetActive(false);
             transportationTabBody.SetActive(false);

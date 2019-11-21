@@ -23,6 +23,13 @@ public class Screen : MonoBehaviour
         openNextScreen();
     }
 
+    public IEnumerator delayOpenSuccessMessage(float delay, string message)
+    {
+        Debug.Log("delayOpen");
+        yield return new WaitForSeconds(delay);
+        displaySuccessMessage(message);
+    }
+
     public void openNextScreen()
     {
         StartCoroutine(delayCloseScreen());
@@ -72,5 +79,9 @@ public class Screen : MonoBehaviour
         }
     }
 
-
+    public void displaySuccessMessage(string message)
+    {
+        messageManager.generateStandardSuccessMessage(message);
+        Debug.Log("display success");
+    }
 }

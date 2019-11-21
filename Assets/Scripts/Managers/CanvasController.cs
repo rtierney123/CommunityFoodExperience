@@ -96,7 +96,9 @@ namespace Manage
         public void forcePopupOpen(GameObject gameObject)
         {
             setPopUp(false);
-            openPopup(gameObject);
+            popUp = gameObject;
+            setPopUp(true);
+            StartCoroutine(WaitAllowClose(allowWaitTime));
         }
 
         public void closePopUp(GameObject gameObject)

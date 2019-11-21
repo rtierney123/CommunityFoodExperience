@@ -106,7 +106,7 @@ namespace Manage
 
         private void dropPlayerOff(Location location)
         {
-            player.transform.localPosition = currentLocation.playerDropoff.position;
+            player.transform.position = location.playerDropoff.position;
         }
 
         public void closePopUp()

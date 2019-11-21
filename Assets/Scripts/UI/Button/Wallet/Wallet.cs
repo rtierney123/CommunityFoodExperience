@@ -41,6 +41,8 @@ namespace UI
         {
 
             playerInfo = player.playerInfo;
+            updateWallet();
+            updateTransportationDisplay();
         }
 
         public void selectWalletTab()

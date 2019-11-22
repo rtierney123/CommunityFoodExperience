@@ -14,7 +14,6 @@ namespace UI
         public float nextActionTime;
         public ClockDisplay clock;
         public DisableableButton signButton;
-        public bool signed = false;
         private bool fillingOutItem;
 
         //five minute
@@ -23,13 +22,15 @@ namespace UI
 
         private void Start()
         {
-            playerInfo = player.playerInfo;
-            signButton.disable();
+            
         }
         private void OnEnable()
         {
             Debug.Log("start filling out form");
+            playerInfo = player.playerInfo;
             StartCoroutine(fillOutForm());
+            signButton.disable();
+            
         }
 
         public virtual bool checkAlreadyEntered()
@@ -119,12 +120,9 @@ namespace UI
         public override void closeScreen()
         {
             base.closeScreen();
-            if (!signed)
+            foreach (FormWrapper wrapper in formItems)
             {
-                foreach (FormWrapper wrapper in formItems)
-                {
-                    wrapper.resetWrapper();
-                }
+                wrapper.resetWrapper();
             }
 
         }

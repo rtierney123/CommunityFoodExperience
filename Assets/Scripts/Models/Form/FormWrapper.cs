@@ -21,7 +21,7 @@ public class FormWrapper : MonoBehaviour
         initialized = true;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         resetWrapper();
     }

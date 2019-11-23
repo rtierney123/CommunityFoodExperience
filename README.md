@@ -12,7 +12,7 @@
   + End game scene after player finishing the game with the survey link to ask player for opinion.
   + Tutorial scene to walk players through most complicated game logic.
  
-Build 2 (current)
+### Build 2 (current)
 - New software features for this release 
   + A new map design has been implemented. 
   + The tutorial page is now available to players. 
@@ -31,31 +31,26 @@ Build 2 (current)
 
 ## Install Guide  
 ### Pre-requisites: 
-Desktop:
-OS: Windows 7 SP1+, macOS 10.12+, Ubuntu 12.04+, SteamOS+
-Graphics card with DX10 (shader model 4.0) capabilities.
-CPU: SSE2 instruction set support.
-iOS player requires iOS 9.0 or higher.
-Android: OS 4.1 or later; ARMv7 CPU with NEON support or Atom CPU; OpenGL ES 2.0 or later.
-WebGL: Any recent desktop version of Firefox, Chrome, Edge or Safari.
-Universal Windows Platform: Windows 10 and a graphics card with DX10 (shader model 4.0) capabilities
-Dependent libraries that must be installed: what third party software must be installed for your software to function?
-n/a
-Download instructions: 
-Link:  http://teaminfinity9138.000webhostapp.com
-Username: implementation
-Password: ACFB255
- 
-Build instructions:
-Open Community Food Experience folder in Unity.
-Go to File->Build
-Choose Webgl as a build option.
-Click on the Build button.
-Installation of actual application: what steps have to be taken after the software is built? What directories are required for installation?
- 
-Run instructions: 
-Once files are up on server and embedded in page, the user just needs to go to site and refresh the page to see the game.
-Troubleshooting:  
-Browser scaling? Ctrl + “-” or Ctrl + “+” to resize or Ctrl + “*” to view 100% if number keys available
-There is a known problem in Google Chrome where you must enable webGL in the browser settings. Press the triple dashed line button in the corner of the browser and select settings and enable webGL.  Instructions also available here : https://ccm.net/faq/40585-how-to-enable-webgl-on-google-chrome
+- Desktop:
+  + OS: Windows 7 SP1+, macOS 10.12+, Ubuntu 12.04+, SteamOS+
+  + Graphics card with DX10 (shader model 4.0) capabilities.
+  + CPU: SSE2 instruction set support.
+- iOS player requires iOS 9.0 or higher.
+- Android: OS 4.1 or later; ARMv7 CPU with NEON support or Atom CPU; OpenGL ES 2.0 or later.
+- WebGL: Any recent desktop version of Firefox, Chrome, Edge or Safari.
+- Universal Windows Platform: Windows 10 and a graphics card with DX10 (shader model 4.0) capabilities
+### Download instructions: 
+- Link:  http://teaminfinity9138.000webhostapp.com
+- Username: implementation
+- Password: ACFB255
+### Build instructions:
+- Open Community Food Experience folder in Unity.
+- Go to File->Build
+- Choose Webgl as a build option.
+- Click on the Build button.
+### Run instructions: 
+- Once files are up on server and embedded in page, the user just needs to go to site and refresh the page to see the game.
+### Troubleshooting:  
+- Browser scaling? Ctrl + “-” or Ctrl + “+” to resize or Ctrl + “*” to view 100% if number keys available
+- There is a known problem in Google Chrome where you must enable webGL in the browser settings. Press the triple dashed line button in the corner of the browser and select settings and enable webGL.  Instructions also available here : https://ccm.net/faq/40585-how-to-enable-webgl-on-google-chrome
 

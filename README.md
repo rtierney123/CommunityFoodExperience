@@ -8,6 +8,11 @@
   + Wallet contains currency values, character information, and transportation ticket.
   + Nutrition information displays the current nutrition level and required nutrition.
   + Clock running, gameplay lasts 15 minutes.
+- Bug fixes made since the last release:
+  + None
+- Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
+  + Drag and drop can duplicate items in store.
+  + Clock misbehaves after traveling to some locations.
 - Future features:
   + End game scene after player finishing the game with the survey link to ask player for opinion.
   + Tutorial scene to walk players through most complicated game logic.
@@ -52,5 +57,6 @@
 - Once files are up on server and embedded in page, the user just needs to go to site and refresh the page to see the game.
 ### Troubleshooting:  
 - Browser scaling? Ctrl + “-” or Ctrl + “+” to resize or Ctrl + “*” to view 100% if number keys available
-- There is a known problem in Google Chrome where you must enable webGL in the browser settings. Press the triple dashed line button in the corner of the browser and select settings and enable webGL.  Instructions also available here : https://ccm.net/faq/40585-how-to-enable-webgl-on-google-chrome
+- There is a known problem in Google Chrome where you must enable webGL in the browser settings. Press the triple dashed line button in the corner of the browser and select settings and enable webGL.
+- Instructions also available here : https://ccm.net/faq/40585-how-to-enable-webgl-on-google-chrome
 

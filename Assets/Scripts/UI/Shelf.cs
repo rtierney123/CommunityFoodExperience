@@ -25,14 +25,12 @@ public class Shelf : MonoBehaviour
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             jsonLocation = "/StreamingAssets" + jsonLocation;
-            Debug.Log(jsonLocation);
             StartCoroutine(GetRequest(jsonLocation));
         }
         else
         {
             string mainPath = Application.dataPath;
             jsonLocation = mainPath + "/StreamingAssets" + jsonLocation;
-            Debug.Log(jsonLocation);
             bool pathExists = ResourceHandler.testFilePath(jsonLocation);
             if (pathExists)
             {

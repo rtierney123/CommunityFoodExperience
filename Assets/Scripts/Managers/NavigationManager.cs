@@ -10,8 +10,8 @@ namespace Manage
     //does logic for navigating the map and showing navigation related pop-ups
     public class NavigationManager : MonoBehaviour
     {
-        public GameObject player;
-        public GameObject startScreen;
+        public Player player;
+        public GameObject stuckPopup; 
 
         public CanvasController canvasController;
         public ClockDisplay clock;
@@ -188,7 +188,7 @@ namespace Manage
 
         public void handleTakeBusEvent()
         {
-            player.SetActive(false);
+            player.gameObject.SetActive(false);
             bus.playerOnBus = true;
             Debug.Log("take bus");
         }
@@ -197,9 +197,22 @@ namespace Manage
         {
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
-            player.SetActive(true);
+            player.gameObject.SetActive(true);
             bus.playerOnBus = false;
             Debug.Log("leave bus");
+        }
+
+        public void displayIfStuck()
+        {
+            Debug.Log("show stuck");
+            Debug.Log(player.hasNoModeOfTransportation());
+            Debug.Log(currentLocation.locationType == LocationType.FarLocation);
+            Debug.Log(currentLocation);
+            if (player.hasNoModeOfTransportation() && currentLocation.locationType == LocationType.FarLocation)
+            {
+                Debug.Log("showing stuck popup");
+                canvasController.forcePopupOpen(stuckPopup);
+            }
         }
 
         private void generateMapEdges()

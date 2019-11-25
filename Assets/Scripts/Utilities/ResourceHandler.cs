@@ -10,12 +10,11 @@ namespace Utility{
         {
             if (System.IO.File.Exists(filePath))
             {
-                Debug.Log("file exists");
+                //Debug.Log("file exists");
                 return true;
             }
             else
             {
-                //Debug.Log(filePath);
                 Debug.Log("file does not exist");
                 return false;
             }

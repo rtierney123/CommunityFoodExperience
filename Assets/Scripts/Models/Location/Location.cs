@@ -20,6 +20,7 @@ namespace Model
         public string locationTitle;
         public string locationDescription;
         public float delayTime;
+        public bool entered = false;
 
         public GameObject map;
         public Material[] mats; // size 9: 2 elements each
@@ -73,7 +74,12 @@ namespace Model
 
         public virtual void onEnter()
         {
+            entered = true;
             StartCoroutine(OpenLocationScreen());
+            if (locationType == LocationType.FarLocation)
+            {
+                StartCoroutine(MonitorScreen());
+            }
         }
 
 
@@ -91,6 +97,17 @@ namespace Model
                 canvasController.openScreen(mainScreen);
             }
         }
+
+        public IEnumerator MonitorScreen()
+        {
+            Debug.Log("screen not open yet");
+            yield return new WaitUntil(() => mainScreen.activeSelf);
+            Debug.Log("screen open");
+            yield return new WaitUntil(() => !mainScreen.activeSelf);
+            Debug.Log("call check stuck");
+            navigationManager.displayIfStuck();
+        }
+
     }
 
 }

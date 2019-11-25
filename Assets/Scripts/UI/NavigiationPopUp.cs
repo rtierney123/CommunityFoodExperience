@@ -13,6 +13,7 @@ public class NavigiationPopUp : MonoBehaviour
 
     public Player player;
     public NavigationManager manager;
+    public DisableableButton walkButton;
     public DisableableButton carButton;
 
     [HideInInspector]
@@ -24,18 +25,35 @@ public class NavigiationPopUp : MonoBehaviour
     }
 
     private void OnEnable()
-    {
-        if (player.playerInfo.hasCar)
+    {   if(carButton != null)
         {
-            carButton.enable();
-        } else
-        {
-            carButton.disable();
+            if (player.playerInfo.hasCar)
+            {
+                carButton.enable();
+            }
+            else
+            {
+                carButton.disable();
+            }
         }
+      
+        if(walkButton != null)
+        {
+            if (manager.currentLocation.locationType == LocationType.FarLocation)
+            {
+                walkButton.disable();
+            }
+            else
+            {
+                walkButton.enable();
+            }
+        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 }

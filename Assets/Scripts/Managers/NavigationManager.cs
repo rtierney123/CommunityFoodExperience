@@ -23,6 +23,7 @@ namespace Manage
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
         public List<Location> locationValues;
+		public bool OnBus;
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
@@ -191,6 +192,7 @@ namespace Manage
             player.gameObject.SetActive(false);
             bus.playerOnBus = true;
             Debug.Log("take bus");
+			OnBus = true;
         }
 
         public void handleLeaveBusEvent()
@@ -200,6 +202,7 @@ namespace Manage
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
             Debug.Log("leave bus");
+			OnBus = false;
         }
 
         public void displayIfStuck()

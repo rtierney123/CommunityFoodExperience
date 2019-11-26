@@ -1808,7 +1808,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 500317061896221376, guid: f08d5fa3981b12d45a4b1dcda97e869e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f08d5fa3981b12d45a4b1dcda97e869e, type: 3}
 --- !u!114 &347434144 stripped
 MonoBehaviour:
@@ -2190,7 +2191,7 @@ MonoBehaviour:
     requiredVegetable: 2
     requiredExtra: 0
     federalAssistance: 0
-  busTokens: 0
+  busTokens: 1
   money: 15
   snapFunds: 0
   ctcFunds: 0
@@ -6680,6 +6681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0713895247d374fac40f73fdd03a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navigation: {fileID: 1817381251}
   animator: {fileID: 1838183075}
   material: {fileID: 2100000, guid: dd3d163990db0534e9e91e9e51d141c9, type: 2}
 --- !u!1 &1338804230 stripped
@@ -7902,6 +7904,7 @@ MonoBehaviour:
   - {fileID: 1998402808}
   - {fileID: 1695013525}
   - {fileID: 78991652}
+  OnBus: 0
 --- !u!4 &1817381252
 Transform:
   m_ObjectHideFlags: 0

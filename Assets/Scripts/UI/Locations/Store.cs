@@ -206,7 +206,7 @@ namespace UI {
                 messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
                 return false;
             }
-            else if (roundTwoDecimal(cash + ctc + eitc + snap) != roundTwoDecimal(Convert.ToDouble(cart.totalText.text)))
+            else if (roundTwoDecimal(cash + ctc + eitc + snap) != roundTwoDecimal(cart.getTotalPrice()))
             {
                 messageManager.generateStandardErrorMessage("Total amount does not match");
                 return false;

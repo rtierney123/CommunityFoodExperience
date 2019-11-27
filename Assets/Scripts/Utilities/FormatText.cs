@@ -18,17 +18,7 @@ namespace Utility
 
         public static string formatCost(double number)
         {
-            string s = "$" + number.ToString();
-            if (s.Length == 2)
-            {
-                s += ".";
-            }
-            int n = s.Length;
-            for (int i = 0; i < 5 - n; i++)
-            {
-                s += "0";
-            }
-
+            string s = "$" + number.ToString("0.00");
             return s;
         }
 

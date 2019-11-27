@@ -15,6 +15,10 @@ public class Cart : MonoBehaviour
 
     
     private double totalPrice;
+    public double getTotalPrice()
+    {
+        return totalPrice;
+    }
   
     public void Start()
     {
@@ -110,7 +114,7 @@ public class Cart : MonoBehaviour
     {
         if(totalText != null)
         {
-            totalText.text = totalText.text = totalPrice.ToString();
+            totalText.text = String.Format("{0:C}", totalPrice);
         }
        
     }

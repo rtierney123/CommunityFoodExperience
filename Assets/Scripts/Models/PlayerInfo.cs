@@ -285,10 +285,31 @@ public class PlayerInfo
                 return getChildAgeStr(2);
             case FormQuestionType.Child_Name_3:
                 return getChildNameStr(2);
+            case FormQuestionType.Ages_Of_Children:
+                return getChildrenAges();
 
         }
         return "";
 
+    }
+
+    private string getChildrenAges()
+    {
+        FamilyMember[] childList = children.list;
+        string ageStr = "";
+        bool firstChild = true;
+        foreach (FamilyMember child in childList)
+        {
+            if (firstChild)
+            {
+                ageStr = FormatText.formatInt(child.age);
+                firstChild = false;
+            } else
+            {
+                ageStr = ageStr + "," + FormatText.formatInt(child.age);
+            }
+        }
+        return ageStr;
     }
 
     private string getChildAgeStr(int childNum)

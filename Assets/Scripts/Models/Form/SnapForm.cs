@@ -20,7 +20,7 @@ namespace UI
         protected override bool checkValid()
         {
             int numHouseHold = playerInfo.numInHouse;
-            double monthlyIncome = playerInfo.getMonthlyIncome();
+            double monthlyIncome = playerInfo.monthlyIncome;
 
             bool valid = true;
             switch (numHouseHold)

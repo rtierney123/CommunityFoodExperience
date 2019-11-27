@@ -254,8 +254,6 @@ public class PlayerInfo
                 return phone;
             case FormQuestionType.Num_Children:
                 return getNumofChildren().ToString();
-            case FormQuestionType.Monthly_Income:
-                return "" + socialSecurityIncome;
             case FormQuestionType.Aid:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Single:
@@ -286,6 +284,8 @@ public class PlayerInfo
             case FormQuestionType.Annual_Income:
                 double annual = monthlyIncome * 12;
                 return "" + annual;
+            case FormQuestionType.Monthly_Income:
+                return FormatText.formatDouble(monthlyIncome);
             case FormQuestionType.Federal_Assistance:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Birth_Day:

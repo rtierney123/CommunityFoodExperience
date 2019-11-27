@@ -2099,6 +2099,7 @@ MonoBehaviour:
     firstName: Sam
     middleName: 
     lastName: Smith
+    gender: 0
     description: You are an elderly person (senior citizen) and you live alone on
       a fixed income of $870 a month from Social Security. Your rent for a small apartment
       is $600/month and you pay $50/month for electricity, $30 month for a phone and
@@ -2177,6 +2178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &459430131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1802688322456468807, guid: 586e1929d8b514ac08de6302185e99fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 730446152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &460062997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6540689265445238710, guid: cd48241543b00471e9784d28347cabad,
@@ -2225,6 +2232,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1578617713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &508875167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8766484811491293318, guid: de081fa37f5320047ab2361d95a24891,
+    type: 3}
+  m_PrefabInstance: {fileID: 229646144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76fbad97feb0bb4fb36693802b38e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &540630012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1058543561532308339, guid: adcbf4c636a23483387777e9269bc84d,
@@ -3545,6 +3564,11 @@ PrefabInstance:
       propertyPath: questionType
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1802688322456468807, guid: 586e1929d8b514ac08de6302185e99fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_ChecMark
+      objectReference: {fileID: 0}
     - target: {fileID: 5904774880730120888, guid: 586e1929d8b514ac08de6302185e99fc,
         type: 3}
       propertyPath: questionType
@@ -3554,6 +3578,21 @@ PrefabInstance:
         type: 3}
       propertyPath: questionType
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350374187410385990, guid: 586e1929d8b514ac08de6302185e99fc,
+        type: 3}
+      propertyPath: check1
+      value: 
+      objectReference: {fileID: 459430131}
+    - target: {fileID: 3350374187410385990, guid: 586e1929d8b514ac08de6302185e99fc,
+        type: 3}
+      propertyPath: check2
+      value: 
+      objectReference: {fileID: 747392759}
+    - target: {fileID: 3350374187410385990, guid: 586e1929d8b514ac08de6302185e99fc,
+        type: 3}
+      propertyPath: questionType
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 177742900020842319, guid: 586e1929d8b514ac08de6302185e99fc,
         type: 3}
@@ -3589,6 +3628,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &747392759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8534805176576329305, guid: 586e1929d8b514ac08de6302185e99fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 730446152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &751542993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6800054983885311208, guid: 76938f17fdf5416459a6ff5e4ef2271f,
@@ -8267,7 +8312,7 @@ MonoBehaviour:
   - {fileID: 78991652}
   - {fileID: 1998402808}
   - {fileID: 1695013525}
-  - {fileID: 78991652}
+  - {fileID: 508875167}
   OnBus: 0
 --- !u!4 &1817381252
 Transform:

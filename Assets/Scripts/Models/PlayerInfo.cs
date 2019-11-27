@@ -89,6 +89,18 @@ public class PlayerInfo
     {
         switch (question)
         {
+            case FormQuestionType.Gender:
+                {
+                    GenderType genderType = (GenderType)gender;
+                    if(genderType == GenderType.Male)
+                    {
+                        return CheckmarkType.Check1;
+                    } else if(genderType == GenderType.Female)
+                    {
+                        return CheckmarkType.Check2;
+                    }
+                    return CheckmarkType.None;
+                }
             case FormQuestionType.WicType_1:
                 {
                     bool checkDisplay = checkDisplayWic(1);

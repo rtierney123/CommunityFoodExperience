@@ -10,6 +10,9 @@ public enum FormQuestionType
     Last_Name = 18,
     Middle_Name = 19,
 
+    //Gender
+    Gender = 64,
+
     // Address
     Address = 1,
     City = 13,

@@ -45,6 +45,7 @@ namespace Manage
         }
 
         public void reset() {
+            currentLocation = startLocation;
             dropPlayerOff(startLocation);
         }
      

@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
         usedWIC = false;
         usedSnap = false;
 
-        wicVoicher = null;
         hasWic = false;
     }
 

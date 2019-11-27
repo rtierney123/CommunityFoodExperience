@@ -59,15 +59,8 @@ namespace UI
                     item.setText(info);
                 } else
                 {
-                    bool type = playerInfo.getInfoBool(question);
-                    if (type)
-                    {
-                        item.setCheck(CheckmarkType.Check1);
-                    }
-                    else
-                    {
-                        item.setCheck(CheckmarkType.Check2);
-                    }
+                    CheckmarkType checktype = playerInfo.getInfoCheck(question);
+                    item.setCheck(checktype);
                    
                 }
 

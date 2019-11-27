@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using Utility;
 
 [System.Serializable]
-public class PlayerInfo 
+public class PlayerInfo
 {
     public string firstName = "Sam";
     public string middleName = "";
@@ -30,7 +30,7 @@ public class PlayerInfo
     [Serializable]
     public class ChildList
     {
-        public FamilyMember[] childList = {};
+        public FamilyMember[] list = { };
     }
 
     // temp json workaround
@@ -83,9 +83,131 @@ public class PlayerInfo
         return String.Format("{0:C}", funds);
     }
 
-    public bool getInfoBool(FormQuestionType quetiion)
+  
+    public CheckmarkType getInfoCheck(FormQuestionType question)
     {
-        return true;
+        switch (question)
+        {
+            case FormQuestionType.WicType_1:
+                {
+                    bool checkDisplay = checkDisplayWic(1);
+                    if (checkDisplay)
+                    {
+                        return CheckmarkType.Check1;
+                    } else
+                    {
+                        return CheckmarkType.None;
+                    }
+                }
+            case FormQuestionType.WicType_2:
+                {
+                    bool checkDisplay = checkDisplayWic(2);
+                    if (checkDisplay)
+                    {
+                        return CheckmarkType.Check1;
+                    }
+                    else
+                    {
+                        return CheckmarkType.None;
+                    }
+                }
+            case FormQuestionType.WicType_3:
+                {
+                    bool checkDisplay = checkDisplayWic(3);
+                    if (checkDisplay)
+                    {
+                        return CheckmarkType.Check1;
+                    }
+                    else
+                    {
+                        return CheckmarkType.None;
+                    }
+                }
+            case FormQuestionType.WicType_4:
+                {
+                    bool checkDisplay = checkDisplayWic(4);
+                    if (checkDisplay)
+                    {
+                        return CheckmarkType.Check2;
+                    }
+                    else
+                    {
+                        return CheckmarkType.None;
+                    }
+                }
+
+        }
+        return CheckmarkType.None;
+    }
+
+
+    public bool checkDisplayWic(int num)
+    {
+        if(num < 4)
+        {
+            return checkIfHaveChild(num-1);
+        } else
+        {
+            //add if have pregnant spouse
+            return false;
+        }
+
+    }
+
+
+
+    public int getNumEligableForWic()
+    {
+        int numEligable = 0;
+        if (pregant)
+        {
+            numEligable++;
+        }
+
+        //TODO check if spouse is pregnant
+
+
+        int childNum = 0;
+        foreach(FamilyMember child in children.list)
+        {
+            if (checkIfChildEligibleWic(childNum))
+            {
+                numEligable++;
+            }
+            childNum++;
+        }
+
+        return numEligable;
+    }
+
+    private bool checkIfChildEligibleWic(int num)
+    {
+        FamilyMember[] kids = children.list;
+        if (num < kids.Length)
+        {
+            if (kids[num].age <= 5)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    private bool checkIfHaveChild(int num) {
+            FamilyMember[] kids = children.list;
+            if (num < kids.Length)
+            {
+                return true;
+            }
+            return false;
+    }
+
+    //TODO add variable for wife
+    private bool checkIfHaveSpouse()
+    {
+        return false;
     }
 
     public string getInfoText(FormQuestionType question)
@@ -102,8 +224,6 @@ public class PlayerInfo
                 return getNumofChildren().ToString();
             case FormQuestionType.Monthly_Income:
                 return "" + socialSecurityIncome;
-            case FormQuestionType.Children_Age:
-                return c_hack;
             case FormQuestionType.Aid:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Single:
@@ -153,9 +273,45 @@ public class PlayerInfo
                 return primaryLanguage;
             case FormQuestionType.Is_Pregnant:
                 return FormatText.formatBool(pregant);
+            case FormQuestionType.Child_Age_1:
+                return getChildAgeStr(0);
+            case FormQuestionType.Child_Name_1:
+                return getChildNameStr(0);
+            case FormQuestionType.Child_Age_2:
+                return getChildAgeStr(1);
+            case FormQuestionType.Child_Name_2:
+                return getChildNameStr(1);
+            case FormQuestionType.Child_Age_3:
+                return getChildAgeStr(2);
+            case FormQuestionType.Child_Name_3:
+                return getChildNameStr(2);
+
         }
         return "";
 
+    }
+
+    private string getChildAgeStr(int childNum)
+    {
+        FamilyMember[] childList = children.list;
+        if(childList.Length > childNum)
+        {
+            FamilyMember child = childList[childNum];
+            double age = child.age;
+            return FormatText.formatDouble(age);
+        }
+        return "";
+    }
+
+    private string getChildNameStr(int childNum)
+    {
+        FamilyMember[] childList = children.list;
+        if (childList.Length > childNum)
+        {
+            FamilyMember child = childList[childNum];
+            return child.name;
+        }
+        return "";
     }
 
     public double getMonthlyIncome()

@@ -18,37 +18,36 @@ namespace UI
         protected override bool checkValid()
         {
             double monthlyIncome = playerInfo.getMonthlyIncome();
-            int numHouse = playerInfo.numInHouse;
-            //GOTTA ADD CHECK FOR CHILDREN UNDER 5
-            if (playerInfo.pregant)
+            int numEligible = playerInfo.getNumEligableForWic();
+            if (numEligible > 0)
             {
                 errorMessage = "Made too much income to receive WIC benefits.";
-                switch (numHouse){
-                    case (0):
-                        if (monthlyIncome > 1875)
-                        {
-                            return false;
-                        }
-                        break;
+                switch (numEligible){
                     case (1):
-                        if (monthlyIncome > 2538)
+                        if (monthlyIncome > 1872)
                         {
                             return false;
                         }
                         break;
                     case (2):
-                        if (monthlyIncome > 3204)
+                        if (monthlyIncome > 2538)
                         {
                             return false;
                         }
                         break;
                     case (3):
-                        if (monthlyIncome > 3870)
+                        if (monthlyIncome > 3204)
                         {
                             return false;
                         }
                         break;
                     case (4):
+                        if (monthlyIncome > 3870)
+                        {
+                            return false;
+                        }
+                        break;
+                    case (5):
                         if (monthlyIncome > 4536)
                         {
                             return false;

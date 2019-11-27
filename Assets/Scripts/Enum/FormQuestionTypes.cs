@@ -54,6 +54,17 @@ public enum FormQuestionType
     Birth_Day = 42,
     Birth_Year = 43,
     Joint_Tax = 9,
-    Children_Age = 5,
-    Aid = 6
+    Child_Age_1 = 50,
+    Child_Name_1 = 51,
+    Child_Age_2 = 52,
+    Child_Name_2 = 53,
+    Child_Age_3 = 54,
+    Child_Name_3 = 55,
+    Aid = 6,
+
+    //wic validations
+    WicType_1 = 59,
+    WicType_2 = 60,
+    WicType_3 = 61,
+    WicType_4 = 62
 }

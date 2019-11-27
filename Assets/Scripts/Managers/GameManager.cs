@@ -108,6 +108,7 @@ namespace Manage{
             bus.resetAnimation();
             navigationManager.reset();
         }
+
     }
 }
 

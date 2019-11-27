@@ -9,7 +9,7 @@ public class Screen : MonoBehaviour
     public MessageManager messageManager;
     public GameObject nextScreen;
     public GameObject prevScreen;
-    public float delayTime;
+    protected float delayTime = (float).5;
 
     public IEnumerator delayOpenNextScreen()
     {

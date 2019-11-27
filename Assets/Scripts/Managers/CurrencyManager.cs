@@ -6,7 +6,7 @@ using Utility;
 
 namespace Manage
 {
-    public class CurrencyManager : MonoBehaviour
+    public class CurrencyManager : MonoBehaviour, IClockEventCaller
     {
         public CanvasController canvasController;
         public MessageManager messageManager;
@@ -14,10 +14,13 @@ namespace Manage
         public Player player;
         public int changeDisplayTime;
 
+        //public float freeRide
+
         private bool fundsAdded = false;
         private GameObject plusSignPopUp;
         private bool fundsSubtracted = false;
         private GameObject minusSignPopUp;
+
 
         // Start is called before the first frame update
         void Start()
@@ -169,6 +172,16 @@ namespace Manage
                 walletDisplay.updateWallet();
             } 
           
+        }
+
+        public void hourPassed()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void minutePassed()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

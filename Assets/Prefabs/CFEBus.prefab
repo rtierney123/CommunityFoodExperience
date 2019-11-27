@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2734149514922236343}
   - component: {fileID: 2734149513842268863}
-  - component: {fileID: 1162479504832260825}
   - component: {fileID: 4806653579898644821}
   - component: {fileID: 7627295454861617703}
   - component: {fileID: 1161091870134668584}
-  - component: {fileID: 500317061896221376}
+  - component: {fileID: 3436984270269216372}
   m_Layer: 0
   m_Name: CFEBus
   m_TagString: Untagged
@@ -56,24 +55,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1162479504832260825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734149514921805207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad5a2459766d914cbbc79ec18552504, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  farePopUp: {fileID: 0}
-  stopPopUp: {fileID: 0}
-  mapLocation: 1
-  atStop: 0
-  playerOnBus: 0
 --- !u!65 &4806653579898644821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -136,7 +117,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &500317061896221376
+--- !u!114 &3436984270269216372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,11 +126,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734149514921805207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0713895247d374fac40f73fdd03a9d, type: 3}
+  m_Script: {fileID: 11500000, guid: fad5a2459766d914cbbc79ec18552504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2734149513842268863}
+  navigationManager: {fileID: 0}
+  farePopUp: {fileID: 0}
+  stopPopUp: {fileID: 0}
+  mapLocation: 0
+  messageManager: {fileID: 0}
   material: {fileID: 2100000, guid: dd3d163990db0534e9e91e9e51d141c9, type: 2}
+  randPercent: 50
+  stuckSeconds: 30
+  atStop: 0
+  playerOnBus: 0
 --- !u!1001 &2129101572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,16 +223,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 13756ca190932694ab6121ae47e9dfbc,
         type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4b82c63a7b124314ca7199e8203b01f7, type: 2}
-    - target: {fileID: -1504981713932161579, guid: 13756ca190932694ab6121ae47e9dfbc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 012cd66f8e421e64bbaa4d7623d005db, type: 2}
-    - target: {fileID: -1504981713932161579, guid: 13756ca190932694ab6121ae47e9dfbc,
-        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dd3d163990db0534e9e91e9e51d141c9, type: 2}
@@ -252,6 +231,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f51390ead57daa543b754d12ef3fe654, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 13756ca190932694ab6121ae47e9dfbc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b82c63a7b124314ca7199e8203b01f7, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 13756ca190932694ab6121ae47e9dfbc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 012cd66f8e421e64bbaa4d7623d005db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13756ca190932694ab6121ae47e9dfbc, type: 3}
 --- !u!4 &5006512736918448158 stripped

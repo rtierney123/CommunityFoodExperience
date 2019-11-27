@@ -7,10 +7,17 @@ using UnityEngine;
 
 public class Bus : MonoBehaviour
 {
-    public NavigationManager manager;
+    public NavigationManager navigationManager;
     public GameObject farePopUp;
     public GameObject stopPopUp;
     public MapLocations mapLocation;
+
+    public MessageManager messageManager;
+
+    public Material material;
+
+    public int randPercent = 50;
+    public float stuckSeconds = 30;
 
     [HideInInspector]
     public bool atStop;
@@ -30,6 +37,7 @@ public class Bus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        material.color = navigationManager.OnBus ? new Color(255, 0, 0) : (material.color.r == 255 && material.color.g == 0 && material.color.b == 0 ? new Color(0, 0, 0) : material.color);
         if (Input.GetMouseButtonDown(0))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,7 +45,7 @@ public class Bus : MonoBehaviour
             {
                 if (!playerOnBus)
                 {
-                    manager.handleBusClickedEvent();
+                    navigationManager.handleBusClickedEvent();
                 }
               
 
@@ -51,7 +59,7 @@ public class Bus : MonoBehaviour
         atStop = true;
         if (playerOnBus)
         {
-            manager.handleBusStoppedEvent();
+            navigationManager.handleBusStoppedEvent();
         }
     }
 
@@ -59,7 +67,7 @@ public class Bus : MonoBehaviour
     {
         mapLocation = MapLocations.OnRoad;
         atStop = false;
-        manager.handleBusLeavingEvent();
+        navigationManager.handleBusLeavingEvent();
     }
 
     public void pauseAnimation()
@@ -81,5 +89,57 @@ public class Bus : MonoBehaviour
     public void resetAnimation()
     {
         animator.Play("", 0, 0f);
+    }
+
+
+    void OnMouseOver()
+    {
+        //if bus can be highlighed condition here
+        material.color = new Color(255, 255, 0);
+    }
+
+    void OnMouseExit()
+    {
+        material.color = Color.black;
+    }
+
+    public void stuckEvent()
+    {
+        float rand = Random.Range(0, 100);
+        if (rand < randPercent)
+        {
+            StartCoroutine(startStuck());
+        }
+
+    }
+
+    private IEnumerator startStuck()
+    {
+        string msg = chooseRandomDelayMessage();
+        messageManager.generateStandardErrorMessage(msg);
+        pauseAnimation();
+        yield return new WaitForSeconds(stuckSeconds);
+        resumeAnimation();
+    }
+
+    private string chooseRandomDelayMessage()
+    {
+        float rand = Random.Range(0, 4);
+        if (rand < 0)
+        {
+            return "Bus got a flat tire. Bus route delayed.";
+        }
+        else if (rand < 1)
+        {
+            return "Bus driver got hungry. Bus route delayed.";
+        }
+        else if (rand < 2)
+        {
+            return "Bad traffic. Bus route delayed.";
+        }
+        else
+        {
+            return "Parade. Bus route delayed.";
+        }
     }
 }

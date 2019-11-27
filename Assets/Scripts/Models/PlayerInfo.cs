@@ -110,6 +110,14 @@ public class PlayerInfo
                 {
                     return CheckmarkType.Check2;
                 }
+            case FormQuestionType.Has_Job:
+                if (hasJob())
+                {
+                    return CheckmarkType.Check1; 
+                } else
+                {
+                    return CheckmarkType.Check2;
+                }
 
             case FormQuestionType.WicType_1:
                 {
@@ -158,6 +166,7 @@ public class PlayerInfo
                         return CheckmarkType.None;
                     }
                 }
+
 
         }
         return CheckmarkType.None;
@@ -421,6 +430,17 @@ public class PlayerInfo
         }
 
         return returnStr;
+    }
+
+    public bool hasJob()
+    {
+        if(hourlyIncome > 0)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
     

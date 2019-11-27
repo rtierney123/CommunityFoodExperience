@@ -71,5 +71,7 @@ public enum FormQuestionType
     WicType_3 = 61,
     WicType_4 = 62,
 
-    Ages_Of_Children = 63
+    Ages_Of_Children = 63,
+
+    Has_Job = 70
 }

@@ -44,7 +44,6 @@ namespace UI
             //make sure all text items are intialized
             foreach (FormWrapper item in formItems)
             {
-                Debug.Log(item.ToString());
                 yield return new WaitUntil(() => item.initialized);
             }
             Debug.Log("all initialized");

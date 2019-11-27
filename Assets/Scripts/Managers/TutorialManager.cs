@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace Manage
 {
     //updates player nutrition and shows ui of update
-    public class TutorialManager : MonoBehaviour
+    public class TutorialManager : Screen
     {
         public string[] instructions;
         public Sprite[] images;
@@ -35,7 +35,8 @@ namespace Manage
             }
         }
         public void finish() {
-            this.tutorialScene.SetActive(false);
+            this.curIndex = 0;
+            this.openPrevScreen();
         }
 
         void OnEnable()

@@ -7,10 +7,10 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Utility;
 
-public class ChoosePlayerScreen : Screen
+public class GoalAndObjectiveScreen : Screen
 {
     public string playerJsonLocation;
-    public Dropdown playerDropdown;
+    // public Dropdown playerDropdown;
     public Player player;
     private PlayerInfo playerInfo;
     [HideInInspector]
@@ -27,7 +27,7 @@ public class ChoosePlayerScreen : Screen
     
     }
 
-    public void populatePlayerList()
+    private void populatePlayerList()
     {
         string jsonLocation;
         if (Application.platform == RuntimePlatform.WebGLPlayer)
@@ -46,7 +46,6 @@ public class ChoosePlayerScreen : Screen
                 generatePlayerAssets(json);
 
             }
-            fillDropDown();
         }
 
        
@@ -73,46 +72,49 @@ public class ChoosePlayerScreen : Screen
                 string json = webRequest.downloadHandler.text;
 
                 generatePlayerAssets(json);
-                fillDropDown();
             }
         }
     }
 
-    public void fillDropDown()
-    {
-        List<String> names = retrievePlayerNames();
-        playerDropdown.AddOptions(names);
-        setPlayerFromDropDown();
-    }
-
-    public void generatePlayerAssets(string json)
+    private void generatePlayerAssets(string json)
     {
         playerChoices = JsonUtility.FromJson<PlayerList>(json);
     }
 
-    public List<String> retrievePlayerNames()
-    {
-        PlayerInfo[] list = playerChoices.list;
-        List<string> names = new List<string>();
+    // public List<String> retrievePlayerNames()
+    // {
+    //     PlayerInfo[] list = playerChoices.list;
+    //     List<string> names = new List<string>();
 
-        foreach (PlayerInfo info in list)
-        {
-            if(player != null)
-            {
-                names.Add(info.getFullName());
-            } else {
-                Debug.Log("Player is null. Problem with json");
-            }
+    //     foreach (PlayerInfo info in list)
+    //     {
+    //         if(player != null)
+    //         {
+    //             names.Add(info.getFullName());
+    //         } else {
+    //             Debug.Log("Player is null. Problem with json");
+    //         }
        
-        }
+    //     }
 
-        return names;
+    //     return names;
+    // }
+
+    // public void setPlayerFromDropDown()
+    // {
+    //     player.resetPlayer();
+    //     int index = playerDropdown.value;
+    //     player.setPlayerInfo( playerChoices.list[index]);
+    // }
+    private void selectCharacterRandomly() {
+        player.resetPlayer();
+        System.Random random = new System.Random();
+        int index = random.Next(0, playerChoices.list.Length);
+        player.setPlayerInfo( playerChoices.list[index]);
     }
 
-    public void setPlayerFromDropDown()
-    {
-        player.resetPlayer();
-        int index = playerDropdown.value;
-        player.setPlayerInfo( playerChoices.list[index]);
+    public void GoToInfoScreen() {
+        this.selectCharacterRandomly();
+        this.openNextScreen();
     }
 }

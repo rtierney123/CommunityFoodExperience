@@ -47,7 +47,7 @@ public class PlayerInfo
     public bool hasCar = true;
 
 
-    public bool pregant;
+    public bool pregnant;
     public bool single;
     public bool married;
     public bool jointTax;
@@ -101,6 +101,16 @@ public class PlayerInfo
                     }
                     return CheckmarkType.None;
                 }
+            case FormQuestionType.Is_Pregnant:
+                if (pregnant)
+                {
+                    return CheckmarkType.Check1;
+                }
+                else
+                {
+                    return CheckmarkType.Check2;
+                }
+
             case FormQuestionType.WicType_1:
                 {
                     bool checkDisplay = checkDisplayWic(1);
@@ -172,7 +182,7 @@ public class PlayerInfo
     public int getNumEligableForWic()
     {
         int numEligable = 0;
-        if (pregant)
+        if (pregnant)
         {
             numEligable++;
         }
@@ -285,7 +295,7 @@ public class PlayerInfo
             case FormQuestionType.Primary_Language:
                 return primaryLanguage;
             case FormQuestionType.Is_Pregnant:
-                return FormatText.formatBool(pregant);
+                return FormatText.formatBool(pregnant);
             case FormQuestionType.Child_Age_1:
                 return getChildAgeStr(0);
             case FormQuestionType.Child_Name_1:

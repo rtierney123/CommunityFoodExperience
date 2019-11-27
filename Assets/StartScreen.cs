@@ -24,5 +24,6 @@ public class StartScreen : Screen
         {
             nextScreen = randomPlayerScreen;
         }
+        openNextScreen();
     }
 }

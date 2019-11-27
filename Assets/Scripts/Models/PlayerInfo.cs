@@ -14,6 +14,7 @@ public class PlayerInfo
     public string firstName = "Sam";
     public string middleName = "";
     public string lastName = "Smith";
+    public int gender;
     public string description = "You are an elderly person (senior citizen) and you live alone on a fixed income of $870 a month from Social Security. Your rent for a small apartment is $600/month and you pay $50/month for electricity, $30 month for a phone and $185/month for two prescriptions that are only partially coverd by Medicare.";
     public string phone = "(404) 888-9360";
     public string ssn = "XXX-XX-6789";

@@ -1104,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
       propertyPath: clockCallerGameObjects.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
       propertyPath: runtimeMiliSeconds
@@ -1126,6 +1126,10 @@ PrefabInstance:
       propertyPath: clockCallerGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 1648199819}
+    - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
+      propertyPath: clockCallerGameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 982130608}
     - target: {fileID: 337386790, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2137,6 +2141,7 @@ MonoBehaviour:
   wicVoicher: {fileID: 1233395927}
   hasWic: 0
   hasTemporaryRide: 0
+  hasKidBeenSick: 0
 --- !u!4 &408229921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2400805852948190458, guid: d3680a4add988f342b82288fae3f5648,
@@ -5089,8 +5094,10 @@ MonoBehaviour:
   endScreen: {fileID: 1276773233}
   canvasController: {fileID: 1193828603}
   navigationManager: {fileID: 1817381251}
+  messageManager: {fileID: 1898436623}
   bus: {fileID: 1312392691}
   clock: {fileID: 1362943300}
+  randChildSick: 5
   openStartScreenOnPlay: 1
 --- !u!1 &985786179
 GameObject:
@@ -7745,7 +7752,8 @@ MonoBehaviour:
   walletDisplay: {fileID: 460062998}
   player: {fileID: 408229920}
   changeDisplayTime: 1
-  randFreeRidePercent: 10
+  randFreeRidePercent: 5
+  randCarBreakDownPercent: 20
 --- !u!114 &1687683551 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7828154489842905910, guid: 926b993d35380974daafe2b758510f4b,

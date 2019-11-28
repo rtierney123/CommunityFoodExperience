@@ -193,7 +193,6 @@ namespace Manage
                 messageManager.generateStandardSuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
             }
 
-
         }
 
         public void tempDisableCar(float sec)

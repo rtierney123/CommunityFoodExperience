@@ -6,7 +6,7 @@ using static Food;
 
 namespace Manage{
     //does logic for determining when the endgame is and when the player has satified all goals
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IClockEventCaller
     {
         public Player player;
         public static bool isPause = false;
@@ -17,8 +17,11 @@ namespace Manage{
 
         public CanvasController canvasController;
         public NavigationManager navigationManager;
+        public MessageManager messageManager;
         public Bus bus;
         public ClockDisplay clock;
+
+        public float randChildSick = 20;
 
         public bool openStartScreenOnPlay;
 
@@ -109,6 +112,24 @@ namespace Manage{
             navigationManager.reset();
         }
 
+        public void hourPassed()
+        {
+
+        }
+
+        public void minutePassed()
+        {
+            PlayerInfo info = player.playerInfo;
+            FamilyMember[] children = info.children.list;
+
+            float rand = UnityEngine.Random.Range(0, 100);
+            if (rand < randChildSick && children.Length > 0 && !player.hasKidBeenSick)
+            {
+                messageManager.generateStandardErrorMessage("Oh no! Your child is sick at school.  You have to pick them up. (You lose time.)");
+                clock.addRunningTime(1);
+                player.hasKidBeenSick = true;
+            }
+        }
     }
 }
 

@@ -9,7 +9,7 @@ using Utility;
 
 public class Player : MonoBehaviour
 {
-   
+
     public PlayerInfo playerInfo;
 
     public int busTokens = 0;
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public bool hasWic = false;
 
     public bool hasTemporaryRide = false;
+    public bool hasKidBeenSick = false;
 
     private void Start()
     {
@@ -54,8 +55,8 @@ public class Player : MonoBehaviour
 
         calories = 0;
         grain = 0;
-         fat = 0;
-         protein = 0;
+        fat = 0;
+        protein = 0;
         dairy = 0;
         fruit = 0;
         vegetable = 0;
@@ -67,7 +68,11 @@ public class Player : MonoBehaviour
         usedSnap = false;
 
         hasWic = false;
-    }
+
+
+        hasTemporaryRide = false;
+        hasKidBeenSick = false;
+}
 
     public void setPlayerInfo(PlayerInfo info)
     {

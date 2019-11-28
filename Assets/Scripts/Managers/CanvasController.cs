@@ -12,7 +12,8 @@ namespace Manage
 
         public float allowWaitTime;
         public Text busStopTitle;
- 
+        public Animator warning;
+
         // Normal raycasts do not work on UI elements, they require a special kind
         GraphicRaycaster raycaster;
         [HideInInspector]
@@ -40,8 +41,13 @@ namespace Manage
 
         void Update()
         {
-            //Check if the left Mouse button is clicked
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            // TEMP
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                warning.Play("Warning", -1, 0f);
+            }
+                //Check if the left Mouse button is clicked
+                if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 //Set up the new Pointer Event
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);

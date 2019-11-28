@@ -71,7 +71,7 @@ namespace Manage
                     popUp.carText.text = "Car "+formatTime(calculateTravelTime()* multiplier);
                     if(location.locationType == LocationType.NearbyLocation)
                     {
-                        popUp.walkText.text = "Walk "+formatTime(calculateTravelTime()*2.3* multiplier);
+                        popUp.walkText.text = "Walk "+formatTime(calculateTravelTime()* multiplier);
                     }
                     canvasController.openPopup(gameObject);
                 }
@@ -92,6 +92,7 @@ namespace Manage
 
         public void travelToDestination(TravelType travelType)
         {
+            // scaled value from distmap
             double travelTime = calculateTravelTime();
             currentLocation = possibleDestination;
 
@@ -129,7 +130,7 @@ namespace Manage
                 return distmap[Tuple.Create(possibleDestination.locationTitle,
                 currentLocation.locationTitle)];
             }
-            return 0;
+            return -1;
         }
 
         public void handleTakeCar()
@@ -217,9 +218,9 @@ namespace Manage
 
         private void generateMapEdges()
         {
-            double scale = .08f;
+            double scale = .27f;
 
-            distmap.Add(Tuple.Create("House", "Community Frood Kitchen"), 2 * scale);
+            distmap.Add(Tuple.Create("House", "Community Food Kitchen"), 2 * scale);
             distmap.Add(Tuple.Create("House", "Mo's Corner Store"), 3 * scale);
             distmap.Add(Tuple.Create("House", "Bus stop"), 4 * scale);
             distmap.Add(Tuple.Create("House", "Food Tiger"), 7 * scale);

@@ -195,6 +195,8 @@ public class Player : MonoBehaviour
     {
         hasTemporaryRide = freeRide;
     }
+
   
+
 
 }

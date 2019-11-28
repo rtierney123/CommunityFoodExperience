@@ -15,6 +15,7 @@ namespace Manage
         public int changeDisplayTime;
 
         public float randFreeRidePercent = 50;
+        public float randCarBreakDownPercent = 20;
 
         private bool fundsAdded = false;
         private GameObject plusSignPopUp;
@@ -176,19 +177,41 @@ namespace Manage
 
         public void hourPassed()
         {
+            float rand = Random.Range(0, 100);
+            if (rand < randFreeRidePercent && player.playerInfo.hasCar)
+            {
+                tempDisableCar(60);
+            }
         }
 
         public void minutePassed()
         {
-            Debug.Log("min passed");
             float rand = Random.Range(0, 100);
-            Debug.Log(rand);
             if (rand < randFreeRidePercent && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
             {
-                Debug.Log("free ride");
                 player.setFreeRide(true);
                 messageManager.generateStandardSuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
             }
+
+
+        }
+
+        public void tempDisableCar(float sec)
+        {
+            if (player.playerInfo.hasCar)
+            {
+                StartCoroutine(startDisable(sec));
+            }
+         
+        }
+
+        private IEnumerator startDisable(float sec)
+        {
+            player.playerInfo.hasCar = false;
+            messageManager.generateStandardErrorMessage("Oh no! Your car broke down.  You can travel by car until it is fixed.");
+            yield return new WaitForSeconds(sec);
+            player.playerInfo.hasCar = true;
+            messageManager.generateStandardSuccessMessage("Your car is fixed. You can take the car again.");
         }
 
 

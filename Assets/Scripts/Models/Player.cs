@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     public WICVoucher wicVoicher;
     public bool hasWic = false;
 
+    public bool hasTemporaryRide = false;
 
     private void Start()
     {
@@ -188,6 +189,11 @@ public class Player : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void setFreeRide(bool freeRide)
+    {
+        hasTemporaryRide = freeRide;
     }
   
 

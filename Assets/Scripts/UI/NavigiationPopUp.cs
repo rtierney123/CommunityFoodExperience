@@ -27,7 +27,7 @@ public class NavigiationPopUp : MonoBehaviour
     private void OnEnable()
     {   if(carButton != null)
         {
-            if (player.playerInfo.hasCar)
+            if (player.playerInfo.hasCar || player.hasTemporaryRide)
             {
                 carButton.enable();
             }

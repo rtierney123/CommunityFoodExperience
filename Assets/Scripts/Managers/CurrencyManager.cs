@@ -14,7 +14,7 @@ namespace Manage
         public Player player;
         public int changeDisplayTime;
 
-        //public float freeRide
+        public float randFreeRidePercent = 50;
 
         private bool fundsAdded = false;
         private GameObject plusSignPopUp;
@@ -176,13 +176,23 @@ namespace Manage
 
         public void hourPassed()
         {
-            throw new System.NotImplementedException();
         }
 
         public void minutePassed()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("min passed");
+            float rand = Random.Range(0, 100);
+            Debug.Log(rand);
+            if (rand < randFreeRidePercent && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
+            {
+                Debug.Log("free ride");
+                player.setFreeRide(true);
+                messageManager.generateStandardSuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
+            }
         }
+
+
+
     }
 }
 

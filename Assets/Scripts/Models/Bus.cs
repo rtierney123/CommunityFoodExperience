@@ -16,7 +16,7 @@ public class Bus : MonoBehaviour
 
     public Material material;
 
-    public int randPercent = 50;
+    public int randStuckPercent = 50;
     public float stuckSeconds = 30;
 
     [HideInInspector]
@@ -106,7 +106,7 @@ public class Bus : MonoBehaviour
     public void stuckEvent()
     {
         float rand = Random.Range(0, 100);
-        if (rand < randPercent)
+        if (rand < randStuckPercent)
         {
             StartCoroutine(startStuck());
         }

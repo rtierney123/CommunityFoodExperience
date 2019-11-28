@@ -8,8 +8,7 @@ using UnityEngine.UI;
 namespace Manage
 {
     //does logic for navigating the map and showing navigation related pop-ups
-    public class NavigationManager : MonoBehaviour
-    {
+    public class NavigationManager : MonoBehaviour { 
         public Player player;
         public GameObject stuckPopup; 
 
@@ -19,6 +18,7 @@ namespace Manage
         public Location startLocation;
         public Bus bus;
         public float locationScreenDelay;
+
 
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
@@ -48,13 +48,7 @@ namespace Manage
             currentLocation = startLocation;
             dropPlayerOff(startLocation);
         }
-     
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         public void startLocationScreen(Location location)
         {
@@ -104,6 +98,8 @@ namespace Manage
             dropPlayerOff(currentLocation);
             clock.addRunningTime(travelTime);
             currentLocation.onEnter();
+
+            player.setFreeRide(false);
         }
 
         private void dropPlayerOff(Location location)

@@ -42,10 +42,11 @@ namespace Model
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
+                
                 over = true;
                 var elements = map.GetComponent<Renderer>().materials;
                 elements[0] = Resources.Load<Material>("Materials/map " + locationTitle);
-                elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
+                //elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
                 
                 // comment out line below to disable building highlight
                 map.GetComponent<Renderer>().materials = elements;
@@ -64,11 +65,12 @@ namespace Model
                 {
                     var elements = map.GetComponent<Renderer>().materials;
                     elements[0] = Resources.Load<Material>("Materials/map");
-                    elements[1] = Resources.Load<Material>("Materials/map");
+                    // elements[1] = Resources.Load<Material>("Materials/map");
                     map.GetComponent<Renderer>().materials = elements;
                     
                     over = false;
                 }
+                
             }
         }
 

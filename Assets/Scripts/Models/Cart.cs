@@ -107,7 +107,6 @@ public class Cart : MonoBehaviour
 
         populateGrid.removeItem(card.gameObject);
         foodInCart.Remove(food);
-        Debug.Log("item removed");
     }
 
     private void updateTotal()

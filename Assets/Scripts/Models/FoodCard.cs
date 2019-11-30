@@ -11,13 +11,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 {
 
     public Text nameText;
-    public Text caloriesText;
-    public Text fatText;
-    public Text proteinText;
-    public Text grainText;
-    public Text fruitText;
-    public Text vegText;
-    public Text extraText;
 
     public Text costText;
 
@@ -160,28 +153,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         }
     }
 
-    public void flipCardBack()
-    {
-        if(canvasController != null)
-        {
-            Debug.Log("flip card back");
-            canvasController.openPopup(backCard);
-        } else
-        {
-            Debug.Log("CanvasController not set");
-        }
-    }
-
-    public void flipCardForward()
-    {
-        if (canvasController != null)
-        {
-            canvasController.closePopUp(backCard);
-        } else
-        {
-            Debug.Log("Cannot flip, canvas controller is null.");
-        }
-    }
 
 
     public void setCart(Cart c)
@@ -205,13 +176,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         if (food != null)
         {
             nameText.text = food.name;
-            caloriesText.text = FormatText.formatDouble(food.calories);
-            fatText.text = FormatText.formatDouble(food.nutrition.fat);
-            proteinText.text = FormatText.formatDouble(food.nutrition.protein);
-            grainText.text = FormatText.formatDouble(food.nutrition.grain);
-            fruitText.text = FormatText.formatDouble(food.nutrition.fruit);
-            vegText.text = FormatText.formatDouble(food.nutrition.veg);
-            extraText.text = FormatText.formatDouble(food.nutrition.extra);
 
             int index = food.imgPath.IndexOf(".");
             string fixedPath = "";

@@ -63,6 +63,7 @@ namespace UI
             {
                 currencyManager.removeToken();
                 navigationManager.handleTakeBusEvent();
+                canvasController.closePopUp();
             } else
             {
                 canvasController.addToPopUpBackLog(this.gameObject);
@@ -76,6 +77,7 @@ namespace UI
             if (player.playerInfo.busPass)
             {
                 navigationManager.handleTakeBusEvent();
+                canvasController.closePopUp();
             } else
             {
                 canvasController.addToPopUpBackLog(this.gameObject);

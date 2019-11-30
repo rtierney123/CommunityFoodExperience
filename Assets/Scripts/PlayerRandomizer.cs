@@ -7,10 +7,10 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Utility;
 
-public class GoalAndObjectiveScreen : Screen
+public class PlayerRandomizer : MonoBehaviour
 {
     public string playerJsonLocation;
-    // public Dropdown playerDropdown;
+
     public Player player;
     private PlayerInfo playerInfo;
     [HideInInspector]
@@ -81,40 +81,12 @@ public class GoalAndObjectiveScreen : Screen
         playerChoices = JsonUtility.FromJson<PlayerList>(json);
     }
 
-    // public List<String> retrievePlayerNames()
-    // {
-    //     PlayerInfo[] list = playerChoices.list;
-    //     List<string> names = new List<string>();
 
-    //     foreach (PlayerInfo info in list)
-    //     {
-    //         if(player != null)
-    //         {
-    //             names.Add(info.getFullName());
-    //         } else {
-    //             Debug.Log("Player is null. Problem with json");
-    //         }
-       
-    //     }
-
-    //     return names;
-    // }
-
-    // public void setPlayerFromDropDown()
-    // {
-    //     player.resetPlayer();
-    //     int index = playerDropdown.value;
-    //     player.setPlayerInfo( playerChoices.list[index]);
-    // }
-    private void selectCharacterRandomly() {
+    public void selectCharacterRandomly() {
         player.resetPlayer();
         System.Random random = new System.Random();
         int index = random.Next(0, playerChoices.list.Length);
         player.setPlayerInfo( playerChoices.list[index]);
     }
 
-    public void GoToInfoScreen() {
-        this.selectCharacterRandomly();
-        this.openNextScreen();
-    }
 }

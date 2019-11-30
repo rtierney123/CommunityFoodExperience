@@ -19,7 +19,6 @@ namespace Manage
         public Bus bus;
         public float locationScreenDelay;
 
-
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
         public List<Location> locationValues;
@@ -27,6 +26,8 @@ namespace Manage
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
+        public double scale = .18; // 7min@.18
+        double carWalkRatio = 2.3;
 
         // Start is called before the first frame update
         void Start()
@@ -66,28 +67,34 @@ namespace Manage
                     popUp.title.text = location.locationTitle;
                     popUp.description.text = location.locationDescription;
 
-                    double inGameHours = 12 + clock.pmEndTime - clock.amStartTime;
-                    double multiplier = 60 * 60 * inGameHours / clock.runtimeMiliSeconds * 1000;
-                    popUp.carText.text = "Car "+formatTime(calculateTravelTime()* multiplier);
+                    
+                    popUp.carText.text = "Car ("+formatTime(realToGameTime(calculateTravelTime())) + ")";
                     if(location.locationType == LocationType.NearbyLocation)
                     {
-                        popUp.walkText.text = "Walk "+formatTime(calculateTravelTime()* multiplier);
+                        popUp.walkText.text = "Walk ("+formatTime(realToGameTime(calculateTravelTime()) * carWalkRatio)+ ")";
                     }
                     canvasController.openPopup(gameObject);
                 }
             }     
         }
 
-        private string formatTime(double min)
+        public double realToGameTime(double realTime)
+        {
+            double inGameHours = 12 + clock.pmEndTime - clock.amStartTime;
+            double multiplier = 60 * 60 * inGameHours / clock.runtimeMiliSeconds * 1000;
+            return realTime * multiplier;
+        }
+
+        public string formatTime(double min)
         {
             min = Math.Floor(min);
             if (min < 60)
             {
-                return String.Format("({0}min)", min);
+                return String.Format("{0}min", min);
             }
             int h = (int) Math.Floor(min / 60);
             int m = (int) min - h * 60;
-            return String.Format("({0}hr {1}min)",h, m);
+            return String.Format("{0}hr {1}min",h, m);
         }
 
         public void travelToDestination(TravelType travelType)
@@ -97,7 +104,13 @@ namespace Manage
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
-            clock.addRunningTime(travelTime);
+            if (travelType == TravelType.Car)
+            {
+                clock.addRunningTime(travelTime);
+            } else if (travelType == TravelType.Walk)
+            {
+                clock.addRunningTime(travelTime * carWalkRatio);
+            }
             currentLocation.onEnter();
 
             player.setFreeRide(false);
@@ -218,8 +231,6 @@ namespace Manage
 
         private void generateMapEdges()
         {
-            double scale = .27f;
-
             distmap.Add(Tuple.Create("House", "Community Food Kitchen"), 2 * scale);
             distmap.Add(Tuple.Create("House", "Mo's Corner Store"), 3 * scale);
             distmap.Add(Tuple.Create("House", "Bus stop"), 4 * scale);

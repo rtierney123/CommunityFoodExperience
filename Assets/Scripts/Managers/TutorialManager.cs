@@ -36,7 +36,6 @@ namespace Manage
         }
         public void finish() {
             this.curIndex = 0;
-            this.openPrevScreen();
         }
 
         void OnEnable()

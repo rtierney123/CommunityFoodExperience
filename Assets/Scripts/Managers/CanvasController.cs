@@ -47,7 +47,7 @@ namespace Manage
                 warning.Play("Warning", -1, 0f);
             }
                 //Check if the left Mouse button is clicked
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 //Set up the new Pointer Event
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);

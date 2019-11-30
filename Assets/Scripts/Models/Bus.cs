@@ -98,7 +98,11 @@ public class Bus : MonoBehaviour
 
     public void resetAnimation()
     {
-        animator.Play("", 0, 0f);
+        if(animator != null)
+        {
+            animator.Play("", 0, 0f);
+        }
+        
     }
 
 

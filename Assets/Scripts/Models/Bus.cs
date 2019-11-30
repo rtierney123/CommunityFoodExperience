@@ -32,8 +32,10 @@ public class Bus : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        pauseAnimation();
     }
 
+ 
     // Update is called once per frame
     void Update()
     {
@@ -72,12 +74,20 @@ public class Bus : MonoBehaviour
 
     public void pauseAnimation()
     {
-        animator.enabled = false;
+        if(animator != null)
+        {
+            animator.enabled = false;
+        }
+        
     }
     
     public void resumeAnimation()
     {
-        animator.enabled = true;
+        if(animator != null)
+        {
+            animator.enabled = true;
+        }
+        
     }
 
     public void startAnimation()

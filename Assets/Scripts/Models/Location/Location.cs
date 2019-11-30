@@ -102,11 +102,8 @@ namespace Model
 
         public IEnumerator MonitorScreen()
         {
-            Debug.Log("screen not open yet");
             yield return new WaitUntil(() => mainScreen.activeSelf);
-            Debug.Log("screen open");
             yield return new WaitUntil(() => !mainScreen.activeSelf);
-            Debug.Log("call check stuck");
             navigationManager.displayIfStuck();
         }
 

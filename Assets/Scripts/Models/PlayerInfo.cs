@@ -468,5 +468,10 @@ public class PlayerInfo
             return false;
         }
     }
+
+    public void setRecievedAssistance(bool assistanceReceived)
+    {
+        federalAssistance = assistanceReceived;
+    }
 }
     

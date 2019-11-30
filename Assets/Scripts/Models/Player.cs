@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
     public void addSnap(double funds)
     {
         snapFunds += funds;
+        playerInfo.setRecievedAssistance(true);
     }
 
     public void subtractSnap(double funds)
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour
     {
         hasWic = true;
         wicVoicher.gameObject.SetActive(true);
+        playerInfo.setRecievedAssistance(true);
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers

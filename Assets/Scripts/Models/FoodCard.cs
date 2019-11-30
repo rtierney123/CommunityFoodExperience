@@ -90,7 +90,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
                 cart.notifyDroppedFood(transform.position, food);
                 transform.SetParent(startParent);
                 transform.localPosition = resetPosition;
-                Debug.Log(resetPosition);
             }
             else
             {

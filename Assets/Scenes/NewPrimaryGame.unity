@@ -5150,7 +5150,7 @@ MonoBehaviour:
   bus: {fileID: 1312392691}
   clock: {fileID: 1362943300}
   randChildSick: 5
-  openStartScreenOnPlay: 0
+  openStartScreenOnPlay: 1
 --- !u!1 &985786179
 GameObject:
   m_ObjectHideFlags: 0
@@ -9790,6 +9790,10 @@ PrefabInstance:
       propertyPath: randomPlayerScreen
       value: 
       objectReference: {fileID: 1498373745}
+    - target: {fileID: 1215728260, guid: 1221763571db549e39eaa398f6f647f7, type: 3}
+      propertyPath: allowChoosePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1138969287358209428, guid: 1221763571db549e39eaa398f6f647f7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11160,7 +11164,8 @@ PrefabInstance:
       propertyPath: questionType
       value: 63
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 646318564, guid: 8229dec9bc2199b428960e35f81222ac, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8229dec9bc2199b428960e35f81222ac, type: 3}
 --- !u!224 &4632764556433216086 stripped
 RectTransform:
@@ -11574,7 +11579,7 @@ PrefabInstance:
     - target: {fileID: 7204318483515260406, guid: 926b993d35380974daafe2b758510f4b,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.000000059604645
+      value: 0.00000017881393
       objectReference: {fileID: 0}
     - target: {fileID: 7204318483515260406, guid: 926b993d35380974daafe2b758510f4b,
         type: 3}
@@ -11749,7 +11754,7 @@ PrefabInstance:
     - target: {fileID: 3366591988105609546, guid: 926b993d35380974daafe2b758510f4b,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.00000005762383
       objectReference: {fileID: 0}
     - target: {fileID: 3925853008113853006, guid: 926b993d35380974daafe2b758510f4b,
         type: 3}

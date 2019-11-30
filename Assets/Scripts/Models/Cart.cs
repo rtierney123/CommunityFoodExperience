@@ -53,7 +53,7 @@ public class Cart : MonoBehaviour
             count += num;
         }
 
-        return 0;
+        return count;
     }
 
 

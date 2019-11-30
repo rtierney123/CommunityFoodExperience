@@ -25,7 +25,6 @@ public class Screen : MonoBehaviour
 
     public IEnumerator delayOpenSuccessMessage(float delay, string message)
     {
-        Debug.Log("delayOpen");
         yield return new WaitForSeconds(delay);
         displaySuccessMessage(message);
     }
@@ -82,6 +81,5 @@ public class Screen : MonoBehaviour
     public void displaySuccessMessage(string message)
     {
         messageManager.generateStandardSuccessMessage(message);
-        Debug.Log("display success");
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6308268909506013152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -87,12 +87,12 @@ MonoBehaviour:
   messageManager: {fileID: 0}
   nextScreen: {fileID: 0}
   prevScreen: {fileID: 0}
-  delayTime: 2
   player: {fileID: 0}
   playerInfo:
     firstName: Sam
     middleName: 
     lastName: Smith
+    gender: 0
     description: You are an elderly person (senior citizen) and you live alone on
       a fixed income of $870 a month from Social Security. Your rent for a small apartment
       is $600/month and you pay $50/month for electricity, $30 month for a phone and
@@ -108,7 +108,7 @@ MonoBehaviour:
     birthMonth: 12
     birthDay: 1
     children:
-      childList: []
+      list: []
     c_hack: 
     socialSecurityIncome: 870
     monthlyIncome: 5000
@@ -117,7 +117,7 @@ MonoBehaviour:
     startingBusTokens: 1
     busPass: 1
     hasCar: 1
-    pregant: 0
+    pregnant: 0
     single: 0
     married: 0
     jointTax: 0
@@ -166,7 +166,6 @@ MonoBehaviour:
   nextActionTime: 4
   clock: {fileID: 0}
   signButton: {fileID: 6332912485670422548}
-  signed: 0
   currencyManager: {fileID: 0}
 --- !u!1 &338324282711494367
 GameObject:
@@ -3158,16 +3157,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 50133236841083064}
@@ -3178,8 +3167,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 666058844468031177, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8c29f1560f1bc4cbfc12973f2de2a7, type: 3}

@@ -144,10 +144,7 @@ namespace Manage
             {
                 screenOpen.SetActive(false);
                 screenDisplayed = false;
-            } else
-            {
-                Debug.Log("no screen open");
-            }
+            } 
           
         }
 

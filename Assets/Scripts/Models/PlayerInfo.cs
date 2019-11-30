@@ -92,6 +92,7 @@ public class PlayerInfo
             case FormQuestionType.Gender:
                 {
                     GenderType genderType = (GenderType)gender;
+                    
                     if(genderType == GenderType.Male)
                     {
                         return CheckmarkType.Check1;
@@ -100,6 +101,30 @@ public class PlayerInfo
                         return CheckmarkType.Check2;
                     }
                     return CheckmarkType.None;
+                }
+            case FormQuestionType.Married:
+                {
+                    if (married)
+                    {
+                        return CheckmarkType.Check1;
+                    } else
+                    {
+                        return CheckmarkType.Check2;
+                    }
+                }
+            case FormQuestionType.Is_Employed:
+                {
+                    if(hourlyIncome > 0)
+                    {
+                        return CheckmarkType.Check1;
+                    } else
+                    {
+                        return CheckmarkType.Check2;
+                    }
+                }
+            case FormQuestionType.In_US_Legally:
+                {
+                    return CheckmarkType.Check1;
                 }
             case FormQuestionType.Is_Pregnant:
                 if (pregnant)
@@ -166,6 +191,7 @@ public class PlayerInfo
                         return CheckmarkType.None;
                     }
                 }
+           
 
 
         }

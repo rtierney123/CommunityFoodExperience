@@ -16,7 +16,6 @@ public class CheckWrapper : FormWrapper
 
     public override void fillOut()
     {
-        
         if (checkChoice == CheckmarkType.Check1)
         {
             check1.SetActive(true);

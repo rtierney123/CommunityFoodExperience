@@ -26,7 +26,6 @@ namespace UI
         }
         private void OnEnable()
         {
-            Debug.Log("start filling out form");
             playerInfo = player.playerInfo;
             StartCoroutine(fillOutForm());
             signButton.disable();
@@ -46,7 +45,6 @@ namespace UI
             {
                 yield return new WaitUntil(() => item.initialized);
             }
-            Debug.Log("all initialized");
 
             foreach (FormWrapper item in formItems)
             {
@@ -60,6 +58,7 @@ namespace UI
                 {
                     CheckmarkType checktype = playerInfo.getInfoCheck(question);
                     item.setCheck(checktype);
+                    item.fillOut();
                    
                 }
 

@@ -22,7 +22,8 @@ namespace UI
             if (numEligible > 0)
             {
                 errorMessage = "Made too much income to receive WIC benefits.";
-                switch (numEligible){
+                switch (playerInfo.numInHouse)
+                {
                     case (1):
                         if (monthlyIncome > 1872)
                         {
@@ -57,7 +58,7 @@ namespace UI
                 return true;
             } else
             {
-                errorMessage = "Must be pregnant or have child under 5 to receive WIC.";
+                errorMessage = "Must be pregnant person in household or have child under 5 to receive WIC.";
                 return false;
             }
         }

@@ -417,8 +417,7 @@ public class PlayerInfo
 
     public int getNumofChildren()
     {
-        return c_hack.Equals("") ? 0 : c_hack.Split(',').Length;
-        //return children.childList.Length;
+        return children.list.Length;
     }
 
     public double getStartingCash()

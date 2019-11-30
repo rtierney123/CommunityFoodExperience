@@ -53,7 +53,6 @@ namespace UI
             if(busAnimator != null)
             {
                 busAnimator.enabled = true;
-                Debug.Log("bus continue");
             }
       
         }

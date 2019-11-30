@@ -60,7 +60,6 @@ public class ClockDisplay : MonoBehaviour
         anim.enabled = true;
         startTime = DateTime.Now;
         pauseTime = TimeSpan.Zero;
-        Debug.Log("start clock");
     }
 
     // Update is called once per frame

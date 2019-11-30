@@ -108,7 +108,7 @@ namespace Manage{
             resetGameComponents();
             canvasController.openScreen(startScreen);
             pause();
-           
+
         }
         public void resetGameComponents()
         {
@@ -133,8 +133,13 @@ namespace Manage{
             float rand = UnityEngine.Random.Range(0, 100);
             if (rand < randChildSick && children.Length > 0 && !player.hasKidBeenSick)
             {
-                messageManager.generateStandardErrorMessage("Oh no! Your child is sick at school.  You have to pick them up. (You lose time.)");
-                clock.addRunningTime(1);
+                float scale = (float) navigationManager.scale*100;
+                double timeLost = UnityEngine.Random.Range((float) (3*scale), (float) (6*scale))/100;
+                double gametimeLost = navigationManager.realToGameTime(timeLost);
+                string timeString = navigationManager.formatTime(gametimeLost);
+
+                messageManager.generateStandardErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0}.)", timeString));
+                clock.addRunningTime(timeLost);
                 player.hasKidBeenSick = true;
             }
         }

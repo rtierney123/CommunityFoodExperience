@@ -39,6 +39,14 @@ namespace Manage{
 
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.P) == true)
+            {
+                pauseGame();
+            }
+        }
+
         public void subtractTime(int time)
         {
 

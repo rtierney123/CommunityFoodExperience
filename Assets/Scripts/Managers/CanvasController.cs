@@ -19,6 +19,7 @@ namespace Manage
         [HideInInspector]
         public GameObject popUp;
         private Queue<GameObject> popUpBackLog;
+        private Queue<GameObject> mainScreenOnlyBackLog;
         Vector3 playerStopLocation;
         bool allowClose;
         bool allowOpen;
@@ -36,6 +37,7 @@ namespace Manage
             popUp = null;
             screenDisplayed = false;
             popUpBackLog = new Queue<GameObject>();
+            mainScreenOnlyBackLog = new Queue<GameObject>();
         }
 
 
@@ -88,8 +90,28 @@ namespace Manage
 
         public void addToPopUpBackLog(GameObject gameObject)
         {
-            Debug.Log("add to backlog");
-            popUpBackLog.Enqueue(gameObject);
+            if (popUp == null)
+            {
+                openPopup(gameObject);
+            }
+            else
+            {
+                popUpBackLog.Enqueue(gameObject);
+            }
+            
+        }
+
+        public void addToMainScreenPopUpBackLog(GameObject gameObject)
+        {
+            if(popUp == null && !screenDisplayed)
+            {
+                openPopup(gameObject);
+                Debug.Log("main screen popup");
+            } else
+            {
+                mainScreenOnlyBackLog.Enqueue(gameObject);
+                Debug.Log("enqueue");
+            }
         }
 
         public void openPopup(GameObject gameObject)
@@ -130,16 +152,38 @@ namespace Manage
                 setPopUp(true);
             } else
             {
-                popUp = null;
+                if(!screenDisplayed && mainScreenOnlyBackLog.Count > 0)
+                {
+                    popUp = mainScreenOnlyBackLog.Dequeue();
+                    setPopUp(true);
+                } else
+                {
+                    popUp = null;
+                }
             }
         }
 
         public void openScreen(GameObject screen)
         {
-            closeScreen();
+            screenDisplayed = true;
+            closeWithoutBool();
             screenOpen = screen;
             screen.SetActive(true);
-            screenDisplayed = true;
+            
+        }
+
+        private void closeWithoutBool()
+        {
+            if (screenOpen != null)
+            {
+                screenOpen.SetActive(false);
+                closePopUp();
+                if (mainScreenOnlyBackLog.Count > 0)
+                {
+                    popUp = mainScreenOnlyBackLog.Dequeue();
+                    setPopUp(true);
+                }
+            }
         }
 
         public void closeScreen()
@@ -148,6 +192,12 @@ namespace Manage
             {
                 screenOpen.SetActive(false);
                 screenDisplayed = false;
+                closePopUp();
+                if (mainScreenOnlyBackLog.Count > 0)
+                {
+                    popUp = mainScreenOnlyBackLog.Dequeue();
+                    setPopUp(true);
+                }
             } 
           
         }
@@ -157,6 +207,12 @@ namespace Manage
             screen.SetActive(false);
             screenOpen = null;
             screenDisplayed = false;
+            closePopUp();
+            if (mainScreenOnlyBackLog.Count > 0)
+            {
+                popUp = mainScreenOnlyBackLog.Dequeue();
+                setPopUp(true);
+            }
         }
 
         public void setStopTitle(string title)

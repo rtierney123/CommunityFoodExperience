@@ -190,7 +190,8 @@ namespace Manage
             if (rand < randFreeRidePercent && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
             {
                 player.setFreeRide(true);
-                messageManager.generateStandardSuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
+                Debug.Log("free ride");
+                messageManager.generateMainScreenOnlySuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
             }
 
         }
@@ -207,10 +208,10 @@ namespace Manage
         private IEnumerator startDisable(float sec)
         {
             player.playerInfo.hasCar = false;
-            messageManager.generateStandardErrorMessage("Oh no! Your car broke down.  You can travel by car until it is fixed.");
+            messageManager.generateMainScreenOnlyErrorMessage("Oh no! Your car broke down.  You can travel by car until it is fixed.");
             yield return new WaitForSeconds(sec);
             player.playerInfo.hasCar = true;
-            messageManager.generateStandardSuccessMessage("Your car is fixed. You can take the car again.");
+            messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
         }
 
         public void hourBeforeEndGame()

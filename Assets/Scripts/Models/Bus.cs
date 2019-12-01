@@ -130,7 +130,7 @@ public class Bus : MonoBehaviour
     private IEnumerator startStuck()
     {
         string msg = chooseRandomDelayMessage();
-        messageManager.generateStandardErrorMessage(msg);
+        messageManager.generateMainScreenOnlyErrorMessage(msg);
         pauseAnimation();
         yield return new WaitForSeconds(stuckSeconds);
         resumeAnimation();
@@ -139,6 +139,7 @@ public class Bus : MonoBehaviour
     private string chooseRandomDelayMessage()
     {
         float rand = Random.Range(0, 4);
+        Debug.Log("delay bus");
         if (rand < 0)
         {
             return "Bus got a flat tire. Bus route delayed.";

@@ -107,6 +107,8 @@ namespace Manage{
         public void quitGame()
         {
             resetGameComponents();
+            canvasController.closePopUp();
+            canvasController.closeScreen();
             canvasController.openScreen(startScreen);
             pause();
 
@@ -139,7 +141,7 @@ namespace Manage{
                 double gametimeLost = navigationManager.realToGameTime(timeLost);
                 string timeString = navigationManager.formatTime(gametimeLost);
 
-                messageManager.generateStandardErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0}.)", timeString));
+                messageManager.generateMainScreenOnlyErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0}.)", timeString));
                 clock.addRunningTime(timeLost);
                 player.hasKidBeenSick = true;
             }
@@ -148,7 +150,7 @@ namespace Manage{
         public void hourBeforeEndGame()
         {
             
-            messageManager.generateStandardErrorMessage("You better get home soon.  It is getting late.");
+            messageManager.generateMainScreenOnlyErrorMessage("You better get home soon.  It is getting late.");
             canvasController.playWarning();
             Debug.Log("Hour before end game.");
         }

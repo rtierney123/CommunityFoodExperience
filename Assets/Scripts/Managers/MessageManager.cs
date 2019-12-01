@@ -27,6 +27,24 @@ namespace Manage
 
         }
 
+        public void generateMainScreenOnlyErrorMessage(string message)
+        {
+            Debug.Log("main screen error");
+            standardErrorPopup.setText(message);
+            GameObject popup = standardErrorPopup.gameObject;
+            canvasController.addToMainScreenPopUpBackLog(popup);
+        }
+
+
+        public void generateMainScreenOnlySuccessMessage(string message)
+        {
+            Debug.Log("main screen success");
+            standardSuccessPopup.setText(message);
+            GameObject popup = standardSuccessPopup.gameObject;
+            canvasController.addToMainScreenPopUpBackLog(popup);
+        }
+
+
     }
 }
 

@@ -151,10 +151,8 @@ namespace Manage{
 
         public void hourBeforeEndGame()
         {
-            
             messageManager.generateMainScreenOnlyErrorMessage("You better get home soon.  It is getting late.");
             canvasController.playWarning();
-            Debug.Log("Hour before end game.");
         }
     }
 }

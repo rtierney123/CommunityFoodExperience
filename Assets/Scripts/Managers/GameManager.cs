@@ -20,6 +20,7 @@ namespace Manage{
         public MessageManager messageManager;
         public Bus bus;
         public ClockDisplay clock;
+        public FooterDisplay footerDisplay;
 
 
         public float randChildSick = 20;
@@ -58,6 +59,7 @@ namespace Manage{
             clock.startAnimation();
             bus.startAnimation();
             navigationManager.reset();
+            footerDisplay.update();
             canvasController.closeScreen();
         }
 

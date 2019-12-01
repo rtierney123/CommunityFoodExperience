@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 using Utility;
 
 namespace Manage
@@ -11,11 +12,13 @@ namespace Manage
         public CanvasController canvasController;
         public MessageManager messageManager;
         public Wallet walletDisplay;
+        public FooterDisplay footerDisplay;
         public Player player;
         public int changeDisplayTime;
 
         public float randFreeRidePercent = 50;
         public float randCarBreakDownPercent = 20;
+
 
         private bool fundsAdded = false;
         private GameObject plusSignPopUp;
@@ -84,6 +87,7 @@ namespace Manage
                     break;
             }
             walletDisplay.updateWallet();
+            footerDisplay.update();
         }
 
 
@@ -142,6 +146,7 @@ namespace Manage
                     break;
             }
             walletDisplay.updateWallet();
+            footerDisplay.update();
         }
 
         public void addWICVoucher()

@@ -178,7 +178,8 @@ namespace Manage
             {
                 screenOpen.SetActive(false);
                 closePopUp();
-                if (mainScreenOnlyBackLog.Count > 0)
+
+                if (mainScreenOnlyBackLog != null && mainScreenOnlyBackLog.Count > 0)
                 {
                     popUp = mainScreenOnlyBackLog.Dequeue();
                     setPopUp(true);

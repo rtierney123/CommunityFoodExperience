@@ -22,7 +22,11 @@ namespace Manage
         public Dictionary<MapLocations, Location> locationLookup;
         public List<MapLocations> locationKeys;
         public List<Location> locationValues;
-		public bool OnBus;
+        public Dictionary<MapLocations, String> locationTitleDict;
+        public List<String> locationTitles;
+        public bool OnBus;
+
+        
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
@@ -33,12 +37,13 @@ namespace Manage
         void Start()
         {
             locationLookup = new Dictionary<MapLocations, Location>();
+            locationTitleDict = new Dictionary<MapLocations, String>();
             if (locationKeys.Count == locationValues.Count)
             {
                 for (int index = 0; index < locationKeys.Count; index += 1)
                 {
                     locationLookup[locationKeys[index]] = locationValues[index];
-
+                    locationTitleDict[locationKeys[index]] = locationTitles[index];
                 }
             }
             distmap = new Dictionary<Tuple<string, string>, double>();
@@ -111,6 +116,7 @@ namespace Manage
             {
                 clock.addRunningTime(travelTime * carWalkRatio);
             }
+
             currentLocation.onEnter();
 
             player.setFreeRide(false);
@@ -200,7 +206,9 @@ namespace Manage
             if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
             {
                 canvasController.openPopup(bus.stopPopUp);
-                canvasController.setStopTitle(bus.mapLocation.ToString());
+
+                string stopTitle = locationTitleDict[bus.mapLocation];
+                canvasController.setStopTitle(stopTitle);
                 possibleDestination = busLocation;
             }
         }
@@ -219,7 +227,6 @@ namespace Manage
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
-            Debug.Log("leave bus");
 			OnBus = false;
         }
 

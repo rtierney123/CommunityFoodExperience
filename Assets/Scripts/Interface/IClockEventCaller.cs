@@ -6,4 +6,5 @@ public interface IClockEventCaller
 {
     void hourPassed();
     void minutePassed();
+    void hourBeforeEndGame();
 }

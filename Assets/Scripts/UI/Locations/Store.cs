@@ -39,12 +39,10 @@ namespace UI {
             if (player.hasWic)
             {
                 wicButton.enable();
-                Debug.Log("has wic");
             }
             else
             {
                 wicButton.disable();
-                Debug.Log("does not have wic");
             }
         }
 

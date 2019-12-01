@@ -118,6 +118,13 @@ namespace Manage
 
         private void dropPlayerOff(Location location)
         {
+            if(location.mapLocation == MapLocations.House)
+            {
+                player.setIsHome(true);
+            } else
+            {
+                player.setIsHome(false);
+            }
             player.transform.position = location.playerDropoff.position;
         }
 

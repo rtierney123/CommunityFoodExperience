@@ -158,4 +158,8 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
         }
     }
 
+    public void hourBeforeEndGame()
+    {
+      
+    }
 }

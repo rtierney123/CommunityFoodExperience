@@ -41,10 +41,9 @@ namespace Manage
 
         void Update()
         {
-            // TEMP
             if (Input.GetKeyDown(KeyCode.W))
             {
-                warning.Play("Warning", -1, 0f);
+                playWarning();
             }
                 //Check if the left Mouse button is clicked
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -80,6 +79,11 @@ namespace Manage
                     }
                 }
             }
+        }
+
+        public void playWarning()
+        {
+            warning.Play("Warning", -1, 0f);
         }
 
         public void addToPopUpBackLog(GameObject gameObject)

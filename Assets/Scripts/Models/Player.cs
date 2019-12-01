@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     public bool hasTemporaryRide = false;
     public bool hasKidBeenSick = false;
-
+    private bool isHome = true;
     private void Start()
     {
     }
@@ -190,6 +190,27 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         if(busTokens == 0 && money + eitcFunds + ctcFunds < 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    public void setIsHome(bool home)
+    {
+        isHome = home;
+    }
+    public bool getIsHome()
+    {
+        return isHome;
+    }
+
+    public bool getAchievedNutrition()
+    {
+        if(calories >= playerInfo.requiredCalories && grain >= playerInfo.requiredGrain && fat >= playerInfo.requiredFat && protein >= playerInfo.requiredProtein &&
+            dairy >= playerInfo.requiredDairy && fruit >= playerInfo.requiredFruit && vegetable >= playerInfo.requiredVegetable && extra >= playerInfo.requiredExtra)
         {
             return true;
         } else

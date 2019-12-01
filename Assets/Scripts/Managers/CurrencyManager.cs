@@ -213,8 +213,10 @@ namespace Manage
             messageManager.generateStandardSuccessMessage("Your car is fixed. You can take the car again.");
         }
 
+        public void hourBeforeEndGame()
+        {
 
-
+        }
     }
 }
 

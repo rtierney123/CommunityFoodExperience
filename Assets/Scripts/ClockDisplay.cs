@@ -25,6 +25,8 @@ public class ClockDisplay : MonoBehaviour
 
     private int currentHour = 0;
     private int currentMin = 0;
+
+    private bool endGameCalled = false;
 	
     // Start is called before the first frame update
     void Start()
@@ -95,13 +97,22 @@ public class ClockDisplay : MonoBehaviour
     string runTimeToDayTime(float run)
     {
         int Hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * run) + amStartTime);
+        int twelveHour = (Hour > 12 ? (Hour - 12) : Hour);
         int Minutes = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * run) * 60f) % 60f);
-        string h = (Hour > 12 ? (Hour - 12).ToString() : Hour.ToString());
+        string h = twelveHour.ToString();
         if (h.Length == 1) h = "0" + h;
         string m = Minutes.ToString();
         if (m.Length == 1) m = "0" + m;
         string a = (Hour > 12 ? "pm" : "am");
+
+        if (twelveHour >= pmEndTime - 1 && a == "pm" && !endGameCalled)
+        {
+            callEndGameEvent();
+        }
+
         return h + ":" + m + a;
+
+       
     }
 
     private void updateHourCallers()
@@ -117,6 +128,19 @@ public class ClockDisplay : MonoBehaviour
         foreach (IClockEventCaller caller in eventCallers)
         {
             caller.minutePassed();
+        }
+    }
+
+    private void callEndGameEvent()
+    {
+        if (!endGameCalled)
+        {
+            foreach (IClockEventCaller caller in eventCallers)
+             {
+                caller.hourBeforeEndGame();
+            }
+            endGameCalled = true;
+
         }
     }
 

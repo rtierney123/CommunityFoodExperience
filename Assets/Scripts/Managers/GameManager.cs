@@ -21,6 +21,7 @@ namespace Manage{
         public Bus bus;
         public ClockDisplay clock;
 
+
         public float randChildSick = 20;
 
         public bool openStartScreenOnPlay;
@@ -142,6 +143,14 @@ namespace Manage{
                 clock.addRunningTime(timeLost);
                 player.hasKidBeenSick = true;
             }
+        }
+
+        public void hourBeforeEndGame()
+        {
+            
+            messageManager.generateStandardErrorMessage("You better get home soon.  It is getting late.");
+            canvasController.playWarning();
+            Debug.Log("Hour before end game.");
         }
     }
 }

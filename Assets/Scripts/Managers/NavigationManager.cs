@@ -20,7 +20,9 @@ namespace Manage
         public float locationScreenDelay;
 
         public Dictionary<MapLocations, Location> locationLookup;
+        public Dictionary<MapLocations, string> locationNameDict;
         public List<MapLocations> locationKeys;
+        public List<string> locationTitles;
         public List<Location> locationValues;
 		public bool OnBus;
 
@@ -33,12 +35,13 @@ namespace Manage
         void Start()
         {
             locationLookup = new Dictionary<MapLocations, Location>();
+            locationNameDict = new Dictionary<MapLocations, string>();
             if (locationKeys.Count == locationValues.Count)
             {
                 for (int index = 0; index < locationKeys.Count; index += 1)
                 {
                     locationLookup[locationKeys[index]] = locationValues[index];
-
+                    locationNameDict[locationKeys[index]] = locationTitles[index];
                 }
             }
             distmap = new Dictionary<Tuple<string, string>, double>();
@@ -135,8 +138,6 @@ namespace Manage
 
         public double calculateTravelTime()
         {
-            //Debug.Log(currentLocation.locationTitle + "->" + possibleDestination.locationTitle);
-            //constant 3 minutes right now
 
             if (distmap.ContainsKey(Tuple.Create(currentLocation.locationTitle, 
                 possibleDestination.locationTitle)))
@@ -200,7 +201,7 @@ namespace Manage
             if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
             {
                 canvasController.openPopup(bus.stopPopUp);
-                canvasController.setStopTitle(bus.mapLocation.ToString());
+                canvasController.setStopTitle(locationNameDict[bus.mapLocation]);
                 possibleDestination = busLocation;
             }
         }
@@ -209,7 +210,6 @@ namespace Manage
         {
             player.gameObject.SetActive(false);
             bus.playerOnBus = true;
-            Debug.Log("take bus");
 			OnBus = true;
         }
 
@@ -219,19 +219,13 @@ namespace Manage
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
-            Debug.Log("leave bus");
 			OnBus = false;
         }
 
         public void displayIfStuck()
         {
-            Debug.Log("show stuck");
-            Debug.Log(player.hasNoModeOfTransportation());
-            Debug.Log(currentLocation.locationType == LocationType.FarLocation);
-            Debug.Log(currentLocation);
             if (player.hasNoModeOfTransportation() && currentLocation.locationType == LocationType.FarLocation)
             {
-                Debug.Log("showing stuck popup");
                 canvasController.forcePopupOpen(stuckPopup);
             }
         }

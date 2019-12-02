@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
 
         hasTemporaryRide = false;
         hasKidBeenSick = false;
+        isHome = true;
 }
 
     public void setPlayerInfo(PlayerInfo info)

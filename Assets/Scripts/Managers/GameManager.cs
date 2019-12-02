@@ -14,6 +14,7 @@ namespace Manage{
         public GameObject pauseScreen;
         public GameObject startScreen;
         public GameObject endScreen;
+        public GameObject credits;
 
         public CanvasController canvasController;
         public NavigationManager navigationManager;
@@ -98,6 +99,11 @@ namespace Manage{
         {
             canvasController.openScreen(endScreen);
             pause();
+        }
+
+        public void displayCredits()
+        {
+            canvasController.openScreen(credits);
         }
 
         public void restartGame()

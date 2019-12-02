@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UI;
 using Manage;
 
-public class SurveyButton : MonoBehaviour
+public class FALink : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class SurveyButton : MonoBehaviour
 
     public void OpenURL()
       {
-          Application.OpenURL("https://www.surveymonkey.com/r/DigitalFoodExperience");
+          Debug.Log("fa");
+          Application.OpenURL("https://www.feedingamerica.org");
       }
 }

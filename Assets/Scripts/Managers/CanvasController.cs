@@ -106,7 +106,7 @@ namespace Manage
         {
             if(popUp == null && !screenDisplayed)
             {
-                openPopup(gameObject);
+                forcePopupOpen(gameObject);
                 Debug.Log("main screen popup");
             } else
             {

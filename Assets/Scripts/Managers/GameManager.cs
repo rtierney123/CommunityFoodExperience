@@ -144,7 +144,8 @@ namespace Manage{
             if (rand < randChildSick && children.Length > 0 && !player.hasKidBeenSick)
             {
                 float scale = (float)navigationManager.scale * 100;
-                double timeLost = UnityEngine.Random.Range((float)(3 * scale), (float)(6 * scale)) / 100;
+                //double timeLost = UnityEngine.Random.Range((float)(3 * scale), (float)(6 * scale)) / 100;
+                double timeLost = 30 / .18;
                 double gametimeLost = navigationManager.realToGameTime(timeLost);
                 string timeString = navigationManager.formatTime(gametimeLost);
 

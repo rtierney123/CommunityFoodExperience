@@ -159,6 +159,9 @@ public class ClockDisplay : MonoBehaviour
 
     public void addRunningTime(double min)
     {
+        double scale = .18; // -> 7min
+        min *= scale;
+
         DateTime lossTime = DateTime.Now.AddMinutes(min);
         this.lossTime += DateTime.Now - lossTime;
     }

@@ -19,6 +19,12 @@ namespace UI
         
         protected override bool checkValid()
         {
+            if (player.usedSnap)
+            {
+                errorString = "Benefits already used.";
+                return false;
+            }
+
             int numHouseHold = playerInfo.numInHouse;
             double monthlyIncome = playerInfo.monthlyIncome;
 

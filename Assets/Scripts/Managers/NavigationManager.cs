@@ -109,10 +109,10 @@ namespace Manage
             dropPlayerOff(currentLocation);
             if (travelType == TravelType.Car)
             {
-                clock.addRunningTime(travelTime);
+                clock.addRunningTime(travelTime/scale);
             } else if (travelType == TravelType.Walk)
             {
-                clock.addRunningTime(travelTime * carWalkRatio);
+                clock.addRunningTime(travelTime / scale * carWalkRatio);
             }
             currentLocation.onEnter();
 

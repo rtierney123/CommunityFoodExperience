@@ -28,6 +28,10 @@ namespace UI
 
         protected override bool checkValid()
         {
+            if (player.usedVita)
+            {
+                return false;
+            }
             ctcEligibility = checkCTCEligibility();
             eitcEligbility = checkEITCEligibility();
             if(ctcEligibility || eitcEligbility)

@@ -21,6 +21,7 @@ namespace Manage{
         public Bus bus;
         public ClockDisplay clock;
         public FooterDisplay footerDisplay;
+        public CommunityKitchenScreen communityKitchen;
 
 
         public float randChildSick = 20;
@@ -125,6 +126,7 @@ namespace Manage{
             clock.resetAnimation();
             bus.resetAnimation();
             navigationManager.reset();
+            communityKitchen.reset();
         }
 
         public void hourPassed()

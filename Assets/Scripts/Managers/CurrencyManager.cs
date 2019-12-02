@@ -187,17 +187,19 @@ namespace Manage
             {
                 tempDisableCar(60);
             }
-        }
 
-        public void minutePassed()
-        {
-            float rand = Random.Range(0, 100);
+            rand = Random.Range(0, 100);
             if (rand < randFreeRidePercent && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
             {
                 player.setFreeRide(true);
                 Debug.Log("free ride");
                 messageManager.generateMainScreenOnlySuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
             }
+        }
+
+        public void minutePassed()
+        {
+          
 
         }
 

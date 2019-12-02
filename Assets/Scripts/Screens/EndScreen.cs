@@ -7,11 +7,8 @@ using Manage;
 
 public class EndScreen : MonoBehaviour
 {
-    // public ClockDisplay clock;
-    public GameObject endScreen;
     public Player player;
     private PlayerInfo playerInfo;
-    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()

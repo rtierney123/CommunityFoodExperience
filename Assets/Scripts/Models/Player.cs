@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
         usedFoodPantry = false;
         usedWIC = false;
         usedSnap = false;
+        useCommunityKitchen = false;
+
 
         hasWic = false;
 

@@ -4041,7 +4041,7 @@ PrefabInstance:
     - target: {fileID: 170693633660319893, guid: db12118f3eb20824892e6070efe91127,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 170693633660319893, guid: db12118f3eb20824892e6070efe91127,
         type: 3}
@@ -4137,7 +4137,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1189560452}
+      objectReference: {fileID: 21300000, guid: ba33a36c9967de547a416712d38df71f,
+        type: 3}
+    - target: {fileID: 59434028662285808, guid: ab78966d72c5c3540bfd21a6ef003ffc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 982130610}
+    - target: {fileID: 59434028662285808, guid: ab78966d72c5c3540bfd21a6ef003ffc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: endGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 59434028662285808, guid: ab78966d72c5c3540bfd21a6ef003ffc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59434028662285808, guid: ab78966d72c5c3540bfd21a6ef003ffc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 59434028662285808, guid: ab78966d72c5c3540bfd21a6ef003ffc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db12118f3eb20824892e6070efe91127, type: 3}
 --- !u!224 &725044521 stripped
@@ -6378,6 +6404,7 @@ MonoBehaviour:
   bus: {fileID: 1312392691}
   clock: {fileID: 1362943300}
   footerDisplay: {fileID: 925344178}
+  communityKitchen: {fileID: 751542995}
   randChildSick: 5
   openStartScreenOnPlay: 1
 --- !u!1 &985786179
@@ -6841,6 +6868,7 @@ MonoBehaviour:
   busStopTitle: {fileID: 938420659}
   warning: {fileID: 615569201}
   popUp: {fileID: 0}
+  endGame: 0
   screenDisplayed: 0
 --- !u!114 &1193828604
 MonoBehaviour:
@@ -8417,7 +8445,7 @@ RectTransform:
   - {fileID: 517219741845206916}
   - {fileID: 4132173457303889401}
   m_Father: {fileID: 643688232}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8497,7 +8525,7 @@ RectTransform:
   - {fileID: 1556322889042975052}
   - {fileID: 6553976776423481146}
   m_Father: {fileID: 643688232}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9830,9 +9858,8 @@ RectTransform:
   - {fileID: 1555038343}
   - {fileID: 6308268911458444237}
   - {fileID: 751542994}
-  - {fileID: 266311098}
   m_Father: {fileID: 643688232}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12003,7 +12030,7 @@ PrefabInstance:
     - target: {fileID: 8192210612575248135, guid: b27475f0cd40bc94791127a97a5b2aac,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openScreen
+      value: openPostGameScreen
       objectReference: {fileID: 0}
     - target: {fileID: 8192210612575248135, guid: b27475f0cd40bc94791127a97a5b2aac,
         type: 3}
@@ -12761,15 +12788,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949583565312861129, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
         type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 167
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6949583565312861129, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 982130610}
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
         type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 6949583565537050082, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1193828603}
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: resetEndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756752647852367714, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949583565239173687, guid: 277e8ea79ee4c4e86b074c8e628bc4ef,
         type: 3}
       propertyPath: m_Text
       value: "Some questions to consider:\r\nWere you able to access enough food and

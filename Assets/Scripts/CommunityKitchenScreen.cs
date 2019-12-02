@@ -24,6 +24,8 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     public string jsonLocation;
 
     private Food soup;
+    private int startTickets;
+    private int startMeals;
 
     void OnEnable()
     {
@@ -40,6 +42,9 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 
     private void Start()
     {
+        startTickets = ticketsRemaining;
+        startMeals = mealRemaining;
+
         numMealsText.text = mealRemaining.ToString();
 
         if (Application.platform == RuntimePlatform.WebGLPlayer)
@@ -59,6 +64,12 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 
             }
         }
+    }
+
+    public void reset()
+    {
+        ticketsRemaining = startTickets;
+        mealRemaining = startMeals;
     }
 
     IEnumerator GetRequest(string uri)

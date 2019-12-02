@@ -76,22 +76,25 @@ public class ClockDisplay : MonoBehaviour
 
 		if (runTimeRatio >= 1f) {
             gameManager.endGame();
-		}
+		} else
+        {
+            int hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
+            if (currentHour != hour)
+            {
+                updateHourCallers();
+                currentHour = hour;
+            }
+            int min = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
+            if (currentMin != min)
+            {
+                updateMinCallers();
+                currentMin = min;
+            }
+            string result = runTimeToDayTime(runTimeRatio);
+            txt.text = result;
+        }
 
-        int hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
-        if(currentHour != hour)
-        {
-            updateHourCallers();
-            currentHour = hour;
-        }
-        int min = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
-        if(currentMin != min)
-        {
-            updateMinCallers();
-            currentMin = min;
-        }
-        string result = runTimeToDayTime(runTimeRatio);
-		txt.text = result;
+       
 	}
 
     string runTimeToDayTime(float run)

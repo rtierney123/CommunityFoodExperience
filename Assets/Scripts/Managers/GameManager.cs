@@ -22,6 +22,7 @@ namespace Manage{
         public Bus bus;
         public ClockDisplay clock;
         public FooterDisplay footerDisplay;
+        public CommunityKitchenScreen communityKitchen;
 
 
         public float randChildSick = 20;
@@ -97,7 +98,8 @@ namespace Manage{
 
         public void endGame()
         {
-            canvasController.openScreen(endScreen);
+            canvasController.endGame = true;
+            canvasController.openPostGameScreen(endScreen);
             pause();
         }
 
@@ -114,6 +116,7 @@ namespace Manage{
 
         public void quitGame()
         {
+            canvasController.endGame = false;
             resetGameComponents();
             canvasController.closePopUp();
             canvasController.closeScreen();
@@ -129,6 +132,7 @@ namespace Manage{
             clock.resetAnimation();
             bus.resetAnimation();
             navigationManager.reset();
+            communityKitchen.reset();
         }
 
         public void hourPassed()

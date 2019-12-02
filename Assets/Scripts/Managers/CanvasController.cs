@@ -24,6 +24,7 @@ namespace Manage
         bool allowClose;
         bool allowOpen;
         bool clickedUsed;
+        public bool endGame = false;
 
         private GameObject screenOpen;
         [HideInInspector]
@@ -116,7 +117,7 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp == null && allowOpen)
+            if (popUp == null && allowOpen && !endGame)
             {
                 popUp = gameObject;
                 setPopUp(true);
@@ -128,10 +129,14 @@ namespace Manage
 
         public void forcePopupOpen(GameObject gameObject)
         {
-            setPopUp(false);
-            popUp = gameObject;
-            setPopUp(true);
-            StartCoroutine(WaitAllowClose(allowWaitTime));
+            if (!endGame)
+            {
+                setPopUp(false);
+                popUp = gameObject;
+                setPopUp(true);
+                StartCoroutine(WaitAllowClose(allowWaitTime));
+            }
+            
         }
 
         public void closePopUp(GameObject gameObject)
@@ -165,11 +170,22 @@ namespace Manage
 
         public void openScreen(GameObject screen)
         {
+            if (!endGame)
+            {
+                screenDisplayed = true;
+                closeWithoutBool();
+                screenOpen = screen;
+                screen.SetActive(true);
+            }
+        }
+
+        public void openPostGameScreen(GameObject screen)
+        {
+            Debug.Log("open post");
             screenDisplayed = true;
             closeWithoutBool();
             screenOpen = screen;
             screen.SetActive(true);
-            
         }
 
         private void closeWithoutBool()
@@ -177,6 +193,10 @@ namespace Manage
             if (screenOpen != null)
             {
                 screenOpen.SetActive(false);
+                if (popUp != null)
+                {
+                    addToMainScreenPopUpBackLog(popUp);
+                }
                 closePopUp();
                 if (mainScreenOnlyBackLog.Count > 0)
                 {
@@ -219,6 +239,7 @@ namespace Manage
         {
             busStopTitle.text = title;
         }
+
 
         void setPopUp(bool active)
         { 

@@ -20,10 +20,10 @@ namespace Manage
         public GameObject popUp;
         private Queue<GameObject> popUpBackLog;
         private Queue<GameObject> mainScreenOnlyBackLog;
-        Vector3 playerStopLocation;
+
         bool allowClose;
         bool allowOpen;
-        bool clickedUsed;
+
         public bool endGame = false;
 
         private GameObject screenOpen;
@@ -44,10 +44,7 @@ namespace Manage
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                playWarning();
-            }
+  
                 //Check if the left Mouse button is clicked
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -267,6 +264,7 @@ namespace Manage
             yield return new WaitForSeconds(waitTime);
             allowOpen = true;
         }
+       
 
     }
 }

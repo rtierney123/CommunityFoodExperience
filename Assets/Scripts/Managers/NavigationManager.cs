@@ -25,11 +25,12 @@ namespace Manage
         public List<string> locationTitles;
         public List<Location> locationValues;
 		public bool OnBus;
+        public double walkScale;
+        public double carScale;
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
-        public double scale = .18; // 7min@.18
-        double carWalkRatio = 2.3;
+       
 
         // Start is called before the first frame update
         void Start()
@@ -71,10 +72,10 @@ namespace Manage
                     popUp.description.text = location.locationDescription;
 
                     
-                    popUp.carText.text = "Car ("+formatTime(realToGameTime(calculateTravelTime())) + ")";
+                    popUp.carText.text = "Car ("+formatTime(calculateTravelTime(TravelType.Car))+ ")";
                     if(location.locationType == LocationType.NearbyLocation)
                     {
-                        popUp.walkText.text = "Walk ("+formatTime(realToGameTime(calculateTravelTime()) * carWalkRatio)+ ")";
+                        popUp.walkText.text = "Walk ("+formatTime(calculateTravelTime(TravelType.Walk))+ ")";
                     }
                     canvasController.openPopup(gameObject);
                 }
@@ -103,17 +104,12 @@ namespace Manage
         public void travelToDestination(TravelType travelType)
         {
             // scaled value from distmap
-            double travelTime = calculateTravelTime();
+            double travelTime = calculateTravelTime(travelType);
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
-            if (travelType == TravelType.Car)
-            {
-                clock.addRunningTime(travelTime/scale);
-            } else if (travelType == TravelType.Walk)
-            {
-                clock.addRunningTime(travelTime / scale * carWalkRatio);
-            }
+            clock.addGameMinutes(travelTime);
+            
             currentLocation.onEnter();
 
             player.setFreeRide(false);
@@ -136,21 +132,30 @@ namespace Manage
             canvasController.closePopUp();
         }
 
-        public double calculateTravelTime()
+        public double calculateTravelTime(TravelType travelType)
         {
-
-            if (distmap.ContainsKey(Tuple.Create(currentLocation.locationTitle, 
+            double travelTime = 0;
+            if (distmap.ContainsKey(Tuple.Create(currentLocation.locationTitle,
                 possibleDestination.locationTitle)))
             {
-                return distmap[Tuple.Create(currentLocation.locationTitle,
+                travelTime = distmap[Tuple.Create(currentLocation.locationTitle,
                 possibleDestination.locationTitle)];
             }
-            if (distmap.ContainsKey(Tuple.Create(possibleDestination.locationTitle,
+            else if (distmap.ContainsKey(Tuple.Create(possibleDestination.locationTitle,
                 currentLocation.locationTitle)))
             {
-                return distmap[Tuple.Create(possibleDestination.locationTitle,
+                travelTime = distmap[Tuple.Create(possibleDestination.locationTitle,
                 currentLocation.locationTitle)];
             }
+
+            if (travelType == TravelType.Walk)
+            {
+                return travelTime * walkScale;
+            } else if (travelType == TravelType.Car)
+            {
+                return travelTime * carScale;
+            }
+            
             return -1;
         }
 
@@ -232,49 +237,49 @@ namespace Manage
 
         private void generateMapEdges()
         {
-            distmap.Add(Tuple.Create("House", "Community Food Kitchen"), 2 * scale);
-            distmap.Add(Tuple.Create("House", "Mo's Corner Store"), 3 * scale);
-            distmap.Add(Tuple.Create("House", "Bus stop"), 4 * scale);
-            distmap.Add(Tuple.Create("House", "Food Tiger"), 7 * scale);
-            distmap.Add(Tuple.Create("House", "Vita Services"), 9 * scale);
-            distmap.Add(Tuple.Create("House", "Food Pantry"), 10 * scale);
-            distmap.Add(Tuple.Create("House", "WIC Clinic"), 9 * scale);
-            distmap.Add(Tuple.Create("House", "Snap Office"), 8 * scale);
+            distmap.Add(Tuple.Create("House", "Community Food Kitchen"), 2 );
+            distmap.Add(Tuple.Create("House", "Mo's Corner Store"), 3 );
+            distmap.Add(Tuple.Create("House", "Bus stop"), 4 );
+            distmap.Add(Tuple.Create("House", "Food Tiger"), 7 );
+            distmap.Add(Tuple.Create("House", "Vita Services"), 9);
+            distmap.Add(Tuple.Create("House", "Food Pantry"), 10 );
+            distmap.Add(Tuple.Create("House", "WIC Clinic"), 9);
+            distmap.Add(Tuple.Create("House", "Snap Office"), 8);
 
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Mo's Corner Store"), 3 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Bus stop"), 3 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Food Tiger"), 6 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Vita Services"), 8 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Food Pantry"), 9 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "WIC Clinic"), 8 * scale);
-            distmap.Add(Tuple.Create("Community Food Kitchen", "Snap Office"), 7 * scale);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Mo's Corner Store"), 3 );
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Bus stop"), 3);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Food Tiger"), 6);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Vita Services"), 8);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Food Pantry"), 9);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "WIC Clinic"), 8);
+            distmap.Add(Tuple.Create("Community Food Kitchen", "Snap Office"), 7);
 
-            distmap.Add(Tuple.Create("Mo's Corner Store", "Bus stop"), 3 * scale);
-            distmap.Add(Tuple.Create("Mo's Corner Store", "Food Tiger"), 6 * scale);
-            distmap.Add(Tuple.Create("Mo's Corner Store", "Vita Services"), 8 * scale);
-            distmap.Add(Tuple.Create("Mo's Corner Store", "Food Pantry"), 9 * scale);
-            distmap.Add(Tuple.Create("Mo's Corner Store", "WIC Clinic"), 8 * scale);
-            distmap.Add(Tuple.Create("Mo's Corner Store", "Snap Office"), 7 * scale);
+            distmap.Add(Tuple.Create("Mo's Corner Store", "Bus stop"), 3);
+            distmap.Add(Tuple.Create("Mo's Corner Store", "Food Tiger"), 6);
+            distmap.Add(Tuple.Create("Mo's Corner Store", "Vita Services"), 8);
+            distmap.Add(Tuple.Create("Mo's Corner Store", "Food Pantry"), 9);
+            distmap.Add(Tuple.Create("Mo's Corner Store", "WIC Clinic"), 8 );
+            distmap.Add(Tuple.Create("Mo's Corner Store", "Snap Office"), 7);
 
-            distmap.Add(Tuple.Create("Bus stop", "Food Tiger"), 3 * scale);
-            distmap.Add(Tuple.Create("Bus stop", "Vita Services"), 5 * scale);
-            distmap.Add(Tuple.Create("Bus stop", "Food Pantry"), 6 * scale);
-            distmap.Add(Tuple.Create("Bus stop", "WIC Clinic"), 5 * scale);
-            distmap.Add(Tuple.Create("Bus stop", "Snap Office"), 4 * scale);
+            distmap.Add(Tuple.Create("Bus stop", "Food Tiger"), 3);
+            distmap.Add(Tuple.Create("Bus stop", "Vita Services"), 5);
+            distmap.Add(Tuple.Create("Bus stop", "Food Pantry"), 6);
+            distmap.Add(Tuple.Create("Bus stop", "WIC Clinic"), 5);
+            distmap.Add(Tuple.Create("Bus stop", "Snap Office"), 4 );
 
-            distmap.Add(Tuple.Create("Food Tiger", "Vita Services"), 2 * scale);
-            distmap.Add(Tuple.Create("Food Tiger", "Food Pantry"), 3 * scale);
-            distmap.Add(Tuple.Create("Food Tiger", "WIC Clinic"), 2 * scale);
-            distmap.Add(Tuple.Create("Food Tiger", "Snap Office"), 1 * scale);
+            distmap.Add(Tuple.Create("Food Tiger", "Vita Services"), 2);
+            distmap.Add(Tuple.Create("Food Tiger", "Food Pantry"), 3);
+            distmap.Add(Tuple.Create("Food Tiger", "WIC Clinic"), 2);
+            distmap.Add(Tuple.Create("Food Tiger", "Snap Office"), 1);
 
-            distmap.Add(Tuple.Create("Vita Services", "Food Pantry"), 2 * scale);
-            distmap.Add(Tuple.Create("Vita Services", "WIC Clinic"), 3 * scale);
-            distmap.Add(Tuple.Create("Vita Services", "Snap Office"), 1 * scale);
+            distmap.Add(Tuple.Create("Vita Services", "Food Pantry"), 2 );
+            distmap.Add(Tuple.Create("Vita Services", "WIC Clinic"), 3);
+            distmap.Add(Tuple.Create("Vita Services", "Snap Office"), 1);
 
-            distmap.Add(Tuple.Create("Food Pantry", "WIC Clinic"), 1 * scale);
-            distmap.Add(Tuple.Create("Food Pantry", "Snap Office"), 2.5 * scale);
+            distmap.Add(Tuple.Create("Food Pantry", "WIC Clinic"), 1 );
+            distmap.Add(Tuple.Create("Food Pantry", "Snap Office"), 2.5);
 
-            distmap.Add(Tuple.Create("WIC Clinic", "Snap Office"), 3 * scale);
+            distmap.Add(Tuple.Create("WIC Clinic", "Snap Office"), 3);
         }
 
     }

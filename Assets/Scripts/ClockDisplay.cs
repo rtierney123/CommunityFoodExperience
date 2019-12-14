@@ -70,7 +70,7 @@ public class ClockDisplay : MonoBehaviour
 		if (!this.running) {
 			return;
 		}
-		TimeSpan time = (DateTime.Now - startTime - this.pauseTime - lossTime);
+		TimeSpan time = (DateTime.Now - startTime - this.pauseTime + lossTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
 
@@ -157,18 +157,23 @@ public class ClockDisplay : MonoBehaviour
 		this.running = true;
 	}
 
-    public void addRunningTime(double min)
+    public void addGameHours(double hour)
     {
-        double scale = .18; // -> 7min
-        min *= scale;
-
-        DateTime lossTime = DateTime.Now.AddMinutes(min);
-        this.lossTime += DateTime.Now - lossTime;
+        uint numberHours = 12 - amStartTime + pmEndTime;
+        double gameHourstoMilliseconds = (runtimeMiliSeconds / numberHours)*hour;
+        TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameHourstoMilliseconds);
+        lossTime = lossTime.Add(lossSpan);
     }
 
-    public double realToGameMin(double d)
+    public void addGameMinutes(double min)
     {
-        double inGameHours = 12 + pmEndTime - amStartTime;
-        return 60 * 60 * inGameHours / runtimeMiliSeconds * 1000 * d;
+        uint numberMins = (12 - amStartTime + pmEndTime) * 60;
+        double gameMinutestoMilliseconds = (runtimeMiliSeconds / numberMins)*min;
+        Debug.Log(gameMinutestoMilliseconds);
+        TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameMinutestoMilliseconds);
+       
+        lossTime = lossTime.Add(lossSpan);
+        Debug.Log(lossSpan);
     }
+
 }

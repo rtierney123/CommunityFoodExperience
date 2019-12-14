@@ -90,7 +90,7 @@ namespace UI
             {
                 failureAction();
             }
-            clock.addRunningTime(lossTime);
+            clock.addGameMinutes(lossTime);
         }
 
         protected virtual bool checkValid()

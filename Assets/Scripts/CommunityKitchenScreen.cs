@@ -134,7 +134,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
                 updateMeals(1);
                 float rand = Random.Range(0, lineWaitTimeMax);
                 int lossTime = (int)rand;
-                clock.addRunningTime(lossTime);
+                clock.addGameMinutes(lossTime);
                 player.useCommunityKitchen = true;
                 nutritionManager.addNutrition(soup);
                 messageManager.generateStandardSuccessMessage("'Here is some vegatable soup.'");

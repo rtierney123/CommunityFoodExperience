@@ -104,11 +104,9 @@ namespace Manage
             if(popUp == null && !screenDisplayed)
             {
                 forcePopupOpen(gameObject);
-                Debug.Log("main screen popup");
             } else
             {
                 mainScreenOnlyBackLog.Enqueue(gameObject);
-                Debug.Log("enqueue");
             }
         }
 
@@ -148,20 +146,19 @@ namespace Manage
         {
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
-            if(popUpBackLog!= null && popUpBackLog.Count > 0)
+            if (popUpBackLog != null && popUpBackLog.Count > 0)
             {
                 popUp = popUpBackLog.Dequeue();
                 setPopUp(true);
-            } else
+            }
+            else if (!screenDisplayed && mainScreenOnlyBackLog.Count > 0)
             {
-                if(!screenDisplayed && mainScreenOnlyBackLog.Count > 0)
-                {
-                    popUp = mainScreenOnlyBackLog.Dequeue();
-                    setPopUp(true);
-                } else
-                {
-                    popUp = null;
-                }
+                popUp = mainScreenOnlyBackLog.Dequeue();
+                setPopUp(true);
+            }
+            else
+            {
+                popUp = null;
             }
         }
 
@@ -170,7 +167,7 @@ namespace Manage
             if (!endGame)
             {
                 screenDisplayed = true;
-                closeWithoutBool();
+                closeCurrentScreen();
                 screenOpen = screen;
                 screen.SetActive(true);
             }
@@ -180,56 +177,46 @@ namespace Manage
         {
             Debug.Log("open post");
             screenDisplayed = true;
-            closeWithoutBool();
+            closeCurrentScreen();
             screenOpen = screen;
             screen.SetActive(true);
-        }
-
-        private void closeWithoutBool()
-        {
-            if (screenOpen != null)
-            {
-                screenOpen.SetActive(false);
-                if (popUp != null)
-                {
-                    addToMainScreenPopUpBackLog(popUp);
-                }
-                closePopUp();
-                if (mainScreenOnlyBackLog.Count > 0)
-                {
-                    popUp = mainScreenOnlyBackLog.Dequeue();
-                    setPopUp(true);
-                }
-            }
-        }
-
-        public void closeScreen()
-        {
-            if(screenOpen != null)
-            {
-                screenOpen.SetActive(false);
-                screenDisplayed = false;
-                closePopUp();
-                if (mainScreenOnlyBackLog.Count > 0)
-                {
-                    popUp = mainScreenOnlyBackLog.Dequeue();
-                    setPopUp(true);
-                }
-            } 
-          
         }
 
         public void closeScreen(GameObject screen)
         {
             screen.SetActive(false);
-            screenOpen = null;
+            closeScreen();
             screenDisplayed = false;
-            closePopUp();
+        }
+
+
+        public void closeScreen()
+        {
+            closeCurrentScreen();
+            checkForMainPopupBackLog();
+            screenDisplayed = false;
+        }
+
+       
+        public void closeCurrentScreen()
+        {
+            if (screenOpen != null)
+            {
+                screenOpen.SetActive(false);
+                screenOpen = null;
+                closePopUp();
+               
+            }
+        }
+
+        private void checkForMainPopupBackLog()
+        {
             if (mainScreenOnlyBackLog.Count > 0)
             {
                 popUp = mainScreenOnlyBackLog.Dequeue();
                 setPopUp(true);
             }
+
         }
 
         public void setStopTitle(string title)

@@ -7,7 +7,7 @@ using Utility;
 
 namespace Manage
 {
-    public class CurrencyManager : MonoBehaviour, IClockEventCaller
+    public class CurrencyManager : MonoBehaviour
     {
         public CanvasController canvasController;
         public MessageManager messageManager;
@@ -180,28 +180,6 @@ namespace Manage
           
         }
 
-        public void hourPassed()
-        {
-            float rand = Random.Range(0, 100);
-            if (rand < randFreeRidePercent && player.playerInfo.hasCar)
-            {
-                tempDisableCar(60);
-            }
-
-            rand = Random.Range(0, 100);
-            if (rand < randFreeRidePercent && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
-            {
-                player.setFreeRide(true);
-                Debug.Log("free ride");
-                messageManager.generateMainScreenOnlySuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
-            }
-        }
-
-        public void minutePassed()
-        {
-          
-
-        }
 
         public void tempDisableCar(float sec)
         {
@@ -221,10 +199,6 @@ namespace Manage
             messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
         }
 
-        public void hourBeforeEndGame()
-        {
-
-        }
     }
 }
 

@@ -39,13 +39,13 @@ public class NavigationPopUp : MonoBehaviour
       
         if(walkButton != null)
         {
-            if (manager.currentLocation.locationType == LocationType.FarLocation)
+            if (manager.currentLocation.locationType == LocationType.NearbyLocation || manager.currentLocation.mapLocation == manager.possibleDestination.mapLocation)
             {
-                walkButton.disable();
+                walkButton.enable();
             }
             else
             {
-                walkButton.enable();
+                walkButton.disable();
             }
         }
        

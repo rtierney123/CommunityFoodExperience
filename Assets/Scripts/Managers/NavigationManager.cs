@@ -18,6 +18,9 @@ namespace Manage
         public ClockDisplay clock;
         public Location currentLocation;
         public Location startLocation;
+        [HideInInspector]
+        public Location possibleDestination;
+
         public Bus bus;
         public float locationScreenDelay;
 
@@ -31,8 +34,7 @@ namespace Manage
         public double carScale;
 
      
-
-        private Location possibleDestination;
+        
         Dictionary<Tuple<string, string>, double> distmap;
 
        
@@ -70,17 +72,14 @@ namespace Manage
                 } else
                 {
                     possibleDestination = location;
-                    if(possibleDestination.mapLocation == MapLocations.VitaSnap && currentLocation.mapLocation == MapLocations.VitaSnap)
+                    NavigationPopUp popUp;
+                    if ((possibleDestination.mapLocation == MapLocations.VitaSnap && currentLocation.mapLocation == MapLocations.VitaSnap) || (possibleDestination.mapLocation == MapLocations.WICFoodPantry && currentLocation.mapLocation == MapLocations.WICFoodPantry))
                     {
-
-                    }
-                    else if(possibleDestination.mapLocation == MapLocations.WICFoodPantry && currentLocation.mapLocation == MapLocations.WICFoodPantry)
-                    {
-
+                        popUp = nearbyPopup;
+                        popUp.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
                     }
                     else
                     {
-                        NavigationPopUp popUp;
                       
                         if (possibleDestination.locationType == LocationType.NearbyLocation)
                         {
@@ -90,14 +89,14 @@ namespace Manage
                         {
                             popUp = farPopup;
                         }
-
-                        popUp.title.text = location.locationTitle;
-                        popUp.description.text = location.locationDescription;
-                        popUp.carText.text = "Car (" + formatTime(calculateTravelTime(TravelType.Car)) + ")";
-
-                        GameObject gameObject = popUp.gameObject;
-                        canvasController.openPopup(gameObject);
                     }
+
+                    popUp.title.text = location.locationTitle;
+                    popUp.description.text = location.locationDescription;
+                    popUp.carText.text = "Car (" + formatTime(calculateTravelTime(TravelType.Car)) + ")";
+
+                    GameObject gameObject = popUp.gameObject;
+                    canvasController.openPopup(gameObject);
 
                 }
             }     
@@ -251,7 +250,6 @@ namespace Manage
 
         public void handleLeaveBusEvent()
         {
-            Debug.Log(possibleDestination);
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
@@ -312,9 +310,9 @@ namespace Manage
 
             distmap.Add(Tuple.Create("Vita Services", "Food Pantry"), 2 );
             distmap.Add(Tuple.Create("Vita Services", "WIC Clinic"), 3);
-            distmap.Add(Tuple.Create("Vita Services", "Snap Office"), 1);
+            distmap.Add(Tuple.Create("Vita Services", "Snap Office"), 0);
 
-            distmap.Add(Tuple.Create("Food Pantry", "WIC Clinic"), 1 );
+            distmap.Add(Tuple.Create("Food Pantry", "WIC Clinic"), 0);
             distmap.Add(Tuple.Create("Food Pantry", "Snap Office"), 2.5);
 
             distmap.Add(Tuple.Create("WIC Clinic", "Snap Office"), 3);

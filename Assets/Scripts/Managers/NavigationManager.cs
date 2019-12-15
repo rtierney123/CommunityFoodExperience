@@ -10,7 +10,7 @@ namespace Manage
     //does logic for navigating the map and showing navigation related pop-ups
     public class NavigationManager : MonoBehaviour { 
         public Player player;
-        public GameObject stuckPopup; 
+        public GameObject stuckPopup;
 
         public CanvasController canvasController;
         public ClockDisplay clock;
@@ -27,6 +27,7 @@ namespace Manage
 		public bool OnBus;
         public double walkScale;
         public double carScale;
+
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
@@ -169,7 +170,7 @@ namespace Manage
             travelToDestination(TravelType.Walk);
         }
 
-        public void handleBusLeavingEvent()
+        public void handleBusContinuingEvent()
         {
             if(canvasController.popUp == bus.farePopUp || canvasController.popUp == bus.stopPopUp)
             {
@@ -203,7 +204,15 @@ namespace Manage
         {
             Location busLocation;
 
-            if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
+            if(bus.mapLocation == MapLocations.VitaSnap)
+            {
+                canvasController.openPopup(bus.vitaSnapPopup);
+            }
+            else if (bus.mapLocation == MapLocations.WICFoodPantry)
+            {
+                canvasController.openPopup(bus.pantryWicPopup);
+            }
+            else if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
             {
                 canvasController.openPopup(bus.stopPopUp);
                 canvasController.setStopTitle(locationNameDict[bus.mapLocation]);
@@ -220,11 +229,19 @@ namespace Manage
 
         public void handleLeaveBusEvent()
         {
+            Debug.Log("leave bus");
+            Debug.Log(possibleDestination);
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
 			OnBus = false;
+        }
+
+        public void setPossibleLocation(Location nextLocation)
+        {
+            //Debug.Log("set new destinations");
+            possibleDestination = nextLocation;
         }
 
         public void displayIfStuck()

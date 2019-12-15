@@ -10,6 +10,8 @@ public class Bus : MonoBehaviour
     public NavigationManager navigationManager;
     public GameObject farePopUp;
     public GameObject stopPopUp;
+    public GameObject vitaSnapPopup;
+    public GameObject pantryWicPopup;
     public MapLocations mapLocation;
 
     public MessageManager messageManager;
@@ -69,7 +71,7 @@ public class Bus : MonoBehaviour
     {
         mapLocation = MapLocations.OnRoad;
         atStop = false;
-        navigationManager.handleBusLeavingEvent();
+        navigationManager.handleBusContinuingEvent();
     }
 
     public void pauseAnimation()

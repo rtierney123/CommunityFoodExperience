@@ -78,10 +78,7 @@ namespace Model
         {
             entered = true;
             StartCoroutine(OpenLocationScreen());
-            if (locationType == LocationType.FarLocation)
-            {
-                StartCoroutine(MonitorScreen());
-            }
+         
         }
 
 
@@ -98,13 +95,11 @@ namespace Model
                 canvasController.closePopUp ();
                 canvasController.openScreen(mainScreen);
             }
-        }
 
-        public IEnumerator MonitorScreen()
-        {
-            yield return new WaitUntil(() => mainScreen.activeSelf);
-            yield return new WaitUntil(() => !mainScreen.activeSelf);
-            navigationManager.displayIfStuck();
+            if (locationType == LocationType.FarLocation)
+            {
+                navigationManager.displayIfStuck();
+            }
         }
 
     }

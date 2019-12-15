@@ -16,9 +16,6 @@ namespace Manage
         public Player player;
         public int changeDisplayTime;
 
-        public float randFreeRidePercent = 50;
-        public float randCarBreakDownPercent = 20;
-
 
         private bool fundsAdded = false;
         private GameObject plusSignPopUp;
@@ -193,7 +190,7 @@ namespace Manage
         private IEnumerator startDisable(float sec)
         {
             player.playerInfo.hasCar = false;
-            messageManager.generateMainScreenOnlyErrorMessage("Oh no! Your car broke down.  You can travel by car until it is fixed.");
+            messageManager.generateMainScreenOnlyErrorMessage("Oh no! Your car broke down.  You cannot travel by car until it is fixed.");
             yield return new WaitForSeconds(sec);
             player.playerInfo.hasCar = true;
             messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");

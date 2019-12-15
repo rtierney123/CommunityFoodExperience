@@ -11,7 +11,6 @@ namespace Model
     {
         public Transform playerDropoff;
         public LocationType locationType;
-        public NavigiationPopUp popUp;
         public GameObject mainScreen;
         public NavigationManager navigationManager;
         public CanvasController canvasController;
@@ -81,25 +80,24 @@ namespace Model
          
         }
 
-
-        public NavigiationPopUp getPopUp()
-        {
-            return popUp;
-        }
-
         public IEnumerator OpenLocationScreen()
         {
             yield return new WaitForSeconds(delayTime);
             if (mainScreen != null)
             {
-                canvasController.closePopUp ();
+                canvasController.closePopUp();
                 canvasController.openScreen(mainScreen);
+            } else
+            {
+                canvasController.screenDisplayed = false;
+                canvasController.dequeueMainScreenPopUpBackLog();
             }
 
             if (locationType == LocationType.FarLocation)
             {
                 navigationManager.displayIfStuck();
             }
+          
         }
 
     }

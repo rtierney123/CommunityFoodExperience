@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
+
 namespace Manage
 {
     public class RandomEventGenerator : MonoBehaviour, IClockEventCaller
@@ -39,13 +41,11 @@ namespace Manage
             float rand = UnityEngine.Random.Range(0, 100);
             if (rand < chanceSickChild && children.Length > 0 && !player.hasKidBeenSick)
             {
-                //float scale = (float)navigationManager.scale * 100;
-                //double timeLost = UnityEngine.Random.Range((float)(3 * scale), (float)(6 * scale)) / 100;
-                double timeLost = 30 / .18;
-                double gametimeLost = navigationManager.realToGameTime(timeLost);
-                string timeString = navigationManager.formatTime(gametimeLost);
+                int timeLost = UnityEngine.Random.Range(30, 60);
+                string timeString = FormatText.formatInt(timeLost);
 
-                messageManager.generateMainScreenOnlyErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0}.)", timeString));
+                Debug.Log("child sick");
+                messageManager.generateMainScreenOnlyErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0} minutes.)", timeString));
                 clock.addGameMinutes(timeLost);
                 player.hasKidBeenSick = true;
             }

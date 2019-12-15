@@ -84,8 +84,7 @@ public class PlayerRandomizer : MonoBehaviour
 
     public void selectCharacterRandomly() {
         player.resetPlayer();
-        System.Random random = new System.Random();
-        int index = random.Next(0, playerChoices.list.Length);
+        int index = UnityEngine.Random.Range(0, playerChoices.list.Length);
         player.setPlayerInfo( playerChoices.list[index]);
     }
 

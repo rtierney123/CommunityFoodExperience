@@ -78,20 +78,29 @@ public class ClockDisplay : MonoBehaviour
             gameManager.endGame();
 		} else
         {
-            int hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
-            if (currentHour != hour)
-            {
-                updateHourCallers();
-                currentHour = hour;
-            }
-            int min = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
-            if (currentMin != min)
-            {
-                updateMinCallers();
-                currentMin = min;
-            }
             string result = runTimeToDayTime(runTimeRatio);
             txt.text = result;
+
+            int hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
+            int min = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
+
+            if (hour != amStartTime)
+            {
+                if (currentHour != hour)
+                {
+                    updateHourCallers();
+                    currentHour = hour;
+                }
+
+                if (currentMin != min)
+                {
+                    updateMinCallers();
+                    currentMin = min;
+                }
+            }
+         
+           
+           
         }
 
        

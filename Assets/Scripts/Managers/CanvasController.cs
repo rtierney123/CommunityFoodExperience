@@ -29,6 +29,7 @@ namespace Manage
         private GameObject screenOpen;
         [HideInInspector]
         public bool screenDisplayed;
+
         void Awake()
         {
             // Get both of the components we need to do this
@@ -103,10 +104,19 @@ namespace Manage
         {
             if(popUp == null && !screenDisplayed)
             {
-                forcePopupOpen(gameObject);
+                openPopup(gameObject);
             } else
             {
                 mainScreenOnlyBackLog.Enqueue(gameObject);
+            }
+        }
+
+        public void dequeueMainScreenPopUpBackLog()
+        {
+            if(popUp == null && !screenDisplayed && mainScreenOnlyBackLog.Count > 0)
+            {
+                popUp = mainScreenOnlyBackLog.Dequeue();
+                setPopUp(true);
             }
         }
 
@@ -175,7 +185,6 @@ namespace Manage
 
         public void openPostGameScreen(GameObject screen)
         {
-            Debug.Log("open post");
             screenDisplayed = true;
             closeCurrentScreen();
             screenOpen = screen;
@@ -222,6 +231,14 @@ namespace Manage
         public void setStopTitle(string title)
         {
             busStopTitle.text = title;
+        }
+
+        public void reset()
+        {
+            mainScreenOnlyBackLog = new Queue<GameObject>();
+            popUpBackLog = new Queue<GameObject>();
+            closePopUp();
+            closeScreen();
         }
 
 

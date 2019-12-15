@@ -121,8 +121,7 @@ namespace Manage{
         }
         public void resetGameComponents()
         {
-            canvasController.closePopUp();
-            canvasController.closeScreen();
+            canvasController.reset();
             player.resetPlayer();
             clock.resetAnimation();
             bus.resetAnimation();

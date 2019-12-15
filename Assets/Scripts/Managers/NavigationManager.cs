@@ -11,6 +11,8 @@ namespace Manage
     public class NavigationManager : MonoBehaviour { 
         public Player player;
         public GameObject stuckPopup;
+        public NavigationPopUp farPopup;
+        public NavigationPopUp nearbyPopup;
 
         public CanvasController canvasController;
         public ClockDisplay clock;
@@ -28,9 +30,11 @@ namespace Manage
         public double walkScale;
         public double carScale;
 
+     
 
         private Location possibleDestination;
         Dictionary<Tuple<string, string>, double> distmap;
+
        
 
         // Start is called before the first frame update
@@ -66,19 +70,35 @@ namespace Manage
                 } else
                 {
                     possibleDestination = location;
-
-                    NavigiationPopUp popUp = location.getPopUp();
-                    GameObject gameObject = popUp.gameObject;
-                    popUp.title.text = location.locationTitle;
-                    popUp.description.text = location.locationDescription;
-
-                    
-                    popUp.carText.text = "Car ("+formatTime(calculateTravelTime(TravelType.Car))+ ")";
-                    if(location.locationType == LocationType.NearbyLocation)
+                    if(possibleDestination.mapLocation == MapLocations.VitaSnap && currentLocation.mapLocation == MapLocations.VitaSnap)
                     {
-                        popUp.walkText.text = "Walk ("+formatTime(calculateTravelTime(TravelType.Walk))+ ")";
+
                     }
-                    canvasController.openPopup(gameObject);
+                    else if(possibleDestination.mapLocation == MapLocations.WICFoodPantry && currentLocation.mapLocation == MapLocations.WICFoodPantry)
+                    {
+
+                    }
+                    else
+                    {
+                        NavigationPopUp popUp;
+                      
+                        if (possibleDestination.locationType == LocationType.NearbyLocation)
+                        {
+                            popUp = nearbyPopup;
+                            popUp.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
+                        } else
+                        {
+                            popUp = farPopup;
+                        }
+
+                        popUp.title.text = location.locationTitle;
+                        popUp.description.text = location.locationDescription;
+                        popUp.carText.text = "Car (" + formatTime(calculateTravelTime(TravelType.Car)) + ")";
+
+                        GameObject gameObject = popUp.gameObject;
+                        canvasController.openPopup(gameObject);
+                    }
+
                 }
             }     
         }
@@ -109,6 +129,8 @@ namespace Manage
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
+
+            canvasController.screenDisplayed = true;
             clock.addGameMinutes(travelTime);
             
             currentLocation.onEnter();
@@ -229,7 +251,6 @@ namespace Manage
 
         public void handleLeaveBusEvent()
         {
-            Debug.Log("leave bus");
             Debug.Log(possibleDestination);
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);

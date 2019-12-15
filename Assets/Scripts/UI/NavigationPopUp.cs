@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NavigiationPopUp : MonoBehaviour
+public class NavigationPopUp : MonoBehaviour
 {
     public Text title;
     public Text description;

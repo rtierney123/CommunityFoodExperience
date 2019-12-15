@@ -169,11 +169,9 @@ public class ClockDisplay : MonoBehaviour
     {
         uint numberMins = (12 - amStartTime + pmEndTime) * 60;
         double gameMinutestoMilliseconds = (runtimeMiliSeconds / numberMins)*min;
-        Debug.Log(gameMinutestoMilliseconds);
         TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameMinutestoMilliseconds);
        
         lossTime = lossTime.Add(lossSpan);
-        Debug.Log(lossSpan);
     }
 
 }

@@ -2435,6 +2435,7 @@ MonoBehaviour:
     c_hack: 
     socialSecurityIncome: 870
     monthlyIncome: 5000
+    temporaryAssistance: 0
     numInHouse: 2
     expenses: 855
     startingBusTokens: 1
@@ -4048,6 +4049,41 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 185
       objectReference: {fileID: 0}
+    - target: {fileID: 9194739193301082161, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 163
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 977781994236378864, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 977781994236378864, guid: 1f533b28bd2465f4bb74f506259c4e78,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1256688742602213023, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
     - {fileID: 650168525, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
@@ -4437,7 +4473,7 @@ MonoBehaviour:
   messageManager: {fileID: 1898436623}
   clock: {fileID: 1362943300}
   chanceSickChild: 1
-  chanceFreeRide: 5
+  chanceFreeRide: 20
   chanceBreakdown: 1
 --- !u!1 &809881357 stripped
 GameObject:
@@ -4494,7 +4530,7 @@ PrefabInstance:
     - target: {fileID: 4433631391496842670, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
@@ -4569,7 +4605,7 @@ PrefabInstance:
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 99899.99
       objectReference: {fileID: 0}
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
@@ -4584,12 +4620,12 @@ PrefabInstance:
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 67005849972118926, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
@@ -5963,6 +5999,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Walk_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581761241624065735, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581761241624065735, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 635
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581761241624065735, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581761241624065735, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179106479606468268, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179106479606468268, guid: ee4319aa5f64bf74d94786b2abec42b7,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4181270246160935150, guid: ee4319aa5f64bf74d94786b2abec42b7, type: 3}
@@ -9896,7 +9962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597891559083732, guid: 7a923e8c6a170dd47ab423f709fb034f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -201
+      value: -203
       objectReference: {fileID: 0}
     - target: {fileID: 4597891559083732, guid: 7a923e8c6a170dd47ab423f709fb034f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9936,7 +10002,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Created by:\n\n  Team Infinity@Georgia Tech\n      Rachel Tierney\r\n
         \     Tommy Landman\n      Tuan Nguyen\r\n      Richard Qiu\r\n      Dean
-        Sun\r\n\n           &\n\n  Atlanta Community Food Bank\n\n\n"
+        Sun\r\n\n           &\n\n Atlanta Community Food Bank\n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4597891559083733, guid: 7a923e8c6a170dd47ab423f709fb034f, type: 3}
       propertyPath: m_FontData.m_Alignment

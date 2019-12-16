@@ -142,6 +142,7 @@ namespace Manage{
         {
             messageManager.generateMainScreenOnlyErrorMessage("You better get home soon.  It is getting late.");
             canvasController.playWarning();
+            Debug.Log("warning end");
         }
     }
 }

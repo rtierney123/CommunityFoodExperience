@@ -11,8 +11,9 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 {
 
     public GameManager gameManager;
-    public int mealRemaining;
-    public int ticketsRemaining;
+    public int startTickets;
+    public int startMeals;
+ 
     public int randomMealTakenMax;
     public int randomTicketTakenMax;
     public int lineWaitTimeMax;
@@ -24,12 +25,14 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     public string jsonLocation;
 
     private Food soup;
-    private int startTickets;
-    private int startMeals;
+
+    private int mealRemaining;
+    private int ticketsRemaining;
 
     void OnEnable()
     {
-        if(ticketsRemaining > 0)
+        numMealsText.text = mealRemaining.ToString();
+        if (ticketsRemaining > 0)
         {
             if(player.busTokens==0 && !player.playerInfo.busPass && !player.playerInfo.hasCar)
             {
@@ -42,8 +45,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 
     private void Start()
     {
-        startTickets = ticketsRemaining;
-        startMeals = mealRemaining;
+        reset();
 
         numMealsText.text = mealRemaining.ToString();
 
@@ -69,7 +71,9 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     public void reset()
     {
         ticketsRemaining = startTickets;
+        Debug.Log(ticketsRemaining);
         mealRemaining = startMeals;
+        Debug.Log(mealRemaining);
     }
 
     IEnumerator GetRequest(string uri)

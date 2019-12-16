@@ -111,7 +111,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
             if (ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name, 40) == null)
             {
-                Debug.Log(navManager.currentLocation.locationTitle);
                 string appendix = "";
                 if (navManager.currentLocation.locationTitle.Equals("Food Tiger"))
                 {
@@ -128,7 +127,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
                     fixedPath_c += "/fp";
                     appendix = "_fp";
                 }
-                Debug.Log("corrected: " + fixedPath_c + name + appendix);
 
                 ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name + appendix, 40);
             }

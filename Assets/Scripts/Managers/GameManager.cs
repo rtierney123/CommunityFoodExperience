@@ -62,7 +62,6 @@ namespace Manage{
 
         public void pauseGame()
         {
-            Debug.Log("pause game");
             pause();
             canvasController.openScreen(pauseScreen);
         }

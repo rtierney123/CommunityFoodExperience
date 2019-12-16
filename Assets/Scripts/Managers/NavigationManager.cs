@@ -193,7 +193,7 @@ namespace Manage
 
         public void handleBusContinuingEvent()
         {
-            if(canvasController.popUp == bus.farePopUp || canvasController.popUp == bus.stopPopUp)
+            if(canvasController.popUp == bus.farePopUp || canvasController.popUp == bus.stopPopUp || canvasController.popUp == bus.vitaSnapPopup || canvasController.popUp == bus.pantryWicPopup)
             {
                 canvasController.closePopUp();
             }

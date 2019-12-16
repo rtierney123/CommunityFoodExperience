@@ -51,7 +51,6 @@ public class Bus : MonoBehaviour
                 {
                     navigationManager.handleBusClickedEvent();
                 }
-              
 
             }
         }

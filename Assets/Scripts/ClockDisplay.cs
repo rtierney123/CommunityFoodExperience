@@ -145,6 +145,7 @@ public class ClockDisplay : MonoBehaviour
 
     private void callEndGameEvent()
     {
+        Debug.Log("end game called");
         if (!endGameCalled)
         {
             foreach (IClockEventCaller caller in eventCallers)

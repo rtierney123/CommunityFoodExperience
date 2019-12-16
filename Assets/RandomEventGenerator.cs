@@ -56,6 +56,7 @@ namespace Manage
             float rand = UnityEngine.Random.Range(0, 100);
             if (rand < chanceBreakdown && player.playerInfo.hasCar)
             {
+                Debug.Log("car broken down");
                 currencyManager.tempDisableCar(60);
             }
 

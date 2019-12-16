@@ -32,15 +32,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     void OnEnable()
     {
         numMealsText.text = mealRemaining.ToString();
-        if (ticketsRemaining > 0)
-        {
-            if(player.busTokens==0 && !player.playerInfo.busPass && !player.playerInfo.hasCar)
-            {
-                currencyManager.addTokens(1);
-                updateTickets(1);
-                StartCoroutine(delayOpenSuccessMessage(1, "'You look like you could you use a bus pass. Here you go.'"));
-            }
-        }
+    
     }
 
     private void Start()
@@ -71,9 +63,23 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     public void reset()
     {
         ticketsRemaining = startTickets;
-        Debug.Log(ticketsRemaining);
         mealRemaining = startMeals;
-        Debug.Log(mealRemaining);
+    }
+
+    public void askForTicket()
+    {
+        if (ticketsRemaining > 0)
+        {
+            if (player.busTokens == 0 && !player.playerInfo.busPass && !player.playerInfo.hasCar)
+            {
+                currencyManager.addTokens(1);
+                updateTickets(1);
+                messageManager.generateStandardSuccessMessage("'You look like you could you use a bus pass. Here you go.'");
+            } else
+            {
+                messageManager.generateStandardErrorMessage("'Sorry, you look like you already have a mode of tranportation. There are other people who need these tickets more.'");
+            }
+        }
     }
 
     IEnumerator GetRequest(string uri)

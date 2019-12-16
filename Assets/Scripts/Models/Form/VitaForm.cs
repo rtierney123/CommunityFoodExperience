@@ -49,7 +49,7 @@ namespace UI
             
             if (playerInfo.socialSecurityIncome > 0 || playerInfo.temporaryAssistance >0)
             {
-                ctcStatusString = "Cannot receive EITC benefits while recieving Social Security or other temporary assistance. All wages must be earned from a job.";
+                eitcStatusString = "Cannot receive EITC benefits while recieving Social Security or other temporary assistance. All wages must be earned from a job.";
                 valid = false;
             }
             else
@@ -64,7 +64,7 @@ namespace UI
                         {
                             if(monthlyIncome > 1235)
                             {
-                                ctcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -72,7 +72,7 @@ namespace UI
                         {
                             if (monthlyIncome > 1694)
                             {
-                                ctcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -82,7 +82,7 @@ namespace UI
                         {
                             if (monthlyIncome > 3261)
                             {
-                                ctcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -90,7 +90,7 @@ namespace UI
                         {
                             if (monthlyIncome > 3721)
                             {
-                                ctcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -100,7 +100,7 @@ namespace UI
                         {
                             if (monthlyIncome > 3705)
                             {
-                                ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -108,7 +108,7 @@ namespace UI
                         {
                             if (monthlyIncome > 4165)
                             {
-                                ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -118,7 +118,7 @@ namespace UI
                         {
                             if (monthlyIncome > 3979)
                             {
-                                ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -126,7 +126,7 @@ namespace UI
                         {
                             if (monthlyIncome > 4439)
                             {
-                                ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -145,7 +145,7 @@ namespace UI
 
             if(numKids == 0)
             {
-                eitcStatusString = "Must have a child to be eligable for CTC.";
+                ctcStatusString = "Must have a child to be eligable for CTC.";
                 valid = false;
             }
             else
@@ -154,7 +154,7 @@ namespace UI
                 {
                     if (monthlyIncome > 9167)
                     {
-                        eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }
@@ -162,7 +162,7 @@ namespace UI
                 {
                     if (monthlyIncome > 4583)
                     {
-                        eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }
@@ -170,7 +170,7 @@ namespace UI
                 {
                     if (monthlyIncome > 6250)
                     {
-                        eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
+                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }

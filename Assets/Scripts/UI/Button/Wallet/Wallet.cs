@@ -134,6 +134,14 @@ namespace UI
 
             if (!hasTransporation) {
                 transportationText.SetActive(true);
+                Text transText = transportationText.GetComponent<Text>();
+                if (player.hasTemporaryRide)
+                {
+                    transText.text = "Someone has offered to give you a ride from this location.";
+                }
+                else { 
+                    transText.text= "You don't have any car or bus pass.";
+                }
             } else {
                 transportationText.SetActive(false);
             }
@@ -150,10 +158,6 @@ namespace UI
                 else if (child.name == "SNAPValue")
                 {
                     child.gameObject.GetComponent<Text>().text = formatFunds(player.snapFunds);
-                }
-                else if (child.name == "WICValue")
-                {
-                    // child.gameObject.GetComponent<Text>().text = player.wic ? "Yes" : "No";
                 }
                 else if (child.name == "EITCValue")
                 {

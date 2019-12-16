@@ -20,6 +20,7 @@ public class Nutrition : MonoBehaviour
     private void OnEnable()
     {
         playerInfo = player.playerInfo;
+        updateInfo();
     }
 
     public void updateInfo()

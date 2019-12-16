@@ -75,6 +75,8 @@ public class Player : MonoBehaviour
         hasTemporaryRide = false;
         hasKidBeenSick = false;
         isHome = true;
+
+        resetVoucher();
 }
 
     public void setPlayerInfo(PlayerInfo info)
@@ -175,6 +177,13 @@ public class Player : MonoBehaviour
         hasWic = true;
         wicVoicher.gameObject.SetActive(true);
         playerInfo.setRecievedAssistance(true);
+    }
+
+    public void resetVoucher()
+    {
+        hasWic = false;
+        wicVoicher.gameObject.SetActive(false);
+        wicVoicher.reset();
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers

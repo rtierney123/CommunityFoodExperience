@@ -32,6 +32,20 @@ public class WICVoucher : MonoBehaviour
   
     }
 
+    public void reset()
+    {
+        fruitUsed = false;
+        vegUsed = false;
+        grainUsed = false;
+        proteinUsed = false;
+        dairyUsed = false;
+        fruitCheck.SetActive(false);
+        vegCheck.SetActive(false);
+        proteinCheck.SetActive(false);
+        grainCheck.SetActive(false);
+        dairyCheck.SetActive(false);
+    }
+
     public void useVoucher(FoodType foodType)
     {
         

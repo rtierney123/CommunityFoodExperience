@@ -19,7 +19,7 @@ namespace UI
         protected double eitc;
         protected double snap;
 
-        public virtual void pay()
+        public virtual void resetBoxes()
         {
 
             string resetValue = "";
@@ -47,5 +47,6 @@ namespace UI
 
         }
     }
+
 }
 

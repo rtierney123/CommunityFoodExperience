@@ -39,10 +39,10 @@ namespace UI
           
         }
 
-        public override void pay()
+        public void pay()
         {
             canvasController.addToPopUpBackLog(this.gameObject);
-            base.pay();
+            resetBoxes();
             if (currencyManager.validatePayment(cash, ctc, eitc, 0, ticketCost*numTickets))
             {
                 currencyManager.subtractFunds(FundsType.Cash, cash);
@@ -86,6 +86,7 @@ namespace UI
         public void cancel()
         {
             canvasController.forcePopupOpen(farePopup);
+            resetBoxes();
         }
 
         private void updateTicket()

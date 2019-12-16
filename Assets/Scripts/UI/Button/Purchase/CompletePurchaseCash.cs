@@ -13,10 +13,10 @@ namespace UI
         public Store store;
   
 
-        public override void pay()
+        public override void resetBoxes()
         {
 
-            base.pay();
+            base.resetBoxes();
 
             store.completeFundsPayment(cash, eitc, ctc, snap);
          

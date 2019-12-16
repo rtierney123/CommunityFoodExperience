@@ -17,7 +17,7 @@ namespace UI
 
         protected override bool checkValid()
         {
-            double monthlyIncome = playerInfo.getMonthlyIncome();
+            double monthlyIncome = playerInfo.getTotalIncome();
             int numEligible = playerInfo.getNumEligableForWic();
             if (numEligible > 0)
             {

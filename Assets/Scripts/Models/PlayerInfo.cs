@@ -39,6 +39,7 @@ public class PlayerInfo
 
     public double socialSecurityIncome = 870;
     public double monthlyIncome = 5000;
+    public double temporaryAssistance = 0;
     public int numInHouse = 2;
     public double expenses = 855;
 
@@ -471,6 +472,11 @@ public class PlayerInfo
     public void setRecievedAssistance(bool assistanceReceived)
     {
         federalAssistance = assistanceReceived;
+    }
+
+    public double getTotalIncome()
+    {
+        return monthlyIncome + temporaryAssistance + socialSecurityIncome;
     }
 }
     

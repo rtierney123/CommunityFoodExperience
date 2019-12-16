@@ -11,10 +11,11 @@ namespace UI
         public Player player;
         public PlayerInfo playerInfo;
         public List<FormWrapper> formItems;
-        public float nextActionTime;
         public ClockDisplay clock;
         public DisableableButton signButton;
         private bool fillingOutItem;
+
+        protected float nextActionTime = 2;
 
         //five minute
         private uint lossTime = 5;

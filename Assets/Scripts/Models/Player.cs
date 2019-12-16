@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
     {
         playerInfo = info;
         resetToStarting();
+        playerInfo.setRecievedAssistance(false);
+        
     }
 
     public void resetToStarting()

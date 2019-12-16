@@ -26,7 +26,7 @@ namespace UI
             }
 
             int numHouseHold = playerInfo.numInHouse;
-            double monthlyIncome = playerInfo.monthlyIncome;
+            double monthlyIncome = playerInfo.getTotalIncome();
 
             bool valid = true;
             switch (numHouseHold)

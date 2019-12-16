@@ -81,13 +81,10 @@ namespace UI
             } else if (monthlyIncome <= 1000 && monthlyIncome>= 800)
             {
                 snapAmt = 2.5;
-            } else if (monthlyIncome <= 2794 && monthlyIncome>= 1001)
+            } else 
             {
                 snapAmt = 1;
-            } else
-            {
-                Debug.Log("Error should not be sucessful");
-            }
+            } 
 
             currencyManager.addFunds(FundsType.Snap, snapAmt);
             string successStr = formatSuccessString(snapAmt);

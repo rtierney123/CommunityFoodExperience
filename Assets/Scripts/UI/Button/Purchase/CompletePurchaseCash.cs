@@ -13,7 +13,7 @@ namespace UI
         public Store store;
   
 
-        public override void resetBoxes()
+        public void pay()
         {
 
             base.resetBoxes();

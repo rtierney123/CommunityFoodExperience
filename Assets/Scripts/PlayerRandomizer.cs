@@ -29,10 +29,13 @@ public class PlayerRandomizer : MonoBehaviour
 
     private void populatePlayerList()
     {
+
         string jsonLocation;
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            jsonLocation = "/StreamingAssets" + playerJsonLocation;
+            //Debug.Log(Application.absoluteURL);
+            //Debug.Log("Fetch from: " + Application.absoluteURL + "StreamingAssets" + playerJsonLocation);
+            jsonLocation = Application.absoluteURL + "StreamingAssets" + playerJsonLocation;
             StartCoroutine(GetRequest(jsonLocation));
         }
         else
@@ -63,12 +66,12 @@ public class PlayerRandomizer : MonoBehaviour
 
             if (webRequest.isNetworkError)
             {
-                Debug.Log(pages[page] + ": Error: " + webRequest.error);
+                //Debug.Log(pages[page] + ": Error: " + webRequest.error);
             }
             else
             {
-                Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-                Debug.Log(webRequest.downloadHandler.text);
+                //Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                //Debug.Log(webRequest.downloadHandler.text);
                 string json = webRequest.downloadHandler.text;
 
                 generatePlayerAssets(json);

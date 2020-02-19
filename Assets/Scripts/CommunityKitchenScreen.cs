@@ -43,7 +43,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
 
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            jsonLocation = "/StreamingAssets" + jsonLocation;
+            jsonLocation = Application.absoluteURL + "StreamingAssets" + jsonLocation;
             StartCoroutine(GetRequest(jsonLocation));
         }
         else

@@ -42,7 +42,7 @@ public class ClockDisplay : MonoBehaviour
                 eventCallers.Add(caller);
             } catch(Exception ex)
             {
-                Debug.Log(ex.ToString());
+                //Debug.Log(ex.ToString());
             }
         }
 	}
@@ -145,7 +145,7 @@ public class ClockDisplay : MonoBehaviour
 
     private void callEndGameEvent()
     {
-        Debug.Log("end game called");
+        //Debug.Log("end game called");
         if (!endGameCalled)
         {
             foreach (IClockEventCaller caller in eventCallers)

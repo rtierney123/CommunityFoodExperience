@@ -34,6 +34,7 @@ namespace Manage{
             if (openStartScreenOnPlay)
             {
                 canvasController.openScreen(startScreen);
+                Debug.Log("START");
                 pause();
             }
             else
@@ -142,7 +143,7 @@ namespace Manage{
         {
             messageManager.generateMainScreenOnlyErrorMessage("You better get home soon.  It is getting late.");
             canvasController.playWarning();
-            Debug.Log("warning end");
+            //Debug.Log("warning end");
         }
     }
 }

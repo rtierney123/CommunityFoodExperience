@@ -30,10 +30,15 @@ public class ChoosePlayerScreen : Screen
     public void populatePlayerList()
     {
         string jsonLocation;
+        Debug.Log(Application.absoluteURL);
+        Debug.Log("Fetch from: " + Application.absoluteURL + playerJsonLocation);
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            jsonLocation = "/StreamingAssets" + playerJsonLocation;
-            StartCoroutine(GetRequest(jsonLocation));
+            jsonLocation = Application.absoluteURL + "StreamingAssets" + playerJsonLocation;
+            Debug.Log(Application.absoluteURL);
+            // should display atlantacfe.com/cfe/
+            Debug.Log("Fetch from: " + Application.absoluteURL + playerJsonLocation);
+            StartCoroutine(GetRequest(Application.absoluteURL + playerJsonLocation));
         }
         else
         {

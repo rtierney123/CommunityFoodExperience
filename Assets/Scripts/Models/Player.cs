@@ -93,8 +93,7 @@ public class Player : MonoBehaviour
         busTokens = playerInfo.startingBusTokens;
     }
 
-    //string[] foodAcquired = [];
-
+  
     // view player information
     public int[] getNutrition()
     {
@@ -102,7 +101,6 @@ public class Player : MonoBehaviour
         return null;
     }
 
-    //.....
 
     // update player information
     public void setMoney(double value)
@@ -203,6 +201,7 @@ public class Player : MonoBehaviour
 
     public bool hasNoModeOfTransportation()
     {
+        //TODO: fixe
         if(busTokens == 0 && money + ctcFunds + eitcFunds >= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
         {
             return true;

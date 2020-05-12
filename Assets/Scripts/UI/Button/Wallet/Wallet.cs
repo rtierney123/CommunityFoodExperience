@@ -15,9 +15,6 @@ namespace UI
         public GameObject transportationTab;
         public GameObject transportationTabBody;
 
-        public GameObject plusSign;
-        public GameObject minusSign;
-
         public GameObject busPass;
         public GameObject carCard;
         public GameObject transportationText;

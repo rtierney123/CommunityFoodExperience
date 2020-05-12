@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,13 +85,16 @@ namespace UI
                 }
                 else if (child.name == "AddressValue")
                 {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.address;
+                    child.gameObject.GetComponent<Text>().text = playerInfo.address + " " + playerInfo.city + ", " + playerInfo.state;
                 }
                 else if (child.name == "IncomeValue") {
                     child.gameObject.GetComponent<Text>().text = "$" + playerInfo.monthlyIncome + "/month";
                 }
                 else if (child.name == "Description") {
                     child.gameObject.GetComponent<Text>().text = playerInfo.description;
+                } else if (child.name == "ZipValue")
+                {
+                    child.gameObject.GetComponent<Text>().text = playerInfo.zip.ToString();
                 }
             }
         }

@@ -405,7 +405,7 @@ public class PlayerInfo
         string month = FormatText.formatInt(birthMonth);
         int y = getBirthYear();
         string year = FormatText.formatInt(y);
-        return day + "/" + month + "/" + year;
+        return month + "/" + day + "/" + year;
     }
 
     public int getBirthYear()

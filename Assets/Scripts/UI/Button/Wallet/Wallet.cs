@@ -21,6 +21,7 @@ namespace UI
         public GameObject busPass;
         public GameObject carCard;
         public GameObject transportationText;
+        public GameObject noTokenText;
         public TokenHolder tokenHolder;
 
         public Player player;
@@ -130,11 +131,20 @@ namespace UI
             }
 
             tokenHolder.clearTokens();
-            for (int i = 0; i < player.busTokens; i++)
+            if(player.busTokens > 0)
             {
-                hasTransporation = true;
-                tokenHolder.addToken();
+                noTokenText.SetActive(false);
+                for (int i = 0; i < player.busTokens; i++)
+                {
+                    hasTransporation = true;
+                    tokenHolder.addToken();
+                }
             }
+            else
+            {
+                noTokenText.SetActive(true);
+            }
+            
 
             if (!hasTransporation) {
                 transportationText.SetActive(true);

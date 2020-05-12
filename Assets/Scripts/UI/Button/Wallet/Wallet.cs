@@ -42,6 +42,7 @@ namespace UI
             playerInfo = player.playerInfo;
             updateWallet();
             updateTransportationDisplay();
+            updateInfo();
         }
 
         public void selectWalletTab()
@@ -57,6 +58,18 @@ namespace UI
             setInactive();
             infoTab.GetComponent<Image>().color = selectColor;
             infoTabBody.SetActive(true);
+            updateInfo();
+        }
+
+        public void selectTransportationTab()
+        {
+            setInactive();
+            transportationTab.GetComponent<Image>().color = selectColor;
+            transportationTabBody.SetActive(true);
+        }
+
+        public void updateInfo()
+        {
             foreach (Transform child in infoTabBody.transform)
             {
                 if (child.name == "NameValue")
@@ -71,10 +84,12 @@ namespace UI
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.getDOB();
                 }
-                else if (child.name == "MarriedValue") {
+                else if (child.name == "MarriedValue")
+                {
                     child.gameObject.GetComponent<Text>().text = playerInfo.married ? "Yes" : "No";
                 }
-                else if (child.name == "AgeValue") {
+                else if (child.name == "AgeValue")
+                {
                     child.gameObject.GetComponent<Text>().text = "" + playerInfo.age;
                 }
                 else if (child.name == "TelValue")
@@ -85,23 +100,19 @@ namespace UI
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.address + " " + playerInfo.city + ", " + playerInfo.state;
                 }
-                else if (child.name == "IncomeValue") {
+                else if (child.name == "IncomeValue")
+                {
                     child.gameObject.GetComponent<Text>().text = "$" + playerInfo.monthlyIncome + "/month";
                 }
-                else if (child.name == "Description") {
+                else if (child.name == "Description")
+                {
                     child.gameObject.GetComponent<Text>().text = playerInfo.description;
-                } else if (child.name == "ZipValue")
+                }
+                else if (child.name == "ZipValue")
                 {
                     child.gameObject.GetComponent<Text>().text = playerInfo.zip.ToString();
                 }
             }
-        }
-
-        public void selectTransportationTab()
-        {
-            setInactive();
-            transportationTab.GetComponent<Image>().color = selectColor;
-            transportationTabBody.SetActive(true);
         }
 
         public void updateTransportationDisplay()

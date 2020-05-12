@@ -232,6 +232,75 @@ public class Player : MonoBehaviour
         }
     }
 
+    public bool getAchieveCalories()
+    {
+        return calories >= playerInfo.requiredCalories;
+    }
+
+    public String getCaloriesStatus()
+    {
+        return calories.ToString() + "/" + playerInfo.requiredCalories.ToString(); 
+    }
+    public bool getAchieveGrain()
+    {
+        return grain >= playerInfo.requiredGrain;
+    }
+    public String getGrainStatus()
+    {
+        return grain.ToString() + "/" + playerInfo.requiredGrain.ToString();
+    }
+    public bool getAchieveFat()
+    {
+        return fat >= playerInfo.requiredFat;
+    }
+    public String getFatStatus()
+    {
+        return fat.ToString() + "/" + playerInfo.requiredFat.ToString();
+    }
+
+    public bool getAchieveProtein()
+    {
+        return protein >= playerInfo.requiredProtein;
+    }
+    public String getProteinStatus()
+    {
+        return protein.ToString() + "/" + playerInfo.requiredProtein.ToString();
+    }
+
+    public bool getAchieveDairy()
+    {
+        return dairy >= playerInfo.requiredDairy;
+    }
+    public String getDairyStatus()
+    {
+        return dairy.ToString() + "/" + playerInfo.requiredDairy.ToString();
+    }
+    public bool getAchieveFruit()
+    {
+        return fruit >= playerInfo.requiredFruit;
+    }
+    public String getFruitStatus()
+    {
+        return fruit.ToString() + "/" + playerInfo.requiredFruit.ToString();
+    }
+    public bool getAchieveVegetable()
+    {
+        return vegetable >= playerInfo.requiredVegetable;
+    }
+    public String getVegetableStatus()
+    {
+        return vegetable.ToString() + "/" + playerInfo.requiredVegetable.ToString();
+    }
+
+    public bool getAchieveExtra()
+    {
+        return extra >= playerInfo.requiredExtra;
+    }
+    public String getExtraStatus()
+    {
+        return extra.ToString() + "/" + playerInfo.requiredExtra.ToString();
+    }
+
     public void setFreeRide(bool freeRide)
     {
         hasTemporaryRide = freeRide;

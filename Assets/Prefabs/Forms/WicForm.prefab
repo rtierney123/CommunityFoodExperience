@@ -652,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8256021276445148679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -745,6 +745,7 @@ MonoBehaviour:
     c_hack: 
     socialSecurityIncome: 870
     monthlyIncome: 5000
+    temporaryAssistance: 0
     numInHouse: 2
     expenses: 855
     startingBusTokens: 1
@@ -792,7 +793,6 @@ MonoBehaviour:
   - {fileID: 5904774880730120888}
   - {fileID: 7857882260071689409}
   - {fileID: 236587077629009625}
-  nextActionTime: 4
   clock: {fileID: 0}
   signButton: {fileID: 6332912486755159012}
   currencyManager: {fileID: 0}
@@ -2451,6 +2451,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3777408415910163923}
+    - target: {fileID: 1065380881781960232, guid: 4b993718ec5b96a4a8eaf23d2b4228a9,
+        type: 3}
+      propertyPath: m_Text
+      value: WIC Clinic
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b993718ec5b96a4a8eaf23d2b4228a9, type: 3}
 --- !u!224 &9015927001762025361 stripped

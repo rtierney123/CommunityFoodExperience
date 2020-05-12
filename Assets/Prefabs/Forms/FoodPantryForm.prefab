@@ -145,10 +145,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1367.5, y: 775}
+  m_SizeDelta: {x: -981.448, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1712060181519437347
 CanvasRenderer:
@@ -174,12 +174,12 @@ MonoBehaviour:
   messageManager: {fileID: 0}
   nextScreen: {fileID: 0}
   prevScreen: {fileID: 0}
-  delayTime: 1
   player: {fileID: 0}
   playerInfo:
     firstName: Sam
     middleName: 
     lastName: Smith
+    gender: 0
     description: You are an elderly person (senior citizen) and you live alone on
       a fixed income of $870 a month from Social Security. Your rent for a small apartment
       is $600/month and you pay $50/month for electricity, $30 month for a phone and
@@ -195,16 +195,17 @@ MonoBehaviour:
     birthMonth: 12
     birthDay: 1
     children:
-      childList: []
+      list: []
     c_hack: 
     socialSecurityIncome: 870
     monthlyIncome: 5000
+    temporaryAssistance: 0
     numInHouse: 2
     expenses: 855
     startingBusTokens: 1
     busPass: 1
     hasCar: 1
-    pregant: 0
+    pregnant: 0
     single: 0
     married: 0
     jointTax: 0
@@ -233,10 +234,8 @@ MonoBehaviour:
   - {fileID: 8080847190607167479}
   - {fileID: 6267680444540640598}
   - {fileID: 4790875171009961992}
-  nextActionTime: 2
   clock: {fileID: 0}
   signButton: {fileID: 0}
-  signed: 0
 --- !u!114 &646318564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1670,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1935432039882808593}
+    - target: {fileID: 1065380881781960232, guid: 4b993718ec5b96a4a8eaf23d2b4228a9,
+        type: 3}
+      propertyPath: m_Text
+      value: Food Pantry
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b993718ec5b96a4a8eaf23d2b4228a9, type: 3}
 --- !u!224 &3694545149247464234 stripped

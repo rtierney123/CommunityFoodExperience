@@ -14,20 +14,14 @@ namespace Manage
         public int changeDisplayTime;
 
         private bool nutritionAdded = false;
-        private GameObject plusSignPopUp;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            plusSignPopUp = nutritionDisplay.plusSignPopup;
-        }
 
         // Update is called once per frame
         void Update()
         {
             if (nutritionAdded && canvasController.popUp == null && !canvasController.screenDisplayed)
             {
-                StartCoroutine(displayAddedNutrition());
+               // StartCoroutine(displayAddedNutrition());
             }
         }
 
@@ -37,7 +31,7 @@ namespace Manage
             nutritionAdded = true;
             nutritionDisplay.updateInfo();
         }
-
+        /*
         public IEnumerator displayAddedNutrition()
         {
             nutritionAdded = false;
@@ -45,6 +39,7 @@ namespace Manage
             yield return new WaitForSeconds(changeDisplayTime);
             plusSignPopUp.SetActive(false);
         }
+        */
     }
 }
 

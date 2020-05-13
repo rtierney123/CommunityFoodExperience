@@ -152,19 +152,19 @@ namespace UI
             {
                 noTokenText.SetActive(true);
             }
-            
 
-            if (!hasTransporation) {
+            
+            Text transText = transportationText.GetComponent<Text>();
+            if (!playerInfo.busPass && !playerInfo.hasCar && !player.hasTemporaryRide)
+            {
+                transText.text = "You don't have any car or bus pass.";
                 transportationText.SetActive(true);
-                Text transText = transportationText.GetComponent<Text>();
-                if (player.hasTemporaryRide)
-                {
-                    transText.text = "Someone has offered to give you a ride from this location.";
-                }
-                else { 
-                    transText.text= "You don't have any car or bus pass.";
-                }
-            } else {
+            } else if (player.hasTemporaryRide)
+            {
+                transText.text = "Someone has offered to give you a ride from this location.";
+                transportationText.SetActive(true);
+            } else
+            {
                 transportationText.SetActive(false);
             }
         }

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>%UNITY_WEB_NAME%</title>
 	<script src="%UNITY_WEBGL_LOADER_URL%"></script>
+
 	<script>
 		var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
 		var scaleToFit;
@@ -18,7 +21,7 @@
 			var container = gameInstance.container;
 			var w;
 			var h;
-
+			console.log("window resized");
 			if(scaleToFit){
 				w = window.innerWidth;
 				h = window.innerHeight;
@@ -39,6 +42,7 @@
 			container.style.top = Math.floor((window.innerHeight - h)/2) + "px";
 			container.style.left = Math.floor((window.innerWidth - w)/2) + "px";
 		}
+
 	</script>
 	<style>
 		html,body{

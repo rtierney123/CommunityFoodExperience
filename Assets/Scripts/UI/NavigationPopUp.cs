@@ -1,18 +1,19 @@
 ﻿using Manage;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NavigationPopUp : MonoBehaviour
+public class NavigationPopUp : PopUp
 {
+    public Player player;
+    public NavigationManager manager;
+
     public Text title;
     public Text description;
     public Text carText;
     public Text walkText;
-
-    public Player player;
-    public NavigationManager manager;
     public DisableableButton walkButton;
     public DisableableButton carButton;
 

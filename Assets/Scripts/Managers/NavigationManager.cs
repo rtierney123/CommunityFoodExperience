@@ -123,6 +123,7 @@ namespace Manage
 
         public void travelToDestination(TravelType travelType)
         {
+            closePopUp();
             // scaled value from distmap
             double travelTime = calculateTravelTime(travelType);
             currentLocation = possibleDestination;

@@ -269,7 +269,6 @@ namespace Manage
             if (player.hasNoModeOfTransportation() && currentLocation.locationType == LocationType.FarLocation)
             {
                 canvasController.addToMainScreenPopUpBackLog(stuckPopup);
-                Debug.Log("stuck");
             }
         }
 

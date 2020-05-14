@@ -70,7 +70,7 @@ namespace Manage
             {
                 player.setFreeRide(true);
                 Debug.Log("free ride");
-                messageManager.generateMainScreenOnlySuccessMessage("'Hey you look like you could use a ride.' (You can take a ride to one location. You lose this ride if you move from this location)");
+                messageManager.generateMainScreenOnlySuccessMessage("A kind stranger has offered to give you a ride to your next location. Choose wisely as this will only get you to one place. Redeem by clicking the next location you want to go.");
             }
         }
 

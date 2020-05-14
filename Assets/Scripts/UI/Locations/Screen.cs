@@ -10,6 +10,8 @@ public class Screen : MonoBehaviour
     public GameObject nextScreen;
     public GameObject prevScreen;
     protected float delayTime = (float).5;
+    internal static int height;
+    internal static float width;
 
     public IEnumerator delayOpenNextScreen()
     {

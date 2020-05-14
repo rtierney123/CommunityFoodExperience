@@ -17,8 +17,6 @@ public class NavigationPopUp : PopUp
     public DisableableButton walkButton;
     public DisableableButton carButton;
 
-    public GameObject busNoteText;
-
     [HideInInspector]
     public GameObject popUp;
     // Start is called before the first frame update
@@ -51,16 +49,6 @@ public class NavigationPopUp : PopUp
                 walkButton.disable();
             }
         }
-
-        if (manager.possibleDestination.busAvailable)
-        {
-            busNoteText.SetActive(true);
-        }
-        else
-        {
-            busNoteText.SetActive(false);
-        }
-       
     }
 
     // Update is called once per frame

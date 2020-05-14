@@ -202,7 +202,7 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         //TODO: fixe
-        if(busTokens == 0 && money + ctcFunds + eitcFunds >= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
+        if(busTokens == 0 && money + ctcFunds + eitcFunds <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
         {
             return true;
         } else

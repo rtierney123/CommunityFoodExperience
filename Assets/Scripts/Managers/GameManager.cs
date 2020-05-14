@@ -93,6 +93,7 @@ namespace Manage{
 
         public void endGame()
         {
+            canvasController.closePopUp();
             canvasController.endGame = true;
             canvasController.openPostGameScreen(endScreen);
             pause();

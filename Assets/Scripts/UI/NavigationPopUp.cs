@@ -16,6 +16,8 @@ public class NavigationPopUp : MonoBehaviour
     public DisableableButton walkButton;
     public DisableableButton carButton;
 
+    public GameObject busNoteText;
+
     [HideInInspector]
     public GameObject popUp;
     // Start is called before the first frame update
@@ -47,6 +49,15 @@ public class NavigationPopUp : MonoBehaviour
             {
                 walkButton.disable();
             }
+        }
+
+        if (manager.possibleDestination.busAvailable)
+        {
+            busNoteText.SetActive(true);
+        }
+        else
+        {
+            busNoteText.SetActive(false);
         }
        
     }

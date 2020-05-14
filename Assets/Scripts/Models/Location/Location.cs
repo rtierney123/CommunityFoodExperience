@@ -20,6 +20,7 @@ namespace Model
         public string locationDescription;
         public float delayTime;
         public bool entered = false;
+        public bool busAvailable = false;
 
         public GameObject map;
         public Material[] mats; // size 9: 2 elements each

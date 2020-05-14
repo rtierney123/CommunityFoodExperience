@@ -1643,6 +1643,11 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 2097960911}
+    - target: {fileID: 8766484811491293318, guid: de081fa37f5320047ab2361d95a24891,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de081fa37f5320047ab2361d95a24891, type: 3}
 --- !u!4 &229646145 stripped
@@ -4219,25 +4224,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1817381251}
-    - target: {fileID: 670850947767533055, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 670850947767533055, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1256688742750421702, guid: 1f533b28bd2465f4bb74f506259c4e78,
         type: 3}
       propertyPath: m_Name
       value: Far_Transportation_Popup (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256688742750421702, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1256688742750421703, guid: 1f533b28bd2465f4bb74f506259c4e78,
         type: 3}
@@ -4349,21 +4339,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1193828603}
-    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110
-      objectReference: {fileID: 0}
-    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 68.80591
-      objectReference: {fileID: 0}
-    - target: {fileID: 7630689649089496731, guid: 1f533b28bd2465f4bb74f506259c4e78,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f533b28bd2465f4bb74f506259c4e78, type: 3}
 --- !u!224 &650168523 stripped
@@ -6182,6 +6157,7 @@ MonoBehaviour:
   locationDescription: Can take bus to downtown from here.
   delayTime: 1
   entered: 0
+  busAvailable: 0
   map: {fileID: 2097960911}
   mats: []
 --- !u!1 &982130608
@@ -6303,16 +6279,6 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1817381251}
-    - target: {fileID: 2761632828689789971, guid: ee4319aa5f64bf74d94786b2abec42b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2761632830082847486, guid: ee4319aa5f64bf74d94786b2abec42b7,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 3442881018373871621, guid: ee4319aa5f64bf74d94786b2abec42b7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6442,11 +6408,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nearby_Transportation_Popup
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181270246298201271, guid: ee4319aa5f64bf74d94786b2abec42b7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474489986066686361, guid: ee4319aa5f64bf74d94786b2abec42b7,
         type: 3}
@@ -10689,6 +10650,11 @@ PrefabInstance:
       propertyPath: mapLocation
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6059045559934973850, guid: dc81b2eb11ba74740ac7e62fafadce0b,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6862706652236860874, guid: dc81b2eb11ba74740ac7e62fafadce0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11938,6 +11904,11 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 2097960911}
+    - target: {fileID: 8766484811491293318, guid: de081fa37f5320047ab2361d95a24891,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de081fa37f5320047ab2361d95a24891, type: 3}
 --- !u!4 &2919530899070165618 stripped
@@ -13423,6 +13394,11 @@ PrefabInstance:
       propertyPath: mapLocation
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5419959106000287414, guid: 22c61f643c19251479f92ae5009bb2b4,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5419959106000287415, guid: 22c61f643c19251479f92ae5009bb2b4,
         type: 3}
       propertyPath: m_Size.y
@@ -13604,6 +13580,11 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 2097960911}
+    - target: {fileID: 113673207787127033, guid: 5ab6bab74d6001f48a6eb51c90d26e6e,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 113673209029269647, guid: 5ab6bab74d6001f48a6eb51c90d26e6e,
         type: 3}
       propertyPath: m_Name
@@ -14377,6 +14358,11 @@ PrefabInstance:
       propertyPath: locationDescription
       value: Can receive Child Tax Credit (CTC) and Earned Income Tax Credit (EITC)
         benefits.
+      objectReference: {fileID: 0}
+    - target: {fileID: 942247209614776696, guid: d38413f001f5aea4da8a660d4aff4f47,
+        type: 3}
+      propertyPath: busAvailable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5376307758668067433, guid: d38413f001f5aea4da8a660d4aff4f47,
         type: 3}

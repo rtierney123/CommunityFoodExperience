@@ -66,9 +66,9 @@ namespace Manage
         {
             if (!bus.playerOnBus)
             {
-                if(currentLocation == location)
+                if(currentLocation.mapLocation == location.mapLocation)
                 {
-                    currentLocation.onEnter();
+                    location.onEnter();
                 } else
                 {
                     possibleDestination = location;

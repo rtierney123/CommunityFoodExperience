@@ -33,7 +33,6 @@ namespace Manage
         public double walkScale;
         public double carScale;
 
-     
         
         Dictionary<Tuple<string, string>, double> distmap;
 
@@ -244,6 +243,9 @@ namespace Manage
 
         public void handleTakeBusEvent()
         {
+            MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
+            Debug.Log("animation offset" + busStop.busAnimationOffset);
+            bus.playAnimation(busStop.busAnimationOffset);
             player.gameObject.SetActive(false);
             bus.playerOnBus = true;
 			OnBus = true;
@@ -271,6 +273,7 @@ namespace Manage
                 canvasController.addToMainScreenPopUpBackLog(stuckPopup);
             }
         }
+
 
         private void generateMapEdges()
         {

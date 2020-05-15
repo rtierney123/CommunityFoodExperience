@@ -99,11 +99,15 @@ public class Bus : MonoBehaviour
 
     public void resetAnimation()
     {
-        if(animator != null)
+        playAnimation(0);
+    }
+
+    public void playAnimation(float offset)
+    {
+        if (animator != null)
         {
-            animator.Play("", 0, 0f);
+            animator.Play("", 0, offset);
         }
-        
     }
 
 

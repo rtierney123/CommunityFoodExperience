@@ -8,6 +8,7 @@ using UnityEngine;
 public class MainBusStopLocation : Location
 {
     public GameObject waitPopup;
+    public float busAnimationOffset;
     public override void onEnter()
     {
         entered = true;

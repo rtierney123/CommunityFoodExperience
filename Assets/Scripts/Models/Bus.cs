@@ -35,6 +35,7 @@ public class Bus : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         pauseAnimation();
+        animator.enabled = false;
     }
 
  
@@ -58,6 +59,7 @@ public class Bus : MonoBehaviour
 
     public void startStop(MapLocations stopLocation)
     {
+        Debug.Log(Time.time);
         mapLocation = stopLocation;
         atStop = true;
         if (playerOnBus)
@@ -99,14 +101,21 @@ public class Bus : MonoBehaviour
 
     public void resetAnimation()
     {
-        playAnimation(0);
+
     }
 
     public void playAnimation(float offset)
     {
+        if (!animator.isInitialized)
+        {
+            animator.Rebind();
+        }
+
         if (animator != null)
         {
-            animator.Play("", 0, offset);
+            animator.PlayInFixedTime("Bus Route", 0, offset);
+            //animator.Play("Bus Route", 0, (float).5);
+            animator.enabled = true;
         }
     }
 

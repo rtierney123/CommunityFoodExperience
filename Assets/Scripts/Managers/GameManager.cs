@@ -55,7 +55,7 @@ namespace Manage{
         public void startGame()
         {
             clock.startAnimation();
-            bus.startAnimation();
+            //bus.startAnimation();
             navigationManager.reset();
             footerDisplay.update();
             canvasController.closeScreen();
@@ -82,7 +82,7 @@ namespace Manage{
         public void resume()
         {
             clock.resume();
-            bus.resumeAnimation();
+            //bus.resumeAnimation();
         }
 
         public void pause()
@@ -125,7 +125,7 @@ namespace Manage{
             canvasController.reset();
             player.resetPlayer();
             clock.resetAnimation();
-            bus.resetAnimation();
+            //bus.resetAnimation();
             navigationManager.reset();
             communityKitchen.reset();
         }

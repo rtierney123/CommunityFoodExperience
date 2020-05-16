@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2734149514922236343}
-  - component: {fileID: 2734149513842268863}
   - component: {fileID: 4806653579898644821}
   - component: {fileID: 7627295454861617703}
   - component: {fileID: 1161091870134668584}
@@ -36,25 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &2734149513842268863
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734149514921805207}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 965832b496c56874ab9c0c61dc94b83b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &4806653579898644821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,6 +70,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -132,10 +113,12 @@ MonoBehaviour:
   navigationManager: {fileID: 0}
   farePopUp: {fileID: 0}
   stopPopUp: {fileID: 0}
+  vitaSnapPopup: {fileID: 0}
+  pantryWicPopup: {fileID: 0}
   mapLocation: 0
   messageManager: {fileID: 0}
   material: {fileID: 2100000, guid: dd3d163990db0534e9e91e9e51d141c9, type: 2}
-  randPercent: 50
+  randStuckPercent: 50
   stuckSeconds: 30
   atStop: 0
   playerOnBus: 0
@@ -146,11 +129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2734149514922236343}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 13756ca190932694ab6121ae47e9dfbc,
-        type: 3}
-      propertyPath: m_Name
-      value: NewBus
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 13756ca190932694ab6121ae47e9dfbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 012cd66f8e421e64bbaa4d7623d005db, type: 2}
+    - target: {fileID: -927199367670048503, guid: 13756ca190932694ab6121ae47e9dfbc,
+        type: 3}
+      propertyPath: m_Name
+      value: NewBus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13756ca190932694ab6121ae47e9dfbc, type: 3}
 --- !u!4 &5006512736918448158 stripped

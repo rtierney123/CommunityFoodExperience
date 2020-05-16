@@ -4666,7 +4666,7 @@ MonoBehaviour:
   map: {fileID: 2097960911}
   mats: []
   waitPopup: {fileID: 1506858302}
-  busAnimationOffset: 34
+  busAnimationOffset: 5.67
 --- !u!1 &778393596
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6108,31 @@ Transform:
   m_Father: {fileID: 637443165}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 32.8448, y: 0, z: 0}
+--- !u!1 &1052327120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2734149514921805207, guid: f08d5fa3981b12d45a4b1dcda97e869e,
+    type: 3}
+  m_PrefabInstance: {fileID: 347434143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1052327124
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052327120}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99b4cdc8a55536743a2847c270d0cd55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1084757332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6212,7 +6237,7 @@ MonoBehaviour:
   map: {fileID: 2097960911}
   mats: []
   waitPopup: {fileID: 1506858302}
-  busAnimationOffset: 15
+  busAnimationOffset: 2.33
 --- !u!1 &1139442204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7189,7 +7214,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 347434143}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1052327120}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad5a2459766d914cbbc79ec18552504, type: 3}
@@ -7528,7 +7553,7 @@ MonoBehaviour:
   nextScreen: {fileID: 0}
   prevScreen: {fileID: 0}
   progressBar: {fileID: 1474651474}
-  bus: {fileID: 1312392691}
+  manager: {fileID: 1817381251}
 --- !u!1 &1467993689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4433631391496842670, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
@@ -8459,7 +8484,7 @@ MonoBehaviour:
   map: {fileID: 2097960911}
   mats: []
   waitPopup: {fileID: 1506858302}
-  busAnimationOffset: 54
+  busAnimationOffset: 9.17
 --- !u!114 &1687683551 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7828154489842905910, guid: 926b993d35380974daafe2b758510f4b,
@@ -8961,12 +8986,6 @@ Transform:
   m_Father: {fileID: 166907425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1838183075 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2734149513842268863, guid: f08d5fa3981b12d45a4b1dcda97e869e,
-    type: 3}
-  m_PrefabInstance: {fileID: 347434143}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1840847482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4270359226114921291, guid: 7ab52aae5e851a64c972f2d2477a95c5,
@@ -9273,7 +9292,7 @@ MonoBehaviour:
   messageManager: {fileID: 1898436623}
   navigationManager: {fileID: 1817381251}
   player: {fileID: 408229920}
-  busAnimator: {fileID: 1838183075}
+  busAnimator: {fileID: 0}
   purchasePopup: {fileID: 2349503961791321618}
   useTicketButton: {fileID: 287736203}
   useBusPassButton: {fileID: 2043899368}
@@ -10669,7 +10688,7 @@ PrefabInstance:
         type: 3}
       propertyPath: busAnimator
       value: 
-      objectReference: {fileID: 1838183075}
+      objectReference: {fileID: 0}
     - target: {fileID: 1980170402137203950, guid: 254b62bb271e3174e9e512355264900e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -16767,7 +16786,7 @@ PrefabInstance:
     - target: {fileID: 6917816163290798248, guid: 887b601b7acb7a8489fe9a391e2473c2,
         type: 3}
       propertyPath: loadTime
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6917816163290798248, guid: 887b601b7acb7a8489fe9a391e2473c2,
         type: 3}

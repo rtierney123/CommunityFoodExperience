@@ -79,6 +79,7 @@ namespace UI
         
         public void goToPurchaseToken()
         {
+            canvasController.addToPopUpBackLog(this.gameObject);
             canvasController.forcePopupOpen(purchasePopup);
         }
     }

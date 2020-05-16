@@ -50,6 +50,10 @@ namespace Manage
             footerDisplay.update();
         }
 
+        public bool validateCashPayment(double amt)
+        {
+            return amt < player.money;
+        }
 
         public bool validatePayment(double cash, double ctc, double eitc, double snap, double totalDue)
         {
@@ -153,6 +157,7 @@ namespace Manage
             player.playerInfo.hasCar = true;
             messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
         }
+
 
     }
 }

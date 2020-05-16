@@ -1,4 +1,5 @@
-﻿using Manage;
+﻿using JetBrains.Annotations;
+using Manage;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class BusWaitingScreen : Screen
 {
     public ProgressBar progressBar;
-    public NavigationManager manager;
+    public GameObject busPopup;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,9 @@ public class BusWaitingScreen : Screen
     {
         if(progressBar.getComplete() && this.gameObject.activeInHierarchy)
         {
-            canvasController.closeCurrentScreen();
-            manager.handleTakeBusEvent();
+            canvasController.addToMainScreenPopUpBackLog(busPopup);
+            canvasController.closeScreen();
+            Debug.Log("open bus popup");
         }
     }
 }

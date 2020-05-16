@@ -59,7 +59,6 @@ public class Bus : MonoBehaviour
 
     public void startStop(MapLocations stopLocation)
     {
-        Debug.Log(Time.time);
         mapLocation = stopLocation;
         atStop = true;
         if (playerOnBus)

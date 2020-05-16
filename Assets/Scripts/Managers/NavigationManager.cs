@@ -193,58 +193,22 @@ namespace Manage
 
         public void handleBusContinuingEvent()
         {
-            if(canvasController.popUp == bus.farePopUp || canvasController.popUp == bus.stopPopUp || canvasController.popUp == bus.vitaSnapPopup || canvasController.popUp == bus.pantryWicPopup)
-            {
-                canvasController.closePopUp();
-            }
-
+            Debug.Log("bus continueing");
         }
 
         public void handleBusClickedEvent()
         {
-            if (bus.playerOnBus && bus.atStop)
-            {
-                showLeaveBusDialog();
-            }
-            else if (currentLocation.mapLocation == bus.mapLocation)
-            {
-                canvasController.openPopup(bus.farePopUp);
-            }
+            Debug.Log("bus clicked");
         }
 
         public void handleBusStoppedEvent()
         {
-            if (bus.playerOnBus)
-            {
-                showLeaveBusDialog();
-            }
-          
-        }
-
-        private void showLeaveBusDialog()
-        {
-            Location busLocation;
-
-            if(bus.mapLocation == MapLocations.VitaSnap)
-            {
-                canvasController.openPopup(bus.vitaSnapPopup);
-            }
-            else if (bus.mapLocation == MapLocations.WICFoodPantry)
-            {
-                canvasController.openPopup(bus.pantryWicPopup);
-            }
-            else if (locationLookup.TryGetValue(bus.mapLocation, out busLocation))
-            {
-                canvasController.openPopup(bus.stopPopUp);
-                canvasController.setStopTitle(locationNameDict[bus.mapLocation]);
-                possibleDestination = busLocation;
-            }
+            Debug.Log("bus at stop");
         }
 
         public void handleTakeBusEvent()
         {
             MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
-            Debug.Log("animation offset" + busStop.busAnimationOffset);
             bus.playAnimation(busStop.busAnimationOffset);
             player.gameObject.SetActive(false);
             bus.playerOnBus = true;

@@ -11,7 +11,6 @@ namespace Manage
     {
 
         public float allowWaitTime;
-        public Text busStopTitle;
         public Animator warning;
 
         // Normal raycasts do not work on UI elements, they require a special kind
@@ -227,11 +226,6 @@ namespace Manage
                 setPopUp(true);
             }
 
-        }
-
-        public void setStopTitle(string title)
-        {
-            busStopTitle.text = title;
         }
 
         public void reset()

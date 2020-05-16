@@ -21,7 +21,6 @@ public class BusWaitingScreen : Screen
         {
             canvasController.addToMainScreenPopUpBackLog(busPopup);
             canvasController.closeScreen();
-            Debug.Log("open bus popup");
         }
     }
 }

@@ -84,4 +84,9 @@ public class Screen : MonoBehaviour
     {
         messageManager.generateStandardSuccessMessage(message);
     }
+
+    public virtual void updateDisplay()
+    {
+
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ using Utility;
 
 public class FooterDisplay : MonoBehaviour
 {
-    public Player player;
+    public CurrencyManager currencyManager;
     public Text mainScreenCashText;
     public Text mainScreenEITCText;
     public Text mainScreenCTCText;
@@ -14,10 +15,12 @@ public class FooterDisplay : MonoBehaviour
 
     public void update()
     {
-        mainScreenCashText.text = FormatText.formatCost(player.money);
-        mainScreenEITCText.text = FormatText.formatCost(player.eitcFunds);
-        mainScreenCTCText.text = FormatText.formatCost(player.ctcFunds);
-        mainScreenSnapText.text = FormatText.formatCost(player.snapFunds);
+        double cash = currencyManager.getCashAvailable();
+        mainScreenCashText.text = FormatText.formatCost(cash);
+        //mainScreenEITCText.text = FormatText.formatCost(player.eitcFunds);
+        //mainScreenCTCText.text = FormatText.formatCost(player.ctcFunds);
+        double snap = currencyManager.getSnapAvailable();
+        mainScreenSnapText.text = FormatText.formatCost(snap);
 
     }
 

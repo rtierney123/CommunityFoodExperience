@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Manage;
+using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -14,8 +15,7 @@ public class CompleteVoucherPayment : MonoBehaviour
         Cart cart = store.cart;
         Dictionary<Food, int> foods = cart.foodInCart;
 
-        Player player = store.player;
-        WICVoucher playerVoucher = player.wicVoicher;
+        WICVoucher playerVoucher = store.currencyManager.getWICVoucher();
         voucher.copy(playerVoucher);
         foreach(Food food in foods.Keys)
         {

@@ -60,6 +60,11 @@ namespace Manage
             dropPlayerOff(startLocation);
         }
 
+        public bool getHasCar()
+        {
+            return player.playerInfo.hasCar || player.hasTemporaryRide;
+        }
+
 
         public void startLocationScreen(Location location)
         {

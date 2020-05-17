@@ -11,8 +11,7 @@ namespace UI
         public CurrencyManager currencyManager;
         public MessageManager messageManager;
         public NavigationManager navigationManager;
-        public Player player;
-        public Bus bus;
+
         public DisableableButton useTicketButton;
         public DisableableButton useBusPassButton;
         public GameObject purchasePopup;
@@ -25,7 +24,7 @@ namespace UI
 
         private void checkTickets()
         {
-            if (player.busTokens > 0)
+            if (currencyManager.getHasTickets())
             {
                 useTicketButton.enable();
             }
@@ -37,7 +36,7 @@ namespace UI
 
         private void checkPass()
         {
-            if (player.playerInfo.busPass)
+            if (currencyManager.getHasBusPass())
             {
                 useBusPassButton.enable();
             }
@@ -50,7 +49,7 @@ namespace UI
 
         public void useToken()
         {
-            if(player.busTokens > 0)
+            if(currencyManager.getHasTickets())
             {
                 currencyManager.removeToken();
                 navigationManager.handleTakeBusEvent();
@@ -65,7 +64,7 @@ namespace UI
 
         public void usePass()
         {
-            if (player.playerInfo.busPass)
+            if (currencyManager.getHasBusPass())
             {
                 navigationManager.handleTakeBusEvent();
                 canvasController.closePopUp();

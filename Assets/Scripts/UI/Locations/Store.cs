@@ -36,7 +36,7 @@ namespace UI {
 
         private void checkWIC()
         {
-            if (player.hasWic)
+            if (currencyManager.getHasWIC())
             {
                 wicButton.enable();
             }
@@ -48,21 +48,19 @@ namespace UI {
 
         private void displayPlayerInfo()
         {
-            double cash = player.money;
-            double eitc = player.eitcFunds;
-            double ctc = player.ctcFunds;
-            double snap = player.snapFunds;
+            double cash = currencyManager.getCashAvailable();
+            double snap = currencyManager.getSnapAvailable();
 
             cashText.text = FormatText.formatCost(cash);
-            eitcText.text = FormatText.formatCost(eitc);
-            ctcText.text = FormatText.formatCost(ctc);
+            //eitcText.text = FormatText.formatCost(eitc);
+            //ctcText.text = FormatText.formatCost(ctc);
             snapText.text = FormatText.formatCost(snap);
 
 
-            if (player.hasWic)
+            if (currencyManager.getHasWIC())
             {
                 voucher.gameObject.SetActive(true);
-                voucher.copy(player.wicVoicher);
+                voucher.copy(currencyManager.getWICVoucher());
             } else
             {
                 voucher.gameObject.SetActive(false);
@@ -106,7 +104,7 @@ namespace UI {
                         messageManager.generateStandardErrorMessage("Non-wic item in cart.");
                         Debug.Log("non-wic");
                     }
-                    else if (!player.wicVoicher.checkValid(food.Key))
+                    else if (!currencyManager.getWICVoucher().checkValid(food.Key))
                     {
                         valid = false;
                         messageManager.generateStandardErrorMessage("Wic item category already used.");
@@ -183,23 +181,12 @@ namespace UI {
                 }
             }
            
-            if (player.money < cash)
+            if (currencyManager.validateCashPayment(cash))
             {
                 messageManager.generateStandardErrorMessage( "Not enough cash.");
                 return false;
             }
-            else if (player.ctcFunds < ctc)
-            {
-                messageManager.generateStandardErrorMessage("Not enough CTC fund.");
-                return false;
-
-            }
-            else if (player.eitcFunds < eitc)
-            {
-                messageManager.generateStandardErrorMessage("Not enough EITC fund.");
-                return false;
-            }
-            else if (player.snapFunds < snap)
+            else if (currencyManager.validateCashPayment(snap))
             {
                 messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
                 return false;
@@ -220,7 +207,7 @@ namespace UI {
         {
             bool valid = true;
 
-            WICVoucher voucher = player.wicVoicher;
+            WICVoucher voucher = currencyManager.getWICVoucher();
 
             bool fruitUsed = false;
             bool vegUsed = false;

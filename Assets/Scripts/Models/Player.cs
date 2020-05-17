@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public PlayerInfo playerInfo;
 
-    public int busTokens = 0;
+    public int busTickets = 0;
 
     public double money = 0;
     public double snapFunds = 0;
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
     public void resetToStarting()
     {
         money = playerInfo.getStartingCash();
-        busTokens = playerInfo.startingBusTokens;
+        busTickets = playerInfo.startingBusTokens;
     }
 
   
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
     }
     public void setBusTokens(int value)
     {
-        busTokens = value;
+        busTickets = value;
     }
 
 
@@ -202,7 +202,7 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         //TODO: fixe
-        if(busTokens == 0 && money + ctcFunds + eitcFunds <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
+        if(busTickets == 0 && money + ctcFunds + eitcFunds <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
         {
             return true;
         } else

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class NavigationPopUp : PopUp
 {
-    public Player player;
     public NavigationManager manager;
 
     public Text title;
@@ -28,7 +27,7 @@ public class NavigationPopUp : PopUp
     private void OnEnable()
     {   if(carButton != null)
         {
-            if (player.playerInfo.hasCar || player.hasTemporaryRide)
+            if (manager.getHasCar())
             {
                 carButton.enable();
             }

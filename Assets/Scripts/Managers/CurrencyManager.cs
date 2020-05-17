@@ -50,9 +50,49 @@ namespace Manage
             footerDisplay.update();
         }
 
+        public double getCashAvailable()
+        {
+            return player.money;
+        }
+
+        public double getSnapAvailable()
+        {
+            return player.snapFunds;
+        }
+
+        public int getTicketsAvailable()
+        {
+            return player.busTickets;
+        }
+
+        public bool getHasBusPass()
+        {
+            return player.playerInfo.busPass;
+        }
+
+        public bool getHasWIC()
+        {
+            return player.hasWic;
+        }
+
+        public bool getHasTickets()
+        {
+            return player.busTickets > 0;
+        }
+
+        public WICVoucher getWICVoucher()
+        {
+            return player.wicVoicher;
+        }
+
         public bool validateCashPayment(double amt)
         {
             return amt < player.money;
+        }
+
+        public bool validateSNAPPayment(double amt)
+        {
+            return amt < player.snapFunds;
         }
 
         public bool validatePayment(double cash, double ctc, double eitc, double snap, double totalDue)
@@ -124,16 +164,16 @@ namespace Manage
 
         public void addTokens(int numTokens)
         {
-            player.busTokens += numTokens;
+            player.busTickets += numTokens;
             walletDisplay.updateWallet();
         }
 
         public void removeToken()
         {
             
-            if(player.busTokens > 0)
+            if(player.busTickets > 0)
             {
-                player.busTokens--;
+                player.busTickets--;
                 walletDisplay.updateWallet();
             } 
           

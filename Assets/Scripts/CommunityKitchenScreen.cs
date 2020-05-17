@@ -70,7 +70,7 @@ public class CommunityKitchenScreen : Screen, IClockEventCaller
     {
         if (ticketsRemaining > 0)
         {
-            if (player.busTokens == 0 && !player.playerInfo.busPass && !player.playerInfo.hasCar)
+            if (player.busTickets == 0 && !player.playerInfo.busPass && !player.playerInfo.hasCar)
             {
                 currencyManager.addTokens(1);
                 updateTickets(1);

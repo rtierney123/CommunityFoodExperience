@@ -8,7 +8,6 @@ namespace UI
     public class BaseStore : Screen
     {
 
-        public Player player;
         public NutritionManager nutritionManager;
         public CurrencyManager currencyManager;
         public Cart cart;

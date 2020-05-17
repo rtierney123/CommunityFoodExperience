@@ -139,10 +139,10 @@ namespace UI
             }
 
             tokenHolder.clearTokens();
-            if(player.busTokens > 0)
+            if(player.busTickets > 0)
             {
                 noTokenText.SetActive(false);
-                for (int i = 0; i < player.busTokens; i++)
+                for (int i = 0; i < player.busTickets; i++)
                 {
                     hasTransporation = true;
                     tokenHolder.addToken();

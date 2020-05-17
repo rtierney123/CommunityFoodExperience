@@ -83,7 +83,7 @@ namespace Manage
 
         public void playWarning()
         {
-            warning.Play("Warning", -1, 0f);
+            warning.SetBool("warning", true);
         }
 
         public void addToPopUpBackLog(GameObject gameObject)

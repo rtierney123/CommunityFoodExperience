@@ -54,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -87,7 +88,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2400805852948190458}
-  - component: {fileID: 2400805853212428851}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -110,49 +110,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2400805853212428851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400805852947695834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa561a0f2d3e2f42adcde3939b82b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: John Smith Jr
-  characterDescription: You are an elderly person (senior citizen) and you live alone
-    on a fixed income of $870 a month from Social Security. Your rent for a small
-    apartment is $600/month and you pay $50/month for electricity, $30 month for a
-    phone and $185/month for two prescriptions that are only partially coverd by Medicare.
-  phoneNum: (404) 888-9360
-  socialSecurity: XXX-XX-6789
-  address: 258 W.Real St. Atlanta, GA 30317
-  DOB: 01/01/2010
-  fixedIncome: 870
-  expenses: 855
-  busTokens: 1
-  money: 15
-  snapFunds: 0
-  ctcFunds: 0
-  eitcFunds: 0
-  progress: 0
-  calories: 0
-  grain: 0
-  fat: 0
-  protein: 0
-  dairy: 0
-  fruit: 0
-  vegetabele: 0
-  extra: 0
-  requiredCalories: 5
-  requiredGrain: 1
-  requiredFat: 1
-  requiredProtein: 3
-  requiredDairy: 2
-  requiredFruit: 1
-  requiredVegetable: 2
-  requiredExtra: 0
-  wicVoicher: {fileID: 0}

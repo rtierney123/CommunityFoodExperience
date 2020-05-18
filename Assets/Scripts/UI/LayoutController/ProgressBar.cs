@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class ProgressBar : MonoBehaviour
 
     private float currentTime = 0;
     private bool loading = false;
+    private bool pause = false;
     void Start()
     {
         
@@ -19,15 +21,14 @@ public class ProgressBar : MonoBehaviour
     {
         if (this.gameObject.activeInHierarchy && !loading)
         {
-            StartCoroutine(Load());
             Debug.Log("Start Load");
             loading = true;
+            StartCoroutine(Load());
+            
         }
         else if(!this.gameObject.activeInHierarchy)
         {
-            currentTime = 0;
-            slider.value = 0;
-            loading = false;
+            resetLoading();
             Debug.Log("Not Active");
         }
 
@@ -35,12 +36,20 @@ public class ProgressBar : MonoBehaviour
 
     public IEnumerator Load()
     {
-        while(currentTime < loadTime)
+        while (loading)
         {
-            float incrementTime = loadTime / displayIntervals;
-            yield return new WaitForSeconds(incrementTime);
-            currentTime += incrementTime;
-            slider.value = (float)(currentTime/ loadTime);
+            if (!pause)
+            {
+                float incrementTime = loadTime / displayIntervals;
+                yield return new WaitForSeconds(incrementTime);
+                currentTime += incrementTime;
+                slider.value = (float)(currentTime / loadTime);
+            }
+
+            if(currentTime < loadTime)
+            {
+                loading = false;
+            }
         }
 
     }
@@ -48,6 +57,23 @@ public class ProgressBar : MonoBehaviour
     public bool getComplete()
     {
         return currentTime >= loadTime;
+    }
+
+    public void resetLoading()
+    {
+        currentTime = 0;
+        slider.value = 0;
+        loading = false;
+    }
+
+    public void pauseLoading()
+    {
+        pause = true;
+    }
+
+    public void resumeLoading()
+    {
+        pause = false;
     }
 
 }

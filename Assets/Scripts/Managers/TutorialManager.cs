@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Manage
+namespace UI
 {
     //updates player nutrition and shows ui of update
     public class TutorialManager : Screen

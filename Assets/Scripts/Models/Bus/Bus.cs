@@ -18,10 +18,12 @@ public class Bus : MonoBehaviour
     public float stuckSeconds = 30;
 
     [HideInInspector]
-    public bool atStop;
+    public bool atStop = false;
     [HideInInspector]
-    public bool playerOnBus;
-
+    public bool playerOnBus = false;
+    [HideInInspector]
+    public bool stopSelected = false;
+    
     private Animator animator;
 
     Ray ray;
@@ -38,7 +40,7 @@ public class Bus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        material.color = navigationManager.OnBus ? new Color(255, 0, 0) : (material.color.r == 255 && material.color.g == 0 && material.color.b == 0 ? new Color(0, 0, 0) : material.color);
+        material.color = playerOnBus ? new Color(255, 0, 0) : (material.color.r == 255 && material.color.g == 0 && material.color.b == 0 ? new Color(0, 0, 0) : material.color);
         if (Input.GetMouseButtonDown(0))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -59,7 +61,7 @@ public class Bus : MonoBehaviour
         atStop = true;
         if (playerOnBus)
         {
-            navigationManager.handleBusStoppedEvent();
+            navigationManager.handleBusStoppedEvent(mapLocation);
         }
     }
 
@@ -114,6 +116,20 @@ public class Bus : MonoBehaviour
         }
     }
 
+    public void onOffScreen()
+    {
+        if (!playerOnBus)
+        {
+            animator.enabled = false;
+        }
+    }
+
+    public void setLocation(Transform transform)
+    {
+        this.gameObject.transform.localPosition = transform.position;
+        this.gameObject.transform.rotation = transform.rotation;
+
+    }
 
     void OnMouseOver()
     {

@@ -19,6 +19,7 @@ namespace Model
         public string locationTitle;
         public string locationDescription;
         public float delayTime;
+        [HideInInspector]
         public bool entered = false;
         public bool busAvailable = false;
 

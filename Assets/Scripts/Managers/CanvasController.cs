@@ -210,7 +210,6 @@ namespace Manage
         {
             if (screenOpen != null)
             {
-                Debug.Log("main screen backlog" + mainScreenOnlyBackLog.Count);
                 screenOpen.SetActive(false);
                 screenOpen = null;
                 closePopUp();

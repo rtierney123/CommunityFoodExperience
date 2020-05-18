@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +12,10 @@ namespace Manage
     public class NavigationManager : MonoBehaviour { 
         public Player player;
         public GameObject stuckPopup;
-        public NavigationPopUp farPopup;
-        public NavigationPopUp nearbyPopup;
+        public NavigationPopUp navigationPopup;
 
         public CanvasController canvasController;
+        public MessageManager messageManager;
         public ClockDisplay clock;
         public Location currentLocation;
         public Location startLocation;
@@ -24,12 +25,10 @@ namespace Manage
         public Bus bus;
         public float locationScreenDelay;
 
-        public Dictionary<MapLocations, Location> locationLookup;
-        public Dictionary<MapLocations, string> locationNameDict;
+        public Dictionary<MapLocations, Location> locationStopDict;
         public List<MapLocations> locationKeys;
-        public List<string> locationTitles;
-        public List<Location> locationValues;
-		public bool OnBus;
+        public List<Location> locationBusStops;
+
         public double walkScale;
         public double carScale;
 
@@ -41,15 +40,17 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-            locationLookup = new Dictionary<MapLocations, Location>();
-            locationNameDict = new Dictionary<MapLocations, string>();
-            if (locationKeys.Count == locationValues.Count)
+            locationStopDict = new Dictionary<MapLocations, Location>();
+            if (locationKeys.Count == locationBusStops.Count)
             {
                 for (int index = 0; index < locationKeys.Count; index += 1)
                 {
-                    locationLookup[locationKeys[index]] = locationValues[index];
-                    locationNameDict[locationKeys[index]] = locationTitles[index];
+                    locationStopDict[locationKeys[index]] = locationBusStops[index];
                 }
+            }
+            else
+            {
+                Debug.Log("Number of keys must match the number of bus stop locations");
             }
             distmap = new Dictionary<Tuple<string, string>, double>();
             generateMapEdges();
@@ -76,34 +77,51 @@ namespace Manage
                 } else
                 {
                     possibleDestination = location;
-                    NavigationPopUp popUp;
+                    //NavigationPopUp popUp;
                     if ((possibleDestination.mapLocation == MapLocations.VitaSnap && currentLocation.mapLocation == MapLocations.VitaSnap) || (possibleDestination.mapLocation == MapLocations.WICFoodPantry && currentLocation.mapLocation == MapLocations.WICFoodPantry))
                     {
-                        popUp = nearbyPopup;
-                        popUp.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
+                        navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
+                        navigationPopup.activateWalkButton();
+                        navigationPopup.enableWalkButton();
+                    }
+                    else if (possibleDestination.locationType == LocationType.NearbyLocation)
+                    {
+                        navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
+                        navigationPopup.activateWalkButton();
+                        navigationPopup.enableWalkButton();
+                    } else
+                    {
+                        navigationPopup.deactivateWalkButton();
+                    }
+
+                    if(player.hasTemporaryRide || player.playerInfo.hasCar)
+                    {
+                        navigationPopup.enableCarButton();
                     }
                     else
                     {
-                      
-                        if (possibleDestination.locationType == LocationType.NearbyLocation)
-                        {
-                            popUp = nearbyPopup;
-                            popUp.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
-                        } else
-                        {
-                            popUp = farPopup;
-                        }
+                        navigationPopup.disableCarButton();
                     }
 
-                    popUp.title.text = location.locationTitle;
-                    popUp.description.text = location.locationDescription;
-                    popUp.carText.text = "Car (" + formatTime(calculateTravelTime(TravelType.Car)) + ")";
+                    navigationPopup.title.text = location.locationTitle;
+                    navigationPopup.description.text = location.locationDescription;
+                    navigationPopup.carText.text = "Car (" + formatTime(calculateTravelTime(TravelType.Car)) + ")";
 
-                    GameObject gameObject = popUp.gameObject;
+                    GameObject gameObject = navigationPopup.gameObject;
                     canvasController.openPopup(gameObject);
 
                 }
-            }     
+            }  
+            else if (!bus.stopSelected) {
+                if (location.busAvailable)
+                {
+                    possibleDestination = location;
+                    bus.stopSelected = true;
+                    messageManager.hideHintMessage();
+                    handleStartBusEvent();
+                }
+
+            }
         }
 
         public double realToGameTime(double realTime)
@@ -206,28 +224,48 @@ namespace Manage
             Debug.Log("bus clicked");
         }
 
-        public void handleBusStoppedEvent()
+        public void handleBusStoppedEvent(MapLocations currentLocation)
         {
             Debug.Log("bus at stop");
+            if(currentLocation == possibleDestination.mapLocation)
+            {
+                handleLeaveBusEvent();
+            }
         }
 
-        public void handleTakeBusEvent()
+        public void handleBusArrived()
+        {
+            bus.pauseAnimation();
+            MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
+            bus.setLocation(busStop.busStartLocation);
+        }
+
+
+        public void handleChooseStopEvent()
+        {
+            messageManager.displayHintMessage("Click on a stop to have the bus drop you off there.");
+            bus.stopSelected = false;
+            player.gameObject.SetActive(false);
+            bus.playerOnBus = true;
+            
+        }
+
+        public void handleStartBusEvent()
         {
             MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
             bus.playAnimation(busStop.busAnimationOffset);
-            player.gameObject.SetActive(false);
-            bus.playerOnBus = true;
-			OnBus = true;
+            
         }
 
         public void handleLeaveBusEvent()
         {
+            Debug.Log("leave bus");
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
-			OnBus = false;
         }
+
 
         public void setPossibleLocation(Location nextLocation)
         {

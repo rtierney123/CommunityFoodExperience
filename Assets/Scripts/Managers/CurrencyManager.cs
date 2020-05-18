@@ -87,12 +87,12 @@ namespace Manage
 
         public bool validateCashPayment(double amt)
         {
-            return amt < player.money;
+            return amt <= player.money;
         }
 
         public bool validateSNAPPayment(double amt)
         {
-            return amt < player.snapFunds;
+            return amt <= player.snapFunds;
         }
 
         public bool validatePayment(double cash, double ctc, double eitc, double snap, double totalDue)

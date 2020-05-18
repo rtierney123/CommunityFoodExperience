@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static Food;
+using UI;
 
 namespace Manage{
     //does logic for determining when the endgame is and when the player has satified all goals

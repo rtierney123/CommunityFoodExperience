@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -155,7 +154,7 @@ namespace Manage
             canvasController.screenDisplayed = true;
             clock.addGameMinutes(travelTime);
             
-            currentLocation.onEnter();
+            //currentLocation.onEnter();
 
             player.setFreeRide(false);
         }

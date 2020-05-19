@@ -26,6 +26,8 @@ namespace Model
         public GameObject map;
         public Material[] mats; // size 9: 2 elements each
 
+        public Camera mainCamera;
+
         Ray ray;
         RaycastHit hit;
 
@@ -40,7 +42,7 @@ namespace Model
         // Update is called once per frame
         void Update()
         {   
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
                 
@@ -78,8 +80,8 @@ namespace Model
         public virtual void onEnter()
         {
             entered = true;
-            StartCoroutine(OpenLocationScreen());
-         
+            //StartCoroutine(OpenLocationScreen());
+            canvasController.openScreen(mainScreen);
         }
 
         public IEnumerator OpenLocationScreen()

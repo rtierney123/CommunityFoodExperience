@@ -41,9 +41,11 @@ namespace Manage
                     break;
                 case FundsType.EITC:
                     player.addEITC(amt);
+                    player.addCash(amt);
                     break;
                 case FundsType.CTC:
                     player.addCTC(amt);
+                    player.addCash(amt);
                     break;
             }
             walletDisplay.updateWallet();
@@ -87,8 +89,6 @@ namespace Manage
 
         public bool validateCashPayment(double amt)
         {
-            Debug.Log("player had " + player.money);
-            Debug.Log("trying to purchase " + amt);
             return amt <= player.money;
         }
 

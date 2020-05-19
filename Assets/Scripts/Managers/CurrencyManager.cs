@@ -87,6 +87,8 @@ namespace Manage
 
         public bool validateCashPayment(double amt)
         {
+            Debug.Log("player had " + player.money);
+            Debug.Log("trying to purchase " + amt);
             return amt <= player.money;
         }
 

@@ -125,7 +125,6 @@ namespace UI {
         }
 
 
-
         public void completeVoucherPayment()
         {
             bool valid = validateWICPurchase();
@@ -144,14 +143,12 @@ namespace UI {
 
         }
 
-        public void completeFundsPayment(double cash, double eitc, double ctc, double snap)
+        public void completeFundsPayment(double cash, double snap)
         {
 
-            if(validateFundsPurchase(cash, eitc, ctc, snap))
+            if(validateFundsPurchase(cash, snap))
             {
                 currencyManager.subtractFunds(FundsType.Cash, cash);
-                currencyManager.subtractFunds(FundsType.EITC, eitc);
-                currencyManager.subtractFunds(FundsType.CTC, ctc);
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
                 messageManager.generateStandardSuccessMessage("Purchase complete.");
@@ -166,7 +163,7 @@ namespace UI {
             messageManager.generateStandardErrorMessage("Input must be a number.");
         }
 
-        private bool validateFundsPurchase(double cash, double eitc, double ctc, double snap)
+        private bool validateFundsPurchase(double cash, double snap)
         {
             Dictionary<Food, int> cartFood = cart.foodInCart;
             if (snap > 0)
@@ -180,24 +177,25 @@ namespace UI {
                     }
                 }
             }
-           
-            if (currencyManager.validateCashPayment(cash))
+
+            if (!currencyManager.validateCashPayment(cash))
             {
-                messageManager.generateStandardErrorMessage( "Not enough cash.");
+                messageManager.generateStandardErrorMessage("Not enough cash.");
                 return false;
             }
-            else if (currencyManager.validateCashPayment(snap))
+            else if (!currencyManager.validateSNAPPayment(snap))
             {
                 messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
                 return false;
             }
-            else if (roundTwoDecimal(cash + ctc + eitc + snap) != roundTwoDecimal(cart.getTotalPrice()))
+            else if (roundTwoDecimal(cash + snap) != roundTwoDecimal(cart.getTotalPrice()))
             {
-                messageManager.generateStandardErrorMessage("Total amount does not match");
+                messageManager.generateStandardErrorMessage("Total amount does not match.");
                 return false;
             }
             else
             {
+                messageManager.generateStandardSuccessMessage("Purchase complete.");
                 return true;
             }
  

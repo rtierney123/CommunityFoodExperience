@@ -9,16 +9,17 @@ namespace UI
     public class PurchasePopup : PopUp
     {
         public InputField cashValue;
-        public InputField ctcValue;
-        public InputField eitcValue;
         public InputField snapValue;
 
 
         protected double cash;
-        protected double ctc;
-        protected double eitc;
         protected double snap;
 
+        public override void onDismiss()
+        {
+            base.onDismiss();
+            resetBoxes();
+        }
         public virtual void resetBoxes()
         {
 
@@ -28,16 +29,6 @@ namespace UI
             {
                 cash = string.IsNullOrEmpty(cashValue.text) ? 0 : Convert.ToDouble(cashValue.text);
                 cashValue.text = resetValue;
-            }
-            if (eitcValue != null)
-            {
-                eitc = string.IsNullOrEmpty(eitcValue.text) ? 0 : Convert.ToDouble(eitcValue.text);
-                eitcValue.text = resetValue;
-            }
-            if (ctcValue != null)
-            {
-                ctc = string.IsNullOrEmpty(ctcValue.text) ? 0 : Convert.ToDouble(ctcValue.text);
-                ctcValue.text = resetValue;
             }
             if (snapValue != null)
             {

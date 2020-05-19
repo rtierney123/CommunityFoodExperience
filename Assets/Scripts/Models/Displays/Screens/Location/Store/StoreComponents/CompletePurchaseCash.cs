@@ -18,7 +18,7 @@ namespace UI
 
             base.resetBoxes();
 
-            store.completeFundsPayment(cash, eitc, ctc, snap);
+            store.completeFundsPayment(cash, snap);
          
         }
 

@@ -71,7 +71,6 @@ namespace Manage{
         public void resumeGame()
         {
             resume();
-            pauseScreen.SetActive(false);
         }
 
 

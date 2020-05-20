@@ -93,12 +93,6 @@ namespace Manage
         {
             return player.playerInfo.busPass;
         }
-
-        public bool getHasWIC()
-        {
-            return player.hadWic;
-        }
-
         public bool getHasTickets()
         {
             return player.busTickets > 0;
@@ -106,7 +100,7 @@ namespace Manage
 
         public bool checkHasVoucher()
         {
-            return player.voucher != null;
+            return (player.voucher != null) && player.voucher.active;
         }
         public WICVoucher getWICVoucher()
         {

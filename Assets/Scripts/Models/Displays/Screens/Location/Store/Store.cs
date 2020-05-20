@@ -40,6 +40,7 @@ namespace UI {
             if (currencyManager.checkHasVoucher())
             {
                 wicButton.enable();
+               
             }
             else
             {

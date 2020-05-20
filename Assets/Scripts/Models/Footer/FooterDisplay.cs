@@ -18,7 +18,7 @@ public class FooterDisplay : View
         mainScreenCashText.text = FormatText.formatCash(cash);
         double snap = currencyManager.getSnapAvailable();
         mainScreenSnapText.text = FormatText.formatSNAP(snap);
-        if (currencyManager.getHasWIC())
+        if (currencyManager.checkHasVoucher())
         {
             mainScreenVoucherText.text = FormatText.formatWIC(1);
         }

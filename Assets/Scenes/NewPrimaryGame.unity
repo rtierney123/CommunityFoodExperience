@@ -989,7 +989,6 @@ GameObject:
   - component: {fileID: 39987527}
   - component: {fileID: 39987526}
   - component: {fileID: 39987525}
-  - component: {fileID: 39987524}
   - component: {fileID: 39987523}
   m_Layer: 0
   m_Name: WalletButton
@@ -1016,8 +1015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39987523
 MonoBehaviour:
@@ -1033,26 +1032,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
   m_MinWidth: 50
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
+  m_MinHeight: 50
+  m_PreferredWidth: 50
+  m_PreferredHeight: 50
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &39987524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39987521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 1
-  m_AspectRatio: 1
 --- !u!114 &39987525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2171,7 +2156,6 @@ GameObject:
   - component: {fileID: 346907288}
   - component: {fileID: 346907287}
   - component: {fileID: 346907286}
-  - component: {fileID: 346907285}
   - component: {fileID: 346907284}
   m_Layer: 0
   m_Name: NutritionButton
@@ -2199,8 +2183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346907284
 MonoBehaviour:
@@ -2216,26 +2200,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
   m_MinWidth: 50
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
+  m_MinHeight: 50
+  m_PreferredWidth: 50
+  m_PreferredHeight: 50
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &346907285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346907282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 1
-  m_AspectRatio: 1
 --- !u!114 &346907286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2491,6 +2461,7 @@ GameObject:
   - component: {fileID: 374156496}
   - component: {fileID: 374156495}
   - component: {fileID: 374156498}
+  - component: {fileID: 374156499}
   m_Layer: 0
   m_Name: 'Footer '
   m_TagString: Untagged
@@ -2516,8 +2487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 239.17947, y: 110.75479}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_SizeDelta: {x: 0, y: 125.885864}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &374156495
 MonoBehaviour:
@@ -2597,6 +2568,20 @@ MonoBehaviour:
   mainScreenCashText: {fileID: 4046362}
   mainScreenSnapText: {fileID: 845647877}
   mainScreenVoucherText: {fileID: 1080268921}
+--- !u!114 &374156499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374156493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &383014576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,7 +6816,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 112.52066}
+  m_SizeDelta: {x: 0, y: 119.15811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254004483
 MonoBehaviour:
@@ -9281,7 +9266,7 @@ MonoBehaviour:
     requiredExtra: 0
     federalAssistance: 0
   busTickets: 0
-  money: 15
+  money: 100000
   snapFunds: 0
   ctcFunds: 0
   eitcFunds: 0
@@ -9399,7 +9384,7 @@ PrefabInstance:
     - target: {fileID: 2744240856004793643, guid: 77018edd80e8adf49862b0817f4c4e7f,
         type: 3}
       propertyPath: m_Text
-      value: 'Cash: $1.00'
+      value: 'Cash: $000'
       objectReference: {fileID: 0}
     - target: {fileID: 4783351400107486528, guid: 77018edd80e8adf49862b0817f4c4e7f,
         type: 3}

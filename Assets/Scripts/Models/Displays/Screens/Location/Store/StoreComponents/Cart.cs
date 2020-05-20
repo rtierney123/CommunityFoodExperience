@@ -89,10 +89,8 @@ public class Cart : MonoBehaviour
             foodInCart.Add(food, 1);
         }
 
-        Transform minusObject = card.transform.GetChild(1);
-        minusObject.gameObject.SetActive(true);
-        Button minusButton = minusObject.GetComponent<Button>();
-
+        Button minusButton = card.minusButton;
+        minusButton.gameObject.SetActive(true);
         minusButton.onClick.AddListener(() => removeItemFromCart(card));
 
         

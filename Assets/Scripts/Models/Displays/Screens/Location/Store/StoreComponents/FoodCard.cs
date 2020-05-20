@@ -11,11 +11,10 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 {
 
     public Text nameText;
-
     public Text costText;
-
     public Text wicText;
     public Text premadeText;
+    public Button minusButton;
 
     public Image foodImage;
     public Shelf shelf;

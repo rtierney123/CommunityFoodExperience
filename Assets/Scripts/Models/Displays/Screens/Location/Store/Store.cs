@@ -148,7 +148,7 @@ namespace UI {
         {
             Debug.Log("voucher payment complete");
             currencyManager.useVoucher(cart.foodInCart);
-            messageManager.generateStandardSuccessMessage("Purchase complete.");
+            messageManager.generateStandardSuccessMessage("WIC voucher has been redeemed.");
             completePayment();
             
 

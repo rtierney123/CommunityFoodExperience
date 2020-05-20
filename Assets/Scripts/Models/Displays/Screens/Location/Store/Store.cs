@@ -85,7 +85,7 @@ namespace UI {
                     else if (!currencyManager.getWICVoucher().checkValid(food.Key))
                     {
                         valid = false;
-                        messageManager.generateStandardErrorMessage("Wic item category already used.");
+                        messageManager.generateStandardErrorMessage("Cannot use voucher on more than one "+food.Key.wicType.toDescriptionString()+" item.");
                     }
                 }
                

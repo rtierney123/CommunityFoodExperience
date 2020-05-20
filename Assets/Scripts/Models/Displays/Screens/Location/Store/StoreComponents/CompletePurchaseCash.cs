@@ -11,7 +11,11 @@ namespace UI
     public class CompletePurchaseCash : PurchasePopup
     {
         public Store store;
-  
+
+        public void OnEnable()
+        {
+            store.setCheckoutText(cashValue, snapValue);
+        }
 
         public void pay()
         {

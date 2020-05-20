@@ -15,6 +15,9 @@ namespace UI
         protected double cash;
         protected double snap;
 
+
+  
+
         public override void onDismiss()
         {
             base.onDismiss();

@@ -1,9 +1,11 @@
 ﻿using Manage;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Utility;
 
 namespace UI {
@@ -135,6 +137,14 @@ namespace UI {
         public void displayMustBeNumberError()
         {
             messageManager.generateStandardErrorMessage("Input must be a number.");
+        }
+
+        public void setCheckoutText(InputField cashField, InputField snapField)
+        {
+            cashField.text = FormatText.formatDouble(currencyManager.getCheckoutCash(cart.getTotalPrice()));
+            Debug.Log("cash " + currencyManager.getCheckoutCash(cart.getTotalPrice()));
+            snapField.text = FormatText.formatDouble(currencyManager.getCheckoutSNAP(cart.getTotalPrice()));
+            Debug.Log("snap " + currencyManager.getCheckoutSNAP(cart.getTotalPrice()));
         }
 
         private bool validateFundsPurchase(double cash, double snap)

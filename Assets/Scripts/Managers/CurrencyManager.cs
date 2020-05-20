@@ -56,6 +56,27 @@ namespace Manage
             walletDisplay.updateWallet();
             update();
         }
+        public double getCheckoutCash(double total)
+        {
+            return total - getCheckoutSNAP(total);
+        }
+
+        public double getCheckoutSNAP(double total)
+        {
+            Debug.Log("snap " + player.snapFunds);
+            if (player.snapFunds >= total)
+            {
+                return total;
+            }
+            else if ((total - player.money) < 0 || (player.money + player.snapFunds < total))
+            {
+                return player.snapFunds;
+            }
+            else
+            {
+                return total - player.money;
+            }
+        }
 
         public double getCashAvailable()
         {

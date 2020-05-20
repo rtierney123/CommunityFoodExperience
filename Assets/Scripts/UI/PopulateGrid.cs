@@ -14,6 +14,8 @@ public class PopulateGrid : MonoBehaviour
     public virtual FoodCard addItem(Food food)
     {
         FoodCard foodCard = Instantiate<FoodCard>(cardPrefab, transform);
+        Debug.Log(cardPrefab.transform.localScale.x);
+        Debug.Log(foodCard.transform.localScale.x);
         foodCard.setFood(food);
         foodCard.setCart(cart);
         foodCard.canvasController = canvasController;

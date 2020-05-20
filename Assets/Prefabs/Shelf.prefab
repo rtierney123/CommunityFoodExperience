@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -343,6 +345,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -418,6 +421,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -489,6 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4332834733618275556}
   - component: {fileID: 2050175330133442801}
+  - component: {fileID: 756198177929564342}
   m_Layer: 0
   m_Name: Shelf
   m_TagString: Untagged
@@ -503,7 +508,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6436017993309511445}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -528,10 +533,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d16ed96ded7314896209a166df3c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 3476701700681014394}
-  jsonLocation: 
+  grid: {fileID: 233509982}
+  jsonLocation: /JSON Assets/food/foodTiger.json
   foodImage_c: {fileID: 0}
   detailPopup: {fileID: 0}
+--- !u!114 &756198177929564342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436017993309511445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &6874038113738031278
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +574,7 @@ GameObject:
   - component: {fileID: 7682086733718094804}
   - component: {fileID: 80870871295310831}
   - component: {fileID: 3476701700681014394}
+  - component: {fileID: 233509982}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -626,6 +657,24 @@ MonoBehaviour:
     type: 3}
   foodCardHolder: {fileID: 8474088493630445495, guid: ae94d0154da456248955f430b6f93f75,
     type: 3}
+--- !u!114 &233509982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874038113738031278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dde86a80d7ad874085d2bb68469211a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
+  cart: {fileID: 0}
+  cardPrefab: {fileID: 6519720679954875067, guid: d6a13f0ef0a112e4cb2eb8b8cb7c4648,
+    type: 3}
+  foodCardHolder: {fileID: 8474088493630445495, guid: ae94d0154da456248955f430b6f93f75,
+    type: 3}
 --- !u!1 &7115517539211643967
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +687,7 @@ GameObject:
   - component: {fileID: 366236944955628707}
   - component: {fileID: 5745296331758089581}
   - component: {fileID: 1887551877288117770}
+  - component: {fileID: 8625486488682385753}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -663,9 +713,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 0, y: 150}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &366236944955628707
 CanvasRenderer:
@@ -690,6 +740,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -733,6 +784,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8625486488682385753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115517539211643967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dde86a80d7ad874085d2bb68469211a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
+  cart: {fileID: 0}
+  cardPrefab: {fileID: 0}
+  foodCardHolder: {fileID: 0}
 --- !u!1 &7734288798534024713
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +860,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

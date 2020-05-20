@@ -31,7 +31,7 @@ namespace UI {
         public override void updateView()
         {
             base.updateView();
-
+            checkWIC();
         }
 
         private void checkWIC()

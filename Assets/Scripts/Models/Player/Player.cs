@@ -193,6 +193,7 @@ public class Player : MonoBehaviour
             if (wicVoicher.checkValid(food))
             {
                 wicVoicher.useVoucher(food);
+                hasWic = false;
             }
 
         }

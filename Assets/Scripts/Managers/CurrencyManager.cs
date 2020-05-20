@@ -101,7 +101,6 @@ namespace Manage
         public bool getHasWIC()
         {
             return player.hasWic;
-            update();
         }
 
         public bool getHasTickets()

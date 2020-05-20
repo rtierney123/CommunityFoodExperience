@@ -65,13 +65,13 @@ namespace Manage{
         public void pauseGame()
         {
             pause();
-            canvasController.openScreen(pauseScreen);
+            pauseScreen.SetActive(true);
         }
 
         public void resumeGame()
         {
             resume();
-            canvasController.closeScreen(pauseScreen);
+            pauseScreen.SetActive(false);
         }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
+using Utility;
 
 public class Cart : MonoBehaviour
 {
@@ -113,7 +114,7 @@ public class Cart : MonoBehaviour
     {
         if(totalText != null)
         {
-            totalText.text = String.Format("{0:C}", totalPrice);
+            totalText.text = FormatText.formatCost(totalPrice);
         }
        
     }

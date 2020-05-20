@@ -1,26 +1,23 @@
 ﻿using Manage;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 
-public class FooterDisplay : MonoBehaviour
+public class FooterDisplay : View
 {
     public CurrencyManager currencyManager;
     public Text mainScreenCashText;
-    public Text mainScreenEITCText;
-    public Text mainScreenCTCText;
     public Text mainScreenSnapText;
-
-    public void update()
+    public Text mainScreenVoucherText;
+    public override void updateView()
     {
         double cash = currencyManager.getCashAvailable();
-        mainScreenCashText.text = FormatText.formatCost(cash);
-        //mainScreenEITCText.text = FormatText.formatCost(player.eitcFunds);
-        //mainScreenCTCText.text = FormatText.formatCost(player.ctcFunds);
+        mainScreenCashText.text = FormatText.formatCash(cash);
         double snap = currencyManager.getSnapAvailable();
-        mainScreenSnapText.text = FormatText.formatCost(snap);
+        mainScreenSnapText.text = FormatText.formatSNAP(snap);
 
     }
 

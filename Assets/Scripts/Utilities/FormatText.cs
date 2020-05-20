@@ -10,6 +10,20 @@ namespace Utility
         {
             return number.ToString();
         }
+        public static string formatTotal(double number)
+        {
+            return "Total: " + formatCost(number);
+        }
+
+        public static string formatCash(double number)
+        {
+            return "Cash: " + formatCost(number);
+        }
+
+        public static string formatSNAP(double number)
+        {
+            return "SNAP: " + formatCost(number);
+        }
 
         public static string formatInt(int number)
         {

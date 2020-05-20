@@ -28,6 +28,11 @@ namespace Manage
 
         }
 
+        public void update()
+        {
+            footerDisplay.updateView();
+        }
+
 
         public void addFunds(FundsType type, double amt)
         {
@@ -49,7 +54,7 @@ namespace Manage
                     break;
             }
             walletDisplay.updateWallet();
-            footerDisplay.update();
+            update();
         }
 
         public double getCashAvailable()
@@ -75,6 +80,7 @@ namespace Manage
         public bool getHasWIC()
         {
             return player.hasWic;
+            update();
         }
 
         public bool getHasTickets()
@@ -151,7 +157,7 @@ namespace Manage
                     break;
             }
             walletDisplay.updateWallet();
-            footerDisplay.update();
+            footerDisplay.updateView();
         }
 
         public void addWICVoucher()

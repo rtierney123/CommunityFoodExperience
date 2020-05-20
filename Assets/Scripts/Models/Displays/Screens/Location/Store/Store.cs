@@ -9,29 +9,27 @@ using Utility;
 namespace UI {
     public class Store : BaseStore
     {
+        public WICVoucher voucher;
+
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
         public GameObject voucherPurchase;
 
-        public Text cashText;
-        public Text eitcText;
-        public Text ctcText;
-        public Text snapText;
-
         public DisableableButton wicButton;
-
-        public WICVoucher voucher;
-
 
         private void Start()
         {
-            displayPlayerInfo();
         }
 
         private void OnEnable()
         {
-            displayPlayerInfo();
             checkWIC();
+        }
+
+        public override void updateView()
+        {
+            base.updateView();
+
         }
 
         private void checkWIC()
@@ -44,28 +42,6 @@ namespace UI {
             {
                 wicButton.disable();
             }
-        }
-
-        private void displayPlayerInfo()
-        {
-            double cash = currencyManager.getCashAvailable();
-            double snap = currencyManager.getSnapAvailable();
-
-            cashText.text = FormatText.formatCost(cash);
-            //eitcText.text = FormatText.formatCost(eitc);
-            //ctcText.text = FormatText.formatCost(ctc);
-            snapText.text = FormatText.formatCost(snap);
-
-
-            if (currencyManager.getHasWIC())
-            {
-                voucher.gameObject.SetActive(true);
-                voucher.copy(currencyManager.getWICVoucher());
-            } else
-            {
-                voucher.gameObject.SetActive(false);
-            }
-            
         }
 
         public void openPurchaseOptions()
@@ -136,7 +112,6 @@ namespace UI {
                 }
                 messageManager.generateStandardSuccessMessage("Purchase complete.");
                 completePayment();
-                displayPlayerInfo();
             }
 
 
@@ -153,7 +128,6 @@ namespace UI {
 
                 messageManager.generateStandardSuccessMessage("Purchase complete.");
                 completePayment();
-                displayPlayerInfo();
             } 
 
         }

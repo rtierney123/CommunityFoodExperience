@@ -20,9 +20,9 @@ namespace Manage{
         public CanvasController canvasController;
         public NavigationManager navigationManager;
         public MessageManager messageManager;
+        public CurrencyManager currencyManager;
         public Bus bus;
         public ClockDisplay clock;
-        public FooterDisplay footerDisplay;
         public CommunityKitchenScreen communityKitchen;
 
 
@@ -58,8 +58,8 @@ namespace Manage{
             clock.startAnimation();
             //bus.startAnimation();
             navigationManager.reset();
-            footerDisplay.update();
             canvasController.closeScreen();
+            currencyManager.update();
         }
 
         public void pauseGame()

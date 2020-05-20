@@ -25,6 +25,19 @@ namespace Utility
             return "SNAP: " + formatCost(number);
         }
 
+        public static string formatWIC(int count)
+        {
+            if(count == 0)
+            {
+                return "No Voucher";
+            }
+            else
+            {
+                return formatInt(count) + " Voucher";
+            }
+            
+        }
+
         public static string formatInt(int number)
         {
             return number.ToString();

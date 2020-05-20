@@ -3,6 +3,7 @@ using Microsoft.SqlServer.Server;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -11,7 +12,6 @@ using Utility;
 namespace UI {
     public class Store : BaseStore
     {
-        public WICVoucher voucher;
 
         public GameObject purchaseOptions;
         public GameObject fundsPurchase;
@@ -32,11 +32,12 @@ namespace UI {
         {
             base.updateView();
             checkWIC();
+            
         }
 
         private void checkWIC()
         {
-            if (currencyManager.getHasWIC())
+            if (currencyManager.checkHasVoucher())
             {
                 wicButton.enable();
             }
@@ -69,29 +70,68 @@ namespace UI {
 
         private bool checkVoucherCart()
         {
-            bool valid = true;
-            Dictionary<Food, int> foods = cart.foodInCart;
-            foreach(KeyValuePair<Food, int> food in foods)
+            bool fruitAdded = false;
+            bool vegAdded= false;
+            bool grainAdded = false;
+            bool proteinAdded = false;
+            bool dairyAdded = false;
+
+            if(currencyManager.getWICVoucher() == null)
             {
-                for(int i = 0; i < food.Value; i++)
+                return false;
+            }
+            else
+            {
+                Dictionary<Food, int> cartContents = cart.foodInCart;
+                foreach (KeyValuePair<Food, int> cartItem in cartContents)
                 {
-                    FoodType foodType = food.Key.wicType;
-                    if (!food.Key.wic)
+                    Food food = cartItem.Key;
+                    int count = cartItem.Value;
+
+                    FoodType foodType = food.wicType;
+
+                    if (!cartItem.Key.wic)
                     {
-                        valid = false;
-                        messageManager.generateStandardErrorMessage("Non-wic item in cart.");
+                        messageManager.generateStandardErrorMessage(food.name + " is on a not a WIC item.");
                         Debug.Log("non-wic");
+                        return false;
+                        
                     }
-                    else if (!currencyManager.getWICVoucher().checkValid(food.Key))
+                    else if ( count > 1 || (fruitAdded && foodType == FoodType.Fruit) || (vegAdded && foodType == FoodType.Veg) ||
+                                (grainAdded && foodType == FoodType.Grain ) || (proteinAdded && foodType == FoodType.Protein) ||
+                                (dairyAdded && foodType == FoodType.Dairy))
                     {
-                        valid = false;
-                        messageManager.generateStandardErrorMessage("Cannot use voucher on more than one "+food.Key.wicType.toDescriptionString()+" item.");
+                        messageManager.generateStandardErrorMessage("Cannot use voucher on more than one " + cartItem.Key.wicType.toDescriptionString() + " item.");
+                        Debug.Log("count " + cartItem.Value);
+                        return false;
                     }
+                    else
+                    {
+                        switch (foodType)
+                        {
+                            case FoodType.Fruit:
+                                fruitAdded = true;
+                                break;
+                            case FoodType.Veg:
+                                vegAdded = true;
+                                break;
+                            case FoodType.Grain:
+                                grainAdded = true;
+                                break;
+                            case FoodType.Protein:
+                                proteinAdded = true;
+                                break;
+                            case FoodType.Dairy:
+                                dairyAdded = true;
+                                break;
+                        }
+                    }
+
                 }
-               
             }
 
-            return valid;
+
+            return true;
         }
 
         public void openPopUp(GameObject popUp)
@@ -105,18 +145,11 @@ namespace UI {
 
         public void completeVoucherPayment()
         {
-            bool valid = validateWICPurchase();
-            if (valid)
-            {
-                foreach (Food food in cart.foodInCart.Keys)
-                {
-                    currencyManager.useVoucher(food);
-                }
-                messageManager.generateStandardSuccessMessage("Purchase complete.");
-                completePayment();
-            }
-
-
+            Debug.Log("voucher payment complete");
+            currencyManager.useVoucher(cart.foodInCart);
+            messageManager.generateStandardSuccessMessage("Purchase complete.");
+            completePayment();
+            
 
         }
 
@@ -183,102 +216,6 @@ namespace UI {
                 return true;
             }
  
-        }
-
-        private bool validateWICPurchase()
-        {
-            bool valid = true;
-
-            WICVoucher voucher = currencyManager.getWICVoucher();
-
-            bool fruitUsed = false;
-            bool vegUsed = false;
-            bool grainUsed = false;
-            bool dairyUsed = false;
-            bool proteinUsed = false;
-
-            if (voucher != null)
-            {
-                foreach (KeyValuePair<Food, int> food in cart.foodInCart)
-                {
-                    if (valid)
-                    {
-                        if (voucher.checkValid(food.Key))
-                        {
-                            switch (food.Key.wicType)
-                            {
-                                case FoodType.Fruit:
-                                    if (fruitUsed)
-                                    {
-                                        valid = false;
-                                        displayDuplicateError();
-                                    }
-                                    else
-                                    {
-                                        fruitUsed = true;
-                                    }
-                                    break;
-                                case FoodType.Veg:
-                                    if (vegUsed)
-                                    {
-                                        valid = false;
-                                        displayDuplicateError();
-                                    }
-                                    else
-                                    {
-                                        vegUsed = true;
-                                    }
-                                    break;
-                                case FoodType.Grain:
-                                    if (grainUsed)
-                                    {
-                                        valid = false;
-                                        displayDuplicateError();
-                                    }
-                                    else
-                                    {
-                                        grainUsed = true;
-                                    }
-                                    break;
-                                case FoodType.Dairy:
-                                    if (dairyUsed)
-                                    {
-                                        valid = false;
-                                        displayDuplicateError();
-                                    }
-                                    else
-                                    {
-                                        dairyUsed = true;
-                                    }
-                                    break;
-                                case FoodType.Protein:
-                                    if (proteinUsed)
-                                    {
-                                        valid = false;
-                                        displayDuplicateError();
-                                    }
-                                    else
-                                    {
-                                        proteinUsed = true;
-                                    }
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            valid = false;
-                            messageManager.generateStandardErrorMessage("Cannot use WIC on items in cart.", this);
-                        }
-                    }
-
-                }
-            }
-            return valid;
-        }
-
-        private void displayDuplicateError()
-        {
-            messageManager.generateStandardErrorMessage("Cannot use WIC on two foods of the same type.", this);
         }
 
         private double roundTwoDecimal(double num)

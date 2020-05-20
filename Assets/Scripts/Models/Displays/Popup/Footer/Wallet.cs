@@ -21,7 +21,10 @@ namespace UI
         public GameObject noTokenText;
         public TokenHolder tokenHolder;
 
+        public WICVoucherView wicView;
+
         public Player player;
+        [HideInInspector]
         public PlayerInfo playerInfo;
 
         private Color selectColor;
@@ -43,6 +46,9 @@ namespace UI
             updateWallet();
             updateTransportationDisplay();
             updateInfo();
+            WICVoucher voucher = player.voucher;
+            wicView.setVoucher(player.voucher);
+            wicView.updateView();
         }
 
         public void selectWalletTab()

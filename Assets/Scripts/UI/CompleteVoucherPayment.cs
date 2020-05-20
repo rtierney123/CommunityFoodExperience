@@ -4,29 +4,30 @@ using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
-public class CompleteVoucherPayment : MonoBehaviour
+public class CompleteVoucherPayment : PopUp
 {
 
     public BaseStore store;
-    public WICVoucher voucher;
+    public WICVoucherView voucherView;
     
     void OnEnable()
     {
         Cart cart = store.cart;
         Dictionary<Food, int> foods = cart.foodInCart;
 
-        WICVoucher playerVoucher = store.currencyManager.getWICVoucher();
-        voucher.copy(playerVoucher);
+        WICVoucher voucher = store.currencyManager.getWICVoucher();
+        voucherView.setVoucher(voucher);
+        voucherView.updateView();
         foreach(Food food in foods.Keys)
         {
-            voucher.displayPotentialCheck(food);
+            voucherView.displayPotentialCheck(food);
         }
     }
 
     void OnDisable()
     {
         Debug.Log("clear");
-        voucher.clearTempChecks();
+        voucherView.clearTempChecks();
     }
 
 

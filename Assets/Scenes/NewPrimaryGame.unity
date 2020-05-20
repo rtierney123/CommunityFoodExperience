@@ -170,6 +170,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 698001578024519168, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006597267195547533, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1554592904138682074, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -219,6 +229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453484172530591523, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2562344908950950323, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
@@ -529,6 +544,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964700440417046513, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: activeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964700440417046513, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: activeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964700440417046513, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: activeColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964700440417046513, guid: cd48241543b00471e9784d28347cabad,
+        type: 3}
+      propertyPath: inactiveColor.a
+      value: 0.6745098
       objectReference: {fileID: 0}
     - target: {fileID: 6157518337506191631, guid: cd48241543b00471e9784d28347cabad,
         type: 3}
@@ -5914,7 +5949,7 @@ PrefabInstance:
         type: 3}
       propertyPath: voucher
       value: 
-      objectReference: {fileID: 1233395927}
+      objectReference: {fileID: 0}
     - target: {fileID: 703555773304364515, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6083,7 +6118,7 @@ PrefabInstance:
     - target: {fileID: 5950808801631543535, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 492.53638
+      value: 481.13647
       objectReference: {fileID: 0}
     - target: {fileID: 6352886858757156150, guid: ebcd39cffe1b96d42ac02fc5922dc06f,
         type: 3}
@@ -6441,18 +6476,6 @@ Transform:
   m_Father: {fileID: 630504628}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1233395927 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5964700440417046513, guid: cd48241543b00471e9784d28347cabad,
-    type: 3}
-  m_PrefabInstance: {fileID: 13674274}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cc09559bf61cc4bafd63041263aeee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1250112500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9242,14 +9265,14 @@ MonoBehaviour:
       list: []
     c_hack: 
     socialSecurityIncome: 870
-    monthlyIncome: 5000
+    monthlyIncome: 0
     temporaryAssistance: 0
     numInHouse: 2
     expenses: 855
     startingBusTokens: 10
     busPass: 1
     hasCar: 1
-    pregnant: 0
+    pregnant: 1
     single: 0
     married: 0
     jointTax: 0
@@ -9283,8 +9306,7 @@ MonoBehaviour:
   usedWIC: 0
   usedSnap: 0
   useCommunityKitchen: 0
-  wicVoicher: {fileID: 1233395927}
-  hasWic: 1
+  hadWic: 0
   hasTemporaryRide: 0
   hasKidBeenSick: 0
 --- !u!1 &1898436622

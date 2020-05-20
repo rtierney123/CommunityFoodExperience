@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public double ctcFunds = 0;
     public double eitcFunds = 0;
 
+    public WICVoucher voucher;
+
     public double calories = 0;
     public double grain = 0;
     public double fat = 0;
@@ -34,8 +36,7 @@ public class Player : MonoBehaviour
     public bool usedSnap = false;
     public bool useCommunityKitchen = false;
 
-    public WICVoucher wicVoicher;
-    public bool hasWic = false;
+    public bool hadWic = false;
 
     public bool hasTemporaryRide = false;
     public bool hasKidBeenSick = false;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
         ctcFunds = 0;
         eitcFunds = 0;
 
+        voucher = null;
 
         calories = 0;
         grain = 0;
@@ -69,14 +71,12 @@ public class Player : MonoBehaviour
         useCommunityKitchen = false;
 
 
-        hasWic = false;
+        hadWic = false;
 
 
         hasTemporaryRide = false;
         hasKidBeenSick = false;
         isHome = true;
-
-        resetVoucher();
 }
 
     public void setPlayerInfo(PlayerInfo info)
@@ -172,32 +172,29 @@ public class Player : MonoBehaviour
 
     public void addVoucher()
     {
-        hasWic = true;
-        wicVoicher.gameObject.SetActive(true);
+        hadWic = true;
+        voucher = new WICVoucher();
         playerInfo.setRecievedAssistance(true);
     }
 
-    public void resetVoucher()
+    public void useVoucher(Food[] cart)
     {
-        hasWic = false;
-        wicVoicher.gameObject.SetActive(false);
-        wicVoicher.reset();
+        foreach (Food food in cart)
+        {
+            updateVoucher(food);
+        }
+
+        voucher.deactivate();
     }
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
-    public void useVoucher(Food food)
+    public void updateVoucher(Food food)
     {
-        if (wicVoicher != null)
+        if (voucher != null)
         {
-            if (wicVoicher.checkValid(food))
-            {
-                wicVoicher.useVoucher(food);
-                hasWic = false;
-            }
-
+            voucher.useVoucher(food.wicType);
         }
-
     }
 
     public bool hasNoModeOfTransportation()

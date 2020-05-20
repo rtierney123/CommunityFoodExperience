@@ -64,8 +64,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.46400002, g: 0.46400002, b: 0.46400002, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -91,16 +92,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96cc09559bf61cc4bafd63041263aeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitUsed: 0
-  vegUsed: 0
-  grainUsed: 0
-  proteinUsed: 0
-  dairyUsed: 0
   fruitCheck: {fileID: 6369506484647825479}
   vegCheck: {fileID: 1718495215902585652}
   proteinCheck: {fileID: 3123925478873781402}
   grainCheck: {fileID: 793319184850229020}
   dairyCheck: {fileID: 4059225742467306449}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
+  activeVoucher: 0
 --- !u!1001 &34197498178978040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,16 +107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6763858491619948909}
     m_Modifications:
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_Name
-      value: GrainCheckMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 759186379903144737, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,6 +212,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: GrainCheckMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6f1949cab47a4985ded6c5580a5a2, type: 3}
 --- !u!1 &793319184850229020 stripped
@@ -244,16 +243,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6763858491619948909}
     m_Modifications:
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_Name
-      value: VegCheckMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 759186379903144737, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,6 +348,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: VegCheckMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6f1949cab47a4985ded6c5580a5a2, type: 3}
 --- !u!1 &1718495215902585652 stripped
@@ -380,16 +379,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6763858491619948909}
     m_Modifications:
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_Name
-      value: ProteinCheckMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 759186379903144737, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,6 +484,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: ProteinCheckMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6f1949cab47a4985ded6c5580a5a2, type: 3}
 --- !u!1 &3123925478873781402 stripped
@@ -516,16 +515,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6763858491619948909}
     m_Modifications:
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_Name
-      value: DairyCheckMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 759186379903144737, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -631,6 +620,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: DairyCheckMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6f1949cab47a4985ded6c5580a5a2, type: 3}
 --- !u!1 &4059225742467306449 stripped
@@ -652,16 +651,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6763858491619948909}
     m_Modifications:
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_Name
-      value: FruitCheckMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 759186379903144737, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -766,6 +755,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_Name
+      value: FruitCheckMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 827274652965033956, guid: 7bb6f1949cab47a4985ded6c5580a5a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6f1949cab47a4985ded6c5580a5a2, type: 3}

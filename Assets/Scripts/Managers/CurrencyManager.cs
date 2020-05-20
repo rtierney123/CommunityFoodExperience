@@ -21,10 +21,6 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-            if(canvasController.popUp == null  && !canvasController.screenDisplayed)
-            {
-
-            }
 
         }
 
@@ -100,7 +96,7 @@ namespace Manage
 
         public bool getHasWIC()
         {
-            return player.hasWic;
+            return player.hadWic;
         }
 
         public bool getHasTickets()
@@ -108,9 +104,13 @@ namespace Manage
             return player.busTickets > 0;
         }
 
+        public bool checkHasVoucher()
+        {
+            return player.voucher != null;
+        }
         public WICVoucher getWICVoucher()
         {
-            return player.wicVoicher;
+            return player.voucher;
         }
 
         public bool validateCashPayment(double amt)
@@ -122,6 +122,7 @@ namespace Manage
         {
             return amt <= player.snapFunds;
         }
+
 
         public bool validatePayment(double cash, double ctc, double eitc, double snap, double totalDue)
         {
@@ -183,11 +184,21 @@ namespace Manage
         public void addWICVoucher()
         {
             player.addVoucher();
+            footerDisplay.updateView();
         }
 
-        public void useVoucher(Food food)
+        public void useVoucher(Dictionary<Food, int> cart)
         {
-            player.useVoucher(food);
+            foreach(Food food in cart.Keys)
+            {
+                int count = cart[food];
+                for(int i = 0; i < count; i++)
+                {
+                    player.updateVoucher(food);
+                }
+            }
+            player.voucher.deactivate();
+            footerDisplay.updateView();
         }
 
         public void addTokens(int numTokens)

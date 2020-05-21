@@ -59,10 +59,8 @@ namespace UI {
 
         public void openVoucherPurchase()
         {
-            Debug.Log("open");
             if (checkVoucherCart())
             {
-                Debug.Log("voucher valid");
                 openPopUp(voucherPurchase);
             }
 
@@ -101,7 +99,9 @@ namespace UI {
                                 (grainAdded && foodType == FoodType.Grain ) || (proteinAdded && foodType == FoodType.Protein) ||
                                 (dairyAdded && foodType == FoodType.Dairy))
                     {
-                        messageManager.generateStandardErrorMessage("Cannot use voucher on more than one " + cartItem.Key.wicType.toDescriptionString() + " item.");
+                        string itemTypeString = cartItem.Key.wicType.toDescriptionString();
+                        string repeatedWicStatus = String.Format(Status.repeatedWIC, itemTypeString);
+                        messageManager.generateStandardErrorMessage(repeatedWicStatus);
                         Debug.Log("count " + cartItem.Value);
                         return false;
                     }
@@ -145,11 +145,9 @@ namespace UI {
 
         public void completeVoucherPayment()
         {
-            Debug.Log("voucher payment complete");
             currencyManager.useVoucher(cart.foodInCart);
-            messageManager.generateStandardSuccessMessage("WIC voucher has been redeemed.");
+            messageManager.generateStandardSuccessMessage(Status.wicRedeemed);
             completePayment();
-            
 
         }
 
@@ -161,23 +159,16 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.Cash, cash);
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
-                messageManager.generateStandardSuccessMessage("Purchase complete.");
+                messageManager.generateStandardSuccessMessage(Status.purchaseCompleted);
                 completePayment();
             } 
 
         }
 
-        public void displayMustBeNumberError()
-        {
-            messageManager.generateStandardErrorMessage("Input must be a number.");
-        }
-
         public void setCheckoutText(InputField cashField, InputField snapField)
         {
             cashField.text = FormatText.formatDouble(currencyManager.getCheckoutCash(cart.getTotalPrice()));
-            Debug.Log("cash " + currencyManager.getCheckoutCash(cart.getTotalPrice()));
             snapField.text = FormatText.formatDouble(currencyManager.getCheckoutSNAP(cart.getTotalPrice()));
-            Debug.Log("snap " + currencyManager.getCheckoutSNAP(cart.getTotalPrice()));
         }
 
         private bool validateFundsPurchase(double cash, double snap)
@@ -189,7 +180,7 @@ namespace UI {
                 {
                     if (food.premade)
                     {
-                        messageManager.generateStandardErrorMessage("Cannot use SNAP funds on premade food.");
+                        messageManager.generateStandardErrorMessage(Status.snapOnPremade);
                         return false;
                     }
                 }
@@ -197,22 +188,22 @@ namespace UI {
 
             if (!currencyManager.validateCashPayment(cash))
             {
-                messageManager.generateStandardErrorMessage("Not enough cash.");
+                messageManager.generateStandardErrorMessage(Status.insufficientCash);
                 return false;
             }
             else if (!currencyManager.validateSNAPPayment(snap))
             {
-                messageManager.generateStandardErrorMessage("Not enough SNAP fund.");
+                messageManager.generateStandardErrorMessage(Status.insufficientSnap);
                 return false;
             }
             else if (roundTwoDecimal(cash + snap) != roundTwoDecimal(cart.getTotalPrice()))
             {
-                messageManager.generateStandardErrorMessage("Total amount does not match.");
+                messageManager.generateStandardErrorMessage(Status.totalMismatch);
                 return false;
             }
             else
             {
-                messageManager.generateStandardSuccessMessage("Purchase complete.");
+                messageManager.generateStandardSuccessMessage(Status.purchaseCompleted);
                 return true;
             }
  

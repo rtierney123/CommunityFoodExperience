@@ -153,6 +153,7 @@ namespace Manage
 
         public void closePopUp()
         {
+            Debug.Log("close popup");
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if (popUpBackLog != null && popUpBackLog.Count > 0)
@@ -192,9 +193,11 @@ namespace Manage
 
         public void closeScreen(GameObject screen)
         {
-            screen.SetActive(false);
-            closeScreen();
-            screenDisplayed = false;
+            Debug.Log("close specfic screen");
+            if (screen = screenOpen)
+            {
+                closeScreen();
+            }
         }
 
 
@@ -204,6 +207,7 @@ namespace Manage
             checkForMainPopupBackLog();
             screenDisplayed = false;
         }
+
 
        
         public void closeCurrentScreen()

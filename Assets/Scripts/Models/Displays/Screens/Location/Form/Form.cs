@@ -24,10 +24,8 @@ namespace UI
         public GameObject greetingLayout;
         public GameObject formLayout;
 
-
         private void Start()
         {
-            
         }
         private void OnEnable()
         {

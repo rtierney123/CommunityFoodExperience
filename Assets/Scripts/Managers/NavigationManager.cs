@@ -70,25 +70,20 @@ namespace Manage
         {
             if (!bus.playerOnBus)
             {
-                if(currentLocation.mapLocation == location.mapLocation)
+                if(currentLocation == location)
                 {
                     location.onEnter();
                 } else
                 {
                     possibleDestination = location;
                     //NavigationPopUp popUp;
-                    if ((possibleDestination.mapLocation == MapLocations.VitaSnap && currentLocation.mapLocation == MapLocations.VitaSnap) || (possibleDestination.mapLocation == MapLocations.WICFoodPantry && currentLocation.mapLocation == MapLocations.WICFoodPantry))
+                    if ((possibleDestination.mapLocation == currentLocation.mapLocation ) || (possibleDestination.locationType == LocationType.NearbyLocation && currentLocation.locationType== LocationType.NearbyLocation))
                     {
                         navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
                         navigationPopup.activateWalkButton();
                         navigationPopup.enableWalkButton();
                     }
-                    else if (possibleDestination.locationType == LocationType.NearbyLocation)
-                    {
-                        navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
-                        navigationPopup.activateWalkButton();
-                        navigationPopup.enableWalkButton();
-                    } else
+                    else
                     {
                         navigationPopup.deactivateWalkButton();
                     }

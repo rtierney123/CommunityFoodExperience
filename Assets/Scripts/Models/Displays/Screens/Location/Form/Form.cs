@@ -9,6 +9,7 @@ namespace UI
     public class Form : Screen
     {
         public Player player;
+        [HideInInspector]
         public PlayerInfo playerInfo;
         public List<FormWrapper> formItems;
         public ClockDisplay clock;

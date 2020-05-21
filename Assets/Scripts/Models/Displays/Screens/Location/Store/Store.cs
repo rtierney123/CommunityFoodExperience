@@ -102,7 +102,6 @@ namespace UI {
                         string itemTypeString = cartItem.Key.wicType.toDescriptionString();
                         string repeatedWicStatus = String.Format(Status.repeatedWIC, itemTypeString);
                         messageManager.generateStandardErrorMessage(repeatedWicStatus);
-                        Debug.Log("count " + cartItem.Value);
                         return false;
                     }
                     else

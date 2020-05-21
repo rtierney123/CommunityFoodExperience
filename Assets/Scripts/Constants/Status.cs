@@ -23,4 +23,10 @@ public static class Status
     public static string insufficientCash = "Not enough cash.";
     public static string insufficientSnap = "Not enough SNAP fund.";
     public static string totalMismatch = "Total amount does not match.";
+
+    //SNAP
+    public static string snapApproved = "Your application has been approved. For a household of {0} and monthly income of {1}, " +
+        "you have received {2} in SNAP benefits that can be used to purchase any food that is not prepared and ready to eat.";
+    public static string snapDenied = "Your application has been denied.For a household of {0} and monthly income of {1}, you make too much money to receive SNAP benefits.";
+
 }

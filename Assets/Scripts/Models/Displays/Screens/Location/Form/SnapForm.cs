@@ -1,4 +1,5 @@
 ﻿using Manage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -105,7 +106,8 @@ namespace UI
         private string formatSuccessString(double amt)
         {
             string aidAmt = FormatText.formatCost(amt);
-            string successStr = "You receive SNAP {0} food stamps. You can spend this amount on non-premade food items.";
+            string snapApproved = String.Format(Status.snapApproved, playerInfo.numInHouse, playerInfo.monthlyIncome, amt);
+            string successStr = snapApproved;
             successStr = string.Format(successStr, aidAmt);
             return successStr;
         }
@@ -115,7 +117,7 @@ namespace UI
             string incomeAmt = FormatText.formatDouble(monthlyIncome);
             string numHouse = FormatText.formatInt(houseSize);
             string errorStr = "Monthly income of {0} for a house of {1} is too high to receive SNAP benefits.";
-            errorStr = string.Format(errorStr, incomeAmt, numHouse);
+            errorStr = string.Format(Status.snapDenied, numHouse, incomeAmt);
             return errorStr;
         }
 

@@ -76,11 +76,12 @@ namespace UI
                 {
                     currencyManager.addTokens(1);
                     updateTickets(1);
-                    messageManager.generateStandardSuccessMessage("'You look like you could you use a bus pass. Here you go.'", this);
+                    messageManager.generateStandardSuccessMessage(Status.receiveTicketCommunityKitchen, this);
                 }
                 else
                 {
-                    messageManager.generateStandardErrorMessage("'Sorry, you look like you already have a mode of tranportation. There are other people who need these tickets more.'", this);
+                    messageManager.generateStandardErrorMessage(Status.alreadyHaveTransportation, this);
+
                 }
             }
         }
@@ -150,16 +151,16 @@ namespace UI
                     clock.addGameMinutes(lossTime);
                     player.useCommunityKitchen = true;
                     nutritionManager.addNutrition(soup);
-                    messageManager.generateStandardSuccessMessage("'Here is some vegatable soup.'", this);
+                    messageManager.generateStandardSuccessMessage(Status.receiveSoup, this);
                 }
                 else if (mealRemaining == 0)
                 {
-                    messageManager.generateStandardErrorMessage("'Sorry, we ran out of meals to give out today.'", this);
+                    messageManager.generateStandardErrorMessage(Status.ranOutOfMeals, this);
                 }
             }
             else
             {
-                messageManager.generateStandardErrorMessage("'Hey, I already saw you here. We cannot give you more soup.'", this);
+                messageManager.generateStandardErrorMessage(Status.alreadyReceivedSoup, this);
             }
 
         }

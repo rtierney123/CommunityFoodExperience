@@ -28,8 +28,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
     [HideInInspector]
     public bool inCart = false;
 
-    public GameObject backCard;
-    public GameObject detailPopup;
+    public FoodDetail detailPopup;
    
     public Vector3 resetPosition;
     public Transform startParent;
@@ -142,7 +141,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
         if (canvasController != null)
         {
             Debug.Log("close details");
-            canvasController.closePopUp(detailPopup);
+            canvasController.closePopUp(detailPopup.gameObject);
         }
         else
         {

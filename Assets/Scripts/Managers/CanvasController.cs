@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.Rendering;
 
 namespace Manage
 {
@@ -153,7 +154,6 @@ namespace Manage
 
         public void closePopUp()
         {
-            Debug.Log("close popup");
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if (popUpBackLog != null && popUpBackLog.Count > 0)
@@ -191,12 +191,14 @@ namespace Manage
             screen.SetActive(true);
         }
 
-        public void closeScreen(GameObject screen)
+        public void closeOnlyScreen(GameObject screen)
         {
-            Debug.Log("close specfic screen");
-            if (screen = screenOpen)
+            
+            if (screen  == screenOpen)
             {
-                closeScreen();
+                screenOpen.SetActive(false);
+                screenOpen = null;
+                screenDisplayed = false;
             }
         }
 

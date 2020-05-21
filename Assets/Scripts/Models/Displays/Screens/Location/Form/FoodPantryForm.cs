@@ -6,6 +6,7 @@ namespace UI
 {
     public class FoodPantryForm : Form
     {
+       
         public override bool checkAlreadyEntered()
         {
             return player.usedFoodPantry;

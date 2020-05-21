@@ -21,6 +21,9 @@ namespace UI
         //five minute
         private uint lossTime = 5;
 
+        public GameObject greetingLayout;
+        public GameObject formLayout;
+
 
         private void Start()
         {
@@ -28,10 +31,25 @@ namespace UI
         }
         private void OnEnable()
         {
+            if(greetingLayout == null || formLayout == null)
+            {
+                startFillingOutForm();
+            }
+            else
+            {
+                greetingLayout.SetActive(true);
+                formLayout.SetActive(false);
+                signButton.gameObject.SetActive(false);
+            }
+            
+        }
+
+        public void startFillingOutForm()
+        {
             playerInfo = player.playerInfo;
             StartCoroutine(fillOutForm());
+            signButton.gameObject.SetActive(true);
             signButton.disable();
-            
         }
 
         public virtual bool checkAlreadyEntered()

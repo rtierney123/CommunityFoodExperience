@@ -19,7 +19,7 @@ namespace Manage
         // Update is called once per frame
         void Update()
         {
-            if (nutritionAdded && canvasController.popUp == null && !canvasController.screenDisplayed)
+            if (nutritionAdded && canvasController.popUp == null && canvasController.screenOpen == null)
             {
                // StartCoroutine(displayAddedNutrition());
             }

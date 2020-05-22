@@ -91,7 +91,6 @@ namespace Model
                 canvasController.openScreen(mainScreen);
             } else
             {
-                canvasController.screenDisplayed = false;
                 canvasController.dequeueMainScreenPopUpBackLog();
             }
 

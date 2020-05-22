@@ -69,8 +69,8 @@ namespace Manage
             if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
             {
                 player.setFreeRide(true);
-                Debug.Log("free ride");
-                messageManager.generateMainScreenOnlySuccessMessage("A kind stranger has offered to give you a ride to your next location. Choose wisely as this will only get you to one place. Redeem by clicking the next location you want to go.");
+                messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);
+                Debug.Log("free ride received");
             }
         }
 

@@ -146,7 +146,7 @@ namespace Manage
 
             dropPlayerOff(currentLocation);
 
-            canvasController.screenDisplayed = true;
+            //canvasController.screenDisplayed = true;
             clock.addGameMinutes(travelTime);
             
             //currentLocation.onEnter();

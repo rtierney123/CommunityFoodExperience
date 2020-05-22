@@ -18,17 +18,17 @@ namespace Manage
         GraphicRaycaster raycaster;
         [HideInInspector]
         public GameObject popUp;
-        private Queue<GameObject> popUpBackLog;
-        private Queue<GameObject> mainScreenOnlyBackLog;
+        [HideInInspector]
+        public GameObject screenOpen;
+        private Queue<GameObject> popUpBackLog = new Queue<GameObject>();
+        private Queue<GameObject> mainScreenOnlyBackLog = new Queue<GameObject>();
 
         bool allowClose;
         bool allowOpen;
 
         public bool endGame = false;
 
-        private GameObject screenOpen;
-        [HideInInspector]
-        public bool screenDisplayed;
+       
 
         void Awake()
         {
@@ -37,9 +37,9 @@ namespace Manage
             allowClose = true;
             allowOpen = true;
             popUp = null;
-            screenDisplayed = false;
-            popUpBackLog = new Queue<GameObject>();
-            mainScreenOnlyBackLog = new Queue<GameObject>();
+            screenOpen = null;
+            //popUpBackLog = new Queue<GameObject>();
+            //mainScreenOnlyBackLog = new Queue<GameObject>();
         }
 
 
@@ -102,20 +102,24 @@ namespace Manage
 
         public void addToMainScreenPopUpBackLog(GameObject gameObject)
         {
-            if(popUp == null && !screenDisplayed)
+            if(popUp == null && screenOpen == null)
             {
-                openPopup(gameObject);
+                Debug.Log("open main screen popup");
+                //openPopup(gameObject);
+                forcePopupOpen(gameObject);
             } else
             {
+                Debug.Log("add to main screen queue");
                 mainScreenOnlyBackLog.Enqueue(gameObject);
             }
         }
 
         public void dequeueMainScreenPopUpBackLog()
         {
-            if(popUp == null && !screenDisplayed && mainScreenOnlyBackLog.Count > 0)
+            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0)
             {
                 popUp = mainScreenOnlyBackLog.Dequeue();
+                Debug.Log("main screen backlog dequeued");
                 setPopUp(true);
             }
         }
@@ -161,7 +165,7 @@ namespace Manage
                 popUp = popUpBackLog.Dequeue();
                 setPopUp(true);
             }
-            else if (!screenDisplayed && mainScreenOnlyBackLog.Count > 0)
+            else if (screenOpen == null && mainScreenOnlyBackLog.Count > 0)
             {
                 popUp = mainScreenOnlyBackLog.Dequeue();
                 setPopUp(true);
@@ -176,7 +180,6 @@ namespace Manage
         {
             if (!endGame && screen != null)
             {
-                screenDisplayed = true;
                 closeCurrentScreen();
                 screenOpen = screen;
                 screen.SetActive(true);
@@ -185,7 +188,6 @@ namespace Manage
 
         public void openPostGameScreen(GameObject screen)
         {
-            screenDisplayed = true;
             closeCurrentScreen();
             screenOpen = screen;
             screen.SetActive(true);
@@ -198,7 +200,6 @@ namespace Manage
             {
                 screenOpen.SetActive(false);
                 screenOpen = null;
-                screenDisplayed = false;
             }
         }
 
@@ -207,7 +208,6 @@ namespace Manage
         {
             closeCurrentScreen();
             checkForMainPopupBackLog();
-            screenDisplayed = false;
         }
 
 

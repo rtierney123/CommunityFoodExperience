@@ -74,6 +74,11 @@ namespace Manage
                 if(currentLocation == location)
                 {
                     location.onEnter();
+                    if (currentLocation == startLocation)
+                    {
+                        displayHomePopup();
+
+                    }
                 } else
                 {
                     possibleDestination = location;
@@ -155,11 +160,24 @@ namespace Manage
 
             player.setFreeRide(false);
 
-            if(currentLocation == startLocation && player.getAchievedNutrition())
+            if(currentLocation == startLocation)
             {
-                gameManager.endGame();
+                displayHomePopup();
+                
             }
 
+        }
+
+        private void displayHomePopup()
+        {
+            if (player.getAchievedNutrition())
+            {
+                messageManager.generateHomePopup(Status.homeSufficientFood);
+            }
+            else
+            {
+                messageManager.generateHomePopup(Status.homeInsufficientFood);
+            }
         }
 
         private void dropPlayerOff(Location location)

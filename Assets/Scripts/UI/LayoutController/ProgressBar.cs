@@ -21,7 +21,6 @@ public class ProgressBar : MonoBehaviour
     {
         if (this.gameObject.activeInHierarchy && !loading)
         {
-            Debug.Log("Start Load");
             loading = true;
             StartCoroutine(Load());
             

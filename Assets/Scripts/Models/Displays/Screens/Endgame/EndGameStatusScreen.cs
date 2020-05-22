@@ -15,7 +15,7 @@ public class EndGameStatusScreen : MonoBehaviour
         string statusString = "";
         if(player.getIsHome() && player.getAchievedNutrition())
         {
-            statusString = Status.homeSufficientFood;
+            statusString = Status.homeSufficientFoodEnd;
             successPopup.setText(statusString);
             activateSuccess();
         } else
@@ -23,15 +23,15 @@ public class EndGameStatusScreen : MonoBehaviour
             
             if (!player.getIsHome() && player.getAchievedNutrition())
             {
-                statusString = Status.notHomeSufficientFood;
+                statusString = Status.notHomeSufficientFoodEnd;
             }
             else if (player.getIsHome() && !player.getAchievedNutrition())
             {
-                statusString = Status.homeInsufficientFood;
+                statusString = Status.homeInsufficientFoodEnd;
             }
             else
             {
-                statusString = Status.notHomeInsufficientFood;
+                statusString = Status.notHomeInsufficientFoodEnd;
             }
             failurePopup.setText(statusString);
             activateFailure();

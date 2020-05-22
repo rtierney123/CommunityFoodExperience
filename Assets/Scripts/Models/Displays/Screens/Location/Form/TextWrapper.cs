@@ -22,6 +22,7 @@ namespace UI
             StartCoroutine(fillOutText(contents));
         }
 
+
         public IEnumerator fillOutText(string info)
         {
            
@@ -30,6 +31,7 @@ namespace UI
             {
                 currentString += ch;
                 displayText.text = currentString;
+                
                 yield return new WaitForSeconds(fillOutDelayTime);
             }
             //set to true to continue coutroutine

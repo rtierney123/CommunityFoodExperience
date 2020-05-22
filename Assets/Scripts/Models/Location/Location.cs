@@ -24,8 +24,7 @@ namespace Model
         public bool busAvailable = false;
 
         public GameObject map;
-        public Material[] mats; // size 9: 2 elements each
-
+       
         public Camera mainCamera;
 
         Ray ray;
@@ -45,8 +44,6 @@ namespace Model
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
-                Debug.Log("Display " + locationTitle);
-                
                 over = true;
                 var elements = map.GetComponent<Renderer>().materials;
                 elements[0] = Resources.Load<Material>("Materials/map " + locationTitle);

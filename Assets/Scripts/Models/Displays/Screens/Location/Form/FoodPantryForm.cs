@@ -1,42 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class FoodPantryForm : Form
     {
-       
+        public GameObject enterButton;
+
+        private void OnEnable()
+        {
+            greetingLayout.SetActive(true);
+            formLayout.SetActive(false);
+            signButton.gameObject.SetActive(false);
+            enterButton.SetActive(false);
+        }
+
         public override bool checkAlreadyEntered()
         {
             return player.usedFoodPantry;
         }
 
-        protected override bool checkValid()
+        public override bool checkValid()
         {
             Debug.Log(playerInfo.zip);
             if (playerInfo.zip == "30317" || playerInfo.zip == "30307")
             {
-                Debug.Log("correct zip");
                 return true;
             }  else
             {
-                Debug.Log("incorrect zip");
                 return false;
             }
         }
 
         protected override void successAction()
         {
-            messageManager.generateStandardSuccessMessage("Welcome to the Food Pantry", this);
-            StartCoroutine(delayOpenNextScreen(nextActionTime));
+            signButton.gameObject.SetActive(false);
+            enterButton.SetActive(true);
             player.usedFoodPantry = true;
+            messageManager.generateStandardSuccessMessage(Status.enterFoodPantry, this);
         }
 
         protected override void failureAction()
         {
-            messageManager.generateStandardErrorMessage("Must be in 30317 or 30307 area code.", this);
-            StartCoroutine(delayCloseScreen(nextActionTime));
+            messageManager.generateStandardErrorMessage(Status.deniedFoodPantry, this);
             player.usedFoodPantry = true;
         }
 

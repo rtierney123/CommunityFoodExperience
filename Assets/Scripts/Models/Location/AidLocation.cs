@@ -13,12 +13,29 @@ namespace Model
         public Form form;
         public MessageManager messageManager;
 
+        protected string reenterAfterReceive;
+        protected string reenterAfterDeny;
+
+        private void Start()
+        {
+            string alreadyEnteredString = String.Format(Status.enterAgain, locationTitle);
+            reenterAfterReceive = alreadyEnteredString;
+            reenterAfterDeny = alreadyEnteredString;
+        }
+
         public override void onEnter()
         {
             if (form.checkAlreadyEntered())
             {
-                string alreadyEnteredString = String.Format(Status.enterAgain, locationTitle);
-                messageManager.generateStandardErrorMessage(alreadyEnteredString);
+                if (form.checkValid())
+                {
+                    messageManager.generateStandardErrorMessage(reenterAfterReceive);
+                }
+                else
+                {
+                    messageManager.generateStandardErrorMessage(reenterAfterDeny);
+                }
+               
             }
             else
             {
@@ -26,6 +43,8 @@ namespace Model
             }
 
         }
+
+
 
     }
 }

@@ -27,7 +27,7 @@ namespace UI
             return player.usedVita;
         }
 
-        protected override bool checkValid()
+        public override bool checkValid()
         {
             if (player.usedVita)
             {

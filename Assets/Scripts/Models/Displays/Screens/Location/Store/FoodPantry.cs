@@ -6,6 +6,12 @@ namespace UI
     public class FoodPantry : BaseStore
     {
         private bool transactionComplete = false;
+        public DisableableButton completeButton;
+
+        private void OnEnable()
+        {
+            completeButton.enable();
+        }
         public override bool validateCart()
         {
             if (!transactionComplete)
@@ -19,9 +25,9 @@ namespace UI
                 {
                     return true;
                 }
-            } else
+            }
+            else
             {
-                messageManager.generateStandardErrorMessage("Complete a transaction here twice.");
                 return false;
             }
           
@@ -31,10 +37,10 @@ namespace UI
         {
             if (validateCart())
             {
-                messageManager.generateStandardSuccessMessage("Transaction complete.");
+                messageManager.generateStandardSuccessMessage(Status.leaveFoodPantry);
                 transactionComplete = true;
                 completePayment();
-                StartCoroutine(delayCloseScreen());
+                completeButton.disable();
             }
          
         }

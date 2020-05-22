@@ -18,7 +18,7 @@ namespace UI
             return player.usedSnap;
         }
         
-        protected override bool checkValid()
+        public override bool checkValid()
         {
             if (player.usedSnap)
             {

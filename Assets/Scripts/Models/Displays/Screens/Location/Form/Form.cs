@@ -111,8 +111,7 @@ namespace UI
             clock.addGameMinutes(lossTime);
             signButton.disable();
         }
-
-        protected virtual bool checkValid()
+        public virtual bool checkValid()
         {
             return true;
         }

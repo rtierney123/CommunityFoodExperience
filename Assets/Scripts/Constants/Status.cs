@@ -45,4 +45,19 @@ public static class Status
     public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +
         "Income must be wages from a job, so income from social security and unemployment is ineligible. " +
         "You do not have any children and do not qualify for CTC benefits.";
+
+    //Food Pantry
+    public static string enterFoodPantry = "This food pantry can only serve individuals living in the 30317 or 30307 zip code due to our limited supply of food. " +
+        "Because you live in one of those zip codes you are welcome to the Food Pantry.";
+    public static string deniedFoodPantry = "Due to high demand and not enough food, we are currently only serving individuals " +
+        "living in the 30317 or 30307 zip code. We cannot provide you food from our food pantry today.";
+    public static string leaveFoodPantry = "Thank you for visiting the Food Pantry.";
+    public static string reenterFoodPantryAfterReceived = "You have already received food from the food pantry today. Due to the high number of" +
+        " people seeking food and limited food, we can only help you one time today.";
+
+    //WIC Clinic
+    public static string wicApproved = "For a household of {0} that has either a pregnant woman or children under the age of 5 and monthly income of {1}, " +
+        "you have received a WIC voucher. The voucher can be used during one transaction at participating grocery stores for WIC approved foods." +
+        " You may find your voucher in your wallet.";
+    public static string wicDenied = "Your application has been denied because you are not a pregnant woman and/or you don’t have at least one child under the age of 5 in your household.";
 }

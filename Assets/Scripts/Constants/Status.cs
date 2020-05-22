@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Status
 {
     //COMMUNITY KITCHEN
-    public static string receiveSoup = "'Here is one hot meal. It provides 1 grain and 1 vegetable towards your daily nutrition recommendations.'";
+    public static string receiveSoup = "'Here is vegetable soup with bread. It provides 1 grain and 1 vegetable towards your daily nutrition recommendations.'";
     public static string alreadyReceivedSoup = "'You have already received a hot meal today. Due to the high number of people " +
         "seeking food and the community kitchen receives limited donations, we can only serve one meal per person.'";
     public static string alreadyHaveTransportation = "'It looks like you already have some mode of transportation. We have a limited amount of bus tickets, " +

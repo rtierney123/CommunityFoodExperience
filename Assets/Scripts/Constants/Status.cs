@@ -86,4 +86,8 @@ public static class Status
     //Bus
     public static string purchaseSingleTicket = "Payment of {0} bus ticket successful.";
     public static string purchaseMultipleTickets = "Payment of {0} bus tickets successful.";
+
+    //Hints
+    public static string clickStopInstruction = "Click on a bus stop to have the bus drop you off where you want to go.";
+
 }

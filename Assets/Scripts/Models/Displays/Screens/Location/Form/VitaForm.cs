@@ -1,4 +1,5 @@
 ﻿using Manage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,7 @@ namespace UI
             {
                 double monthlyIncome = playerInfo.getMonthlyIncome();
                 int numChildren = playerInfo.getNumofChildren();
-
+                Debug.Log("monthly income " + monthlyIncome);
                 switch (numChildren)
                 {
                     case 0:
@@ -199,46 +200,56 @@ namespace UI
 
         protected override void successAction()
         {
-
+            int numChildren = playerInfo.getNumofChildren();
+            double eitcReceived = 0;
             if (ctcEligibility)
             {
-                ctcStatusString = formatSuccessString("CTC", ctcAmt);
+                //ctcStatusString = formatSuccessString("CTC", ctcAmt);
                 currencyManager.addFunds(FundsType.CTC, ctcAmt);
             }
             if (eitcEligbility)
             {
-                int numChildren = playerInfo.getNumofChildren();
+                
 
                 switch (numChildren)
                 {
                     case 0:
-                        eitcStatusString = formatSuccessString("EITC", eitcAmtNoChild);
-                        currencyManager.addFunds(FundsType.EITC, eitcAmtNoChild);
+                        //eitcStatusString = formatSuccessString("EITC", eitcAmtNoChild);
+                        eitcReceived = eitcAmtNoChild;
                         break;
                     case 1:
-                        eitcStatusString = formatSuccessString("EITC", eitcAmtOneChild);
-                        currencyManager.addFunds(FundsType.EITC, eitcAmtOneChild);
+                        //eitcStatusString = formatSuccessString("EITC", eitcAmtOneChild);
+                        eitcReceived = eitcAmtOneChild;
                         break;
                     case 2:
-                        eitcStatusString = formatSuccessString("EITC", eitcAmtTwoChild);
-                        currencyManager.addFunds(FundsType.EITC, eitcAmtTwoChild);
+                        //eitcStatusString = formatSuccessString("EITC", eitcAmtTwoChild);
+                        eitcReceived = eitcAmtTwoChild;
                         break;
                     default:
-                        eitcStatusString = formatSuccessString("EITC", eitcAmtMoreThreeChild);
-                        currencyManager.addFunds(FundsType.EITC, eitcAmtMoreThreeChild);
+                        //eitcStatusString = formatSuccessString("EITC", eitcAmtMoreThreeChild);
+                        eitcReceived = eitcAmtMoreThreeChild;
                         break;
                 }
+                currencyManager.addFunds(FundsType.EITC, eitcReceived);
             }
 
             if (ctcEligibility && eitcEligbility)
             {
-                StartCoroutine(showTwoSuccesses(ctcStatusString, eitcStatusString));
+                string doubleSuccess = String.Format(Status.bothEitcCTC, numChildren, 
+                    FormatText.formatCost(playerInfo.monthlyIncome), FormatText.formatCost(eitcReceived));
+                messageManager.generateStandardSuccessMessage(doubleSuccess);
+                //StartCoroutine(showTwoSuccesses(ctcStatusString, eitcStatusString));
             } else if (ctcEligibility && !eitcEligbility)
             {
-                StartCoroutine(showOneSuccessOneError(ctcStatusString, eitcStatusString));
+                string ctcSuccess = String.Format(Status.justCtc, numChildren, FormatText.formatCost(playerInfo.monthlyIncome));
+                messageManager.generateStandardSuccessMessage(ctcSuccess);
+                //StartCoroutine(showOneSuccessOneError(ctcStatusString, eitcStatusString));
             } else if (!ctcEligibility && eitcEligbility)
             {
-                StartCoroutine(showOneSuccessOneError(eitcStatusString, ctcStatusString));
+                string eitcSuccess = String.Format(Status.justEitc, numChildren,
+                    FormatText.formatCost(playerInfo.monthlyIncome), FormatText.formatCost(eitcReceived));
+                messageManager.generateStandardSuccessMessage(eitcSuccess);
+                // StartCoroutine(showOneSuccessOneError(eitcStatusString, ctcStatusString));
             }
 
             player.usedVita = true;
@@ -249,7 +260,9 @@ namespace UI
 
         protected override void failureAction()
         {
-            StartCoroutine(showTwoError(eitcStatusString, ctcStatusString));
+
+            messageManager.generateStandardErrorMessage(Status.neitherEitcCTC);
+            //StartCoroutine(showTwoError(eitcStatusString, ctcStatusString));
             player.usedVita = true;
 
             base.failureAction();

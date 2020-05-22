@@ -1,5 +1,6 @@
 ﻿
 using Manage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UI;
@@ -16,7 +17,8 @@ namespace Model
         {
             if (form.checkAlreadyEntered())
             {
-                messageManager.generateStandardErrorMessage("Cannot enter this location twice after receiving benefits.");
+                string alreadyEnteredString = String.Format(Status.enterAgain, locationTitle);
+                messageManager.generateStandardErrorMessage(alreadyEnteredString);
             }
             else
             {

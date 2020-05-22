@@ -45,6 +45,7 @@ namespace Model
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
+                Debug.Log("Display " + locationTitle);
                 
                 over = true;
                 var elements = map.GetComponent<Renderer>().materials;

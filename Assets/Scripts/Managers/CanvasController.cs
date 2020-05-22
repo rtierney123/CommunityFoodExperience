@@ -174,7 +174,7 @@ namespace Manage
 
         public void openScreen(GameObject screen)
         {
-            if (!endGame)
+            if (!endGame && screen != null)
             {
                 screenDisplayed = true;
                 closeCurrentScreen();

@@ -27,6 +27,22 @@ public static class Status
     //SNAP
     public static string snapApproved = "Your application has been approved. For a household of {0} and monthly income of {1}, " +
         "you have received {2} in SNAP benefits that can be used to purchase any food that is not prepared and ready to eat.";
-    public static string snapDenied = "Your application has been denied.For a household of {0} and monthly income of {1}, you make too much money to receive SNAP benefits.";
+    public static string snapDenied = "Your application has been denied. For a household of {0} and monthly income of {1}, you make too much money to receive SNAP benefits.";
 
+    //FORM
+    public static string enterAgain = "You have already visited the {0} today.";
+
+    //VITA
+    public static string bothEitcCTC = "Your application has been approved. " +
+        "For a household of {0} and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tickets. " +
+        "You have also received $2.74 in CTC benefits and can be used to purchase food.";
+    public static string justCtc = "Your application has been approved for CTC. " +
+        "For a household of {0} and monthly income of {1}, you have received $2.74 in CTC benefits and can be used to purchase food. " +
+        "However, you do not qualify for EITC. Income must be wages from a job, so income from social security and unemployment is ineligible.";
+    public static string justEitc = "Your application has been approved for EITC." +
+        "For a household of {0} and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tokens. " +
+        "However, you do not have any children and do not qualify for CTC benefits.";
+    public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +
+        "Income must be wages from a job, so income from social security and unemployment is ineligible. " +
+        "You do not have any children and do not qualify for CTC benefits.";
 }

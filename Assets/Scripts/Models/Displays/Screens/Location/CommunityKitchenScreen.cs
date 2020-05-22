@@ -26,6 +26,9 @@ namespace UI
         public CurrencyManager currencyManager;
         public string jsonLocation;
 
+        public GameObject greetingLayout;
+        public GameObject contentsLayout;
+
         private Food soup;
 
         private int mealRemaining;
@@ -33,6 +36,9 @@ namespace UI
 
         void OnEnable()
         {
+            greetingLayout.SetActive(true);
+            contentsLayout.SetActive(false);
+
             numMealsText.text = mealRemaining.ToString();
 
         }

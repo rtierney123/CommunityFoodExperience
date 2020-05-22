@@ -39,7 +39,7 @@ public static class Status
     public static string justCtc = "Your application has been approved for CTC. " +
         "For a household of {0} and monthly income of {1}, you have received $2.74 in CTC benefits and can be used to purchase food. " +
         "However, you do not qualify for EITC. Income must be wages from a job, so income from social security and unemployment is ineligible.";
-    public static string justEitc = "Your application has been approved for EITC." +
+    public static string justEitc = "Your application has been approved for EITC. " +
         "For a household of {0} and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tokens. " +
         "However, you do not have any children and do not qualify for CTC benefits.";
     public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +

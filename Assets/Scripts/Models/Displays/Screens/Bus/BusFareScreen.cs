@@ -1,7 +1,9 @@
 ﻿using Manage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace UI
 {
@@ -94,7 +96,19 @@ namespace UI
             {
                 currencyManager.subtractFunds(FundsType.Cash, amt);
                 currencyManager.addTokens(num);
-                messageManager.generateStandardSuccessMessage("Payment of "+num+" tickets successful.", this);
+
+                string paymentString;
+                if (num == 1)
+                {
+                    paymentString = String.Format(Status.purchaseSingleTicket, num);
+                    messageManager.generateStandardSuccessMessage(paymentString, this);
+                }
+                else
+                {
+                    paymentString = String.Format(Status.purchaseMultipleTickets, num);
+                    messageManager.generateStandardSuccessMessage(paymentString, this);
+                }
+                
             }
             else
             {

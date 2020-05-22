@@ -7,6 +7,8 @@ namespace UI
     {
         private bool transactionComplete = false;
         public DisableableButton completeButton;
+        public GameObject lessThanMaxPopUp;
+        public Player player;
 
         private void OnEnable()
         {
@@ -33,6 +35,19 @@ namespace UI
           
         }
 
+
+        public void checkFreeTransaction()
+        {
+            if(cart.getCartCount() < 2)
+            {
+                canvasController.openPopup(lessThanMaxPopUp);
+            }
+            else
+            {
+                completeFreeTransaction();
+            }
+        }
+
         public void completeFreeTransaction()
         {
             if (validateCart())
@@ -41,6 +56,8 @@ namespace UI
                 transactionComplete = true;
                 completePayment();
                 completeButton.disable();
+                player.usedFoodPantry = true;
+
             }
          
         }

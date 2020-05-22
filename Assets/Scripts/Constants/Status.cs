@@ -18,7 +18,7 @@ public static class Status
         "WIC vouchers are redeemable for one WIC food item in each category of fruits, vegetables, grains, protein, and dairy. ";
     public static string wicRedeemed = "WIC voucher has been redeemed.";
     public static string purchaseCompleted = "Purchase completed.";
-    public static string snapOnPremade = "Cannot use SNAP funds on premade food.";
+    public static string snapOnPremade = "Cannot use SNAP benefits on premade food.";
     public static string insufficientCash = "Not enough cash.";
     public static string insufficientSnap = "Not enough SNAP fund.";
     public static string totalMismatch = "Total amount does not match.";
@@ -82,4 +82,8 @@ public static class Status
         "Would you like to head back out into the community?";
     public static string homeSufficientFood = "Welcome home! Looks like you have obtained all the nutritious food you need today. " +
         "There is still time in the day. Would you like to head back out into the community?";
+
+    //Bus
+    public static string purchaseSingleTicket = "Payment of {0} bus ticket successful.";
+    public static string purchaseMultipleTickets = "Payment of {0} bus tickets successful.";
 }

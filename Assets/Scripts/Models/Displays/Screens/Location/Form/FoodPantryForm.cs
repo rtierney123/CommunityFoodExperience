@@ -38,14 +38,12 @@ namespace UI
         {
             signButton.gameObject.SetActive(false);
             enterButton.SetActive(true);
-            player.usedFoodPantry = true;
             messageManager.generateStandardSuccessMessage(Status.enterFoodPantry, this);
         }
 
         protected override void failureAction()
         {
             messageManager.generateStandardErrorMessage(Status.deniedFoodPantry, this);
-            player.usedFoodPantry = true;
         }
 
     }

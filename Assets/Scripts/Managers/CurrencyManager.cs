@@ -59,7 +59,6 @@ namespace Manage
 
         public double getCheckoutSNAP(double total)
         {
-            Debug.Log("snap " + player.snapFunds);
             if (player.snapFunds >= total)
             {
                 return total;

@@ -15,6 +15,7 @@ namespace Manage
 
         public CanvasController canvasController;
         public MessageManager messageManager;
+        public GameManager gameManager;
         public ClockDisplay clock;
         public Location currentLocation;
         public Location startLocation;
@@ -139,6 +140,7 @@ namespace Manage
 
         public void travelToDestination(TravelType travelType)
         {
+
             closePopUp();
             // scaled value from distmap
             double travelTime = calculateTravelTime(travelType);
@@ -152,6 +154,12 @@ namespace Manage
             //currentLocation.onEnter();
 
             player.setFreeRide(false);
+
+            if(currentLocation == startLocation && player.getAchievedNutrition())
+            {
+                gameManager.endGame();
+            }
+
         }
 
         private void dropPlayerOff(Location location)
@@ -241,7 +249,7 @@ namespace Manage
             bus.stopSelected = false;
             player.gameObject.SetActive(false);
             bus.playerOnBus = true;
-            
+            player.onBus = true;
         }
 
         public void handleStartBusEvent()
@@ -258,6 +266,7 @@ namespace Manage
             travelToDestination(TravelType.Bus);
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
+            player.onBus = false;
         }
 
 

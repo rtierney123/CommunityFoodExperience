@@ -66,11 +66,10 @@ namespace Manage
         private void checkFreeRide()
         {
             float rand = UnityEngine.Random.Range(0, 100);
-            if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
+            if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide && !player.onBus)
             {
                 player.setFreeRide(true);
                 messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);
-                Debug.Log("free ride received");
             }
         }
 

@@ -38,11 +38,15 @@ public class Player : MonoBehaviour
 
     public bool hadWic = false;
 
+    public bool onBus = false;
+
     public bool hasTemporaryRide = false;
     public bool hasKidBeenSick = false;
     private bool isHome = true;
+
     private void Start()
     {
+        resetPlayer();
     }
 
     public void resetPlayer()

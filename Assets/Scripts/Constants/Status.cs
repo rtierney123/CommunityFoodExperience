@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public static class Status
@@ -64,4 +63,18 @@ public static class Status
     //Random Event
     public static string freeRideReceived = "A kind stranger has offered to give you a ride to your next location. " +
         "Choose wisely as this will only get you to one place.Redeem by clicking the next location you want to go.";
+
+    //End Game
+    public static string gettingLate = "You better get home soon.  It is getting late.";
+    public static string notHomeInsufficientFood = "Unfortunately, the day has ended and you did not make it back home. " +
+        "Everything is closed and you did not get enough food for yourself today.";
+    public static string notHomeSufficientFood = "Unfortunately, the day has ended and you did not make it back home. " +
+        "Everything is closed, but you were able to get enough food for yourself today.";
+    public static string homeInsufficientFood = "Unfortunately, everything is closed and you did not get enough food for yourself today. " +
+        "However, you made it back home.";
+    public static string homeSufficientFood = "Great work! " +
+        "You successfully made it through the day and came back home with all the nutritious food you need for today.";
+
+    //General Status
+    public static string achievedNutrition = "You acquired enough food for the day. Return home to complete the simulation.";
 }

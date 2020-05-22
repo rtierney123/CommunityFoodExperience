@@ -9,6 +9,7 @@ namespace Manage
     public class NutritionManager : MonoBehaviour
     {
         public CanvasController canvasController;
+        public MessageManager messageManager;
         public Nutrition nutritionDisplay;
         public Player player;
         public int changeDisplayTime;
@@ -30,6 +31,11 @@ namespace Manage
             player.addNutrition(food);
             nutritionAdded = true;
             nutritionDisplay.updateInfo();
+
+            if (player.getAchievedNutrition())
+            {
+                messageManager.generateStandardSuccessMessage(Status.achievedNutrition);
+            }
         }
         /*
         public IEnumerator displayAddedNutrition()

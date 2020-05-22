@@ -25,6 +25,8 @@ namespace Manage{
         public ClockDisplay clock;
         public CommunityKitchenScreen communityKitchen;
 
+        public Form[] forms;
+
 
         public float randChildSick = 20;
 
@@ -66,11 +68,19 @@ namespace Manage{
         {
             pause();
             pauseScreen.SetActive(true);
+            foreach(Form form in forms)
+            {
+                form.pauseFillingOut();
+            }
         }
 
         public void resumeGame()
         {
             resume();
+            foreach (Form form in forms)
+            {
+                form.resumeFillingOut();
+            }
         }
 
 

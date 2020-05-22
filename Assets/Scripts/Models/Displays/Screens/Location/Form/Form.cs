@@ -24,6 +24,8 @@ namespace UI
         public GameObject greetingLayout;
         public GameObject formLayout;
 
+        public bool pauseFilling = false;
+
         private void Start()
         {
         }
@@ -55,7 +57,16 @@ namespace UI
             return false;
         }
 
-  
+        public void pauseFillingOut()
+        {
+            pauseFilling = true;
+        }
+
+        public void resumeFillingOut()
+        {
+            pauseFilling = false;
+        }
+
         private IEnumerator fillOutForm()
         {
             //make sure all text items are intialized
@@ -82,6 +93,10 @@ namespace UI
 
                 item.fillOut();
                 yield return new WaitForSeconds((float).5);
+                while (pauseFilling)
+                {
+                    yield return new WaitForSeconds((float).5);
+                }
                 yield return new WaitUntil(() => item.doneWithFillingOut);
             }
             onFormFilled();

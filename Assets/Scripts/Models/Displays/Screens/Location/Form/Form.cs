@@ -95,6 +95,7 @@ namespace UI
                 yield return new WaitForSeconds((float).5);
                 while (pauseFilling)
                 {
+                    Debug.Log("paused filling out");
                     yield return new WaitForSeconds((float).5);
                 }
                 yield return new WaitUntil(() => item.doneWithFillingOut);

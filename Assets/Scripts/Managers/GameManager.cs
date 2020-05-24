@@ -62,6 +62,10 @@ namespace Manage{
             navigationManager.reset();
             canvasController.closeScreen();
             currencyManager.update();
+            foreach (Form form in forms)
+            {
+                form.resumeFillingOut();
+            }
         }
 
         public void pauseGame()

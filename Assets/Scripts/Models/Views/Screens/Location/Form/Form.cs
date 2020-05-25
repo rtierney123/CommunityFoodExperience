@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class Form : Screen
+    public class Form : BaseLocationScreen
     {
         public Player player;
         [HideInInspector]
@@ -21,28 +21,14 @@ namespace UI
         //five minute
         private uint lossTime = 5;
 
-        public GameObject greetingLayout;
-        public GameObject formLayout;
-
         [HideInInspector]
         public bool pauseFilling = false;
 
-        private void Start()
+
+        public override void reset()
         {
-        }
-        private void OnEnable()
-        {
-            if(greetingLayout == null || formLayout == null)
-            {
-                startFillingOutForm();
-            }
-            else
-            {
-                greetingLayout.SetActive(true);
-                formLayout.SetActive(false);
-                signButton.gameObject.SetActive(false);
-            }
-            
+            base.reset();
+            signButton.gameObject.SetActive(false);
         }
 
         public void startFillingOutForm()

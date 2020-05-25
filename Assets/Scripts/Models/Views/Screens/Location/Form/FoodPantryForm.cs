@@ -9,11 +9,9 @@ namespace UI
     {
         public GameObject enterButton;
 
-        private void OnEnable()
+        public override void reset()
         {
-            greetingLayout.SetActive(true);
-            formLayout.SetActive(false);
-            signButton.gameObject.SetActive(false);
+            base.reset();
             enterButton.SetActive(false);
         }
 

@@ -25,6 +25,11 @@ namespace UI
 
         }
 
+        public virtual void reset()
+        {
+
+        }
+
 
     }
 }

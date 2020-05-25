@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class BaseStore : Screen
+    public class BaseStore : BaseLocationScreen
     {
 
         public NutritionManager nutritionManager;

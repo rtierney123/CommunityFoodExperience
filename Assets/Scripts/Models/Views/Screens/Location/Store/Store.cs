@@ -17,9 +17,18 @@ namespace UI {
         public GameObject voucherPurchase;
 
         public DisableableButton wicButton;
+        public GameObject purchaseButton;
 
-        private void Start()
+        public override void reset()
         {
+            base.reset();
+            purchaseButton.SetActive(false);
+        }
+
+        public override void enter()
+        {
+            base.enter();
+            purchaseButton.SetActive(true);
         }
 
         private void OnEnable()

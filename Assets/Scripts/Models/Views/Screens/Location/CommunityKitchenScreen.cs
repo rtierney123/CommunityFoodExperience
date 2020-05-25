@@ -9,7 +9,7 @@ using Utility;
 
 namespace UI
 {
-    public class CommunityKitchenScreen : Screen, IClockEventCaller
+    public class CommunityKitchenScreen : BaseLocationScreen, IClockEventCaller
     {
 
         public GameManager gameManager;
@@ -26,21 +26,17 @@ namespace UI
         public CurrencyManager currencyManager;
         public string jsonLocation;
 
-        public GameObject greetingLayout;
-        public GameObject contentsLayout;
-
         private Food soup;
 
         private int mealRemaining;
         private int ticketsRemaining;
 
-        void OnEnable()
+        public override void reset()
         {
-            greetingLayout.SetActive(true);
-            contentsLayout.SetActive(false);
-
+            base.reset();
             numMealsText.text = mealRemaining.ToString();
-
+            ticketsRemaining = startTickets;
+            mealRemaining = startMeals;
         }
 
         private void Start()
@@ -66,12 +62,6 @@ namespace UI
 
                 }
             }
-        }
-
-        public void reset()
-        {
-            ticketsRemaining = startTickets;
-            mealRemaining = startMeals;
         }
 
         public void askForTicket()

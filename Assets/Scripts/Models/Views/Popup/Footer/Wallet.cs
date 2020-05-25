@@ -46,9 +46,9 @@ namespace UI
             
         }
 
-        private void OnEnable()
+        public override void reset()
         {
-
+            base.reset();
             playerInfo = player.playerInfo;
             updateWallet();
             updateTransportationDisplay();
@@ -56,6 +56,7 @@ namespace UI
             WICVoucher voucher = player.voucher;
             wicView.setVoucher(player.voucher);
             wicView.updateView();
+            selectWalletTab();
         }
 
         public void selectWalletTab()

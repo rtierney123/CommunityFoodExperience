@@ -296,7 +296,7 @@ public class PlayerInfo
             case FormQuestionType.All_Income_In_US:
                 return FormatText.formatBool(allIncomeInUS);
             case FormQuestionType.Income_Less_than_3150:
-                bool valid = monthlyIncome <= 3150;
+                bool valid = false;
                 return FormatText.formatBool(valid);
             case FormQuestionType.First_Name:
                 return firstName;

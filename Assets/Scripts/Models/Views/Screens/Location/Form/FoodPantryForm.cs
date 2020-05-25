@@ -22,7 +22,6 @@ namespace UI
 
         public override bool checkValid()
         {
-            Debug.Log(playerInfo.zip);
             if (playerInfo.zip == "30317" || playerInfo.zip == "30307")
             {
                 return true;

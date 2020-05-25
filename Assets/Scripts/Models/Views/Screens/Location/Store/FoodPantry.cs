@@ -10,10 +10,11 @@ namespace UI
         public GameObject lessThanMaxPopUp;
         public Player player;
 
-        private void OnEnable()
+        public override void reset()
         {
             completeButton.enable();
         }
+
         public override bool validateCart()
         {
             if (!transactionComplete)

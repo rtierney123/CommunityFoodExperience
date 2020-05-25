@@ -48,12 +48,10 @@ namespace UI
             if(voucher == null)
             {
                 this.gameObject.SetActive(false);
-                Debug.Log("voucher not active");
             }
             else
             {
                 displayVoucher();
-                Debug.Log("display voucher");
             }
 
             

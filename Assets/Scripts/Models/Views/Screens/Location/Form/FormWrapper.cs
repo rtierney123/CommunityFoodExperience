@@ -21,11 +21,6 @@ public class FormWrapper : MonoBehaviour
         initialized = true;
     }
 
-    private void OnEnable()
-    {
-        resetWrapper();
-    }
-
     public virtual void fillOut()
     {
 

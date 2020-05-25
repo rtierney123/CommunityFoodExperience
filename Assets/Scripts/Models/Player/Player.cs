@@ -16,8 +16,10 @@ public class Player : MonoBehaviour
 
     public double money = 0;
     public double snapFunds = 0;
-    public double ctcFunds = 0;
-    public double eitcFunds = 0;
+
+    public double ctcAcquired = 0;
+    public double eitcAcquired = 0;
+    public double snapAcquired = 0;
 
     public WICVoucher voucher;
 
@@ -54,8 +56,9 @@ public class Player : MonoBehaviour
         resetToStarting();
 
         snapFunds = 0;
-        ctcFunds = 0;
-        eitcFunds = 0;
+        ctcAcquired = 0;
+        eitcAcquired = 0;
+        snapAcquired = 0;
 
         voucher = null;
 
@@ -146,6 +149,7 @@ public class Player : MonoBehaviour
     public void addSnap(double funds)
     {
         snapFunds += funds;
+        snapAcquired += funds;
         playerInfo.setRecievedAssistance(true);
     }
 
@@ -156,22 +160,22 @@ public class Player : MonoBehaviour
 
     public void addEITC(double funds)
     {
-        eitcFunds += funds;
+        eitcAcquired += funds;
     }
 
     public void subtractEITC(double funds)
     {
-        eitcFunds -= funds;
+        eitcAcquired -= funds;
     }
 
     public void addCTC(double funds)
     {
-        ctcFunds += funds;
+        ctcAcquired += funds;
     }
 
     public void subtractCTC(double funds)
     {
-        ctcFunds -= funds;
+        ctcAcquired -= funds;
     }
 
     public void addVoucher()
@@ -204,7 +208,7 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         //TODO: fixe
-        if(busTickets == 0 && money + ctcFunds + eitcFunds <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
+        if(busTickets == 0 && money + ctcAcquired + eitcAcquired <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
         {
             return true;
         } else

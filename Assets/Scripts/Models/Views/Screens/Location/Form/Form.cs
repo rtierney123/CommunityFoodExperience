@@ -29,6 +29,10 @@ namespace UI
         {
             base.reset();
             signButton.gameObject.SetActive(false);
+            foreach(FormWrapper item in formItems)
+            {
+                item.resetWrapper();
+            }
         }
 
         public void startFillingOutForm()

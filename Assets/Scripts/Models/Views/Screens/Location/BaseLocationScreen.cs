@@ -10,7 +10,7 @@ namespace UI
         public GameObject greetingLayout;
         public GameObject contentsLayout;
 
-        void OnEnable()
+        protected void OnEnable()
         {
             reset();
 

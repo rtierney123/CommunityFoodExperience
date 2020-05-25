@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 namespace UI
 {
@@ -60,31 +62,34 @@ namespace UI
         {
             setInactive();
             walletTab.GetComponent<Image>().color = selectColor;
-            walletTabBody.SetActive(true);
             updateWallet();
+            walletTabBody.SetActive(true);
         }
 
         public void selectInfoTab()
         {
             setInactive();
             infoTab.GetComponent<Image>().color = selectColor;
-            infoTabBody.SetActive(true);
             updateInfo();
+            infoTabBody.SetActive(true);
         }
 
         public void selectTransportationTab()
         {
             setInactive();
             transportationTab.GetComponent<Image>().color = selectColor;
+            updateTransportationDisplay();
             transportationTabBody.SetActive(true);
         }
 
         public void updateInfo()
         {
+            Debug.Log("info updated");
             foreach (TextWrapper item in infoValues)
             {
                 FormQuestionType type = item.questionType;
                 string info  = playerInfo.getInfoText(type);
+                Debug.Log(info);
                 item.setText(info);
             }
         }
@@ -145,27 +150,12 @@ namespace UI
 
         public void updateWallet()
         {
-            foreach (Transform child in walletTabBody.transform)
-            {
-                if (child.name == "CashValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = formatFunds(player.money);
-                }
-                else if (child.name == "SNAPValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = formatFunds(player.snapFunds);
-                }
-                else if (child.name == "EITCValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = formatFunds(player.eitcFunds);
-                }
-                else if (child.name == "CTCValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = formatFunds(player.ctcFunds);
-                }
-            }
+            cashText.text = FormatText.formatCost(player.money);
+            snapText.text = FormatText.formatCost(player.snapFunds);
+            ctcAcquiredText.text = FormatText.formatCost(player.ctcAcquired);
+            eitcAcquiredText.text = FormatText.formatCost(player.eitcAcquired);
+            snapAcquiredText.text = FormatText.formatCost(player.snapAcquired);
 
-            updateTransportationDisplay();
         }
 
         private void setInactive()

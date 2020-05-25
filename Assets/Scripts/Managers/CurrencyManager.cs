@@ -124,13 +124,13 @@ namespace Manage
                 messageManager.generateStandardErrorMessage("Not enough cash.");
                 return false;
             }
-            else if (player.ctcFunds < ctc)
+            else if (player.ctcAcquired < ctc)
             {
                 messageManager.generateStandardErrorMessage("Not enough CTC fund.");
                 return false;
 
             }
-            else if (player.eitcFunds < eitc)
+            else if (player.eitcAcquired < eitc)
             {
                 messageManager.generateStandardErrorMessage("Not enough EITC fund.");
                 return false;

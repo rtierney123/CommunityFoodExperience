@@ -27,14 +27,12 @@ namespace UI
         [HideInInspector]
         public PlayerInfo playerInfo;
 
-        private Color selectColor;
-        private Color inactiveColor;
+        public Color selectColor;
+        public Color inactiveColor;
         
         protected override void Start()
         {
             base.Start();
-            selectColor = new Color32(192, 118, 5, 255);
-            inactiveColor = new Color32(255, 150, 0, 255);
             selectWalletTab();
             
         }

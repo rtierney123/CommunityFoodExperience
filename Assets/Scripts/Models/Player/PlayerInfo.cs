@@ -279,6 +279,8 @@ public class PlayerInfo
                 return address;
             case FormQuestionType.Phone:
                 return phone;
+            case FormQuestionType.DOB:
+                return getDOB();
             case FormQuestionType.Num_Children:
                 return getNumofChildren().ToString();
             case FormQuestionType.Aid:

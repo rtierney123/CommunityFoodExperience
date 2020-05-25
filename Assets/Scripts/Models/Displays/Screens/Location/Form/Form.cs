@@ -14,7 +14,7 @@ namespace UI
         public List<FormWrapper> formItems;
         public ClockDisplay clock;
         public DisableableButton signButton;
-        private bool fillingOutItem;
+        
 
         protected float nextActionTime = 2;
 
@@ -24,6 +24,7 @@ namespace UI
         public GameObject greetingLayout;
         public GameObject formLayout;
 
+        [HideInInspector]
         public bool pauseFilling = false;
 
         private void Start()

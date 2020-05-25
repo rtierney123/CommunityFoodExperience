@@ -348,6 +348,10 @@ public class PlayerInfo
                 return getChildNameStr(2);
             case FormQuestionType.Ages_Of_Children:
                 return getChildrenAges();
+            case FormQuestionType.Age:
+                return age.ToString();
+            case FormQuestionType.Description:
+                return description;
 
         }
         return "";

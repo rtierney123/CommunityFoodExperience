@@ -69,7 +69,7 @@ namespace UI
                 if (item.containsText)
                 {
                     string info = playerInfo.getInfoText(question);
-                    item.setText(info);
+                    item.setInfo(info);
                 } else
                 {
                     CheckmarkType checktype = playerInfo.getInfoCheck(question);

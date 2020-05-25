@@ -43,6 +43,12 @@ namespace UI
             base.resetWrapper();
             displayText.text = "";
         }
+
+        public void setText(string info)
+        {
+            displayText.text = info;
+        }
+
     }
 }
 

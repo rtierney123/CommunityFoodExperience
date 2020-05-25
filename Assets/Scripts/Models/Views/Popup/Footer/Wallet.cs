@@ -8,25 +8,32 @@ namespace UI
 {
     public class Wallet : PopUp
     {
-        public GameObject walletTab;
-        public GameObject walletTabBody;
-        public GameObject infoTab;
-        public GameObject infoTabBody;
-        public GameObject transportationTab;
-        public GameObject transportationTabBody;
+        public Player player;
+        [HideInInspector]
+        public PlayerInfo playerInfo;
+
+        public Text cashText;
+        public Text snapText;
+        public Text eitcAcquiredText;
+        public Text ctcAcquiredText;
+        public Text snapAcquiredText;
+
+        public TextWrapper[] infoValues;
 
         public GameObject busPass;
         public GameObject carCard;
         public GameObject transportationText;
         public GameObject noTokenText;
         public TokenHolder tokenHolder;
-
         public WICVoucherView wicView;
 
-        public Player player;
-        [HideInInspector]
-        public PlayerInfo playerInfo;
-
+        public GameObject walletTab;
+        public GameObject walletTabBody;
+        public GameObject infoTab;
+        public GameObject infoTabBody;
+        public GameObject transportationTab;
+        public GameObject transportationTabBody;
+       
         public Color selectColor;
         public Color inactiveColor;
         
@@ -74,48 +81,11 @@ namespace UI
 
         public void updateInfo()
         {
-            foreach (Transform child in infoTabBody.transform)
+            foreach (TextWrapper item in infoValues)
             {
-                if (child.name == "NameValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.getFullName();
-                }
-                else if (child.name == "SSNValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.ssn;
-                }
-                else if (child.name == "DOBValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.getDOB();
-                }
-                else if (child.name == "MarriedValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.married ? "Yes" : "No";
-                }
-                else if (child.name == "AgeValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = "" + playerInfo.age;
-                }
-                else if (child.name == "TelValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.phone;
-                }
-                else if (child.name == "AddressValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.address + " " + playerInfo.city + ", " + playerInfo.state;
-                }
-                else if (child.name == "IncomeValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = "$" + playerInfo.monthlyIncome + "/month";
-                }
-                else if (child.name == "Description")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.description;
-                }
-                else if (child.name == "ZipValue")
-                {
-                    child.gameObject.GetComponent<Text>().text = playerInfo.zip.ToString();
-                }
+                FormQuestionType type = item.questionType;
+                string info  = playerInfo.getInfoText(type);
+                item.setText(info);
             }
         }
 

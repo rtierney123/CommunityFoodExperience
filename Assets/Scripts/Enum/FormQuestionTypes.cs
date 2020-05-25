@@ -73,5 +73,7 @@ public enum FormQuestionType
 
     Ages_Of_Children = 63,
 
-    Has_Job = 70
+    Has_Job = 70,
+    Age = 71,
+    Description = 72
 }

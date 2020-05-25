@@ -31,7 +31,7 @@ public class FormWrapper : MonoBehaviour
 
     }
 
-    public virtual void setText(string info)
+    public virtual void setInfo(string info)
     {
         contents = info;
     }

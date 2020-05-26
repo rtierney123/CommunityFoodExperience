@@ -16,6 +16,7 @@ namespace UI
 
         }
 
+
         public void startPressed()
         {
             if (allowChoosePlayer)
@@ -28,6 +29,7 @@ namespace UI
             }
             openNextScreen();
         }
+
     }
 }
 

@@ -10,18 +10,15 @@ namespace UI
     {
         public Player player;
 
-        public Text fullNameText;
-        public Text startingCashText;
-        public Text transportationText;
-        public Text descriptionText;
+        public TextWrapper[] info;
 
-        public override void updateDisplay()
+        public override void reset()
         {
-            fullNameText.text = player.playerInfo.getFullName();
-            double cash = player.playerInfo.getStartingCash();
-            startingCashText.text = FormatText.formatCost(cash);
-            transportationText.text = player.playerInfo.getStartingTransportationString();
-            descriptionText.text = player.playerInfo.description;
+            PlayerInfo playerInfo = player.playerInfo;
+            foreach (TextWrapper item in info)
+            {
+                item.setText(playerInfo.getInfoText(item.questionType));
+            }
 
         }
     }

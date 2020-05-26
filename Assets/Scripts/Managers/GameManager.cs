@@ -23,10 +23,14 @@ namespace Manage{
         public CurrencyManager currencyManager;
         public Bus bus;
         public ClockDisplay clock;
+        public GameObject footer;
+        public GameObject pauseButton;
         public CommunityKitchenScreen communityKitchen;
 
         public Form[] forms;
 
+        //TODO set when appropriate
+        bool gameStarted = false;
 
         public float randChildSick = 20;
 
@@ -38,12 +42,15 @@ namespace Manage{
             {
                 canvasController.openScreen(startScreen);
                 Debug.Log("START");
+                hideIcons();
                 pause();
             }
             else
             {
                 startGame();
             }
+
+            
 
         }
 
@@ -55,8 +62,24 @@ namespace Manage{
             }
         }
 
+        public void displayIcons()
+        {
+            clock.gameObject.SetActive(true);
+            footer.SetActive(true);
+            pauseButton.SetActive(true);
+        }
+
+        public void hideIcons()
+        {
+            clock.gameObject.SetActive(false);
+            footer.SetActive(false);
+            pauseButton.SetActive(false);
+        }
+
         public void startGame()
         {
+            Debug.Log("start game");
+            displayIcons();
             clock.startAnimation();
             //bus.startAnimation();
             navigationManager.reset();
@@ -107,10 +130,13 @@ namespace Manage{
 
         public void endGame()
         {
+            hideIcons();
             canvasController.closePopUp();
             canvasController.endGame = true;
             canvasController.openPostGameScreen(endScreen);
             pause();
+            //TODO: FIX THIS!
+            //GAME BREAKS WHEN PAUSE AND LEAVE ON BUS.
         }
 
         public void displayCredits()
@@ -132,6 +158,7 @@ namespace Manage{
             canvasController.closeScreen();
             canvasController.openScreen(startScreen);
             pause();
+            hideIcons();
 
         }
         public void resetGameComponents()

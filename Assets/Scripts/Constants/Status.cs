@@ -83,6 +83,8 @@ public static class Status
     public static string homeSufficientFood = "Welcome home! Looks like you have obtained all the nutritious food you need today. " +
         "There is still time in the day. Would you like to head back out into the community?";
 
+    
+
     //Bus
     public static string purchaseSingleTicket = "Payment of {0} bus ticket successful.";
     public static string purchaseMultipleTickets = "Payment of {0} bus tickets successful.";

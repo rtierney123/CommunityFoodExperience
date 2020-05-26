@@ -352,6 +352,8 @@ public class PlayerInfo
                 return age.ToString();
             case FormQuestionType.Description:
                 return description;
+            case FormQuestionType.Transportation:
+                return getStartingTransportationString();
 
         }
         return "";

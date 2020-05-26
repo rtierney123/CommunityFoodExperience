@@ -31,7 +31,7 @@ public class ClockDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        resetAnimation();
+        //resetAnimation();
 
         eventCallers = new List<IClockEventCaller>();
         foreach (GameObject gameObject in clockCallerGameObjects)
@@ -55,6 +55,7 @@ public class ClockDisplay : MonoBehaviour
         currentMin = 0;
         lossTime = TimeSpan.Zero;
         pauseTime = TimeSpan.Zero;
+        Debug.Log("reset clock");
     }
 
     public void startAnimation() {
@@ -62,6 +63,7 @@ public class ClockDisplay : MonoBehaviour
         anim.enabled = true;
         startTime = DateTime.Now;
         pauseTime = TimeSpan.Zero;
+        Debug.Log("start clock");
     }
 
     // Update is called once per frame

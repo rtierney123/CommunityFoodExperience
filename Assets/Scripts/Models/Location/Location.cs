@@ -15,6 +15,7 @@ namespace Model
         public NavigationManager navigationManager;
         public CanvasController canvasController;
         public MapLocations mapLocation;
+        public Material highlight;
 
         public string locationTitle;
         public string locationDescription;
@@ -46,7 +47,7 @@ namespace Model
             {
                 over = true;
                 var elements = map.GetComponent<Renderer>().materials;
-                elements[0] = Resources.Load<Material>("Materials/map " + locationTitle);
+                elements[0] = highlight;
                 //elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
                 
                 // comment out line below to disable building highlight
@@ -57,6 +58,7 @@ namespace Model
                 if (Input.GetMouseButtonDown(0))
                 {
                     navigationManager.startLocationScreen(this);
+                    Debug.Log("location clicked");
                 }
             }
             else

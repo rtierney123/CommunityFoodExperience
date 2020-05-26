@@ -67,6 +67,15 @@ public class PlayerInfo
     public double requiredVegetable = 2;
     public double requiredExtra = 0;
 
+    public double rentExpense = 0;
+    public double utilitiesExpense = 0;
+    public double medicalExpense = 0;
+    public double transportationExpense = 0;
+    public double phoneExpense = 0;
+    public double childcareExpense = 0;
+    public double taxesExpense = 0;
+    public double otherExpense = 0;
+
     //do not put in json
     public bool federalAssistance;
 
@@ -354,7 +363,29 @@ public class PlayerInfo
                 return description;
             case FormQuestionType.Transportation:
                 return getStartingTransportationString();
-
+            case FormQuestionType.RentExpense:
+                return FormatText.formatDouble(rentExpense);
+            case FormQuestionType.UtilitiesExpense:
+                return FormatText.formatDouble(utilitiesExpense);
+            case FormQuestionType.MedicalExpense:
+                return FormatText.formatDouble(medicalExpense);
+            case FormQuestionType.TransportationExpense:
+                return FormatText.formatDouble(transportationExpense);
+            case FormQuestionType.PhoneExpense:
+                return FormatText.formatDouble(phoneExpense);
+            case FormQuestionType.ChildcareExpense:
+                return FormatText.formatDouble(childcareExpense);
+            case FormQuestionType.TaxesExpense:
+                return FormatText.formatDouble(taxesExpense);
+            case FormQuestionType.OtherExpense:
+                return FormatText.formatDouble(otherExpense);
+            case FormQuestionType.TotalIncome:
+                double total = getTotalIncome();
+                return FormatText.formatDouble(total);
+            case FormQuestionType.TotalLeftAfterExpenses:
+                double totalLeft = getTotalIncome() + rentExpense + utilitiesExpense + medicalExpense + transportationExpense +
+                    phoneExpense + childcareExpense + taxesExpense + otherExpense;
+                return FormatText.formatCost(totalLeft);
         }
         return "";
 

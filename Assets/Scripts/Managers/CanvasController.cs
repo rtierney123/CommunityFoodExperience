@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.Rendering;
+using UI;
 
 namespace Manage
 {
@@ -129,6 +130,12 @@ namespace Manage
             if (popUp == null && allowOpen && !endGame)
             {
                 popUp = gameObject;
+                View view = popUp.GetComponent<UI.PopUp>();
+                if(view != null)
+                {
+                    view.reset();
+                }
+                
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
             } 
@@ -182,6 +189,11 @@ namespace Manage
             {
                 closeCurrentScreen();
                 screenOpen = screen;
+                View view = screen.GetComponent<UI.Screen>();
+                if (view != null)
+                {
+                    view.reset();
+                }
                 screen.SetActive(true);
             }
         }

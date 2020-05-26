@@ -9,11 +9,24 @@ namespace UI
     {
         public float fillOutDelayTime;
         public Text displayText;
+        public bool resize;
+        [HideInInspector]
+        private RectTransform rectText;
 
         protected override void Awake()
         {
            containsText = true;
             base.Awake();
+            rectText = this.gameObject.GetComponent<RectTransform>();
+        }
+
+        private void OnEnable()
+        {
+            if (resize)
+            {
+                rectText.sizeDelta = new Vector2(rectText.rect.width, displayText.preferredHeight);
+            }
+            
         }
 
 

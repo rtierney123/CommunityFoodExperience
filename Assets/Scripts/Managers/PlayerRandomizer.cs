@@ -5,12 +5,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Utilitiy;
 using Utility;
 
 public class PlayerRandomizer : MonoBehaviour
 {
-    public string playerJsonLocation;
-
     public Player player;
     private PlayerInfo playerInfo;
     [HideInInspector]
@@ -35,13 +34,13 @@ public class PlayerRandomizer : MonoBehaviour
         {
             //Debug.Log(Application.absoluteURL);
             //Debug.Log("Fetch from: " + Application.absoluteURL + "StreamingAssets" + playerJsonLocation);
-            jsonLocation = Application.absoluteURL + "StreamingAssets" + playerJsonLocation;
+            jsonLocation = Application.absoluteURL + "StreamingAssets" + JsonParser.memberLocation;
             StartCoroutine(GetRequest(jsonLocation));
         }
         else
         {
             string mainPath = Application.dataPath;
-            jsonLocation = mainPath + "/StreamingAssets" + playerJsonLocation;
+            jsonLocation = mainPath + "/StreamingAssets" + JsonParser.memberLocation;
             bool pathExists = ResourceHandler.testFilePath(jsonLocation);
             if (pathExists)
             {

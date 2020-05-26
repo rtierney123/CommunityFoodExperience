@@ -36,7 +36,7 @@ namespace UI
 
         public void openNextScreen()
         {
-            StartCoroutine(delayCloseScreen());
+            //StartCoroutine(delayCloseScreen());
             if (nextScreen != null)
             {
                 canvasController.openScreen(nextScreen);
@@ -45,7 +45,7 @@ namespace UI
 
         public void openPrevScreen()
         {
-            StartCoroutine(delayCloseScreen());
+            //StartCoroutine(delayCloseScreen());
             if (prevScreen != null)
             {
                 canvasController.openScreen(prevScreen);

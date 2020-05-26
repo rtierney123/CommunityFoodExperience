@@ -77,5 +77,17 @@ public enum FormQuestionType
     Age = 71,
     Description = 72,
 
-    Transportation = 73
+    Transportation = 73,
+
+
+    RentExpense = 74,
+    UtilitiesExpense = 75,
+    MedicalExpense = 76,
+    TransportationExpense = 77,
+    PhoneExpense = 78,
+    ChildcareExpense = 79,
+    TaxesExpense = 80,
+    OtherExpense = 81,
+    TotalIncome = 82,
+    TotalLeftAfterExpenses = 83
 }

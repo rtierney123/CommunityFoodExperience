@@ -30,7 +30,6 @@ namespace Manage
         {
             player.addNutrition(food);
             nutritionAdded = true;
-            nutritionDisplay.updateInfo();
 
             if (player.getAchievedNutrition())
             {

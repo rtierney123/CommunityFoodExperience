@@ -15,7 +15,6 @@ namespace UI
         public override void reset()
         {
             base.reset();
-            Debug.Log("reset");
             greetingLayout.SetActive(true);
             contentsLayout.SetActive(false);
         }

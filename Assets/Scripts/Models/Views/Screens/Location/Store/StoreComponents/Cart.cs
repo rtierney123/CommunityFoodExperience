@@ -40,7 +40,10 @@ public class Cart : MonoBehaviour
 
     public void clearAll()
     {
-        foodInCart.Clear();
+        if(foodInCart != null)
+        {
+            foodInCart.Clear();
+        }
         populateGrid.clearAll();
         totalPrice = 0;
         updateTotal();

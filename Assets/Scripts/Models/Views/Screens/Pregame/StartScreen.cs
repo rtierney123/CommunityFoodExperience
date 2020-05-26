@@ -11,10 +11,7 @@ namespace UI
         public GameObject choosePlayerScreen;
         public GameObject randomPlayerScreen;
 
-        private void Start()
-        {
-
-        }
+        public PlayerRandomizer playerRandomizer;
 
 
         public void startPressed()
@@ -25,6 +22,7 @@ namespace UI
             }
             else
             {
+                playerRandomizer.selectCharacterRandomly();
                 nextScreen = randomPlayerScreen;
             }
             openNextScreen();

@@ -58,6 +58,11 @@ namespace Manage
 
         public void reset() {
             currentLocation = startLocation;
+            if (bus.playerOnBus)
+            {
+                leaveBus();
+            }
+            bus.setOffScreen();
             dropPlayerOff(startLocation);
         }
 
@@ -282,6 +287,11 @@ namespace Manage
             Debug.Log("leave bus");
             currentLocation = possibleDestination;
             travelToDestination(TravelType.Bus);
+            leaveBus();
+        }
+
+        private void leaveBus()
+        {
             player.gameObject.SetActive(true);
             bus.playerOnBus = false;
             player.onBus = false;

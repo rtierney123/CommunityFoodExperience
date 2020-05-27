@@ -41,7 +41,7 @@ public class PlayerInfo
     public double monthlyIncome = 5000;
     public double temporaryAssistance = 0;
     public int numInHouse = 2;
-    public double expenses = 855;
+    //public double expenses = 855;
 
     public int startingBusTokens = 1;
     public bool busPass = true;
@@ -462,10 +462,12 @@ public class PlayerInfo
 
     public double getStartingCash()
     {
-        double monthlyCash = monthlyIncome - expenses;
-        double cashForDay = Math.Floor(monthlyCash / 30 / numInHouse * 100) / 100;
+        double monthlyCash = getTotalIncome() + rentExpense + utilitiesExpense + medicalExpense + transportationExpense +
+            phoneExpense + childcareExpense + taxesExpense + otherExpense;
+        double dailyCash = (monthlyCash / (30 * numInHouse));
+        double cashForDay = Math.Round(dailyCash, 2);
         return monthlyCash > 0 ? cashForDay : 0;
-  }
+    }
     public String getStartingTransportationString()
     {
         string returnStr = "";

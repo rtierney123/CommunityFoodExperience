@@ -17,6 +17,8 @@ public class Bus : MonoBehaviour
     public int randStuckPercent = 50;
     public float stuckSeconds = 30;
 
+    public Transform offScreenLocation;
+
     [HideInInspector]
     public bool atStop = false;
     [HideInInspector]
@@ -92,13 +94,13 @@ public class Bus : MonoBehaviour
 
     public void startAnimation()
     {
-        resetAnimation();
+        setOffScreen();
         resumeAnimation();
     }
 
-    public void resetAnimation()
+    public void setOffScreen()
     {
-
+        this.transform.position = offScreenLocation.position;
     }
 
     public void playAnimation(float offset)

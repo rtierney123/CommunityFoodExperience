@@ -25,8 +25,8 @@ namespace Manage
         public Bus bus;
         public float locationScreenDelay;
 
-        public Dictionary<MapLocations, Location> locationStopDict;
-        public List<MapLocations> locationKeys;
+        public Dictionary<Neighborhood, Location> locationStopDict;
+        public List<Neighborhood> locationKeys;
         public List<Location> locationBusStops;
 
         public double walkScale;
@@ -40,7 +40,7 @@ namespace Manage
         // Start is called before the first frame update
         void Start()
         {
-            locationStopDict = new Dictionary<MapLocations, Location>();
+            locationStopDict = new Dictionary<Neighborhood, Location>();
             if (locationKeys.Count == locationBusStops.Count)
             {
                 for (int index = 0; index < locationKeys.Count; index += 1)
@@ -88,7 +88,7 @@ namespace Manage
                 {
                     possibleDestination = location;
                     //NavigationPopUp popUp;
-                    if ((possibleDestination.mapLocation == currentLocation.mapLocation ) || (possibleDestination.locationType == LocationType.NearbyLocation && currentLocation.locationType== LocationType.NearbyLocation))
+                    if ((possibleDestination.neighborhood == currentLocation.neighborhood ) || (possibleDestination.locationType == LocationType.NearbyLocation && currentLocation.locationType== LocationType.NearbyLocation))
                     {
                         navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
                         navigationPopup.activateWalkButton();
@@ -187,7 +187,7 @@ namespace Manage
 
         private void dropPlayerOff(Location location)
         {
-            if(location.mapLocation == MapLocations.House)
+            if(location == startLocation)
             {
                 player.setIsHome(true);
             } else
@@ -249,10 +249,10 @@ namespace Manage
             Debug.Log("bus clicked");
         }
 
-        public void handleBusStoppedEvent(MapLocations currentLocation)
+        public void handleBusStoppedEvent(Neighborhood currentLocation)
         {
             Debug.Log("bus at stop");
-            if(currentLocation == possibleDestination.mapLocation)
+            if(currentLocation == possibleDestination.neighborhood)
             {
                 handleLeaveBusEvent();
             }

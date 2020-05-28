@@ -8,7 +8,7 @@ using UnityEngine;
 public class Bus : MonoBehaviour
 {
     public NavigationManager navigationManager;
-    public MapLocations mapLocation;
+    public Neighborhood mapLocation;
 
     public MessageManager messageManager;
 
@@ -57,7 +57,7 @@ public class Bus : MonoBehaviour
         }
     }
 
-    public void startStop(MapLocations stopLocation)
+    public void startStop(Neighborhood stopLocation)
     {
         mapLocation = stopLocation;
         atStop = true;
@@ -69,7 +69,7 @@ public class Bus : MonoBehaviour
 
     public void resumeRoute()
     {
-        mapLocation = MapLocations.OnRoad;
+        mapLocation = Neighborhood.OnRoad;
         atStop = false;
         navigationManager.handleBusContinuingEvent();
     }

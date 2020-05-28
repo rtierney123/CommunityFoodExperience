@@ -14,7 +14,7 @@ namespace Model
         public GameObject mainScreen;
         public NavigationManager navigationManager;
         public CanvasController canvasController;
-        public MapLocations mapLocation;
+        public Neighborhood neighborhood;
         public Material highlight;
 
         public string locationTitle;

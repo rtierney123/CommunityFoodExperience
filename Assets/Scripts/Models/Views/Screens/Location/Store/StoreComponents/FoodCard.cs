@@ -110,17 +110,17 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             if (ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name, 40) == null)
             {
                 string appendix = "";
-                if (navManager.currentLocation.locationTitle.Equals("Food Tiger"))
+                if (navManager.currentLocation.locationId == LocationID.FoodTiger)
                 {
                     fixedPath_c += "/ft";
                     appendix = "_ft";
                 }
-                else if (navManager.currentLocation.locationTitle.Equals("Mo's Corner Store"))
+                else if (navManager.currentLocation.locationId == LocationID.CornerStore)
                 {
                     fixedPath_c += "/cs";
                     appendix = "_cs";
                 }
-                else if (navManager.currentLocation.locationTitle.Equals("Food Pantry"))
+                else if (navManager.currentLocation.locationId == LocationID.FoodPantry)
                 {
                     fixedPath_c += "/fp";
                     appendix = "_fp";

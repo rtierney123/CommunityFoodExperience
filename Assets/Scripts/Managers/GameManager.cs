@@ -89,6 +89,7 @@ namespace Manage{
             {
                 form.resumeFillingOut();
             }
+            navigationManager.reset();
         }
 
         public void pauseGame()
@@ -137,7 +138,7 @@ namespace Manage{
             pause();
             //TODO: FIX THIS!
             //GAME BREAKS WHEN PAUSE AND LEAVE ON BUS.
-            navigationManager.reset();
+            
         }
 
         public void displayCredits()

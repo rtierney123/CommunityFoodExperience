@@ -5,65 +5,32 @@ using UnityEngine.UI;
 using UI;
 using Manage;
 
-public class EndScreen : MonoBehaviour
+namespace UI
 {
-    public Player player;
-    private PlayerInfo playerInfo;
-
-    // Start is called before the first frame update
-    void Start()
+    public class EndScreen : Screen
     {
-        updateInfo();
-    }
+        public Player player;
+        public NutritionDisplayer nutritionDisplayer;
 
-    private void OnEnable()
-    {
-        playerInfo = player.playerInfo;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public void updateInfo()
-    {
-        foreach (Transform child in this.transform)
+        public Text makeHomeText;
+        public override void reset()
         {
-            if (child.name == "CaloriesValue")
+            base.reset();
+            Debug.Log("reset end game");
+            nutritionDisplayer.updateDisplay(player);
+            ColorDisplayer colorDisplayer = new ColorDisplayer();
+            if (player.getIsHome())
             {
-                child.gameObject.GetComponent<Text>().text = player.calories.ToString() + "/" + playerInfo.requiredCalories.ToString();
+                makeHomeText.text = "Yes";
+                colorDisplayer.setSuccess(makeHomeText);
             }
-            else if (child.name == "GrainValue")
+            else
             {
-                child.gameObject.GetComponent<Text>().text = player.grain.ToString() + "/" + playerInfo.requiredGrain.ToString();
-            }
-            else if (child.name == "FatValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.fat.ToString() + "/" + playerInfo.requiredFat.ToString();
-            }
-            else if (child.name == "ProteinValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.protein.ToString() + "/" + playerInfo.requiredProtein.ToString();
-            }
-            else if (child.name == "DairyValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.dairy.ToString() + "/" + playerInfo.requiredDairy.ToString();
-            }
-            else if (child.name == "FruitValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.fruit.ToString() + "/" + playerInfo.requiredFruit.ToString();
-            }
-            else if (child.name == "VegetableValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.vegetable.ToString() + "/" + playerInfo.requiredVegetable.ToString();
-            }
-            else if (child.name == "ExtraValue")
-            {
-                child.gameObject.GetComponent<Text>().text = player.extra.ToString() + "/" + playerInfo.requiredExtra.ToString();
+                makeHomeText.text = "No";
+                colorDisplayer.setStandard(makeHomeText);
             }
         }
+
     }
 }
+

@@ -87,7 +87,6 @@ namespace Manage
                     //NavigationPopUp popUp;
                     if (possibleDestination.neighborhood == currentLocation.neighborhood)
                     {
-                        Debug.Log("potential time " + getPotentialTravelTime(TravelType.Walk));
                         navigationPopup.walkText.text = "Walk (" + formatTime( getPotentialTravelTime(TravelType.Walk)) + ")";
                         navigationPopup.activateWalkButton();
                         navigationPopup.enableWalkButton();

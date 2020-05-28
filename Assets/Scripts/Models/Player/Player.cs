@@ -220,6 +220,14 @@ public class Player : MonoBehaviour
     public void setIsHome(bool home)
     {
         isHome = home;
+        if(home == false)
+        {
+            Debug.Log("set not home");
+        }
+        else
+        {
+            Debug.Log("home");
+        }
     }
     public bool getIsHome()
     {

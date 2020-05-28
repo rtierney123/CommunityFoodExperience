@@ -96,7 +96,6 @@ public class TravelCalculator
 
         distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.WicClinic, LocationID.PantryWicBusStop ), 1);
 
-        Debug.Log("generated map edges");
         return distmap;
     }
 

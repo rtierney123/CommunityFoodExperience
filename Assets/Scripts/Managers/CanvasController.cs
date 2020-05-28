@@ -202,6 +202,11 @@ namespace Manage
         {
             closeCurrentScreen();
             screenOpen = screen;
+            View view = screen.GetComponent<UI.Screen>();
+            if (view != null)
+            {
+                view.reset();
+            }
             screen.SetActive(true);
         }
 

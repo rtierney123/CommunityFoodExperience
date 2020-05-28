@@ -6,11 +6,7 @@ namespace UI
 {
     public class View : MonoBehaviour
     {
-        protected void OnEnable()
-        {
-            reset();
 
-        }
 
         public virtual void onAttemptDismiss()
         {

@@ -127,13 +127,6 @@ namespace Manage
             }
         }
 
-        public double realToGameTime(double realTime)
-        {
-            double inGameHours = 12 + clock.pmEndTime - clock.amStartTime;
-            double multiplier = 60 * 60 * inGameHours / clock.runtimeMiliSeconds * 1000;
-            return realTime * multiplier;
-        }
-
         public string formatTime(double min)
         {
             min = Math.Floor(min);

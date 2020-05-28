@@ -58,7 +58,6 @@ namespace Model
                 if (Input.GetMouseButtonDown(0))
                 {
                     navigationManager.startLocationScreen(this);
-                    Debug.Log("location clicked");
                 }
             }
             else

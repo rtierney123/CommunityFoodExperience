@@ -10,11 +10,11 @@ namespace Model
     public class Location : MonoBehaviour
     {
         public Transform playerDropoff;
-        public LocationType locationType;
         public GameObject mainScreen;
         public NavigationManager navigationManager;
         public CanvasController canvasController;
         public Neighborhood neighborhood;
+        public LocationID locationId;
         public Material highlight;
 
         public string locationTitle;
@@ -96,10 +96,12 @@ namespace Model
                 canvasController.dequeueMainScreenPopUpBackLog();
             }
 
+            /*
             if (locationType == LocationType.FarLocation)
             {
                 navigationManager.displayIfStuck();
             }
+            */
           
         }
 

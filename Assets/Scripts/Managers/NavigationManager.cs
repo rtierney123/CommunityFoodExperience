@@ -88,7 +88,7 @@ namespace Manage
                 {
                     possibleDestination = location;
                     //NavigationPopUp popUp;
-                    if ((possibleDestination.neighborhood == currentLocation.neighborhood ) || (possibleDestination.locationType == LocationType.NearbyLocation && currentLocation.locationType== LocationType.NearbyLocation))
+                    if (possibleDestination.neighborhood == currentLocation.neighborhood)
                     {
                         navigationPopup.walkText.text = "Walk (" + formatTime(calculateTravelTime(TravelType.Walk)) + ")";
                         navigationPopup.activateWalkButton();
@@ -306,10 +306,12 @@ namespace Manage
 
         public void displayIfStuck()
         {
+            /*
             if (player.hasNoModeOfTransportation() && currentLocation.locationType == LocationType.FarLocation)
             {
                 canvasController.addToMainScreenPopUpBackLog(stuckPopup);
             }
+            */
         }
 
         //TODO:FIX THIS!!

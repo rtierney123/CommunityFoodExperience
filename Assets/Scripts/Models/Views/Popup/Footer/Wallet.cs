@@ -103,7 +103,6 @@ namespace UI
             {
                 FormQuestionType type = item.questionType;
                 string info  = playerInfo.getInfoText(type);
-                Debug.Log(info);
                 item.setText(info);
             }
         }

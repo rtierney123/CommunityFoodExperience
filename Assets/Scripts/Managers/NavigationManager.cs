@@ -184,7 +184,7 @@ namespace Manage
             {
                 player.setIsHome(false);
             }
-            player.transform.position = location.playerDropoff.position;
+            player.transform.position = new Vector3(location.playerDropoff.position.x, location.playerDropoff.position.y, 0);
         }
 
         private double getPotentialTravelTime(TravelType travelType)

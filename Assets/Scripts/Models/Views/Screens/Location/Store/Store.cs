@@ -81,68 +81,34 @@ namespace UI {
 
         private bool checkVoucherCart()
         {
+            List<Food> foods = cart.getFoodList();
 
-           // List<FoodType[]> wicTypes = new List<FoodType[]>();
-           int totalCount = 0;
-            List<FoodType[]> wicPossible = new List<FoodType[]>();
             if (currencyManager.getWICVoucher() == null)
             {
                 return false;
             }
+            else if (foods.Count > 5)
+            {
+                messageManager.generateStandardErrorMessage(Status.tooManyWIC);
+            }
             else
             {
-                Dictionary<Food, int> cartContents = cart.foodInCart;
-                
-                int index = 0;
-
-                foreach (KeyValuePair<Food, int> cartItem in cartContents)
+                foreach (Food food in foods)
                 {
-                    Food food = cartItem.Key;
-                    int count = cartItem.Value;
-                    totalCount += count;
-                    if (totalCount > 5)
-                    {
-                        messageManager.generateStandardErrorMessage(Status.tooManyWIC);
-                    } else if (!cartItem.Key.wic)
+                    if (!food.wic)
                     {
                         messageManager.generateStandardErrorMessage(food.name + " is on a not a WIC item.");
                         return false;
 
-                    } else if (count > 1)
-                    {
-                        if (cartItem.Key.wicType.Length < 1)
-                        {
-                            Debug.Log("Marked as WIC item but not identified by type.");
-                            return false;
-                        }
-                        else
-                        {
-                            displayDuplicateWIC(cartItem.Key.wicType[0]);
-                            return false;
-                        }
+                    }
 
-                    }
-                    else
-                    {
-                        wicPossible.Add(food.wicType);
-                    }
                 }
-
             }
-            /*
 
-            (int numBins, FoodType duplicatedBins) = checkBinNumber(cart.foodInCart, 5, totalCount);
-            if (duplicatedBins != FoodType.None)
-            {
-                displayDuplicateWIC(duplicatedBins);
-                return false;
-            }
-            */
-
-            List<FoodType> types = currencyManager.getWICArray(cart.foodInCart.Keys.ToList());
+            List<FoodType> types = currencyManager.getWICArray(foods);
             if(types == null)
             {
-                FoodType duplicate = currencyManager.findWICDuplicate(cart.foodInCart.Keys.ToList());
+                FoodType duplicate = currencyManager.findWICDuplicate(foods);
                 displayDuplicateWIC(duplicate);
                 return false;
             }
@@ -157,88 +123,6 @@ namespace UI {
             messageManager.generateStandardErrorMessage(repeatedWicStatus);
         }
 
-        public (int, FoodType) checkBinNumber(Dictionary<Food, int> cartContents, int n, int totalCount)
-        {
-            int[] bin = new int[n];
-            foreach (KeyValuePair<Food, int> cartItem in cartContents)
-            {
-                Food food = cartItem.Key;
-                foreach (FoodType type in food.wicType)
-                {
-                    switch (type)
-                    {
-                        case FoodType.Fruit:
-                            bin[0]++;
-                            break;
-                        case FoodType.Veg:
-                            bin[1]++;
-                            break;
-                        case FoodType.Grain:
-                            bin[2]++;
-                            break;
-                        case FoodType.Protein:
-                            bin[3]++;
-                            break;
-                        case FoodType.Dairy:
-                            bin[4]++;
-                            break;
-                    }
-                }
-            }
-
-            int binCount = 0;
-            int maxBin = 0;
-            int max = 0;
-            int index = 0;
-            foreach (int c in bin)
-            {
-                if (c > 0)
-                {
-                    binCount++;
-                }
-
-                if (c > max)
-                {
-                    maxBin = index;
-                    max = c;
-                }
-                index++;
-            }
-
-            FoodType duplicated = FoodType.None;
-
-            if(binCount < totalCount)
-            {
-                switch (maxBin)
-                {
-                    case 0:
-                        duplicated = FoodType.Fruit;
-                        break;
-                    case 1:
-                        duplicated = FoodType.Veg;
-                        break;
-                    case 2:
-                        duplicated = FoodType.Grain;
-                        break;
-                    case 3:
-                        duplicated = FoodType.Protein;
-                        break;
-                    case 4:
-                        duplicated = FoodType.Dairy;
-                        break;
-                }
-            }
-
-
-            return (binCount, duplicated);
-        }
-
-        public void checkCombinations()
-        {
-
-        }
-
-
         public void openPopUp(GameObject popUp)
         {
             if (canvasController != null)
@@ -250,7 +134,8 @@ namespace UI {
 
         public void completeVoucherPayment()
         {
-            currencyManager.useVoucher(cart.foodInCart);
+            List<FoodType> types = currencyManager.getWICArray(cart.getFoodList());
+            currencyManager.useVoucher(types);
             messageManager.generateStandardSuccessMessage(Status.wicRedeemed);
             completePayment();
 

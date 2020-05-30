@@ -14,14 +14,15 @@ public class CompleteVoucherPayment : PopUp
     void OnEnable()
     {
         Cart cart = store.cart;
-        Dictionary<Food, int> foods = cart.foodInCart;
+        Dictionary<Food, int> cartItems = cart.foodInCart;
 
         WICVoucher voucher = store.currencyManager.getWICVoucher();
         voucherView.setVoucher(voucher);
         voucherView.updateView();
 
-        List<Food> f = foods.Keys.ToList();
-        List<FoodType> wicList = currencyManager.getWICArray(f);
+        List<Food> foods = cart.getFoodList();
+
+        List<FoodType> wicList = currencyManager.getWICArray(foods);
         if(wicList != null)
         {
             foreach (FoodType type in wicList)

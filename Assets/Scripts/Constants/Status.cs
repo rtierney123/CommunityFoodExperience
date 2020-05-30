@@ -16,7 +16,7 @@ public static class Status
     public static string ranOutOfMeals = "'Sorry, we ran out of meals to give out today.'";
 
     //STORE
-    public static string repeatedWIC = "Cannot use voucher on more than one {0}. " +
+    public static string repeatedWIC = "It is impossible to use the WIC voucher on the current combination of items. There are duplicate {0} items. " +
         "WIC vouchers are redeemable for one WIC food item in each category of fruits, vegetables, grains, protein, and dairy. ";
     public static string tooManyWIC = "WIC voucher can be used on a maximum of 5 food items.";
     public static string wicRedeemed = "WIC voucher has been redeemed.";

@@ -183,9 +183,9 @@ namespace Manage
             footerDisplay.updateView();
         }
 
-        public void useVoucher(Dictionary<Food, int> cart)
+        public void useVoucher(List<FoodType> types)
         {
-            foreach(FoodType food in getWICArray(cart.Keys.ToList()))
+            foreach(FoodType food in types)
             {
                 player.updateVoucher(food);
             }
@@ -214,7 +214,6 @@ namespace Manage
                 }
             }
             Debug.Log("size foods " + foods.Count);
-            Food[] possibleSolutions = new Food[5];
             
             Food[] result = findValidPermutation(foodArray, 0, 4);
 
@@ -279,7 +278,6 @@ namespace Manage
             {
                 for (int i = start; i <= end; i++)
                 {
-                    Debug.Log(i);
                     swapTwoFoods(ref foods[start], ref foods[i]);
                     Food[] soln = findValidPermutation(foods, start + 1, end);
                     if (soln != null)

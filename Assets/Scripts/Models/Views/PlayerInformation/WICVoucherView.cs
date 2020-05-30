@@ -135,7 +135,7 @@ namespace UI
                     displayTempCheck(proteinCheck);
                     return;
                 case FoodType.Dairy:
-                    displayPermCheck(dairyCheck);
+                    displayTempCheck(dairyCheck);
                     return;
             }
         }

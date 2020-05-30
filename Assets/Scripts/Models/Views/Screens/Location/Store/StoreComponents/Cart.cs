@@ -25,9 +25,18 @@ public class Cart : MonoBehaviour
     {
         foodInCart = new Dictionary<Food, int>();
     }
-    public void Update()
+
+    public List<Food> getFoodList()
     {
-     
+        List<Food> foods = new List<Food>();
+        foreach (KeyValuePair<Food, int> item in foodInCart)
+        {
+            for (int i = 0; i < item.Value; i++)
+            {
+                foods.Add(item.Key);
+            }
+        }
+        return foods;
     }
 
     public void notifyDroppedFood(Vector3 position, Food food)

@@ -185,23 +185,15 @@ public class Player : MonoBehaviour
         playerInfo.setRecievedAssistance(true);
     }
 
-    public void useVoucher(Food[] cart)
-    {
-        foreach (Food food in cart)
-        {
-            updateVoucher(food);
-        }
 
-        voucher.deactivate();
-    }
 
     //TODO need to alter this logic to deal with what if multiple vouchers
     //do I need to worry about this;
-    public void updateVoucher(Food food)
+    public void updateVoucher(FoodType foodType)
     {
         if (voucher != null)
         {
-            voucher.useVoucher(food.wicType);
+            voucher.useVoucher(foodType);
         }
     }
 

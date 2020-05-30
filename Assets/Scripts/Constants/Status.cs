@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
+using UnityEditorInternal;
 using UnityEngine;
 
 public static class Status
@@ -16,6 +18,7 @@ public static class Status
     //STORE
     public static string repeatedWIC = "Cannot use voucher on more than one {0}. " +
         "WIC vouchers are redeemable for one WIC food item in each category of fruits, vegetables, grains, protein, and dairy. ";
+    public static string tooManyWIC = "WIC voucher can be used on a maximum of 5 food items.";
     public static string wicRedeemed = "WIC voucher has been redeemed.";
     public static string purchaseCompleted = "Purchase completed.";
     public static string snapOnPremade = "Cannot use SNAP benefits on premade food.";
@@ -59,7 +62,7 @@ public static class Status
         "you have received a WIC voucher. The voucher can be used during one transaction at participating grocery stores for WIC approved foods." +
         " You may find your voucher in your wallet.";
     public static string wicDenied = "Your application has been denied because you are not a pregnant woman and/or you don’t have at least one child under the age of 5 in your household.";
-
+    
     //Random Event
     public static string freeRideReceived = "A kind stranger has offered to give you a ride to your next location. " +
         "Choose wisely as this will only get you to one place. Redeem by clicking the next location you want to go.";

@@ -125,7 +125,7 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
                     fixedPath_c += "/fp";
                     appendix = "_fp";
                 }
-
+                Debug.Log(name);
                 ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name + appendix, 40);
             }
             canvasController.openPopup(shelf.detailPopup);

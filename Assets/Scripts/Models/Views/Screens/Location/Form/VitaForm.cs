@@ -57,7 +57,6 @@ namespace UI
             {
                 double monthlyIncome = playerInfo.getMonthlyIncome();
                 int numChildren = playerInfo.getNumofChildren();
-                Debug.Log("monthly income " + monthlyIncome);
                 switch (numChildren)
                 {
                     case 0:

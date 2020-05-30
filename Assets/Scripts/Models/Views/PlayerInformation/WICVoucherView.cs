@@ -118,10 +118,8 @@ namespace UI
             }
         }
 
-        public void displayPotentialCheck(Food food)
+        public void displayPotentialCheck(FoodType foodType)
         {
-            FoodType foodType = food.wicType;
-
             switch (foodType)
             {
                 case FoodType.Fruit:

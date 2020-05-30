@@ -15,7 +15,7 @@ public class Food
     [SerializeField, HideInInspector]
     public MyPlateNutrition nutrition;
     [SerializeField]
-    public FoodType wicType;
+    public FoodType[] wicType;
     public bool wic;
     public bool premade;
 

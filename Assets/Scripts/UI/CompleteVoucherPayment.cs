@@ -1,15 +1,16 @@
 ﻿using Manage;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UI;
 using UnityEngine;
 
 public class CompleteVoucherPayment : PopUp
 {
 
-    public BaseStore store;
+    public Store store;
     public WICVoucherView voucherView;
-    
+    public CurrencyManager currencyManager;
     void OnEnable()
     {
         Cart cart = store.cart;
@@ -18,10 +19,17 @@ public class CompleteVoucherPayment : PopUp
         WICVoucher voucher = store.currencyManager.getWICVoucher();
         voucherView.setVoucher(voucher);
         voucherView.updateView();
-        foreach(Food food in foods.Keys)
+
+        List<Food> f = foods.Keys.ToList();
+        List<FoodType> wicList = currencyManager.getWICArray(f);
+        if(wicList != null)
         {
-            voucherView.displayPotentialCheck(food);
+            foreach (FoodType type in wicList)
+            {
+                voucherView.displayPotentialCheck(type);
+            }
         }
+        
     }
 
     void OnDisable()

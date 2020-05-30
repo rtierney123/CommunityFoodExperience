@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.XPath;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -182,17 +185,185 @@ namespace Manage
 
         public void useVoucher(Dictionary<Food, int> cart)
         {
-            foreach(Food food in cart.Keys)
+            foreach(FoodType food in getWICArray(cart.Keys.ToList()))
             {
-                int count = cart[food];
-                for(int i = 0; i < count; i++)
-                {
-                    player.updateVoucher(food);
-                }
+                player.updateVoucher(food);
             }
             player.voucher.deactivate();
             footerDisplay.updateView();
         }
+
+        public List<FoodType> getWICArray(List<Food> foods)
+        {
+            Food[] foodArray = new Food[5];
+            if(foods.Count > 5)
+            {
+                return null;
+            }
+            else
+            {
+                int index = 0;
+                foreach(Food food in foods)
+                {
+                    foodArray[index] = food;
+                    index++;
+                }
+                for(int i = index; i < 5; i++)
+                {
+                    foodArray[i] = null;
+                }
+            }
+            Debug.Log("size foods " + foods.Count);
+            Food[] possibleSolutions = new Food[5];
+            
+            Food[] result = findValidPermutation(foodArray, 0, 4);
+
+
+            List<FoodType> wicList = new List<FoodType>();
+            if(result != null)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    if(result[i] != null)
+                    {
+                        FoodType validType = wicNumToFoodType(i);
+                        wicList.Add(validType);
+                    }
+                   
+                }
+                return wicList;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public FoodType findWICDuplicate(List<Food> foods)
+        {
+            int[] bins = new int[5];
+            foreach(Food food in foods)
+            {
+                FoodType[] wicTypes = food.wicType;
+                foreach(FoodType type in wicTypes)
+                {
+                    Debug.Log("find duplicate");
+                    int num = foodTypeToWICNum(type);
+                    if(num >= 0)
+                    {
+                        bins[num]++;
+                        if(bins[num] > 1)
+                        {
+                            return wicNumToFoodType(num);
+                        }
+                    }
+                }
+            }
+
+            return FoodType.None;
+        }
+
+        private Food[] findValidPermutation(Food[] foods, int start, int end)
+        {
+
+            if (start == end)
+            {
+                if (checkValidWICSoln(foods))
+                {
+                    return foods;
+                }
+
+            }
+            else
+            {
+                for (int i = start; i <= end; i++)
+                {
+                    Debug.Log(i);
+                    swapTwoFoods(ref foods[start], ref foods[i]);
+                    Food[] soln = findValidPermutation(foods, start + 1, end);
+                    if (soln != null)
+                    {
+                        return soln;
+                    }
+                    swapTwoFoods(ref foods[start], ref foods[i]);
+                }
+
+            }
+
+
+            return null;
+        }
+
+        public void swapTwoFoods(ref Food a, ref Food b)
+        {
+            Food temp = a;
+            a = b;
+            b = temp;
+        }
+
+        private bool checkValidWICSoln(Food[] soln)
+        {
+            int index = 0;
+            foreach(Food food in soln)
+            {
+                if(food != null)
+                {
+                    FoodType[] foodTypes = food.wicType;
+                    FoodType typeIndex = wicNumToFoodType(index);
+                    if (!Array.Exists(foodTypes, element => element == typeIndex))
+                    {
+                        return false;
+                    }
+                }
+                index++;
+            }
+
+            return true;
+        }
+
+        private int foodTypeToWICNum(FoodType foodType)
+        {
+
+            switch (foodType)
+            {
+                case FoodType.Fruit:
+                    return 0;
+                case FoodType.Veg:
+                    return 1;
+                case FoodType.Grain:
+                    return 2;
+                case FoodType.Protein:
+                    return 3;
+                case FoodType.Dairy:
+                    return 4;
+            }
+
+            return -1;
+        }
+
+        private FoodType wicNumToFoodType(int num)
+        {
+            switch (num)
+            {
+                case 0:
+                    return FoodType.Fruit;
+                case 1:
+                    return FoodType.Veg;
+                case 2:
+                    return FoodType.Grain;
+                case 3:
+                    return FoodType.Protein;
+                case 4:
+                    return FoodType.Dairy;
+            }
+
+            return FoodType.None;
+        }
+
+
+        
+
 
         public void addTokens(int numTokens)
         {

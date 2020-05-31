@@ -31,7 +31,8 @@ namespace Manage
 
         private TravelCalculator travelCalculator;
 
-       
+        //TODO REMOVE THIS WHEN READD BUS
+        private bool routeSelected = false;
 
         // Start is called before the first frame update
         void Start()
@@ -71,7 +72,7 @@ namespace Manage
 
         public void startLocationScreen(Location location)
         {
-            if (!bus.playerOnBus)
+            if (!player.onBus)
             {
                 if(currentLocation == location)
                 {
@@ -114,13 +115,17 @@ namespace Manage
 
                 }
             }  
-            else if (!bus.stopSelected) {
+            else if (!routeSelected) {
                 if (location.busAvailable)
                 {
                     possibleDestination = location;
-                    bus.stopSelected = true;
+                    //bus.stopSelected = true;
+                    routeSelected = true;
                     messageManager.hideHintMessage();
-                    handleStartBusEvent();
+                    //handleStartBusEvent();
+                    player.gameObject.SetActive(true);
+                    player.onBus = false;
+                    travelToDestination(TravelType.Car);
                 }
 
             }
@@ -230,26 +235,30 @@ namespace Manage
 
         public void handleBusArrived()
         {
+            /*
             bus.pauseAnimation();
             MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
             bus.setLocation(busStop.busStartLocation);
+            */
         }
 
 
         public void handleChooseStopEvent()
         {
             messageManager.displayHintMessage(Status.clickStopInstruction);
-            bus.stopSelected = false;
+            //bus.stopSelected = false;
             player.gameObject.SetActive(false);
-            bus.playerOnBus = true;
+            //bus.playerOnBus = true;
             player.onBus = true;
+            routeSelected = false;
         }
 
         public void handleStartBusEvent()
         {
+            /*
             MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
             bus.playAnimation(busStop.busAnimationOffset);
-            
+            */
         }
 
         public void handleLeaveBusEvent()

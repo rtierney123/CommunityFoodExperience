@@ -18,6 +18,7 @@ public class OpenHyperlinks : MonoBehaviour, IPointerClickHandler
             TMP_LinkInfo linkInfo = text.textInfo.linkInfo[linkIndex];
             // open the link id as a url, which is the metadata we added in the text field
             Application.OpenURL(linkInfo.GetLinkID());
+            Debug.Log("hyperlink clicked");
         }
     }
 }

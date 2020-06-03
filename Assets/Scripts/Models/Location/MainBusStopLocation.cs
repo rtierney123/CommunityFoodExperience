@@ -10,13 +10,19 @@ public class MainBusStopLocation : Location
     public GameObject waitPopup;
     public Transform busStartLocation;
     public float busAnimationOffset;
-    public override void onEnter()
+    public override void onDelayedEnter()
     {
         entered = true;
         //canvasController.addToPopUpBackLog(waitPopup);
         //canvasController.openPopup(waitPopup);
         StartCoroutine(OpenBusPopup());
         Debug.Log("on enter");
+    }
+
+    public override void onImmediateEnter()
+    {
+        entered = true;
+        canvasController.openPopup(waitPopup);
     }
 
     public IEnumerator OpenBusPopup()

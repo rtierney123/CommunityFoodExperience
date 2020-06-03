@@ -88,11 +88,17 @@ namespace Model
             }
         }
 
-        public virtual void onEnter()
+        public virtual void onDelayedEnter()
         {
             entered = true;
             StartCoroutine(OpenLocationScreen());
             //canvasController.openScreen(mainScreen);
+        }
+
+        public virtual void onImmediateEnter()
+        {
+            entered = true;
+            canvasController.openScreen(mainScreen);
         }
 
 

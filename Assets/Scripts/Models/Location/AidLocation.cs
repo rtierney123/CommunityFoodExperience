@@ -23,7 +23,7 @@ namespace Model
             reenterAfterDeny = alreadyEnteredString;
         }
 
-        public override void onEnter()
+        public override void onDelayedEnter()
         {
             if (form.checkAlreadyEntered())
             {
@@ -43,6 +43,27 @@ namespace Model
             }
 
         }
+
+        public override void onImmediateEnter()
+        {
+            if (form.checkAlreadyEntered())
+            {
+                if (form.checkValid())
+                {
+                    messageManager.generateStandardErrorMessage(reenterAfterReceive);
+                }
+                else
+                {
+                    messageManager.generateStandardErrorMessage(reenterAfterDeny);
+                }
+
+            }
+            else
+            {
+                canvasController.openScreen(mainScreen);
+            }
+        }
+
 
 
 

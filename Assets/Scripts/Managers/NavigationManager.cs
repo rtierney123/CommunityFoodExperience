@@ -79,7 +79,7 @@ namespace Manage
             {
                 if(currentLocation == location)
                 {
-                    location.onEnter();
+                    location.onImmediateEnter();
                     if (currentLocation == startLocation)
                     {
                         displayHomePopup();
@@ -164,7 +164,7 @@ namespace Manage
             
             if(travelType != TravelType.Bus)
             {
-                currentLocation.onEnter();
+                currentLocation.onDelayedEnter();
             }
 
             player.setFreeRide(false);

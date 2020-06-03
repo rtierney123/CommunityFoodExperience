@@ -19,7 +19,7 @@ namespace UI
         {
             checkTickets();
             checkPass();
-            navigationManager.handleBusArrived();
+            //navigationManager.handleBusArrived();
         }
 
         public override void onAttemptDismiss()

@@ -29,7 +29,10 @@ namespace Manage
         public List<Neighborhood> locationKeys;
         public List<Location> locationBusStops;
 
+        public GameObject takingBusScreen;
+
         private TravelCalculator travelCalculator;
+
 
         //TODO REMOVE THIS WHEN READD BUS
         private bool routeSelected = false;
@@ -118,14 +121,13 @@ namespace Manage
             else if (!routeSelected) {
                 if (location.busAvailable)
                 {
+                    canvasController.openScreen(takingBusScreen);
                     possibleDestination = location;
                     //bus.stopSelected = true;
                     routeSelected = true;
                     messageManager.hideHintMessage();
                     //handleStartBusEvent();
-                    player.gameObject.SetActive(true);
-                    player.onBus = false;
-                    travelToDestination(TravelType.Bus);
+                    
                     foreach (Location busStop in locationBusStops)
                     {
                         busStop.endManualHighlight();
@@ -242,11 +244,9 @@ namespace Manage
 
         public void handleBusArrived()
         {
-            /*
-            bus.pauseAnimation();
-            MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
-            bus.setLocation(busStop.busStartLocation);
-            */
+            player.gameObject.SetActive(true);
+            player.onBus = false;
+            travelToDestination(TravelType.Bus);
         }
 
 

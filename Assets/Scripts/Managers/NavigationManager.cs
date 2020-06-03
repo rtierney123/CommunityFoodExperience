@@ -125,7 +125,7 @@ namespace Manage
                     //handleStartBusEvent();
                     player.gameObject.SetActive(true);
                     player.onBus = false;
-                    travelToDestination(TravelType.Car);
+                    travelToDestination(TravelType.Bus);
                 }
 
             }
@@ -156,7 +156,10 @@ namespace Manage
             //canvasController.screenDisplayed = true;
             clock.addGameMinutes(travelTime);
             
-            //currentLocation.onEnter();
+            if(travelType != TravelType.Bus)
+            {
+                currentLocation.onEnter();
+            }
 
             player.setFreeRide(false);
 

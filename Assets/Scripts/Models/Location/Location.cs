@@ -79,8 +79,8 @@ namespace Model
         public virtual void onEnter()
         {
             entered = true;
-            //StartCoroutine(OpenLocationScreen());
-            canvasController.openScreen(mainScreen);
+            StartCoroutine(OpenLocationScreen());
+            //canvasController.openScreen(mainScreen);
         }
 
         public IEnumerator OpenLocationScreen()

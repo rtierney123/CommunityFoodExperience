@@ -1807,7 +1807,7 @@ PrefabInstance:
     - target: {fileID: 3243962020415933488, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3802751936171078233, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
@@ -1867,12 +1867,12 @@ PrefabInstance:
     - target: {fileID: 3802751936171078233, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: 971
       objectReference: {fileID: 0}
     - target: {fileID: 3802751936171078233, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3802751936171078233, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
@@ -9358,6 +9358,7 @@ MonoBehaviour:
   entered: 0
   busAvailable: 1
   highlightSprite: {fileID: 1224918877}
+  manualHighlight: 0
   mainCamera: {fileID: 1765342650}
   waitPopup: {fileID: 9147805159389554039}
   busStartLocation: {fileID: 658793478}
@@ -11077,11 +11078,11 @@ RectTransform:
   m_Father: {fileID: 1193828607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1324, y: 2}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -5}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &962897400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11381,6 +11382,7 @@ MonoBehaviour:
   entered: 0
   busAvailable: 1
   highlightSprite: {fileID: 1107126335}
+  manualHighlight: 0
   mainCamera: {fileID: 1765342650}
   waitPopup: {fileID: 9147805159389554039}
   busStartLocation: {fileID: 1072622263}
@@ -11782,6 +11784,7 @@ MonoBehaviour:
   entered: 0
   busAvailable: 1
   highlightSprite: {fileID: 1588877304}
+  manualHighlight: 0
   mainCamera: {fileID: 1765342650}
   waitPopup: {fileID: 9147805159389554039}
   busStartLocation: {fileID: 383014577}
@@ -16616,6 +16619,7 @@ MonoBehaviour:
   entered: 0
   busAvailable: 1
   highlightSprite: {fileID: 2070861043}
+  manualHighlight: 0
   mainCamera: {fileID: 1765342650}
   waitPopup: {fileID: 9147805159389554039}
   busStartLocation: {fileID: 2116994794}
@@ -35868,6 +35872,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 1714b7d8da88f2e449191f95cf66e7ac,
         type: 3}
+    - target: {fileID: 1529189407, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529189407, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529189407, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5614723037090473461, guid: 887b601b7acb7a8489fe9a391e2473c2,
         type: 3}
       propertyPath: m_Name
@@ -35877,6 +35893,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427869419175019847, guid: 887b601b7acb7a8489fe9a391e2473c2,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427869419175019847, guid: 887b601b7acb7a8489fe9a391e2473c2,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427869419175019847, guid: 887b601b7acb7a8489fe9a391e2473c2,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427869419175019847, guid: 887b601b7acb7a8489fe9a391e2473c2,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427869419175019847, guid: 887b601b7acb7a8489fe9a391e2473c2,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7846650844443993413, guid: 887b601b7acb7a8489fe9a391e2473c2,
         type: 3}

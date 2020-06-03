@@ -126,6 +126,10 @@ namespace Manage
                     player.gameObject.SetActive(true);
                     player.onBus = false;
                     travelToDestination(TravelType.Bus);
+                    foreach (Location busStop in locationBusStops)
+                    {
+                        busStop.endManualHighlight();
+                    }
                 }
 
             }
@@ -254,6 +258,10 @@ namespace Manage
             //bus.playerOnBus = true;
             player.onBus = true;
             routeSelected = false;
+            foreach(Location busStop in locationBusStops)
+            {
+                busStop.startManualHighlight();
+            }
         }
 
         public void handleStartBusEvent()

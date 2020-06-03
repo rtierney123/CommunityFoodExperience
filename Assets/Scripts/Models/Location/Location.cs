@@ -24,8 +24,8 @@ namespace Model
         public bool entered = false;
         public bool busAvailable = false;
 
-        public GameObject map;
-       
+        //public GameObject map;
+        public GameObject highlightSprite;
         public Camera mainCamera;
 
         Ray ray;
@@ -46,34 +46,26 @@ namespace Model
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == this.gameObject && !EventSystem.current.IsPointerOverGameObject())
             {
                 over = true;
-                var elements = map.GetComponent<Renderer>().materials;
-                elements[0] = highlight;
-                //elements[1] = Resources.Load<Material>("Materials/map " + locationTitle);
-                
-                // comment out line below to disable building highlight
-                map.GetComponent<Renderer>().materials = elements;
-                // Debug.Log("this: " + locationTitle);
+                if (highlightSprite != null)
+                {
+                    highlightSprite.SetActive(true);
+                }
 
-                // enter buildings
                 if (Input.GetMouseButtonDown(0))
                 {
                     navigationManager.startLocationScreen(this);
                 }
             }
-            else
+            else if(over)
             {
-                // reset map
-                if (over)
+                if(highlightSprite != null)
                 {
-                    var elements = map.GetComponent<Renderer>().materials;
-                    elements[0] = Resources.Load<Material>("Materials/map");
-                    // elements[1] = Resources.Load<Material>("Materials/map");
-                    map.GetComponent<Renderer>().materials = elements;
-                    
-                    over = false;
+                    highlightSprite.SetActive(false);
                 }
-                
+
+                over = false;
             }
+           
         }
 
         public virtual void onEnter()

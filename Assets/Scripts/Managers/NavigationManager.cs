@@ -92,7 +92,7 @@ namespace Manage
                         navigationPopup.deactivateWalkButton();
                     }
 
-                    if(player.hasTemporaryRide || player.playerInfo.hasCar)
+                    if(player.hasTemporaryRide || (player.playerInfo.hasCar && !player.carBrokenDown))
                     {
                         navigationPopup.enableCarButton();
                     }
@@ -283,7 +283,35 @@ namespace Manage
         }
 
 
-      
+        public void tempDisableCar(uint inGameMinutes)
+        {
+            if (player.playerInfo.hasCar)
+            {
+                /*
+                float sec = clock.convertGameMinutestoSeconds(inGameMinutes);
+                Debug.Log("number of seconds to car works: " + sec);
+
+                StartCoroutine(startDisable(sec));
+                */
+                player.carBrokenDown = true;
+            }
+
+        }
+
+        /*
+        private IEnumerator startDisable(float sec)
+        {
+            player.playerInfo.hasCar = false;
+            yield return new WaitForSeconds(sec);
+            player.playerInfo.hasCar = true;
+            messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
+            Debug.Log("start disable");
+        }
+        */
+
+
+
+
     }
 
 }

@@ -10,7 +10,6 @@ namespace Manage
     {
         public CanvasController canvasController;
         public MessageManager messageManager;
-        public Nutrition nutritionDisplay;
         public Player player;
         public int changeDisplayTime;
 

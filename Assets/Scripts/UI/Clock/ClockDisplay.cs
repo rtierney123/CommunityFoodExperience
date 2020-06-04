@@ -181,11 +181,24 @@ public class ClockDisplay : MonoBehaviour
 
     public void addGameMinutes(double min)
     {
-        uint numberMins = (12 - amStartTime + pmEndTime) * 60;
+        uint numberMins = getTotalInGameMinutes();
         double gameMinutestoMilliseconds = (runtimeMiliSeconds / numberMins)*min;
         TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameMinutestoMilliseconds);
        
         lossTime = lossTime.Add(lossSpan);
+    }
+
+    public float convertGameMinutestoSeconds(uint min)
+    {
+        uint numberMins = getTotalInGameMinutes();
+        float milliseconds = (runtimeMiliSeconds / numberMins) * min;
+        return (float)(milliseconds * .001);
+    }
+
+    private uint getTotalInGameMinutes()
+    {
+        uint inGameMinutes = (12 - amStartTime + pmEndTime) * 60;
+        return inGameMinutes;
     }
 
 }

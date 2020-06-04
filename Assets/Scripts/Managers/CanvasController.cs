@@ -129,11 +129,9 @@ namespace Manage
 
         public void dequeueMainScreenPopUpBackLog()
         {
-            Debug.Log("attempt dequeue");
-            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowOpen)
+            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowMainScreenPopups)
             {
                 popUp = mainScreenOnlyBackLog.Dequeue();
-                Debug.Log("main screen backlog dequeued");
                 setPopUp(true);
             }
         }
@@ -256,8 +254,7 @@ namespace Manage
         {
             if (mainScreenOnlyBackLog.Count > 0)
             {
-                popUp = mainScreenOnlyBackLog.Dequeue();
-                setPopUp(true);
+                dequeueMainScreenPopUpBackLog();
             }
 
         }
@@ -297,6 +294,7 @@ namespace Manage
             yield return new WaitForSeconds(waitTime);
             allowOpen = true;
         }
+
        
 
     }

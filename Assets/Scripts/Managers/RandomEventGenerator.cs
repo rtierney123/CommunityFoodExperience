@@ -26,7 +26,9 @@ namespace Manage
         {
             checkForSickChildEvent();
             checkFreeRide();
+            checkCarRepaired();
             checkCarBreakDown();
+           
         }
 
         public void minutePassed()
@@ -57,13 +59,22 @@ namespace Manage
             if (rand < chanceBreakdown && player.playerInfo.hasCar)
             {
                 Debug.Log("car broken down");
-                currencyManager.tempDisableCar(60);
+                messageManager.generateMainScreenOnlyErrorMessage(Status.carBrokeDown);
+                player.carBrokenDown = true;
             }
-
-           
         }
 
-        private void checkFreeRide()
+        private void checkCarRepaired()
+        {
+            if(player.playerInfo.hasCar && player.carBrokenDown)
+            {
+                Debug.Log("car repaired");
+                messageManager.generateMainScreenOnlySuccessMessage(Status.carRepaired);
+                player.carBrokenDown = false;
+            }
+        }
+
+    private void checkFreeRide()
         {
             float rand = UnityEngine.Random.Range(0, 100);
             if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)

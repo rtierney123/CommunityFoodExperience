@@ -25,7 +25,6 @@ namespace UI
         public GameObject busPass;
         public GameObject carCard;
         public GameObject transportationText;
-        public GameObject noTokenText;
         public TokenHolder tokenHolder;
         public WICVoucherView wicView;
 
@@ -127,34 +126,32 @@ namespace UI
                 busPass.SetActive(false);
             }
 
-            if (playerInfo.hasCar)
+            Debug.Log("updated transportation tab");
+            if (playerInfo.hasCar && !player.carBrokenDown)
             {
                 hasTransporation = true;
                 carCard.SetActive(true);
+                Debug.Log("display car card");
             }
             else
             {
                 carCard.SetActive(false);
+                Debug.Log("hide car card");
             }
 
             tokenHolder.clearTokens();
             if(player.busTickets > 0)
             {
-                noTokenText.SetActive(false);
                 for (int i = 0; i < player.busTickets; i++)
                 {
                     hasTransporation = true;
                     tokenHolder.addToken();
                 }
             }
-            else
-            {
-                noTokenText.SetActive(true);
-            }
 
             
             Text transText = transportationText.GetComponent<Text>();
-            if (!playerInfo.busPass && !playerInfo.hasCar && !player.hasTemporaryRide)
+             if (!playerInfo.busPass && (!playerInfo.hasCar||player.carBrokenDown) && !player.hasTemporaryRide )
             {
                 transText.text = "You don't have any car or bus pass.";
                 transportationText.SetActive(true);

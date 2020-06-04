@@ -380,26 +380,6 @@ namespace Manage
           
         }
 
-
-        public void tempDisableCar(float sec)
-        {
-            if (player.playerInfo.hasCar)
-            {
-                StartCoroutine(startDisable(sec));
-            }
-         
-        }
-
-        private IEnumerator startDisable(float sec)
-        {
-            player.playerInfo.hasCar = false;
-            messageManager.generateMainScreenOnlyErrorMessage("Oh no! Your car broke down.  You cannot travel by car until it is fixed.");
-            yield return new WaitForSeconds(sec);
-            player.playerInfo.hasCar = true;
-            messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
-        }
-
-
     }
 }
 

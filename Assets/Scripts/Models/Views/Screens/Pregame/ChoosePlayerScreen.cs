@@ -5,13 +5,13 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Utilitiy;
 using Utility;
 
 namespace UI
 {
     public class ChoosePlayerScreen : Screen
     {
-        public string playerJsonLocation;
         public Dropdown playerDropdown;
         public Player player;
         private PlayerInfo playerInfo;
@@ -28,24 +28,21 @@ namespace UI
             populatePlayerList();
 
         }
-
-        public void populatePlayerList()
+        private void populatePlayerList()
         {
+
             string jsonLocation;
-            Debug.Log(Application.absoluteURL);
-            Debug.Log("Fetch from: " + Application.absoluteURL + playerJsonLocation);
             if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
-                jsonLocation = Application.absoluteURL + "StreamingAssets" + playerJsonLocation;
-                Debug.Log(Application.absoluteURL);
-                // should display atlantacfe.com/cfe/
-                Debug.Log("Fetch from: " + Application.absoluteURL + playerJsonLocation);
-                StartCoroutine(GetRequest(Application.absoluteURL + playerJsonLocation));
+                //Debug.Log(Application.absoluteURL);
+                //Debug.Log("Fetch from: " + Application.absoluteURL + "StreamingAssets" + playerJsonLocation);
+                jsonLocation = Application.absoluteURL + "StreamingAssets" + JsonParser.memberLocation;
+                StartCoroutine(GetRequest(jsonLocation));
             }
             else
             {
                 string mainPath = Application.dataPath;
-                jsonLocation = mainPath + "/StreamingAssets" + playerJsonLocation;
+                jsonLocation = mainPath + "/StreamingAssets" + JsonParser.memberLocation;
                 bool pathExists = ResourceHandler.testFilePath(jsonLocation);
                 if (pathExists)
                 {
@@ -58,6 +55,7 @@ namespace UI
 
 
         }
+       
 
         IEnumerator GetRequest(string uri)
         {

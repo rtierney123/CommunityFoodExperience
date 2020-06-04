@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public bool onBus = false;
 
     public bool hasTemporaryRide = false;
+    public bool carBrokenDown = false;
     public bool hasKidBeenSick = false;
     private bool isHome = true;
 
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour
 
 
         hasTemporaryRide = false;
+        carBrokenDown = false;
         hasKidBeenSick = false;
         isHome = true;
 }
@@ -202,7 +204,7 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         //TODO: fixe
-        if(busTickets == 0 && money <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass && !onBus)
+        if(busTickets == 0 && money <= 2.5 && (!playerInfo.hasCar || carBrokenDown) && !playerInfo.busPass && !onBus)
         {
             return true;
         } else

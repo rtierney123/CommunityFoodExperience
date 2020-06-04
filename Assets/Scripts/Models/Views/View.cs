@@ -7,7 +7,7 @@ namespace UI
     public class View : MonoBehaviour
     {
 
-
+        
         public virtual void onAttemptDismiss()
         {
 

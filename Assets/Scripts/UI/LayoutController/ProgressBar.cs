@@ -75,4 +75,16 @@ public class ProgressBar : MonoBehaviour
         pause = false;
     }
 
+    public void delayLoading(int delay)
+    {
+        if(currentTime - delay < 0)
+        {
+            currentTime = 0;
+        }
+        else
+        {
+            currentTime -= delay;
+        }
+    }
+
 }

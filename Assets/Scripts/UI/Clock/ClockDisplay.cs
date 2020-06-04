@@ -95,16 +95,16 @@ public class ClockDisplay : MonoBehaviour
                     updateHourCallers();
                     currentHour = hour;
                 }
-
-                if (currentMin != min)
-                {
-                    updateMinCallers();
-                    currentMin = min;
-                }
             }
-         
-           
-           
+
+            if (currentMin != min)
+            {
+                updateMinCallers();
+                currentMin = min;
+            }
+
+
+
         }
 
        
@@ -135,7 +135,7 @@ public class ClockDisplay : MonoBehaviour
     {
         foreach(IClockEventCaller caller in eventCallers)
         {
-            caller.hourPassed();
+            caller.hourPassed(); 
         }
     }
 
@@ -149,7 +149,6 @@ public class ClockDisplay : MonoBehaviour
 
     private void callEndGameEvent()
     {
-        //Debug.Log("end game called");
         if (!endGameCalled)
         {
             foreach (IClockEventCaller caller in eventCallers)

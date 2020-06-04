@@ -17,6 +17,7 @@ namespace Manage
         public double chanceFreeRide;
         public double chanceBreakdown;
 
+
         public void hourBeforeEndGame()
         {
         }
@@ -53,17 +54,16 @@ namespace Manage
             }
         }
 
-    private void checkFreeRide()
-        {
-            float rand = UnityEngine.Random.Range(0, 100);
-            if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
+        private void checkFreeRide()
             {
-                player.setFreeRide(true);
-                messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);
-                Debug.Log("free ride");
+                float rand = UnityEngine.Random.Range(0, 100);
+                if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
+                {
+                    player.setFreeRide(true);
+                    messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);
+                    Debug.Log("free ride");
+                }
             }
         }
-
-    }
 
 }

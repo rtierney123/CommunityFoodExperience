@@ -38,54 +38,57 @@ namespace Manage
             hintMessage.hide();
         }
 
-        public void generateStandardErrorMessage(string message, View view)
+        public GameObject generateStandardErrorMessage(string message, View view)
         {
 
-            generateStandardErrorMessage(message);
+            GameObject popup = generateStandardErrorMessage(message);
             view.updateView();
+            return popup;
 
         }
 
-        public void generateStandardErrorMessage(string message)
+        public GameObject generateStandardErrorMessage(string message)
         {
 
             standardErrorPopup.setText(message);
             GameObject popup = standardErrorPopup.gameObject;
             canvasController.forcePopupOpen(popup);
-
+            return popup;
         }
 
-        public void generateStandardSuccessMessage(string message, View view)
+        public GameObject generateStandardSuccessMessage(string message, View view)
         {
 
-            generateStandardSuccessMessage(message);
+            GameObject popup = generateStandardSuccessMessage(message);
             view.updateView();
-
+            return popup;
         }
 
-        public void generateStandardSuccessMessage(string message)
+        public GameObject generateStandardSuccessMessage(string message)
         {
 
             standardSuccessPopup.setText(message);
             GameObject popup = standardSuccessPopup.gameObject;
             canvasController.forcePopupOpen(popup);
-
+            return popup;
         }
 
 
-        public void generateMainScreenOnlyErrorMessage(string message)
+        public GameObject generateMainScreenOnlyErrorMessage(string message)
         {
             standardErrorPopup.setText(message);
             GameObject popup = standardErrorPopup.gameObject;
             canvasController.addToMainScreenPopUpBackLog(popup);
+            return popup;
         }
 
 
-        public void generateMainScreenOnlySuccessMessage(string message)
+        public GameObject generateMainScreenOnlySuccessMessage(string message)
         {
             standardSuccessPopup.setText(message);
             GameObject popup = standardSuccessPopup.gameObject;
             canvasController.addToMainScreenPopUpBackLog(popup);
+            return popup;
         }
 
 

@@ -5,17 +5,10 @@ using UnityEngine;
 
 namespace UI
 {
-    public class TakingBusScreen : Screen
+    public class TakingBusScreen : BusAnimationScreen
     {
-        public ProgressBar progressBar;
         public NavigationManager navigationManager;
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
-
-        // Update is called once per frame
         void Update()
         {
             if (progressBar.getComplete() && this.gameObject.activeInHierarchy)

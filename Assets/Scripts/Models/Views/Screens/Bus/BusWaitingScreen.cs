@@ -6,14 +6,8 @@ using UnityEngine;
 
 namespace UI
 {
-    public class BusWaitingScreen : Screen
+    public class BusWaitingScreen : BusAnimationScreen, IClockEventCaller
     {
-        public ProgressBar progressBar;
-
-        private void OnEnable()
-        {
-            canvasController.disableMainPopups();
-        }
 
         void Update()
         {
@@ -48,6 +42,7 @@ namespace UI
             base.onCancelDismiss();
             progressBar.resumeLoading();
         }
+
     }
 
 }

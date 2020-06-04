@@ -1769,6 +1769,10 @@ PrefabInstance:
       value: 1.3300018
       objectReference: {fileID: 0}
     - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
+      propertyPath: clockCallerGameObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
       propertyPath: clockCallerGameObjects.Array.data[0]
       value: 
       objectReference: {fileID: 751542993}
@@ -1784,6 +1788,14 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 982130610}
+    - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
+      propertyPath: clockCallerGameObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1399924017}
+    - target: {fileID: 1657322586, guid: fe880f1d545ca4c17a5ff322ca8fd2d5, type: 3}
+      propertyPath: clockCallerGameObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 2411178168570472910}
     - target: {fileID: 66700553006915106, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1793,6 +1805,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 866691072433186418, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866691072433186418, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.419
       objectReference: {fileID: 0}
     - target: {fileID: 1106096672800321131, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
@@ -1813,6 +1835,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847481104947146660, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847481104947146660, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847481104947146660, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.56078434
       objectReference: {fileID: 0}
     - target: {fileID: 3243962020415933488, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
@@ -9352,9 +9389,8 @@ MonoBehaviour:
   currencyManager: {fileID: 1648199821}
   messageManager: {fileID: 1898436623}
   clock: {fileID: 1362943300}
-  chanceSickChild: 1
-  chanceFreeRide: 100
-  chanceBreakdown: 50
+  chanceFreeRide: 25
+  chanceBreakdown: 5
 --- !u!224 &790978750 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 960180159814198430, guid: fce5a2b7365a04f4c89f13b87021814c,
@@ -25993,6 +26029,8 @@ MonoBehaviour:
   nextScreen: {fileID: 0}
   prevScreen: {fileID: 0}
   progressBar: {fileID: 302902704}
+  clock: {fileID: 1362943300}
+  chanceBusEvent: 100
   navigationManager: {fileID: 1817381251}
 --- !u!1001 &2459129395923955711
 PrefabInstance:
@@ -36415,6 +36453,14 @@ PrefabInstance:
       propertyPath: nextScreen
       value: 
       objectReference: {fileID: 209426714959453831}
+    - target: {fileID: 1399924019, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
+      propertyPath: chanceBusEvent
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399924019, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 1362943300}
     - target: {fileID: 1529189406, guid: 887b601b7acb7a8489fe9a391e2473c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

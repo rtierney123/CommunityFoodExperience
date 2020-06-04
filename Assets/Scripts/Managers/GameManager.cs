@@ -136,8 +136,6 @@ namespace Manage{
             canvasController.endGame = true;
             canvasController.openPostGameScreen(endScreen);
             pause();
-            //TODO: FIX THIS!
-            //GAME BREAKS WHEN PAUSE AND LEAVE ON BUS.
             
         }
 

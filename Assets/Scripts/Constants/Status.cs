@@ -60,7 +60,7 @@ public static class Status
     public static string wicDenied = "Your application has been denied because you are not a pregnant woman and/or you don’t have at least one child under the age of 5 in your household.";
     
     //Random Event
-    public static string freeRideReceived = "A kind stranger has offered to give you a ride to your next location. " +
+    public static string freeRideReceived = "A friend has offered to give you a ride to your next location. " +
         "Choose wisely as this will only get you to one place. Redeem by clicking the next location you want to go.";
     public static string carBrokeDown = "Your car has broken down and you must get it fixed (lose 60 minutes).";
     public static string carRepaired = "Your car is fixed. You can take the car again.";

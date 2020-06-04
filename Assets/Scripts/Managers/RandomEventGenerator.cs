@@ -14,7 +14,6 @@ namespace Manage
         public MessageManager messageManager;
         public ClockDisplay clock;
 
-        public double chanceSickChild;
         public double chanceFreeRide;
         public double chanceBreakdown;
 
@@ -24,33 +23,13 @@ namespace Manage
 
         public void hourPassed()
         {
-            checkForSickChildEvent();
             checkFreeRide();
             checkCarRepaired();
             checkCarBreakDown();
-           
         }
 
         public void minutePassed()
         {
-        }
-
-        private void checkForSickChildEvent()
-        {
-            PlayerInfo info = player.playerInfo;
-            FamilyMember[] children = info.children.list;
-
-            float rand = UnityEngine.Random.Range(0, 100);
-            if (rand < chanceSickChild && children.Length > 0 && !player.hasKidBeenSick)
-            {
-                int timeLost = UnityEngine.Random.Range(30, 60);
-                string timeString = FormatText.formatInt(timeLost);
-
-                Debug.Log("child sick");
-                messageManager.generateMainScreenOnlyErrorMessage(String.Format("Oh no! Your child is sick at school.  You have to pick them up. (You lose {0} minutes.)", timeString));
-                clock.addGameMinutes(timeLost);
-                player.hasKidBeenSick = true;
-            }
         }
 
         private void checkCarBreakDown()

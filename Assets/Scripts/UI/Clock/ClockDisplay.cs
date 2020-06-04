@@ -23,9 +23,10 @@ public class ClockDisplay : MonoBehaviour
 	public DateTime pauseStart;
 	public GameManager gameManager;
 
+    public Slider runtimeSlider;
+
     private int currentHour = 0;
     private int currentMin = 0;
-
     private bool endGameCalled = false;
 	
     // Start is called before the first frame update
@@ -74,6 +75,7 @@ public class ClockDisplay : MonoBehaviour
 		}
 		TimeSpan time = (DateTime.Now - startTime - this.pauseTime + lossTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
+        runtimeSlider.value = runTimeRatio;
 		anim.Play("ClockAnimation", 0, runTimeRatio);
 
 		if (runTimeRatio >= 1f) {

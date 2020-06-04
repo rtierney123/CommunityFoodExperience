@@ -12,7 +12,7 @@ namespace UI
 
         private void OnEnable()
         {
-            canvasController.disablePopups();
+            canvasController.disableMainPopups();
         }
 
         void Update()
@@ -39,7 +39,7 @@ namespace UI
             base.onDismiss();
             progressBar.resetLoading();
             progressBar.resumeLoading();
-            canvasController.enablePopups();
+            canvasController.enableMainPopups();
             canvasController.closeCurrentScreen();
         }
 

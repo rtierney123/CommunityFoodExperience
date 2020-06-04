@@ -155,11 +155,13 @@ namespace UI {
 
         }
 
-        public void setCheckoutText(InputField cashField, InputField snapField)
+        public void setCheckoutText(InputField cashField, InputField snapField, Text total)
         {
             cashField.text = FormatText.formatDouble(currencyManager.getCheckoutCash(cart.getTotalPrice()));
             snapField.text = FormatText.formatDouble(currencyManager.getCheckoutSNAP(cart.getTotalPrice()));
+            total.text = "Total: " + FormatText.formatCost(cart.getTotalPrice());
         }
+
 
         private bool validateFundsPurchase(double cash, double snap)
         {

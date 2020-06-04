@@ -8,7 +8,7 @@ public static class Status
         "seeking food and the community kitchen receives limited donations, we can only serve one meal per person.'";
     public static string alreadyHaveTransportation = "'It looks like you already have some mode of transportation. We have a limited amount of bus tickets, " +
         "so we must reserve them for someone without any transportation.'";
-    public static string receiveTicketCommunityKitchen = "'You look like you could you use a bus ticket. Here you go.'";
+    public static string receiveTicketCommunityKitchen = "'We received a small donation of bus tickets for those who have no transportation. Here is one bus ticket.'";
     public static string ranOutOfMeals = "'Sorry, we ran out of meals to give out today.'";
 
     //STORE

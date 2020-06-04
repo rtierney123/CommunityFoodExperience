@@ -35,7 +35,7 @@ public class PlayerInfo
     }
 
     // temp json workaround
-    public string c_hack;
+    //public string c_hack;
 
     public double socialSecurityIncome = 870;
     public double monthlyIncome = 5000;
@@ -75,6 +75,8 @@ public class PlayerInfo
     public double childcareExpense = 0;
     public double taxesExpense = 0;
     public double otherExpense = 0;
+
+    public bool paysTaxes = true;
 
     //do not put in json
     public bool federalAssistance;
@@ -323,6 +325,7 @@ public class PlayerInfo
                 double annual = monthlyIncome * 12;
                 return "" + annual;
             case FormQuestionType.Monthly_Income:
+                Debug.Log("get monthly income" + monthlyIncome);
                 return FormatText.formatDouble(monthlyIncome);
             case FormQuestionType.Federal_Assistance:
                 return FormatText.formatBool(federalAssistance);
@@ -481,12 +484,20 @@ public class PlayerInfo
         }
         if (busPass)
         {
-            busPassStr = "You possess a bus pass. You can use this instead of ticket on the bus unlimited times.";
+            busPassStr = "You paid for a monthly bus pass. You can use this for unlimited bus rides.";
             returnStr = returnStr + busPassStr + " ";
         }
         if(startingBusTokens > 0)
         {
-            ticketStr = "You possess {0} tickets. You can use each one of these to get from one stop to another.";
+            if(startingBusTokens == 1)
+            {
+                ticketStr = "You have {0} bus ticket. Each ticket will take you to one bus stop.";
+            }
+            else
+            {
+                ticketStr = "You have {0} bus tickets. Each ticket will take you to one bus stop.";
+            }
+           
             ticketStr = string.Format(ticketStr, startingBusTokens);
             returnStr = returnStr + ticketStr + " ";
         }

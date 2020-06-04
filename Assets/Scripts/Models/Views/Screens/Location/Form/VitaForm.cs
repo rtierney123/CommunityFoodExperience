@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 using Utility;
 
@@ -18,8 +19,6 @@ namespace UI
 
         bool ctcEligibility;
         bool eitcEligbility;
-        string ctcStatusString;
-        string eitcStatusString;
 
 
         public override bool checkAlreadyEntered()
@@ -47,10 +46,13 @@ namespace UI
         private bool checkEITCEligibility()
         {
             bool valid = true;
-            
-            if (playerInfo.socialSecurityIncome > 0 || playerInfo.temporaryAssistance >0)
+
+            if (!playerInfo.paysTaxes)
             {
-                eitcStatusString = "Cannot receive EITC benefits while recieving Social Security or other temporary assistance. All wages must be earned from a job.";
+                valid = false;
+            }
+            else if (playerInfo.socialSecurityIncome > 0 || playerInfo.temporaryAssistance >0)
+            {
                 valid = false;
             }
             else
@@ -64,7 +66,6 @@ namespace UI
                         {
                             if(monthlyIncome > 1235)
                             {
-                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -72,7 +73,6 @@ namespace UI
                         {
                             if (monthlyIncome > 1694)
                             {
-                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -82,7 +82,6 @@ namespace UI
                         {
                             if (monthlyIncome > 3261)
                             {
-                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -90,7 +89,6 @@ namespace UI
                         {
                             if (monthlyIncome > 3721)
                             {
-                                eitcStatusString = formatIncomeTooHighString("EITC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -100,7 +98,6 @@ namespace UI
                         {
                             if (monthlyIncome > 3705)
                             {
-                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -108,7 +105,6 @@ namespace UI
                         {
                             if (monthlyIncome > 4165)
                             {
-                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -118,7 +114,6 @@ namespace UI
                         {
                             if (monthlyIncome > 3979)
                             {
-                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -126,7 +121,6 @@ namespace UI
                         {
                             if (monthlyIncome > 4439)
                             {
-                                eitcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                                 valid = false;
                             }
                         }
@@ -143,9 +137,12 @@ namespace UI
             double monthlyIncome = playerInfo.getTotalIncome();
             int numKids = playerInfo.getNumofChildren();
 
-            if(numKids == 0)
+            if (!playerInfo.paysTaxes)
             {
-                ctcStatusString = "Must have a child to be eligable for CTC.";
+                valid = false;
+            }
+            else if(numKids == 0)
+            {
                 valid = false;
             }
             else
@@ -154,7 +151,6 @@ namespace UI
                 {
                     if (monthlyIncome > 9167)
                     {
-                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }
@@ -162,7 +158,6 @@ namespace UI
                 {
                     if (monthlyIncome > 4583)
                     {
-                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }
@@ -170,7 +165,6 @@ namespace UI
                 {
                     if (monthlyIncome > 6250)
                     {
-                        ctcStatusString = formatIncomeTooHighString("CTC", monthlyIncome);
                         valid = false;
                     }
                 }

@@ -125,7 +125,8 @@ namespace Manage
                         busStop.endManualHighlight();
                     }
 
-                    canvasController.enablePopups();
+                    canvasController.enableMainPopups();
+                    canvasController.dequeueMainScreenPopUpBackLog();
                 }
 
             }
@@ -255,7 +256,7 @@ namespace Manage
             {
                 busStop.startManualHighlight();
             }
-            canvasController.disablePopups();
+            canvasController.disableMainPopups();
         }
 
         public void handleStartBusEvent()

@@ -92,7 +92,7 @@ namespace Model
         {
             entered = true;
             StartCoroutine(OpenLocationScreen());
-            canvasController.disablePopups();
+            canvasController.disableMainPopups();
             //canvasController.openScreen(mainScreen);
         }
 
@@ -110,10 +110,10 @@ namespace Model
             {
                 canvasController.closePopUp();
                 canvasController.openScreen(mainScreen);
-                canvasController.enablePopups();
+                canvasController.enableMainPopups();
             } else
             {
-                canvasController.enablePopups();
+                canvasController.enableMainPopups();
                 canvasController.dequeueMainScreenPopUpBackLog();
                 Debug.Log("dequeue from location");
             }

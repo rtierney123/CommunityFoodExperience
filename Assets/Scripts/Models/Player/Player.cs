@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     public bool hasKidBeenSick = false;
     private bool isHome = true;
 
+
     private void Start()
     {
         resetPlayer();
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour
     public void setPlayerInfo(PlayerInfo info)
     {
         playerInfo = info;
+        Debug.Log(info.monthlyIncome);
         resetToStarting();
         playerInfo.setRecievedAssistance(false);
         
@@ -200,7 +202,7 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
         //TODO: fixe
-        if(busTickets == 0 && money + ctcAcquired + eitcAcquired <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass)
+        if(busTickets == 0 && money <= 2.5 && !playerInfo.hasCar && !playerInfo.busPass && !onBus)
         {
             return true;
         } else

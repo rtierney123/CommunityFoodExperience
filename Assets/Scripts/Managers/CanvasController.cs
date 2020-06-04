@@ -29,7 +29,7 @@ namespace Manage
 
         public bool endGame = false;
 
-        private bool allowPopups = true;
+        private bool allowMainScreenPopups = true;
        
 
         void Awake()
@@ -84,14 +84,14 @@ namespace Manage
             }
         }
         
-        public void disablePopups()
+        public void disableMainPopups()
         {
-            allowPopups = false;
+            allowMainScreenPopups = false;
         }
 
-        public void enablePopups()
+        public void enableMainPopups()
         {
-            allowPopups = true;
+            allowMainScreenPopups = true;
         }
 
 
@@ -115,7 +115,7 @@ namespace Manage
 
         public void addToMainScreenPopUpBackLog(GameObject gameObject)
         {
-            if(popUp == null && screenOpen == null && allowPopups)
+            if(popUp == null && screenOpen == null && allowMainScreenPopups)
             {
                 Debug.Log("open main screen popup");
                 //openPopup(gameObject);
@@ -140,7 +140,7 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp == null && allowOpen && !endGame && allowPopups)
+            if (popUp == null && allowOpen && !endGame)
             {
                 popUp = gameObject;
                 View view = popUp.GetComponent<UI.PopUp>();
@@ -158,7 +158,7 @@ namespace Manage
 
         public void forcePopupOpen(GameObject gameObject)
         {
-            if (!endGame && allowPopups)
+            if (!endGame)
             {
                 setPopUp(false);
                 popUp = gameObject;

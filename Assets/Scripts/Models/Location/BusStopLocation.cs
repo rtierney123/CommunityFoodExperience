@@ -15,7 +15,7 @@ public class BusStopLocation : Location
         entered = true;
         //canvasController.addToPopUpBackLog(waitPopup);
         //canvasController.openPopup(waitPopup);
-        canvasController.disablePopups();
+        canvasController.disableMainPopups();
         StartCoroutine(OpenBusPopup());
         Debug.Log("on enter");
     }
@@ -29,8 +29,8 @@ public class BusStopLocation : Location
     public IEnumerator OpenBusPopup()
     {
         yield return new WaitForSeconds(delayTime);
+        canvasController.enableMainPopups();
         canvasController.forcePopupOpen(waitPopup);
-        canvasController.enablePopups();
 
     }
 }

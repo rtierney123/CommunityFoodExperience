@@ -106,18 +106,16 @@ namespace UI
         private string formatSuccessString(double amt)
         {
             string aidAmt = FormatText.formatCost(amt);
-            string snapApproved = String.Format(Status.snapApproved, playerInfo.numInHouse, playerInfo.monthlyIncome, amt);
-            string successStr = snapApproved;
-            successStr = string.Format(successStr, aidAmt);
+            string incomeAmt = FormatText.formatCost(playerInfo.monthlyIncome);
+            string successStr = String.Format(Status.snapApproved, playerInfo.numInHouse, incomeAmt, aidAmt);
             return successStr;
         }
 
         private string formatIncomeTooHighString(double monthlyIncome, int houseSize)
         {
-            string incomeAmt = FormatText.formatDouble(monthlyIncome);
+            string incomeAmt = FormatText.formatCost(monthlyIncome);
             string numHouse = FormatText.formatInt(houseSize);
-            string errorStr = "Monthly income of {0} for a house of {1} is too high to receive SNAP benefits.";
-            errorStr = string.Format(Status.snapDenied, numHouse, incomeAmt);
+            string errorStr = string.Format(Status.snapDenied, numHouse, incomeAmt);
             return errorStr;
         }
 

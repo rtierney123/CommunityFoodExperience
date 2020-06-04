@@ -53,6 +53,12 @@ namespace UI
             displaySuccess(fruitText, player.getAchieveFruit());
             displaySuccess(vegText, player.getAchieveVegetable());
             displaySuccess(extraText, player.getAchieveExtra());
+
+            if(healthStatusText != null)
+            {
+                healthStatusText.text = player.playerInfo.healthState;
+            }
+           
         }
 
         private void displaySuccess(Text text, bool success)

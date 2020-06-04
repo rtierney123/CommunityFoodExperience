@@ -77,6 +77,7 @@ public class PlayerInfo
     public double otherExpense = 0;
 
     public bool paysTaxes = true;
+    public string healthState = "";
 
     //do not put in json
     public bool federalAssistance;

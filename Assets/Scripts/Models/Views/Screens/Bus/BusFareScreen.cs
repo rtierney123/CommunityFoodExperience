@@ -19,7 +19,7 @@ namespace UI
         {
             checkTickets();
             checkPass();
-            //navigationManager.handleBusArrived();
+            canvasController.disablePopups();
         }
 
         public override void onAttemptDismiss()
@@ -32,6 +32,7 @@ namespace UI
         {
             base.onDismiss();
             navigationManager.handleStartBusEvent();
+            canvasController.enablePopups();
             canvasController.closeCurrentScreen();
         }
 

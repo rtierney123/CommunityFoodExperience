@@ -33,11 +33,8 @@ namespace Manage
 
         private TravelCalculator travelCalculator;
 
-
-        //TODO REMOVE THIS WHEN READD BUS
         private bool routeSelected = false;
 
-        // Start is called before the first frame update
         void Start()
         {
             locationStopDict = new Dictionary<Neighborhood, Location>();
@@ -65,11 +62,6 @@ namespace Manage
             }
             bus.setOffScreen();
             dropPlayerOff(startLocation);
-        }
-
-        public bool getHasCar()
-        {
-            return player.playerInfo.hasCar || player.hasTemporaryRide;
         }
 
 
@@ -132,6 +124,8 @@ namespace Manage
                     {
                         busStop.endManualHighlight();
                     }
+
+                    canvasController.enablePopups();
                 }
 
             }
@@ -147,6 +141,16 @@ namespace Manage
             int h = (int) Math.Floor(min / 60);
             int m = (int) min - h * 60;
             return String.Format("{0}hr {1}min",h, m);
+        }
+
+        public void handleCarTravel()
+        {
+            travelToDestination(TravelType.Car);
+        }
+
+        public void handleWalkTravel()
+        {
+            travelToDestination(TravelType.Walk);
         }
 
         public void travelToDestination(TravelType travelType)
@@ -212,17 +216,6 @@ namespace Manage
         }
 
 
-
-        public void handleTakeCar()
-        {
-            travelToDestination(TravelType.Car);
-        }
-
-        public void handleTakeWalk()
-        {
-            travelToDestination(TravelType.Walk);
-        }
-
         public void handleBusContinuingEvent()
         {
             Debug.Log("bus continueing");
@@ -262,6 +255,7 @@ namespace Manage
             {
                 busStop.startManualHighlight();
             }
+            canvasController.disablePopups();
         }
 
         public void handleStartBusEvent()
@@ -288,24 +282,7 @@ namespace Manage
         }
 
 
-        public void setPossibleLocation(Location nextLocation)
-        {
-            //Debug.Log("set new destinations");
-            possibleDestination = nextLocation;
-        }
-
-        public void displayIfStuck()
-        {
-            /*
-            if (player.hasNoModeOfTransportation() && currentLocation.locationType == LocationType.FarLocation)
-            {
-                canvasController.addToMainScreenPopUpBackLog(stuckPopup);
-            }
-            */
-        }
-
-       
-
+      
     }
 
 }

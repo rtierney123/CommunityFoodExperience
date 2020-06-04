@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MainBusStopLocation : Location
+public class BusStopLocation : Location
 {
     public GameObject waitPopup;
     public Transform busStartLocation;
@@ -15,6 +15,7 @@ public class MainBusStopLocation : Location
         entered = true;
         //canvasController.addToPopUpBackLog(waitPopup);
         //canvasController.openPopup(waitPopup);
+        canvasController.disablePopups();
         StartCoroutine(OpenBusPopup());
         Debug.Log("on enter");
     }
@@ -29,6 +30,7 @@ public class MainBusStopLocation : Location
     {
         yield return new WaitForSeconds(delayTime);
         canvasController.forcePopupOpen(waitPopup);
+        canvasController.enablePopups();
 
     }
 }

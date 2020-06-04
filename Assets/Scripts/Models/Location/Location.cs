@@ -92,6 +92,7 @@ namespace Model
         {
             entered = true;
             StartCoroutine(OpenLocationScreen());
+            canvasController.disablePopups();
             //canvasController.openScreen(mainScreen);
         }
 
@@ -109,17 +110,13 @@ namespace Model
             {
                 canvasController.closePopUp();
                 canvasController.openScreen(mainScreen);
+                canvasController.enablePopups();
             } else
             {
+                canvasController.enablePopups();
                 canvasController.dequeueMainScreenPopUpBackLog();
+                Debug.Log("dequeue from location");
             }
-
-            /*
-            if (locationType == LocationType.FarLocation)
-            {
-                navigationManager.displayIfStuck();
-            }
-            */
           
         }
 

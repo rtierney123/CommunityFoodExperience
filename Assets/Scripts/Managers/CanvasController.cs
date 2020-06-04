@@ -29,6 +29,7 @@ namespace Manage
 
         public bool endGame = false;
 
+        private bool allowPopups = true;
        
 
         void Awake()
@@ -82,6 +83,17 @@ namespace Manage
                 }
             }
         }
+        
+        public void disablePopups()
+        {
+            allowPopups = false;
+        }
+
+        public void enablePopups()
+        {
+            allowPopups = true;
+        }
+
 
         public void playWarning()
         {
@@ -103,7 +115,7 @@ namespace Manage
 
         public void addToMainScreenPopUpBackLog(GameObject gameObject)
         {
-            if(popUp == null && screenOpen == null)
+            if(popUp == null && screenOpen == null && allowPopups)
             {
                 Debug.Log("open main screen popup");
                 //openPopup(gameObject);
@@ -117,7 +129,8 @@ namespace Manage
 
         public void dequeueMainScreenPopUpBackLog()
         {
-            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0)
+            Debug.Log("attempt dequeue");
+            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowOpen)
             {
                 popUp = mainScreenOnlyBackLog.Dequeue();
                 Debug.Log("main screen backlog dequeued");
@@ -127,7 +140,7 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            if (popUp == null && allowOpen && !endGame)
+            if (popUp == null && allowOpen && !endGame && allowPopups)
             {
                 popUp = gameObject;
                 View view = popUp.GetComponent<UI.PopUp>();
@@ -145,7 +158,7 @@ namespace Manage
 
         public void forcePopupOpen(GameObject gameObject)
         {
-            if (!endGame)
+            if (!endGame && allowPopups)
             {
                 setPopUp(false);
                 popUp = gameObject;
@@ -174,8 +187,7 @@ namespace Manage
             }
             else if (screenOpen == null && mainScreenOnlyBackLog.Count > 0)
             {
-                popUp = mainScreenOnlyBackLog.Dequeue();
-                setPopUp(true);
+                dequeueMainScreenPopUpBackLog();
             }
             else
             {

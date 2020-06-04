@@ -9,13 +9,12 @@ namespace UI
     public class BusWaitingScreen : Screen
     {
         public ProgressBar progressBar;
-        // Start is called before the first frame update
-        void Start()
-        {
 
+        private void OnEnable()
+        {
+            canvasController.disablePopups();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (progressBar.getComplete() && this.gameObject.activeInHierarchy)
@@ -40,6 +39,7 @@ namespace UI
             base.onDismiss();
             progressBar.resetLoading();
             progressBar.resumeLoading();
+            canvasController.enablePopups();
             canvasController.closeCurrentScreen();
         }
 

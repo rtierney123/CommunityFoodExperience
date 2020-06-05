@@ -21,7 +21,6 @@ namespace Manage{
         public NavigationManager navigationManager;
         public MessageManager messageManager;
         public CurrencyManager currencyManager;
-        public Bus bus;
         public ClockDisplay clock;
         public GameObject footer;
         public GameObject pauseButton;
@@ -125,7 +124,6 @@ namespace Manage{
 
         public void pause()
         {
-            bus.pauseAnimation();
             clock.pause();
         }
 

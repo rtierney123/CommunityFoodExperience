@@ -22,7 +22,6 @@ namespace Manage
         [HideInInspector]
         public Location possibleDestination;
 
-        public Bus bus;
         public float locationScreenDelay;
 
         public Dictionary<Neighborhood, Location> locationStopDict;
@@ -56,11 +55,6 @@ namespace Manage
 
         public void reset() {
             currentLocation = startLocation;
-            if (bus.playerOnBus)
-            {
-                leaveBus();
-            }
-            bus.setOffScreen();
             dropPlayerOff(startLocation);
         }
 
@@ -278,7 +272,6 @@ namespace Manage
         private void leaveBus()
         {
             player.gameObject.SetActive(true);
-            bus.playerOnBus = false;
             player.onBus = false;
         }
 

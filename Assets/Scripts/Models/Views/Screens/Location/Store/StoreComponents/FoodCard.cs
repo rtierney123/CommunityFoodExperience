@@ -183,6 +183,21 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
 
             if(food.wic)
             {
+                string wicStr = "WIC: ";
+                FoodType[] types = food.wicType;
+                foreach(FoodType type in types)
+                {
+                    if(type == FoodType.Veg)
+                    {
+                        wicStr += "veg ";
+                    }
+                    else
+                    {
+                        wicStr += type.toDescriptionString() + " ";
+                    }
+                   
+                }
+                wicText.text = wicStr;
                 wicText.gameObject.SetActive(true);
             }
             if (food.premade)

@@ -326,9 +326,9 @@ public class PlayerInfo
             case FormQuestionType.Annual_Income:
                 double annual = monthlyIncome * 12;
                 return "" + annual;
-            case FormQuestionType.Monthly_Income:
+            case FormQuestionType.Job_Monthly_Income:
                 //Debug.Log("get monthly income" + monthlyIncome);
-                return FormatText.formatDouble(getFormIncome());
+                return FormatText.formatDouble(getJobIncome());
             case FormQuestionType.Federal_Assistance:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Birth_Day:
@@ -438,7 +438,7 @@ public class PlayerInfo
         return "";
     }
 
-    public double getMonthlyIncome()
+    public double getJobIncome()
     {
         return monthlyIncome;
     }

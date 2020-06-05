@@ -27,7 +27,7 @@ namespace UI
             }
 
             int numHouseHold = playerInfo.numInHouse;
-            double monthlyIncome = playerInfo.getFormIncome();
+            double monthlyIncome = playerInfo.getTotalIncome();
 
             bool valid = true;
             switch (numHouseHold)
@@ -74,7 +74,7 @@ namespace UI
 
         protected override void successAction()
         {
-            double monthlyIncome = playerInfo.getFormIncome();
+            double monthlyIncome = playerInfo.getTotalIncome();
             double snapAmt = 0;
             if(monthlyIncome <= 799)
             {

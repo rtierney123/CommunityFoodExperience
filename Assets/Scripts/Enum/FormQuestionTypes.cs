@@ -34,7 +34,7 @@ public enum FormQuestionType
     Federal_Assistance = 16,
     Is_Employed = 33,
     Hourly_Wage = 35,
-    Monthly_Income = 4,
+    Job_Monthly_Income = 4,
     Annual_Income = 20,
     All_Income_In_US = 22,
     In_US_More_Than_Six_Month = 21,

@@ -57,7 +57,7 @@ namespace UI
             }
             else
             {
-                double monthlyIncome = playerInfo.getMonthlyIncome();
+                double monthlyIncome = playerInfo.getJobIncome();
                 int numChildren = playerInfo.getNumofChildren();
                 switch (numChildren)
                 {
@@ -134,7 +134,7 @@ namespace UI
         private bool checkCTCEligibility()
         {
             bool valid = true;
-            double monthlyIncome = playerInfo.getFormIncome();
+            double monthlyIncome = playerInfo.getJobIncome();
             int numKids = playerInfo.getNumofChildren();
 
             if (!playerInfo.paysTaxes)
@@ -180,10 +180,9 @@ namespace UI
         {
             int numChildren = playerInfo.getNumofChildren();
             double eitcReceived = 0;
-            double monthlyIncome = playerInfo.getFormIncome();
+            double monthlyIncome = playerInfo.getJobIncome();
             if (ctcEligibility)
             {
-                //ctcStatusString = formatSuccessString("CTC", ctcAmt);
                 currencyManager.addFunds(FundsType.CTC, ctcAmt);
             }
             if (eitcEligbility)
@@ -193,19 +192,15 @@ namespace UI
                 switch (numChildren)
                 {
                     case 0:
-                        //eitcStatusString = formatSuccessString("EITC", eitcAmtNoChild);
                         eitcReceived = eitcAmtNoChild;
                         break;
                     case 1:
-                        //eitcStatusString = formatSuccessString("EITC", eitcAmtOneChild);
                         eitcReceived = eitcAmtOneChild;
                         break;
                     case 2:
-                        //eitcStatusString = formatSuccessString("EITC", eitcAmtTwoChild);
                         eitcReceived = eitcAmtTwoChild;
                         break;
                     default:
-                        //eitcStatusString = formatSuccessString("EITC", eitcAmtMoreThreeChild);
                         eitcReceived = eitcAmtMoreThreeChild;
                         break;
                 }
@@ -217,18 +212,15 @@ namespace UI
                 string doubleSuccess = String.Format(Status.bothEitcCTC, numChildren, 
                     FormatText.formatCost(monthlyIncome), FormatText.formatCost(eitcReceived));
                 messageManager.generateStandardSuccessMessage(doubleSuccess);
-                //StartCoroutine(showTwoSuccesses(ctcStatusString, eitcStatusString));
             } else if (ctcEligibility && !eitcEligbility)
             {
                 string ctcSuccess = String.Format(Status.justCtc, numChildren, FormatText.formatCost(monthlyIncome));
                 messageManager.generateStandardSuccessMessage(ctcSuccess);
-                //StartCoroutine(showOneSuccessOneError(ctcStatusString, eitcStatusString));
             } else if (!ctcEligibility && eitcEligbility)
             {
                 string eitcSuccess = String.Format(Status.justEitc, numChildren,
                     FormatText.formatCost(monthlyIncome), FormatText.formatCost(eitcReceived));
                 messageManager.generateStandardSuccessMessage(eitcSuccess);
-                // StartCoroutine(showOneSuccessOneError(eitcStatusString, ctcStatusString));
             }
 
             player.usedVita = true;

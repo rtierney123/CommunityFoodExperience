@@ -10,6 +10,11 @@ namespace UI
         public GameObject lessThanMaxPopUp;
         public Player player;
 
+        private void OnEnable()
+        {
+            transactionComplete = false;
+        }
+
         public override void reset()
         {
             completeButton.enable();
@@ -39,6 +44,7 @@ namespace UI
 
         public void checkFreeTransaction()
         {
+            Debug.Log("check free transaction");
             if(cart.getCartCount() < 2)
             {
                 canvasController.openPopup(lessThanMaxPopUp);

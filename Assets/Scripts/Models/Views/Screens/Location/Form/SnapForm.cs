@@ -27,7 +27,7 @@ namespace UI
             }
 
             int numHouseHold = playerInfo.numInHouse;
-            double monthlyIncome = playerInfo.getTotalIncome();
+            double monthlyIncome = playerInfo.getFormIncome();
 
             bool valid = true;
             switch (numHouseHold)
@@ -74,7 +74,7 @@ namespace UI
 
         protected override void successAction()
         {
-            double monthlyIncome = playerInfo.getMonthlyIncome();
+            double monthlyIncome = playerInfo.getFormIncome();
             double snapAmt = 0;
             if(monthlyIncome <= 799)
             {
@@ -88,7 +88,7 @@ namespace UI
             } 
 
             currencyManager.addFunds(FundsType.Snap, snapAmt);
-            string successStr = formatSuccessString(snapAmt);
+            string successStr = formatSuccessString(monthlyIncome, snapAmt);
             messageManager.generateStandardSuccessMessage(successStr, this);
             player.usedSnap = true;
 
@@ -103,10 +103,10 @@ namespace UI
             base.failureAction();
         }
 
-        private string formatSuccessString(double amt)
+        private string formatSuccessString(double income, double amt)
         {
             string aidAmt = FormatText.formatCost(amt);
-            string incomeAmt = FormatText.formatCost(playerInfo.monthlyIncome);
+            string incomeAmt = FormatText.formatCost(income);
             string successStr = String.Format(Status.snapApproved, playerInfo.numInHouse, incomeAmt, aidAmt);
             return successStr;
         }

@@ -39,6 +39,7 @@ public class PlayerInfo
 
     public double socialSecurityIncome = 870;
     public double monthlyIncome = 5000;
+    public double additionalIncome = 0;
     public double temporaryAssistance = 0;
     public int numInHouse = 2;
     //public double expenses = 855;
@@ -326,8 +327,8 @@ public class PlayerInfo
                 double annual = monthlyIncome * 12;
                 return "" + annual;
             case FormQuestionType.Monthly_Income:
-                Debug.Log("get monthly income" + monthlyIncome);
-                return FormatText.formatDouble(monthlyIncome);
+                //Debug.Log("get monthly income" + monthlyIncome);
+                return FormatText.formatDouble(getFormIncome());
             case FormQuestionType.Federal_Assistance:
                 return FormatText.formatBool(federalAssistance);
             case FormQuestionType.Birth_Day:
@@ -528,6 +529,11 @@ public class PlayerInfo
     }
 
     public double getTotalIncome()
+    {
+        return monthlyIncome + temporaryAssistance + socialSecurityIncome + additionalIncome;
+    }
+
+    public double getFormIncome()
     {
         return monthlyIncome + temporaryAssistance + socialSecurityIncome;
     }

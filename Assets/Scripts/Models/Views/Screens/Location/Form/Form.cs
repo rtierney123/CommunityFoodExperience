@@ -1,4 +1,5 @@
 ﻿using Manage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,28 +70,39 @@ namespace UI
             foreach (FormWrapper item in formItems)
             {
                 FormQuestionType question = item.questionType;
- 
+                bool skip = false;
                 if (item.containsText)
                 {
                     string info = playerInfo.getInfoText(question);
+                    skip = String.IsNullOrEmpty(info);
                     item.setInfo(info);
                 } else
                 {
                     CheckmarkType checktype = playerInfo.getInfoCheck(question);
-                    item.setCheck(checktype);
-                    item.fillOut();
-                   
+                    item.setCheck(checktype);  
                 }
 
-                item.fillOut();
-                yield return new WaitForSeconds((float).5);
+                
+                if (!skip)
+                {
+                    item.fillOut();
+                    yield return new WaitForSeconds((float).5);
+                    yield return new WaitUntil(() => item.doneWithFillingOut);
+                    Debug.Log("filled out");
+                }
+                else
+                {
+                    Debug.Log("skip");
+                }
+                
                 while (pauseFilling)
                 {
                     Debug.Log("paused filling out");
                     yield return new WaitForSeconds((float).5);
                 }
-                yield return new WaitUntil(() => item.doneWithFillingOut);
+                
             }
+            Debug.Log("done");
             onFormFilled();
 
         }

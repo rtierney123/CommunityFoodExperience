@@ -32,21 +32,30 @@ namespace UI
 
         public override void fillOut()
         {
-            StartCoroutine(fillOutText(contents));
+            if (!string.IsNullOrEmpty(contents))
+            {
+                StartCoroutine(fillOutText(contents));
+            }
+            else
+            {
+                doneWithFillingOut = true;
+            }
         }
 
 
         public IEnumerator fillOutText(string info)
         {
-           
+
             string currentString = "";
             foreach (char ch in info)
             {
                 currentString += ch;
                 displayText.text = currentString;
-                
+
                 yield return new WaitForSeconds(fillOutDelayTime);
             }
+
+            
             //set to true to continue coutroutine
             doneWithFillingOut = true;
         }

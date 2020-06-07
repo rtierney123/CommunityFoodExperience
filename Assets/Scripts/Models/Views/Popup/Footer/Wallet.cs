@@ -43,9 +43,9 @@ namespace UI
 
         public NutritionDisplayer nutritionDisplayer;
         void Start()
-        {  
-            
-            selectWalletTab();
+        {
+
+            selectNutritionStatus();
             
         }
 
@@ -59,7 +59,7 @@ namespace UI
             WICVoucher voucher = player.voucher;
             wicView.setVoucher(player.voucher);
             wicView.updateView();
-            selectWalletTab();
+            selectNutritionStatus();
         }
 
         public void selectWalletTab()
@@ -97,7 +97,6 @@ namespace UI
 
         public void updateInfo()
         {
-            Debug.Log("info updated");
             foreach (TextWrapper item in infoValues)
             {
                 FormQuestionType type = item.questionType;
@@ -115,10 +114,8 @@ namespace UI
 
         public void updateTransportationDisplay()
         {
-            bool hasTransporation = false;
             if (playerInfo.busPass)
             {
-                hasTransporation = true;
                 busPass.SetActive(true);
             }
             else
@@ -126,17 +123,13 @@ namespace UI
                 busPass.SetActive(false);
             }
 
-            Debug.Log("updated transportation tab");
             if (playerInfo.hasCar && !player.carBrokenDown)
             {
-                hasTransporation = true;
                 carCard.SetActive(true);
-                Debug.Log("display car card");
             }
             else
             {
                 carCard.SetActive(false);
-                Debug.Log("hide car card");
             }
 
             tokenHolder.clearTokens();
@@ -144,7 +137,6 @@ namespace UI
             {
                 for (int i = 0; i < player.busTickets; i++)
                 {
-                    hasTransporation = true;
                     tokenHolder.addToken();
                 }
             }
@@ -186,10 +178,6 @@ namespace UI
             transportationTabBody.SetActive(false);
             nutritionTabBody.SetActive(false);
         }
-    public string formatFunds(double funds)
-    {
-      return System.String.Format("{0:C}", funds);
-    }
   }
 
 }

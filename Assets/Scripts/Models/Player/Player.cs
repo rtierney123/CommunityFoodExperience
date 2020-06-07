@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
     public void setPlayerInfo(PlayerInfo info)
     {
         playerInfo = info;
-        Debug.Log(info.monthlyIncome);
+        Debug.Log(info.jobIncome);
         resetToStarting();
         playerInfo.setRecievedAssistance(false);
         

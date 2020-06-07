@@ -34,15 +34,11 @@ public class PlayerInfo
         public FamilyMember[] list = { };
     }
 
-    // temp json workaround
-    //public string c_hack;
-
     public double socialSecurityIncome = 870;
-    public double monthlyIncome = 5000;
+    public double jobIncome = 5000;
     public double additionalIncome = 0;
     public double temporaryAssistance = 0;
     public int numInHouse = 2;
-    //public double expenses = 855;
 
     public int startingBusTokens = 1;
     public bool busPass = true;
@@ -324,7 +320,7 @@ public class PlayerInfo
             case FormQuestionType.Zip:
                 return zip;
             case FormQuestionType.Annual_Income:
-                double annual = monthlyIncome * 12;
+                double annual = jobIncome * 12;
                 return "" + annual;
             case FormQuestionType.Job_Monthly_Income:
                 //Debug.Log("get monthly income" + monthlyIncome);
@@ -440,7 +436,7 @@ public class PlayerInfo
 
     public double getJobIncome()
     {
-        return monthlyIncome;
+        return jobIncome;
     }
 
     public string getDOB()
@@ -530,12 +526,12 @@ public class PlayerInfo
 
     public double getTotalIncome()
     {
-        return monthlyIncome + temporaryAssistance + socialSecurityIncome + additionalIncome;
+        return jobIncome + temporaryAssistance + socialSecurityIncome + additionalIncome;
     }
 
     public double getFormIncome()
     {
-        return monthlyIncome + temporaryAssistance + socialSecurityIncome;
+        return jobIncome + temporaryAssistance + socialSecurityIncome;
     }
 }
     

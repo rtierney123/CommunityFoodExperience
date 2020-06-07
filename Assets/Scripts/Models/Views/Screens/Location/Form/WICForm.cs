@@ -67,7 +67,7 @@ namespace UI
 
         protected override void successAction()
         {
-            string successString = String.Format(Status.wicApproved, playerInfo.numInHouse, FormatText.formatCost(playerInfo.monthlyIncome));
+            string successString = String.Format(Status.wicApproved, playerInfo.numInHouse, FormatText.formatCost(playerInfo.jobIncome));
             messageManager.generateStandardSuccessMessage(successString);
             player.usedWIC = true;
             currencyManager.addWICVoucher();

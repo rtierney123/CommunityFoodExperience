@@ -27,7 +27,7 @@ namespace Utility{
             
             if (sprite == null)
             {
-                Debug.Log("null sprite: " + filePath);
+                //Debug.Log("null sprite: " + filePath);
             }
             else
             {

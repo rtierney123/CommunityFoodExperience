@@ -9,7 +9,7 @@ using UI;
 
 namespace Manage
 {
-    public class CanvasController : MonoBehaviour
+    public class CanvasController : Manager
     {
 
         public float allowWaitTime;
@@ -104,10 +104,12 @@ namespace Manage
         {
             if (popUp == null)
             {
+                Debug.Log("open general queue screen popup");
                 openPopup(gameObject);
             }
             else
             {
+                Debug.Log("enqueue general popup");
                 popUpBackLog.Enqueue(gameObject);
             }
             
@@ -118,8 +120,7 @@ namespace Manage
             if(popUp == null && screenOpen == null && allowMainScreenPopups)
             {
                 Debug.Log("open main screen popup");
-                //openPopup(gameObject);
-                forcePopupOpen(gameObject);
+                openPopup(gameObject);
             } else
             {
                 Debug.Log("add to main screen queue");
@@ -129,8 +130,10 @@ namespace Manage
 
         public void dequeueMainScreenPopUpBackLog()
         {
+            Debug.Log("called dequeue main screen");
             if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowMainScreenPopups)
             {
+                Debug.Log("display main screen only");
                 popUp = mainScreenOnlyBackLog.Dequeue();
                 setPopUp(true);
             }
@@ -138,6 +141,7 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
+            Debug.Log("open popup");
             if (popUp == null && allowOpen && !endGame)
             {
                 popUp = gameObject;
@@ -149,13 +153,17 @@ namespace Manage
                 
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
-            } 
-
+            }
+            else
+            {
+                addToPopUpBackLog(gameObject);
+            }
 
         }
 
         public void forcePopupOpen(GameObject gameObject)
         {
+              Debug.Log("open popup");
             if (!endGame)
             {
                 setPopUp(false);
@@ -163,7 +171,7 @@ namespace Manage
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
             }
-            
+
         }
 
         public void closePopUp(GameObject gameObject)
@@ -176,15 +184,18 @@ namespace Manage
 
         public void closePopUp()
         {
+            Debug.Log("close popup");
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if (popUpBackLog != null && popUpBackLog.Count > 0)
             {
+                Debug.Log("dequeue standard popup backlog");
                 popUp = popUpBackLog.Dequeue();
                 setPopUp(true);
             }
             else if (screenOpen == null && mainScreenOnlyBackLog.Count > 0)
             {
+                Debug.Log("dequeue from close popup");
                 dequeueMainScreenPopUpBackLog();
             }
             else
@@ -252,14 +263,16 @@ namespace Manage
 
         private void checkForMainPopupBackLog()
         {
+            Debug.Log("check for main popup backlog");
             if (mainScreenOnlyBackLog.Count > 0)
             {
+                Debug.Log("dequeue");
                 dequeueMainScreenPopUpBackLog();
             }
 
         }
 
-        public void reset()
+        public override void reset()
         {
             mainScreenOnlyBackLog = new Queue<GameObject>();
             popUpBackLog = new Queue<GameObject>();

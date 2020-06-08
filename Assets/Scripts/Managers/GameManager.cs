@@ -19,6 +19,7 @@ namespace Manage{
 
         public CanvasController canvasController;
         public NavigationManager navigationManager;
+        public NutritionManager nutritionManager;
         public MessageManager messageManager;
         public CurrencyManager currencyManager;
         public ClockDisplay clock;
@@ -80,8 +81,6 @@ namespace Manage{
             Debug.Log("start game");
             displayIcons();
             clock.startAnimation();
-            //bus.startAnimation();
-            navigationManager.reset();
             canvasController.closeScreen();
             currencyManager.update();
             foreach (Form form in forms)
@@ -89,6 +88,7 @@ namespace Manage{
                 form.resumeFillingOut();
             }
             navigationManager.reset();
+            nutritionManager.reset();
         }
 
         public void pauseGame()
@@ -119,7 +119,6 @@ namespace Manage{
         public void resume()
         {
             clock.resume();
-            //bus.resumeAnimation();
         }
 
         public void pause()

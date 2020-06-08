@@ -6,44 +6,30 @@ using UnityEngine;
 namespace Manage
 {
     //updates player nutrition and shows ui of update
-    public class NutritionManager : MonoBehaviour
+    public class NutritionManager : Manager
     {
         public CanvasController canvasController;
         public MessageManager messageManager;
         public Player player;
-        public int changeDisplayTime;
 
-        private bool nutritionAdded = false;
+        private bool achievedNutritionDisplayed = false;
 
-
-        // Update is called once per frame
-        void Update()
+        public override void reset()
         {
-            if (nutritionAdded && canvasController.popUp == null && canvasController.screenOpen == null)
-            {
-               // StartCoroutine(displayAddedNutrition());
-            }
+            achievedNutritionDisplayed = false;
         }
 
         public void addNutrition(Food food)
         {
             player.addNutrition(food);
-            nutritionAdded = true;
 
-            if (player.getAchievedNutrition())
+            if (player.getAchievedNutrition() && !achievedNutritionDisplayed)
             {
-                messageManager.generateStandardSuccessMessage(Status.achievedNutrition);
+                messageManager.generateMainScreenOnlySuccessMessage(Status.achievedNutrition);
+                achievedNutritionDisplayed = true;
+                Debug.Log("nutrition complete displayed");
             }
         }
-        /*
-        public IEnumerator displayAddedNutrition()
-        {
-            nutritionAdded = false;
-            plusSignPopUp.SetActive(true);
-            yield return new WaitForSeconds(changeDisplayTime);
-            plusSignPopUp.SetActive(false);
-        }
-        */
     }
 }
 

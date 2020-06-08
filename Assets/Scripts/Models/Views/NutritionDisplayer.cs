@@ -35,7 +35,6 @@ namespace UI
 
         public void updateDisplay(Player player)
         {
-            Debug.Log("updated nutrition");
             caloriesText.text = player.getCaloriesStatus();
             grainText.text = player.getGrainStatus();
             fatText.text = player.getFatStatus();

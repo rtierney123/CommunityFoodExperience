@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
     public bool hasKidBeenSick = false;
     private bool isHome = true;
 
-
     private void Start()
     {
         resetPlayer();
@@ -92,7 +91,6 @@ public class Player : MonoBehaviour
     public void setPlayerInfo(PlayerInfo info)
     {
         playerInfo = info;
-        Debug.Log(info.jobIncome);
         resetToStarting();
         playerInfo.setRecievedAssistance(false);
         
@@ -190,9 +188,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-    //TODO need to alter this logic to deal with what if multiple vouchers
-    //do I need to worry about this;
     public void updateVoucher(FoodType foodType)
     {
         if (voucher != null)
@@ -203,7 +198,6 @@ public class Player : MonoBehaviour
 
     public bool hasNoModeOfTransportation()
     {
-        //TODO: fixe
         if(busTickets == 0 && money <= 2.5 && (!playerInfo.hasCar || carBrokenDown) && !playerInfo.busPass && !onBus)
         {
             return true;

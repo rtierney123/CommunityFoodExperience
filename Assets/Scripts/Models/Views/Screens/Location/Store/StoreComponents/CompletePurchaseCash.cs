@@ -22,8 +22,9 @@ namespace UI
 
             base.resetBoxes();
 
+
             store.completeFundsPayment(cash, snap);
-         
+
         }
 
 

@@ -62,19 +62,21 @@ namespace UI {
 
         public void openPurchaseOptions()
         {
-            openPopUp(purchaseOptions);
+            canvasController.openPopup(purchaseOptions);
         }
 
         public void openFundsPurchase()
         {
-            openPopUp(fundsPurchase);
+            canvasController.addToPopUpBackLog(fundsPurchase);
+            canvasController.closePopUp();
         }
 
         public void openVoucherPurchase()
         {
             if (checkVoucherCart())
             {
-                openPopUp(voucherPurchase);
+               canvasController.addToPopUpBackLog(voucherPurchase);
+               canvasController.closePopUp();
             }
 
         }
@@ -123,15 +125,6 @@ namespace UI {
             messageManager.generateStandardErrorMessage(repeatedWicStatus);
         }
 
-        public void openPopUp(GameObject popUp)
-        {
-            if (canvasController != null)
-            {
-                canvasController.forcePopupOpen(popUp);
-            }
-        }
-
-
         public void completeVoucherPayment()
         {
             List<FoodType> types = currencyManager.getWICArray(cart.getFoodList());
@@ -150,8 +143,10 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
                 messageManager.generateStandardSuccessMessage(Status.purchaseCompleted);
+                canvasController.closePopUp();
+                
                 completePayment();
-            } 
+            }
 
         }
 
@@ -195,7 +190,6 @@ namespace UI {
             }
             else
             {
-                messageManager.generateStandardSuccessMessage(Status.purchaseCompleted);
                 return true;
             }
  

@@ -56,7 +56,6 @@ public class ClockDisplay : MonoBehaviour
         currentMin = 0;
         lossTime = TimeSpan.Zero;
         pauseTime = TimeSpan.Zero;
-        Debug.Log("reset clock");
     }
 
     public void startAnimation() {

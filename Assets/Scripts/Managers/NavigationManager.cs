@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace Manage
 {
     //does logic for navigating the map and showing navigation related pop-ups
-    public class NavigationManager : MonoBehaviour { 
+    public class NavigationManager : Manager { 
         public Player player;
         public GameObject stuckPopup;
         public NavigationPopUp navigationPopup;
@@ -53,7 +53,7 @@ namespace Manage
  
         }
 
-        public void reset() {
+        public override void reset() {
             currentLocation = startLocation;
             dropPlayerOff(startLocation);
         }

@@ -69,7 +69,7 @@ namespace Manage
 
             standardSuccessPopup.setText(message);
             GameObject popup = standardSuccessPopup.gameObject;
-            canvasController.forcePopupOpen(popup);
+            canvasController.addToPopUpBackLog(popup);
             return popup;
         }
 

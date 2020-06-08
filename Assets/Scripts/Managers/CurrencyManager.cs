@@ -10,7 +10,7 @@ using Utility;
 
 namespace Manage
 {
-    public class CurrencyManager : MonoBehaviour
+    public class CurrencyManager : Manager
     {
         public CanvasController canvasController;
         public MessageManager messageManager;
@@ -20,14 +20,7 @@ namespace Manage
         public int changeDisplayTime;
 
 
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        public void update()
+        public override void update()
         {
             footerDisplay.updateView();
         }

@@ -7,8 +7,6 @@ namespace UI
 {
     public class Screen : View
     {
-        public CanvasController canvasController;
-        public MessageManager messageManager;
         public GameObject nextScreen;
         public GameObject prevScreen;
         protected float delayTime = (float).5;

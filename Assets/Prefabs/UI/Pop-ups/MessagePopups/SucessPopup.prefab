@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3944848553026758595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61,7 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788af73364aa74c3a96c559ad27096eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
   mainText: {fileID: 6937059841437230719}
+  cancelButton: {fileID: 3396282484048365616}
 --- !u!114 &1280132100484062796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,12 +173,12 @@ PrefabInstance:
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 169.97537
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 254.42764
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
@@ -221,17 +223,17 @@ PrefabInstance:
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.47932997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.47932997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1180793210184471601, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.47932997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1871207495733458983, guid: ec7d5315d43bffb439debc1a472cd89b,
         type: 3}
@@ -381,6 +383,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3951303535456956439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3396282484048365616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1871207495733458983, guid: ec7d5315d43bffb439debc1a472cd89b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3951303535456956439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6667282227543219052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 4378504854562372883, guid: b62488068580955458c786856fd0fdc9,
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4378504854562372883, guid: b62488068580955458c786856fd0fdc9,
         type: 3}

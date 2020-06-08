@@ -8,7 +8,19 @@ namespace UI
     public class MessagePopup : PopUp
     {
         public Text mainText;
+        public Button cancelButton;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            cancelButton.onClick.AddListener(close);
+        }
+
+        private void OnDisable()
+        {
+            Debug.Log("destroy message");
+            Destroy(gameObject);
+        }
 
         public void setText(string message)
         {

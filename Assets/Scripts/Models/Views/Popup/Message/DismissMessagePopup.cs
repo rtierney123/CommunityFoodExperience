@@ -9,7 +9,6 @@ namespace UI
 {
     public class DismissMessagePopup : MessagePopup
     {
-        public CanvasController canvasController;
 
         private View dismissedDisplay;
 

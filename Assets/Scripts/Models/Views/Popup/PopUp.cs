@@ -6,14 +6,12 @@ namespace UI {
 
     public class PopUp : View
     {
-        // Start is called before the first frame update
         protected virtual void Start()
         {
             setChildrentoParent(this.transform);
 
         }
 
-        // Update is called once per frame
         void Update()
         {
 
@@ -26,6 +24,16 @@ namespace UI {
                 child.gameObject.tag = this.gameObject.tag;
                 setChildrentoParent(child);
             }
+        }
+
+        public override void close()
+        {
+            base.close();
+            if(canvasController != null)
+            {
+                canvasController.closePopUp(gameObject);
+            }
+            
         }
 
     }

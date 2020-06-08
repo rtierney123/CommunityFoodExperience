@@ -14,6 +14,8 @@ namespace Manage
         public HintMessage hintMessage;
         public DismissMessagePopup dismissPopup;
 
+        public Transform statusHolder;
+
         public void generateHomePopup(string message)
         {
             homePopup.setText(message);
@@ -49,11 +51,11 @@ namespace Manage
 
         public GameObject generateStandardErrorMessage(string message)
         {
-
-            standardErrorPopup.setText(message);
-            GameObject popup = standardErrorPopup.gameObject;
-            canvasController.forcePopupOpen(popup);
-            return popup;
+            MessagePopup messagePopup = Instantiate<MessagePopup>(standardErrorPopup, statusHolder);
+            messagePopup.setText(message);
+            GameObject obj = messagePopup.gameObject;
+            canvasController.forcePopupOpen(obj);
+            return obj;
         }
 
         public GameObject generateStandardSuccessMessage(string message, View view)
@@ -76,10 +78,11 @@ namespace Manage
 
         public GameObject generateMainScreenOnlyErrorMessage(string message)
         {
-            standardErrorPopup.setText(message);
-            GameObject popup = standardErrorPopup.gameObject;
-            canvasController.addToMainScreenPopUpBackLog(popup);
-            return popup;
+            MessagePopup messagePopup = Instantiate<MessagePopup>(standardErrorPopup, statusHolder);
+            messagePopup.setText(message);
+            GameObject obj = messagePopup.gameObject;
+            canvasController.addToMainScreenPopUpBackLog(obj);
+            return obj;
         }
 
 

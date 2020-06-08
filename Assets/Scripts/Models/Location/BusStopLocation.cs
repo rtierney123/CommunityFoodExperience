@@ -13,11 +13,8 @@ public class BusStopLocation : Location
     public override void onDelayedEnter()
     {
         entered = true;
-        //canvasController.addToPopUpBackLog(waitPopup);
-        //canvasController.openPopup(waitPopup);
         canvasController.disableMainPopups();
         StartCoroutine(OpenBusPopup());
-        Debug.Log("on enter");
     }
 
     public override void onImmediateEnter()

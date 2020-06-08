@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class EndGameStatusScreen : MonoBehaviour
 {
     public Player player;
-    public MessagePopup successPopup;
-    public MessagePopup failurePopup;
+    public EndGameStatus successPopup;
+    public EndGameStatus failurePopup;
 
     void OnEnable()
     {

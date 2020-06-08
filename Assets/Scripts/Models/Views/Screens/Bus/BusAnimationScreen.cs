@@ -47,7 +47,7 @@ namespace UI
             progressBar.pauseLoading();
             GameObject message = messageManager.generateStandardErrorMessage(getRandomBusEventStr());
             progressBar.delayLoading(2);
-            yield return new WaitUntil(() => !message.activeSelf);
+            yield return new WaitUntil(() => message == null);
             Debug.Log("resume bus");
             progressBar.resumeLoading();
         }

@@ -1185,6 +1185,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 982130610}
+    - target: {fileID: 866691072433186418, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1106096672800321131, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -1345,15 +1350,20 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6590076566769396837, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6597565927910101864, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.5
+      value: -0.0020828247
       objectReference: {fileID: 0}
     - target: {fileID: 6597565927910101864, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -5
+      value: -9.995834
       objectReference: {fileID: 0}
     - target: {fileID: 9189812667182574217, guid: fe880f1d545ca4c17a5ff322ca8fd2d5,
         type: 3}
@@ -23614,7 +23624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6155782217985481733}
   - component: {fileID: 1503509553331879389}
-  - component: {fileID: 3629588628674660996}
+  - component: {fileID: 1566086633874459428}
   m_Layer: 5
   m_Name: SucessPopup
   m_TagString: Untagged
@@ -23622,6 +23632,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1566086633874459428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566086633874459427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca01a4d576d21ec4a8db72afa50486d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
+  messageManager: {fileID: 0}
+  text: {fileID: 1647658363}
 --- !u!1 &1627659918548198969
 GameObject:
   m_ObjectHideFlags: 0
@@ -23664,7 +23689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6725593901694499872}
   - component: {fileID: 2082403194469146104}
-  - component: {fileID: 7259692977530193313}
+  - component: {fileID: 2125835552206580487}
   m_Layer: 5
   m_Name: ErrorPopUp
   m_TagString: Untagged
@@ -23672,6 +23697,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &2125835552206580487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125835552206580486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca01a4d576d21ec4a8db72afa50486d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasController: {fileID: 0}
+  messageManager: {fileID: 0}
+  text: {fileID: 1322948801}
 --- !u!1001 &2231096201834686406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23972,8 +24012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1898101852}
-  successPopup: {fileID: 3629588628674660996}
-  failurePopup: {fileID: 7259692977530193313}
+  successPopup: {fileID: 1566086633874459428}
+  failurePopup: {fileID: 2125835552206580487}
 --- !u!1 &2411178168570472910
 GameObject:
   m_ObjectHideFlags: 0
@@ -27257,22 +27297,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!114 &3629588628674660996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566086633874459427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 788af73364aa74c3a96c559ad27096eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasController: {fileID: 0}
-  messageManager: {fileID: 0}
-  mainText: {fileID: 1647658363}
-  cancelButton: {fileID: 0}
 --- !u!224 &3905580954341044535 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4168211697190714955, guid: d29c94bb31e335644af619e65bcec51c,
@@ -30122,7 +30146,7 @@ PrefabInstance:
     - target: {fileID: 1380486426006151969, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 627.8125
+      value: 319.0625
       objectReference: {fileID: 0}
     - target: {fileID: 1389722919263001294, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f,
         type: 3}
@@ -31730,7 +31754,7 @@ PrefabInstance:
     - target: {fileID: 6407830510472739022, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 398.4375
+      value: 702.8125
       objectReference: {fileID: 0}
     - target: {fileID: 6421044631374761867, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f,
         type: 3}
@@ -32275,7 +32299,7 @@ PrefabInstance:
     - target: {fileID: 9163957863376683018, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 244.0625
+      value: 548.4375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a54506e33dd9b04c8bbc2bf6c14a66f, type: 3}
@@ -32872,22 +32896,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb50cfda3e7a338408834f73a2913ac8, type: 3}
---- !u!114 &7259692977530193313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125835552206580486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 788af73364aa74c3a96c559ad27096eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasController: {fileID: 0}
-  messageManager: {fileID: 0}
-  mainText: {fileID: 1322948801}
-  cancelButton: {fileID: 0}
 --- !u!1 &7529735718578076003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7464120338629260831, guid: d29c94bb31e335644af619e65bcec51c,

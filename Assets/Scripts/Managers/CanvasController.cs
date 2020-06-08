@@ -268,10 +268,10 @@ namespace Manage
         {
             if (screenOpen != null)
             {
+                closePopUp();
                 screenOpen.SetActive(false);
                 screenOpen = null;
-                closePopUp();
-               
+                //enableMainPopups();
             }
         }
 
@@ -279,6 +279,7 @@ namespace Manage
         {
             if (mainScreenOnlyBackLog.Count > 0)
             {
+                Debug.Log("dequeue from check");
                 dequeueMainScreenPopUpBackLog();
             }
 
@@ -295,7 +296,7 @@ namespace Manage
 
         void setPopUp(bool active)
         {
-            
+            //enableMainPopups();
             if (popUp != null)
             {
                 popUp.SetActive(active);

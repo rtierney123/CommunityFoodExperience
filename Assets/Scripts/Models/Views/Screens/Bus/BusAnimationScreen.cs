@@ -13,7 +13,6 @@ namespace UI
 
         private void OnEnable()
         {
-            canvasController.disableMainPopups();
             busDelayed = false;
         }
 

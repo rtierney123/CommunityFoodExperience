@@ -34,18 +34,14 @@ namespace UI
 
         public void openNextScreen()
         {
-            //Debug.Log("next screen called");
-            //StartCoroutine(delayCloseScreen());
             if (nextScreen != null)
             {
-                //Debug.Log("next screen opened");
                 canvasController.openScreen(nextScreen);
             }
         }
 
         public void openPrevScreen()
         {
-            //StartCoroutine(delayCloseScreen());
             if (prevScreen != null)
             {
                 canvasController.openScreen(prevScreen);

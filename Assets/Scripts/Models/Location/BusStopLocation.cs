@@ -26,7 +26,6 @@ public class BusStopLocation : Location
     public IEnumerator OpenBusPopup()
     {
         yield return new WaitForSeconds(delayTime);
-        canvasController.enableMainPopups();
         canvasController.forcePopupOpen(waitPopup);
 
     }

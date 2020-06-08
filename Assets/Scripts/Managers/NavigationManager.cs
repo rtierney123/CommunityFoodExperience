@@ -141,18 +141,19 @@ namespace Manage
 
         public void handleCarTravel()
         {
-            canvasController.disableMainPopups();
+            //canvasController.disableMainPopups();
             travelToDestination(TravelType.Car);
         }
 
         public void handleWalkTravel()
         {
-            canvasController.disableMainPopups();
+            //canvasController.disableMainPopups();
             travelToDestination(TravelType.Walk);
         }
 
         public void travelToDestination(TravelType travelType)
         {
+            canvasController.disableMainPopups();
             closePopUp();
             // scaled value from distmap
             double travelTime = getPotentialTravelTime(travelType);
@@ -223,6 +224,7 @@ namespace Manage
             player.gameObject.SetActive(true);
             player.onBus = false;
             travelToDestination(TravelType.Bus);
+            canvasController.closeScreen();
         }
 
 

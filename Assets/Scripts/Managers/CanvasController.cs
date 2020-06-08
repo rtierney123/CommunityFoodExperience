@@ -162,7 +162,6 @@ namespace Manage
 
         public void forcePopupOpen(GameObject gameObject)
         {
-              Debug.Log("open popup");
             if (!endGame)
             {
                 setPopUp(false);

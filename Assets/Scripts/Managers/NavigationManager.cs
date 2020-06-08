@@ -10,8 +10,7 @@ namespace Manage
     //does logic for navigating the map and showing navigation related pop-ups
     public class NavigationManager : Manager { 
         public Player player;
-        public GameObject stuckPopup;
-        public NavigationPopUp navigationPopup;
+        
 
         public CanvasController canvasController;
         public MessageManager messageManager;
@@ -28,7 +27,9 @@ namespace Manage
         public List<Neighborhood> locationKeys;
         public List<Location> locationBusStops;
 
+        public NavigationPopUp navigationPopup;
         public GameObject takingBusScreen;
+        public GameObject homePopup;
 
         private TravelCalculator travelCalculator;
 
@@ -65,16 +66,18 @@ namespace Manage
             {
                 if(currentLocation == location)
                 {
+
                     location.onImmediateEnter();
                     if (currentLocation == startLocation)
                     {
-                        displayHomePopup();
+                        Debug.Log("display home when there");
+                        canvasController.openPopup(homePopup);
 
                     }
                 } else
                 {
                     possibleDestination = location;
-                    //NavigationPopUp popUp;
+
                     if (possibleDestination.neighborhood == currentLocation.neighborhood)
                     {
                         navigationPopup.walkText.text = "Walk (" + formatTime( getPotentialTravelTime(TravelType.Walk)) + ")";
@@ -109,10 +112,8 @@ namespace Manage
                 {
                     canvasController.openScreen(takingBusScreen);
                     possibleDestination = location;
-                    //bus.stopSelected = true;
                     routeSelected = true;
                     messageManager.hideHintMessage();
-                    //handleStartBusEvent();
                     
                     foreach (Location busStop in locationBusStops)
                     {
@@ -157,8 +158,6 @@ namespace Manage
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
-
-            //canvasController.screenDisplayed = true;
             clock.addGameMinutes(travelTime);
             
             if(travelType != TravelType.Bus)
@@ -170,22 +169,10 @@ namespace Manage
 
             if(currentLocation == startLocation)
             {
-                displayHomePopup();
-                
+                canvasController.delayOpenPopup(homePopup);
+
             }
 
-        }
-
-        private void displayHomePopup()
-        {
-            if (player.getAchievedNutrition())
-            {
-                messageManager.generateHomePopup(Status.homeSufficientFood);
-            }
-            else
-            {
-                messageManager.generateHomePopup(Status.homeInsufficientFood);
-            }
         }
 
         private void dropPlayerOff(Location location)

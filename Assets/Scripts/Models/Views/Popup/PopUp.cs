@@ -12,10 +12,6 @@ namespace UI {
 
         }
 
-        void Update()
-        {
-
-        }
 
         private void setChildrentoParent(Transform transform)
         {
@@ -29,8 +25,10 @@ namespace UI {
         public override void close()
         {
             base.close();
+            Debug.Log("close");
             if(canvasController != null)
             {
+                Debug.Log("closepopup");
                 canvasController.closePopUp(gameObject);
             }
             

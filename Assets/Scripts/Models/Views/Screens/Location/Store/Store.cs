@@ -143,7 +143,6 @@ namespace UI {
                 currencyManager.subtractFunds(FundsType.Snap, snap);
 
                 messageManager.generateStandardSuccessMessage(Status.purchaseCompleted);
-                canvasController.closePopUp();
                 
                 completePayment();
             }

@@ -10,17 +10,10 @@ namespace Manage
         public CanvasController canvasController;
         public MessagePopup standardErrorPopup;
         public MessagePopup standardSuccessPopup;
-        public MessagePopup homePopup;
         public HintMessage hintMessage;
         public DismissMessagePopup dismissPopup;
 
         public Transform statusHolder;
-
-        public void generateHomePopup(string message)
-        {
-            homePopup.setText(message);
-            canvasController.forcePopupOpen(homePopup.gameObject);
-        }
 
         public void generateDismissPopup(string message, View view)
         {

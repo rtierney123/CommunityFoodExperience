@@ -13,7 +13,10 @@ namespace UI
         protected override void Awake()
         {
             base.Awake();
-            cancelButton.onClick.AddListener(close);
+            if(cancelButton != null)
+            {
+                cancelButton.onClick.AddListener(close);
+            }
         }
 
         private void OnDisable()

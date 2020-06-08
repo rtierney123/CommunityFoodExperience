@@ -3,7 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FoodDetail : MonoBehaviour
+namespace UI
 {
-    public Button closeButton;
+    public class FoodDetail : PopUp
+    {
+        public Button closeButton;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            closeButton.onClick.AddListener(close);
+        }
+    }
 }
+

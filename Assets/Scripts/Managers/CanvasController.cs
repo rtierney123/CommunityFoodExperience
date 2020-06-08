@@ -40,8 +40,6 @@ namespace Manage
             allowOpen = true;
             popUp = null;
             screenOpen = null;
-            //popUpBackLog = new Queue<GameObject>();
-            //mainScreenOnlyBackLog = new Queue<GameObject>();
         }
 
 
@@ -158,6 +156,17 @@ namespace Manage
                 addToPopUpBackLog(gameObject);
             }
 
+        }
+
+        public void delayOpenPopup(GameObject gameObject)
+        {
+            StartCoroutine(delayOpenRoutine(gameObject));
+        }
+
+        private IEnumerator delayOpenRoutine(GameObject gameObject)
+        {
+            yield return new WaitForSeconds(1);
+            openPopup(gameObject);
         }
 
         public void forcePopupOpen(GameObject gameObject)

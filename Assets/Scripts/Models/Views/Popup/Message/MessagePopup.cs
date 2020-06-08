@@ -18,7 +18,6 @@ namespace UI
 
         private void OnDisable()
         {
-            Debug.Log("destroy message");
             Destroy(gameObject);
         }
 

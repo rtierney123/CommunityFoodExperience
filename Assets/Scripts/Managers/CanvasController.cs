@@ -141,7 +141,6 @@ namespace Manage
 
         public void openPopup(GameObject gameObject)
         {
-            Debug.Log("open popup");
             if (popUp == null && allowOpen && !endGame)
             {
                 popUp = gameObject;
@@ -184,7 +183,6 @@ namespace Manage
 
         public void closePopUp()
         {
-            Debug.Log("close popup");
             setPopUp(false);
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if (popUpBackLog != null && popUpBackLog.Count > 0)
@@ -263,10 +261,8 @@ namespace Manage
 
         private void checkForMainPopupBackLog()
         {
-            Debug.Log("check for main popup backlog");
             if (mainScreenOnlyBackLog.Count > 0)
             {
-                Debug.Log("dequeue");
                 dequeueMainScreenPopUpBackLog();
             }
 

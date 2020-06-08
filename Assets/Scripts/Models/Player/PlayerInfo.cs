@@ -34,8 +34,8 @@ public class PlayerInfo
         public FamilyMember[] list = { };
     }
 
-    public double socialSecurityIncome = 870;
-    public double jobIncome = 5000;
+    public double socialSecurityIncome = 0;
+    public double jobIncome = 0;
     public double additionalIncome = 0;
     public double temporaryAssistance = 0;
     public int numInHouse = 2;

@@ -68,11 +68,11 @@ namespace Manage
 
         public GameObject generateStandardSuccessMessage(string message)
         {
-
-            standardSuccessPopup.setText(message);
-            GameObject popup = standardSuccessPopup.gameObject;
-            canvasController.addToPopUpBackLog(popup);
-            return popup;
+            MessagePopup messagePopup = Instantiate<MessagePopup>(standardSuccessPopup, statusHolder);
+            messagePopup.setText(message);
+            GameObject obj = messagePopup.gameObject;
+            canvasController.forcePopupOpen(obj);
+            return obj;
         }
 
 
@@ -88,10 +88,11 @@ namespace Manage
 
         public GameObject generateMainScreenOnlySuccessMessage(string message)
         {
-            standardSuccessPopup.setText(message);
-            GameObject popup = standardSuccessPopup.gameObject;
-            canvasController.addToMainScreenPopUpBackLog(popup);
-            return popup;
+            MessagePopup messagePopup = Instantiate<MessagePopup>(standardSuccessPopup, statusHolder);
+            messagePopup.setText(message);
+            GameObject obj = messagePopup.gameObject;
+            canvasController.addToMainScreenPopUpBackLog(obj);
+            return obj;
         }
 
 

@@ -86,9 +86,8 @@ namespace Model
         public virtual void onDelayedEnter()
         {
             entered = true;
-            StartCoroutine(OpenLocationScreen());
             canvasController.disableMainPopups();
-            //canvasController.openScreen(mainScreen);
+            StartCoroutine(OpenLocationScreen());
         }
 
         public virtual void onImmediateEnter()

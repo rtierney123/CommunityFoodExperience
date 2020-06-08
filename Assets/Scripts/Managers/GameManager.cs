@@ -163,7 +163,6 @@ namespace Manage{
             canvasController.reset();
             player.resetPlayer();
             clock.resetAnimation();
-            //bus.resetAnimation();
             navigationManager.reset();
             communityKitchen.reset();
         }
@@ -182,7 +181,7 @@ namespace Manage{
         {
             messageManager.generateMainScreenOnlyErrorMessage(Status.gettingLate);
             canvasController.playWarning();
-            //Debug.Log("warning end");
+            Debug.Log("warning end");
         }
     }
 }

@@ -108,6 +108,11 @@ namespace Manage
             else
             {
                 Debug.Log("enqueue general popup");
+                View view = gameObject.GetComponent<UI.PopUp>();
+                if (view != null)
+                {
+                    view.reset();
+                }
                 popUpBackLog.Enqueue(gameObject);
             }
             
@@ -122,6 +127,11 @@ namespace Manage
             } else
             {
                 Debug.Log("add to main screen queue");
+                View view = gameObject.GetComponent<UI.PopUp>();
+                if (view != null)
+                {
+                    view.reset();
+                }
                 mainScreenOnlyBackLog.Enqueue(gameObject);
             }
         }
@@ -151,10 +161,7 @@ namespace Manage
                 setPopUp(true);
                 StartCoroutine(WaitAllowClose(allowWaitTime));
             }
-            else
-            {
-                addToPopUpBackLog(gameObject);
-            }
+
 
         }
 
@@ -166,7 +173,7 @@ namespace Manage
         private IEnumerator delayOpenRoutine(GameObject gameObject)
         {
             yield return new WaitForSeconds(1);
-            openPopup(gameObject);
+            addToPopUpBackLog(gameObject);
         }
 
         public void forcePopupOpen(GameObject gameObject)
@@ -222,6 +229,7 @@ namespace Manage
                     view.reset();
                 }
                 screen.SetActive(true);
+                enableMainPopups();
             }
         }
 
@@ -286,7 +294,8 @@ namespace Manage
 
 
         void setPopUp(bool active)
-        { 
+        {
+            
             if (popUp != null)
             {
                 popUp.SetActive(active);

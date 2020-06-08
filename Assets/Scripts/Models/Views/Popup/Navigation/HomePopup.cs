@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class HomePopup : PopUp
+    public class HomePopup : MessagePopup
     {
-        public Text homeText;
         public Player player;
 
         public override void reset()
@@ -15,11 +14,11 @@ namespace UI
             base.reset();
             if (player.getAchievedNutrition())
             {
-                homeText.text = Status.homeSufficientFood;
+                setText(Status.homeSufficientFood);
             }
             else
             {
-                homeText.text = Status.homeInsufficientFood;
+                setText(Status.homeInsufficientFood);
             }
         }
 

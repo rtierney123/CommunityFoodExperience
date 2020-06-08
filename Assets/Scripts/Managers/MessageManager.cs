@@ -8,8 +8,8 @@ namespace Manage
     public class MessageManager : MonoBehaviour
     {
         public CanvasController canvasController;
-        public MessagePopup standardErrorPopup;
-        public MessagePopup standardSuccessPopup;
+        public TemporaryMessagePopup standardErrorPopup;
+        public TemporaryMessagePopup standardSuccessPopup;
         public HintMessage hintMessage;
         public DismissMessagePopup dismissPopup;
 
@@ -44,7 +44,7 @@ namespace Manage
 
         public GameObject generateStandardErrorMessage(string message)
         {
-            MessagePopup messagePopup = Instantiate<MessagePopup>(standardErrorPopup, statusHolder);
+            TemporaryMessagePopup messagePopup = Instantiate<TemporaryMessagePopup>(standardErrorPopup, statusHolder);
             messagePopup.setText(message);
             GameObject obj = messagePopup.gameObject;
             canvasController.forcePopupOpen(obj);
@@ -61,7 +61,7 @@ namespace Manage
 
         public GameObject generateStandardSuccessMessage(string message)
         {
-            MessagePopup messagePopup = Instantiate<MessagePopup>(standardSuccessPopup, statusHolder);
+            TemporaryMessagePopup messagePopup = Instantiate<TemporaryMessagePopup>(standardSuccessPopup, statusHolder);
             messagePopup.setText(message);
             GameObject obj = messagePopup.gameObject;
             canvasController.forcePopupOpen(obj);
@@ -71,7 +71,7 @@ namespace Manage
 
         public GameObject generateMainScreenOnlyErrorMessage(string message)
         {
-            MessagePopup messagePopup = Instantiate<MessagePopup>(standardErrorPopup, statusHolder);
+            TemporaryMessagePopup messagePopup = Instantiate<TemporaryMessagePopup>(standardErrorPopup, statusHolder);
             messagePopup.setText(message);
             GameObject obj = messagePopup.gameObject;
             canvasController.addToMainScreenPopUpBackLog(obj);
@@ -81,7 +81,7 @@ namespace Manage
 
         public GameObject generateMainScreenOnlySuccessMessage(string message)
         {
-            MessagePopup messagePopup = Instantiate<MessagePopup>(standardSuccessPopup, statusHolder);
+            TemporaryMessagePopup messagePopup = Instantiate<TemporaryMessagePopup>(standardSuccessPopup, statusHolder);
             messagePopup.setText(message);
             GameObject obj = messagePopup.gameObject;
             canvasController.addToMainScreenPopUpBackLog(obj);

@@ -71,7 +71,7 @@ namespace Manage
                     if (currentLocation == startLocation)
                     {
                         Debug.Log("display home when there");
-                        canvasController.openPopup(homePopup);
+                        canvasController.addToMainScreenPopUpBackLog(homePopup);
 
                     }
                 } else
@@ -141,17 +141,18 @@ namespace Manage
 
         public void handleCarTravel()
         {
+            canvasController.disableMainPopups();
             travelToDestination(TravelType.Car);
         }
 
         public void handleWalkTravel()
         {
+            canvasController.disableMainPopups();
             travelToDestination(TravelType.Walk);
         }
 
         public void travelToDestination(TravelType travelType)
         {
-
             closePopUp();
             // scaled value from distmap
             double travelTime = getPotentialTravelTime(travelType);
@@ -228,9 +229,7 @@ namespace Manage
         public void handleChooseStopEvent()
         {
             messageManager.displayHintMessage(Status.clickStopInstruction);
-            //bus.stopSelected = false;
             player.gameObject.SetActive(false);
-            //bus.playerOnBus = true;
             player.onBus = true;
             routeSelected = false;
             foreach(Location busStop in locationBusStops)
@@ -242,10 +241,7 @@ namespace Manage
 
         public void handleStartBusEvent()
         {
-            /*
-            MainBusStopLocation busStop = (MainBusStopLocation)currentLocation;
-            bus.playAnimation(busStop.busAnimationOffset);
-            */
+            
         }
 
         public void handleLeaveBusEvent()
@@ -267,27 +263,10 @@ namespace Manage
         {
             if (player.playerInfo.hasCar)
             {
-                /*
-                float sec = clock.convertGameMinutestoSeconds(inGameMinutes);
-                Debug.Log("number of seconds to car works: " + sec);
-
-                StartCoroutine(startDisable(sec));
-                */
                 player.carBrokenDown = true;
             }
 
         }
-
-        /*
-        private IEnumerator startDisable(float sec)
-        {
-            player.playerInfo.hasCar = false;
-            yield return new WaitForSeconds(sec);
-            player.playerInfo.hasCar = true;
-            messageManager.generateMainScreenOnlySuccessMessage("Your car is fixed. You can take the car again.");
-            Debug.Log("start disable");
-        }
-        */
 
 
 

@@ -104,6 +104,7 @@ namespace Model
             {
                 canvasController.closePopUp();
                 canvasController.openScreen(mainScreen);
+                canvasController.enableMainPopups();
             } else
             {
                 canvasController.enableMainPopups();

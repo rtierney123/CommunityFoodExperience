@@ -62,6 +62,7 @@ namespace Model
             else
             {
                 canvasController.openScreen(mainScreen);
+                canvasController.enableMainPopups();
             }
         }
 

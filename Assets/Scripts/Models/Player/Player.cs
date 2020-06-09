@@ -195,8 +195,8 @@ public class Player : MonoBehaviour
     public bool hasNoModeOfTransportation()
     {
 
-        if (busTickets == 0 && money <= 2.5 && (!playerInfo.hasCar || (playerInfo.hasCar && carBrokenDown))
-            && !playerInfo.busPass)
+        if (busTickets == 0 && money < 2.5 && (!playerInfo.hasCar || (playerInfo.hasCar && carBrokenDown))
+            && !playerInfo.busPass && !onBus)
         {
             //Debug.Log("has no mode of tranportation");
             return true;

@@ -17,7 +17,6 @@ public class ClockDisplay : MonoBehaviour
 	public uint amStartTime;
 	public uint pmEndTime;
 	public Text txt;
-	public Animator anim;
 	public TimeSpan pauseTime;
     public TimeSpan lossTime;
 	public DateTime pauseStart;
@@ -51,7 +50,6 @@ public class ClockDisplay : MonoBehaviour
     public void resetAnimation()
     {
         running = false;
-        anim.enabled = false;
         currentHour = 0;
         currentMin = 0;
         lossTime = TimeSpan.Zero;
@@ -60,7 +58,6 @@ public class ClockDisplay : MonoBehaviour
 
     public void startAnimation() {
         running = true;
-        anim.enabled = true;
         startTime = DateTime.Now;
         pauseTime = TimeSpan.Zero;
         Debug.Log("start clock");
@@ -75,7 +72,6 @@ public class ClockDisplay : MonoBehaviour
 		TimeSpan time = (DateTime.Now - startTime - this.pauseTime + lossTime);
 		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
         runtimeSlider.value = runTimeRatio;
-		anim.Play("ClockAnimation", 0, runTimeRatio);
 
 		if (runTimeRatio >= 1f) {
             gameManager.endGame();

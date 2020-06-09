@@ -16,19 +16,7 @@ namespace UI
         public override void reset()
         {
             base.reset();
-            Debug.Log("reset end game");
             nutritionDisplayer.updateDisplay(player);
-            ColorDisplayer colorDisplayer = new ColorDisplayer();
-            if (player.getIsHome())
-            {
-                makeHomeText.text = "Yes";
-                colorDisplayer.setSuccess(makeHomeText);
-            }
-            else
-            {
-                makeHomeText.text = "No";
-                colorDisplayer.setStandard(makeHomeText);
-            }
         }
 
     }

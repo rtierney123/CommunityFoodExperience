@@ -473,7 +473,7 @@ public class PlayerInfo
         double monthlyCash = getTotalIncome() + rentExpense + utilitiesExpense + medicalExpense + transportationExpense +
             phoneExpense + childcareExpense + taxesExpense + otherExpense;
         double dailyCash = (monthlyCash / (30 * numInHouse));
-        double cashForDay = Math.Round(dailyCash, 2);
+        double cashForDay = Math.Round(dailyCash, 2, MidpointRounding.AwayFromZero);
         return monthlyCash > 0 ? cashForDay : 0;
     }
     public String getStartingTransportationString()

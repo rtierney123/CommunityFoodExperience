@@ -17,6 +17,7 @@ namespace Manage
         public double chanceFreeRide;
         public double chanceBreakdown;
 
+        private double militaryHourRepaired;
 
         public void hourBeforeEndGame()
         {

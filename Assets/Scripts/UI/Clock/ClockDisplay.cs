@@ -23,8 +23,8 @@ public class ClockDisplay : MonoBehaviour
 	public GameManager gameManager;
     public Slider runtimeSlider;
 
-    private int currentMilitaryHour = 0;
-    private int currentMin = 0;
+    private uint currentHour = 0;
+    private uint currentMin = 0;
     private bool endGameCalled = false;
 
     void Start()
@@ -44,12 +44,12 @@ public class ClockDisplay : MonoBehaviour
         }
 	}
     
-    public int getCurrentMilitaryHour()
+    public uint getCurrentMilitaryHour()
     {
-        return currentMilitaryHour;
+        return currentHour;
     }
     
-    public int getCurrentMinutes()
+    public uint getCurrentMinutes()
     {
         return currentMin;
     }
@@ -57,7 +57,7 @@ public class ClockDisplay : MonoBehaviour
     public void resetAnimation()
     {
         running = false;
-        currentMilitaryHour = 0;
+        currentHour = amStartTime;
         currentMin = 0;
         lossTime = TimeSpan.Zero;
         pauseTime = TimeSpan.Zero;
@@ -87,22 +87,22 @@ public class ClockDisplay : MonoBehaviour
             string result = runTimeToDayTime(runTimeRatio);
             txt.text = result;
 
-            int hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
-            int min = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
+            uint hour = (uint)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
+            uint min = (uint)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
 
             if (hour != amStartTime)
             {
-                if (currentMilitaryHour != hour)
+                if (currentHour != hour)
                 {
+                    currentHour = hour;
                     updateHourCallers();
-                    currentMilitaryHour = hour;
                 }
             }
 
             if (currentMin != min)
             {
-                updateMinCallers();
                 currentMin = min;
+                updateMinCallers();
             }
 
         }

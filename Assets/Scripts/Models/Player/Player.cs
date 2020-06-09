@@ -122,9 +122,6 @@ public class Player : MonoBehaviour
         busTickets = value;
     }
 
-
-    //.....
-
     // update player nutrition
     public void addNutrition(Food food)
     {
@@ -196,13 +193,11 @@ public class Player : MonoBehaviour
     {
 
         if (busTickets == 0 && money < 2.5 && (!playerInfo.hasCar || (playerInfo.hasCar && carBrokenDown))
-            && !playerInfo.busPass && !onBus)
+            && !playerInfo.busPass && !onBus && !hasTemporaryRide)
         {
-            //Debug.Log("has no mode of tranportation");
             return true;
         } else
         {
-            //Debug.Log("has mode of transportation");
             return false;
         }
     }
@@ -301,8 +296,5 @@ public class Player : MonoBehaviour
     {
         hasTemporaryRide = freeRide;
     }
-
-  
-
 
 }

@@ -143,11 +143,16 @@ namespace UI
 
             
             Text transText = transportationText.GetComponent<Text>();
-             if (!playerInfo.busPass && (!playerInfo.hasCar||player.carBrokenDown) && !player.hasTemporaryRide )
+             if (!playerInfo.busPass && !playerInfo.hasCar  && !player.hasTemporaryRide )
             {
-                transText.text = "You don't have any car or bus pass.";
+                transText.text = "You don't have a car or bus pass.";
                 transportationText.SetActive(true);
-            } else if (player.hasTemporaryRide)
+            } else if(playerInfo.hasCar && player.carBrokenDown)
+            {
+                transText.text = "Your car has broken down. You cannot use it until it is repaired.";
+                transportationText.SetActive(true);
+            }
+            else if (player.hasTemporaryRide)
             {
                 transText.text = "Someone has offered to give you a ride from this location.";
                 transportationText.SetActive(true);

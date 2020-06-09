@@ -26,6 +26,7 @@ namespace Manage{
         public GameObject footer;
         public GameObject pauseButton;
         public CommunityKitchenScreen communityKitchen;
+        public RandomEventGenerator randomGenerator;
 
         public Form[] forms;
 
@@ -89,6 +90,7 @@ namespace Manage{
             }
             navigationManager.reset();
             nutritionManager.reset();
+            randomGenerator.reset();
         }
 
         public void pauseGame()

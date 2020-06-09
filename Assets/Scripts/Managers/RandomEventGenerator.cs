@@ -6,7 +6,7 @@ using Utility;
 
 namespace Manage
 {
-    public class RandomEventGenerator : MonoBehaviour, IClockEventCaller
+    public class RandomEventGenerator : Manager, IClockEventCaller
     {
         public Player player;
         public NavigationManager navigationManager;
@@ -17,8 +17,14 @@ namespace Manage
         public double chanceFreeRide;
         public double chanceBreakdown;
 
-        private double militaryHourRepaired = -1;
-        private double minutesRepaired = -1;
+        private uint hourRepaired = 0;
+        private static int carBreakDownDuration = 3;
+
+        public override void reset()
+        {
+            base.reset();
+            hourRepaired = 0;
+        }
 
         public void hourBeforeEndGame()
         {
@@ -38,32 +44,32 @@ namespace Manage
         private void checkCarBreakDown()
         {
             float rand = UnityEngine.Random.Range(0, 100);
-            if (rand < chanceBreakdown && player.playerInfo.hasCar)
+            if (rand < chanceBreakdown && player.playerInfo.hasCar && !player.carBrokenDown)
             {
-                Debug.Log("car broken down");
                 messageManager.generateMainScreenOnlyErrorMessage(Status.carBrokeDown);
+                hourRepaired =(uint) (clock.getCurrentMilitaryHour() + carBreakDownDuration) % 24;
                 player.carBrokenDown = true;
-                militaryHourRepaired = clock.getCurrentMilitaryHour() + 2;
-                minutesRepaired = clock.getCurrentMinutes();
+                Debug.Log("car breakdown");
             }
         }
 
         private void checkCarRepaired()
         {
-            int currentHour = clock.getCurrentMilitaryHour();
-            int currentMin = clock.getCurrentMinutes();
-            if(player.playerInfo.hasCar && player.carBrokenDown && currentHour >= militaryHourRepaired + 2 && currentMin >= minutesRepaired)
+            uint currentHour = clock.getCurrentMilitaryHour();
+
+            if(player.playerInfo.hasCar && player.carBrokenDown && currentHour >= hourRepaired)
             {
-                Debug.Log("car repaired");
                 messageManager.generateMainScreenOnlySuccessMessage(Status.carRepaired);
+                hourRepaired = 0;
                 player.carBrokenDown = false;
+                Debug.Log("car repaired");
             }
         }
 
         private void checkFreeRide()
             {
                 float rand = UnityEngine.Random.Range(0, 100);
-                if (rand < chanceFreeRide && player.hasNoModeOfTransportation() && !player.hasTemporaryRide)
+                if (rand < chanceFreeRide && player.hasNoModeOfTransportation())
                 {
                     player.setFreeRide(true);
                     messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);

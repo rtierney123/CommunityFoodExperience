@@ -294,7 +294,7 @@ namespace Manage
         public void closeCurrentScreen()
         {
             if (screenOpen != null)
-            {
+            { 
                 screenOpen.SetActive(false);
                 screenOpen = null;
                 closePopUp();

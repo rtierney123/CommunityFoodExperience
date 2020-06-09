@@ -72,18 +72,9 @@ namespace Manage
                 {
                     possibleDestination = location;
 
-                    if (possibleDestination.neighborhood == currentLocation.neighborhood)
-                    {
-                        navigationPopup.walkText.text = "Walk (" + formatTime( getPotentialTravelTime(TravelType.Walk)) + ")";
-                        navigationPopup.activateWalkButton();
-                        navigationPopup.enableWalkButton();
-                    }
-                    else
-                    {
-                        navigationPopup.deactivateWalkButton();
-                    }
+                    navigationPopup.walkText.text = "Walk (" + formatTime(getPotentialTravelTime(TravelType.Walk)) + ")";
 
-                    if(player.hasTemporaryRide || (player.playerInfo.hasCar && !player.carBrokenDown))
+                    if (player.hasTemporaryRide || (player.playerInfo.hasCar && !player.carBrokenDown))
                     {
                         navigationPopup.enableCarButton();
                     }

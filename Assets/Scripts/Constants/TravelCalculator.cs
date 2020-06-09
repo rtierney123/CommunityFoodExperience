@@ -7,8 +7,8 @@ public class TravelCalculator
 {
 
     private static Dictionary<Tuple<LocationID, LocationID>, double> locationmap;
-    private static double walkScale = 10;
-    private static double carScale = 5;
+    private static double walkScale = 6;
+    private static double carScale = 1;
     //TODO:FIX THIS!!
 
     public TravelCalculator()
@@ -22,14 +22,14 @@ public class TravelCalculator
         distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.CommunityKitchen), 2);
         distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.CornerStore), 3);
         distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.LocalNeighborhoodBusStop), 3);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.FoodTiger), 7);
-        distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.FoodTigerBusStop), 8);
-        distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.VitaServices), 9);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.SnapOffice), 8);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.SnapVitaBusStop), 10);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.FoodPantry), 10);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.WicClinic), 9);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.PantryWicBusStop), 9);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.FoodTiger), 25);
+        distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.FoodTigerBusStop), 26);
+        distmap.Add(new Tuple<LocationID, LocationID>(LocationID.House, LocationID.VitaServices), 20);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.SnapOffice), 20);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.SnapVitaBusStop), 20);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.FoodPantry), 30);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.WicClinic), 31);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.House, LocationID.PantryWicBusStop), 31);
 
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.CommunityKitchen, LocationID.CornerStore), 3);
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.CommunityKitchen, LocationID.LocalNeighborhoodBusStop), 3);

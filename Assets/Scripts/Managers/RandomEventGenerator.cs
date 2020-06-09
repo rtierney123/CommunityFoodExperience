@@ -24,9 +24,9 @@ namespace Manage
 
         public void hourPassed()
         {
-            checkFreeRide();
             checkCarRepaired();
             checkCarBreakDown();
+            checkFreeRide();
         }
 
         public void minutePassed()

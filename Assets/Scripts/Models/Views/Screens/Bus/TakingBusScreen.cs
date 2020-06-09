@@ -15,7 +15,6 @@ namespace UI
             if (progressBar.getComplete() && this.gameObject.activeInHierarchy)
             {
 
-                canvasController.closeScreen();
                 progressBar.resetLoading();
                 navigationManager.handleBusArrived();
             }

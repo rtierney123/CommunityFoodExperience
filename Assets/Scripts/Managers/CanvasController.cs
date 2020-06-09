@@ -66,7 +66,7 @@ namespace Manage
                         justBackgroundClicked = false;
                     }
                 }
-                /*
+
                 if (justBackgroundClicked)
                 {
                     if (popUp != null)
@@ -78,7 +78,6 @@ namespace Manage
 
                     }
                 }
-                */
             }
         }
         

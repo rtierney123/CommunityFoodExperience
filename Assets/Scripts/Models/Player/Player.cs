@@ -203,11 +203,11 @@ public class Player : MonoBehaviour
         if (busTickets == 0 && money <= 2.5 && (!playerInfo.hasCar || (playerInfo.hasCar && carBrokenDown))
             && !playerInfo.busPass)
         {
-            Debug.Log("has no mode of tranportation");
+            //Debug.Log("has no mode of tranportation");
             return true;
         } else
         {
-            Debug.Log("has mode of transportation");
+            //Debug.Log("has mode of transportation");
             return false;
         }
     }

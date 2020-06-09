@@ -107,6 +107,7 @@ namespace Manage
                     canvasController.openScreen(takingBusScreen);
                     possibleDestination = location;
                     routeSelected = true;
+                    disableBusStopHighlights();
                 }
 
             }
@@ -139,10 +140,19 @@ namespace Manage
             travelToDestination(TravelType.Bus);
         }
 
+        public void handleChooseStopEvent()
+        {
+            player.gameObject.SetActive(false);
+            player.onBus = true;
+            routeSelected = false;
+            enableBusStopHighlights();
+            canvasController.disableMainPopups();
+        }
 
         public void travelToDestination(TravelType travelType)
         {
             canvasController.disableMainPopups();
+            canvasController.closeScreen();
             canvasController.closePopUp();
             double travelTime = getPotentialTravelTime(travelType);
             currentLocation = possibleDestination;
@@ -165,7 +175,6 @@ namespace Manage
 
         private void dropPlayerOff(Location location)
         {
-            player.gameObject.SetActive(true);
             player.onBus = false;
            
             if (location == startLocation)
@@ -175,6 +184,7 @@ namespace Manage
             {
                 player.setIsHome(false);
             }
+            player.gameObject.SetActive(true);
             player.transform.position = new Vector3(location.playerDropoff.position.x, location.playerDropoff.position.y, 0);
         }
 
@@ -184,14 +194,7 @@ namespace Manage
         }
 
 
-        public void handleChooseStopEvent()
-        {
-            player.gameObject.SetActive(false);
-            player.onBus = true;
-            routeSelected = false;
-            enableBusStopHighlights();
-            canvasController.disableMainPopups();
-        }
+ 
 
         private void disableBusStopHighlights()
         {

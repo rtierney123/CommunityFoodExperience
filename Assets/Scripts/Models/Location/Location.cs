@@ -16,16 +16,14 @@ namespace Model
         public CanvasController canvasController;
         public Neighborhood neighborhood;
         public LocationID locationId;
-        public Material highlight;
 
         public string locationTitle;
         public string locationDescription;
-        public float delayTime;
+
         [HideInInspector]
         public bool entered = false;
         public bool busAvailable = false;
 
-        //public GameObject map;
         public GameObject highlightSprite;
         public bool manualHighlight = false;
         public Camera mainCamera;
@@ -86,32 +84,14 @@ namespace Model
         public virtual void onDelayedEnter()
         {
             entered = true;
-            canvasController.disableMainPopups();
-            StartCoroutine(OpenLocationScreen());
+            canvasController.delayOpenScreen(mainScreen);
+            
         }
 
         public virtual void onImmediateEnter()
         {
             entered = true;
             canvasController.openScreen(mainScreen);
-        }
-
-
-        public IEnumerator OpenLocationScreen()
-        {
-            yield return new WaitForSeconds(delayTime);
-            if (mainScreen != null)
-            {
-                canvasController.closePopUp();
-                canvasController.openScreen(mainScreen);
-                canvasController.enableMainPopups();
-            } else
-            {
-                canvasController.enableMainPopups();
-                canvasController.dequeueMainScreenPopUpBackLog();
-                Debug.Log("dequeue from location");
-            }
-          
         }
 
     }

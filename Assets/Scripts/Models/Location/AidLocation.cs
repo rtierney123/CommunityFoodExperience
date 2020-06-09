@@ -39,8 +39,7 @@ namespace Model
             }
             else
             {
-                canvasController.disableMainPopups();
-                StartCoroutine(OpenLocationScreen());
+                canvasController.delayOpenScreen(mainScreen);
             }
 
         }
@@ -62,7 +61,6 @@ namespace Model
             else
             {
                 canvasController.openScreen(mainScreen);
-                canvasController.enableMainPopups();
             }
         }
 

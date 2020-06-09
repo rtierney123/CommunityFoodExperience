@@ -21,15 +21,13 @@ namespace Manage
         [HideInInspector]
         public Location possibleDestination;
 
-        public float locationScreenDelay;
-
         public Dictionary<Neighborhood, Location> locationStopDict;
         public List<Neighborhood> locationKeys;
         public List<Location> locationBusStops;
 
         public NavigationPopUp navigationPopup;
         public GameObject takingBusScreen;
-        public GameObject homePopup;
+        
 
         private TravelCalculator travelCalculator;
 
@@ -57,6 +55,7 @@ namespace Manage
         public override void reset() {
             currentLocation = startLocation;
             dropPlayerOff(startLocation);
+            disableBusStopHighlights();
         }
 
 
@@ -68,12 +67,7 @@ namespace Manage
                 {
 
                     location.onImmediateEnter();
-                    if (currentLocation == startLocation)
-                    {
-                        Debug.Log("display home when there");
-                        canvasController.addToMainScreenPopUpBackLog(homePopup);
 
-                    }
                 } else
                 {
                     possibleDestination = location;
@@ -113,15 +107,6 @@ namespace Manage
                     canvasController.openScreen(takingBusScreen);
                     possibleDestination = location;
                     routeSelected = true;
-                    messageManager.hideHintMessage();
-                    
-                    foreach (Location busStop in locationBusStops)
-                    {
-                        busStop.endManualHighlight();
-                    }
-
-                    canvasController.enableMainPopups();
-                    canvasController.dequeueMainScreenPopUpBackLog();
                 }
 
             }
@@ -141,44 +126,50 @@ namespace Manage
 
         public void handleCarTravel()
         {
-            canvasController.disableMainPopups();
             travelToDestination(TravelType.Car);
         }
 
         public void handleWalkTravel()
         {
-            canvasController.disableMainPopups();
             travelToDestination(TravelType.Walk);
         }
 
+        public void handleBusArrived()
+        {
+            travelToDestination(TravelType.Bus);
+        }
+
+
         public void travelToDestination(TravelType travelType)
         {
-            closePopUp();
-            // scaled value from distmap
+            canvasController.disableMainPopups();
+            canvasController.closePopUp();
             double travelTime = getPotentialTravelTime(travelType);
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
             clock.addGameMinutes(travelTime);
-            
-            if(travelType != TravelType.Bus)
-            {
-                currentLocation.onDelayedEnter();
-            }
 
             player.setFreeRide(false);
 
-            if(currentLocation == startLocation)
+            if (travelType != TravelType.Bus)
             {
-                canvasController.delayOpenPopup(homePopup);
-
+                currentLocation.onDelayedEnter();
+            } else
+            {
+                canvasController.enableMainPopups();
+                canvasController.dequeueMainScreenPopUpBackLog();
             }
 
         }
 
         private void dropPlayerOff(Location location)
         {
-            if(location == startLocation)
+            player.gameObject.SetActive(true);
+            player.onBus = false;
+            messageManager.hideHintMessage();
+            disableBusStopHighlights();
+            if (location == startLocation)
             {
                 player.setIsHome(true);
             } else
@@ -193,38 +184,6 @@ namespace Manage
             return travelCalculator.calculateTravelTime(currentLocation.locationId, possibleDestination.locationId, travelType);
         }
 
-        public void closePopUp()
-        {
-            canvasController.closePopUp();
-        }
-
-
-        public void handleBusContinuingEvent()
-        {
-            Debug.Log("bus continueing");
-        }
-
-        public void handleBusClickedEvent()
-        {
-            Debug.Log("bus clicked");
-        }
-
-        public void handleBusStoppedEvent(Neighborhood currentLocation)
-        {
-            Debug.Log("bus at stop");
-            if(currentLocation == possibleDestination.neighborhood)
-            {
-                handleLeaveBusEvent();
-            }
-        }
-
-        public void handleBusArrived()
-        {
-            player.gameObject.SetActive(true);
-            player.onBus = false;
-            travelToDestination(TravelType.Bus);
-        }
-
 
         public void handleChooseStopEvent()
         {
@@ -232,44 +191,28 @@ namespace Manage
             player.gameObject.SetActive(false);
             player.onBus = true;
             routeSelected = false;
-            foreach(Location busStop in locationBusStops)
-            {
-                busStop.startManualHighlight();
-            }
+            enableBusStopHighlights();
             canvasController.disableMainPopups();
         }
 
-        public void handleStartBusEvent()
+        private void disableBusStopHighlights()
         {
-            
-        }
-
-        public void handleLeaveBusEvent()
-        {
-            Debug.Log("leave bus");
-            currentLocation = possibleDestination;
-            travelToDestination(TravelType.Bus);
-            leaveBus();
-        }
-
-        private void leaveBus()
-        {
-            player.gameObject.SetActive(true);
-            player.onBus = false;
-        }
-
-
-        public void tempDisableCar(uint inGameMinutes)
-        {
-            if (player.playerInfo.hasCar)
+            foreach (Location busStop in locationBusStops)
             {
-                player.carBrokenDown = true;
+                busStop.endManualHighlight();
             }
+        }
 
+        private void enableBusStopHighlights()
+        {
+            foreach (Location busStop in locationBusStops)
+            {
+                busStop.startManualHighlight();
+            }
         }
 
 
-
+        
 
     }
 

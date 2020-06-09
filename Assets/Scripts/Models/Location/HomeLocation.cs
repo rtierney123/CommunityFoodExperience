@@ -6,16 +6,17 @@ namespace Model
 {
     public class HomeLocation : Location
     {
-        // Start is called before the first frame update
-        void Start()
+        public GameObject homePopup;
+
+        public override void onDelayedEnter()
         {
+            canvasController.delayOpenMainScreenPopup(homePopup);
 
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void onImmediateEnter()
         {
-
+            canvasController.addToMainScreenPopUpBackLog(homePopup);
         }
     }
 }

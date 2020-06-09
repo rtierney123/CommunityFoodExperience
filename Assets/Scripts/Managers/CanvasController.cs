@@ -13,22 +13,21 @@ namespace Manage
     {
 
         public float allowWaitTime;
+        public float delayOpenTime;
         public Animator warning;
 
-        // Normal raycasts do not work on UI elements, they require a special kind
-        GraphicRaycaster raycaster;
         [HideInInspector]
         public GameObject popUp;
         [HideInInspector]
         public GameObject screenOpen;
-        private Queue<GameObject> popUpBackLog = new Queue<GameObject>();
-        private Queue<GameObject> mainScreenOnlyBackLog = new Queue<GameObject>();
-
-        bool allowClose;
-        bool allowOpen;
-
+        [HideInInspector]
         public bool endGame = false;
 
+        private GraphicRaycaster raycaster;
+        private Queue<GameObject> popUpBackLog = new Queue<GameObject>();
+        private Queue<GameObject> mainScreenOnlyBackLog = new Queue<GameObject>();
+        private bool allowClose;
+        private bool allowOpen;
         private bool allowMainScreenPopups = true;
        
 
@@ -139,7 +138,19 @@ namespace Manage
         public void dequeueMainScreenPopUpBackLog()
         {
             Debug.Log("called dequeue main screen");
-            if(popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowMainScreenPopups)
+            if (!allowMainScreenPopups)
+            {
+                Debug.Log("not allowed");
+            }
+            if (popUp != null)
+            {
+                Debug.Log("popup not null");
+            }
+            if (screenOpen != null)
+            {
+                Debug.Log("screen not null");
+            }
+            if (popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowMainScreenPopups)
             {
                 Debug.Log("display main screen only");
                 popUp = mainScreenOnlyBackLog.Dequeue();
@@ -165,15 +176,47 @@ namespace Manage
 
         }
 
-        public void delayOpenPopup(GameObject gameObject)
+        public void delayOpenMainScreenPopup(GameObject gameObject)
         {
-            StartCoroutine(delayOpenRoutine(gameObject));
+            disableMainPopups();
+            StartCoroutine(delayOpenMainScreenPopupRoutine(gameObject));
         }
 
-        private IEnumerator delayOpenRoutine(GameObject gameObject)
+        private IEnumerator delayOpenMainScreenPopupRoutine(GameObject gameObject)
         {
-            yield return new WaitForSeconds(1);
-            addToPopUpBackLog(gameObject);
+            yield return new WaitForSeconds(delayOpenTime);
+            enableMainPopups();
+            if (gameObject != null)
+            {
+                addToMainScreenPopUpBackLog(gameObject);
+            } else
+            {
+                dequeueMainScreenPopUpBackLog();
+            }
+            
+        }
+
+        public void delayOpenScreen(GameObject gameObject)
+        {
+            disableMainPopups();
+            StartCoroutine(delayOpenScreenRoutine(gameObject));
+        }
+
+        private IEnumerator delayOpenScreenRoutine(GameObject gameObject)
+        {
+            yield return new WaitForSeconds(delayOpenTime);
+            if (gameObject != null)
+            {
+                closePopUp();
+                openScreen(gameObject);
+                enableMainPopups();
+            }
+            else
+            {
+                enableMainPopups();
+                dequeueMainScreenPopUpBackLog();
+            }
+            
         }
 
         public void forcePopupOpen(GameObject gameObject)
@@ -221,13 +264,14 @@ namespace Manage
         {
             if (!endGame && screen != null)
             {
+                disableMainPopups();
                 closeCurrentScreen();
-                screenOpen = screen;
                 View view = screen.GetComponent<UI.Screen>();
                 if (view != null)
                 {
                     view.reset();
                 }
+                screenOpen = screen;
                 screen.SetActive(true);
                 enableMainPopups();
             }
@@ -259,7 +303,7 @@ namespace Manage
         public void closeScreen()
         {
             closeCurrentScreen();
-            checkForMainPopupBackLog();
+            dequeueMainScreenPopUpBackLog();
         }
 
 
@@ -273,15 +317,6 @@ namespace Manage
                 closePopUp();
                
             }
-        }
-
-        private void checkForMainPopupBackLog()
-        {
-            if (mainScreenOnlyBackLog.Count > 0)
-            {
-                dequeueMainScreenPopUpBackLog();
-            }
-
         }
 
         public override void reset()

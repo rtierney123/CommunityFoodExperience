@@ -13,21 +13,12 @@ public class BusStopLocation : Location
     public override void onDelayedEnter()
     {
         entered = true;
-        canvasController.disableMainPopups();
-        StartCoroutine(OpenBusPopup());
+        canvasController.delayOpenMainScreenPopup(waitPopup);
     }
 
     public override void onImmediateEnter()
     {
         entered = true;
         canvasController.openPopup(waitPopup);
-    }
-
-    public IEnumerator OpenBusPopup()
-    {
-        yield return new WaitForSeconds(delayTime);
-        canvasController.enableMainPopups();
-        canvasController.forcePopupOpen(waitPopup);
-
     }
 }

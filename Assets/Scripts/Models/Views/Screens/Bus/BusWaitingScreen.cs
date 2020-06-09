@@ -33,7 +33,6 @@ namespace UI
             base.onDismiss();
             progressBar.resetLoading();
             progressBar.resumeLoading();
-            canvasController.enableMainPopups();
             canvasController.closeCurrentScreen();
         }
 

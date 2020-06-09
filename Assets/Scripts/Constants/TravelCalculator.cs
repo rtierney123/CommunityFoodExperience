@@ -52,44 +52,44 @@ public class TravelCalculator
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.CornerStore, LocationID.WicClinic), 28);
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.CornerStore, LocationID.PantryWicBusStop), 28);
 
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodTiger), 10);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodTigerBusStop), 11);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.VitaServices ), 9);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.SnapOffice ), 8);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.SnapVitaBusStop ), 10);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodPantry), 10);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.WicClinic ), 11);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.PantryWicBusStop ), 11);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodTiger), 22);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodTigerBusStop), 23);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.VitaServices ), 17);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.SnapOffice ), 17);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.SnapVitaBusStop ), 17);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.LocalNeighborhoodBusStop, LocationID.FoodPantry), 27);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.WicClinic ), 28);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.LocalNeighborhoodBusStop, LocationID.PantryWicBusStop ), 28);
 
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.FoodTigerBusStop ), 1);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.VitaServices), 2);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.SnapOffice), 3);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.SnapVitaBusStop ), 3);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.FoodPantry ), 3);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.WicClinic ), 4);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.FoodTiger, LocationID.PantryWicBusStop), 4);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.VitaServices), 15);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.SnapOffice), 15);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.SnapVitaBusStop ), 15);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.FoodPantry ), 16);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTiger, LocationID.WicClinic ), 17);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.FoodTiger, LocationID.PantryWicBusStop), 17);
 
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.VitaServices ), 3);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.SnapOffice ), 4);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.SnapVitaBusStop ), 4);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.FoodPantry ), 4);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.WicClinic ), 5);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.PantryWicBusStop ), 5);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.VitaServices ), 16);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.SnapOffice ), 16);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.SnapVitaBusStop ), 16);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.FoodPantry ), 17);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.WicClinic ), 18);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodTigerBusStop, LocationID.PantryWicBusStop ), 18);
 
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.SnapOffice ), 2);
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.SnapVitaBusStop ), 1);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.FoodPantry ), 4);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.WicClinic ), 5);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.PantryWicBusStop), 5);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.FoodPantry ), 25);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.WicClinic ), 26);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.VitaServices, LocationID.PantryWicBusStop), 26);
 
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapOffice, LocationID.SnapVitaBusStop), 2);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.SnapOffice, LocationID.FoodPantry ), 5);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapOffice, LocationID.WicClinic), 6);
-        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.SnapOffice, LocationID.PantryWicBusStop ), 6);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.SnapOffice, LocationID.FoodPantry ), 26);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapOffice, LocationID.WicClinic), 27);
+        distmap.Add(new Tuple<LocationID, LocationID> ( LocationID.SnapOffice, LocationID.PantryWicBusStop ), 27);
 
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.FoodPantry), 5);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.WicClinic), 6);
-        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.PantryWicBusStop), 6);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.FoodPantry), 25);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.WicClinic), 26);
+        distmap.Add(new Tuple<LocationID, LocationID> (LocationID.SnapVitaBusStop, LocationID.PantryWicBusStop), 26);
 
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodPantry, LocationID.WicClinic ), 2);
         distmap.Add(new Tuple<LocationID, LocationID> (LocationID.FoodPantry, LocationID.PantryWicBusStop ), 2);

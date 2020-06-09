@@ -142,23 +142,28 @@ public class Player : MonoBehaviour
     public void addCash(double cash)
     {
         money += cash;
+        money = FormatNumber.roundTwoDecimal(money);
     }
 
     public void subtractCash(double cash)
     {
         money -= cash;
+        money = FormatNumber.roundTwoDecimal(money);
     }
 
     public void addSnap(double funds)
     {
         snapFunds += funds;
+        snapFunds = FormatNumber.roundTwoDecimal(snapFunds);
         snapAcquired += funds;
+        snapAcquired = FormatNumber.roundTwoDecimal(snapAcquired);
         playerInfo.setRecievedAssistance(true);
     }
 
     public void subtractSnap(double funds)
     {
         snapFunds -= funds;
+        snapFunds = FormatNumber.roundTwoDecimal(snapFunds);
     }
 
     public void addEITC(double funds)
@@ -166,19 +171,9 @@ public class Player : MonoBehaviour
         eitcAcquired += funds;
     }
 
-    public void subtractEITC(double funds)
-    {
-        eitcAcquired -= funds;
-    }
-
     public void addCTC(double funds)
     {
         ctcAcquired += funds;
-    }
-
-    public void subtractCTC(double funds)
-    {
-        ctcAcquired -= funds;
     }
 
     public void addVoucher()

@@ -50,23 +50,26 @@ namespace Manage
         }
         public double getCheckoutCash(double total)
         {
-            return total - getCheckoutSNAP(total);
+            return FormatNumber.roundTwoDecimal(total - getCheckoutSNAP(total));
         }
 
         public double getCheckoutSNAP(double total)
         {
+            double snapAmt = 0;
             if (player.snapFunds >= total)
             {
-                return total;
+                snapAmt = total;
             }
             else if ((total - player.money) < 0 || (player.money + player.snapFunds < total))
             {
-                return player.snapFunds;
+                snapAmt =  player.snapFunds;
             }
             else
             {
-                return total - player.money;
+                snapAmt = total - player.money;
             }
+
+            return FormatNumber.roundTwoDecimal(snapAmt);
         }
 
         public double getCashAvailable()
@@ -158,12 +161,6 @@ namespace Manage
                     break;
                 case FundsType.Snap:
                     player.subtractSnap(amt);
-                    break;
-                case FundsType.EITC:
-                    player.subtractEITC(amt);
-                    break;
-                case FundsType.CTC:
-                    player.subtractCTC(amt);
                     break;
             }
             walletDisplay.updateWallet();

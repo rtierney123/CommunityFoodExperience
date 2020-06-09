@@ -118,9 +118,9 @@ public class ClockDisplay : MonoBehaviour
         if (h.Length == 1) h = "0" + h;
         string m = Minutes.ToString();
         if (m.Length == 1) m = "0" + m;
-        string a = (Hour > 12 ? "pm" : "am");
+        string a = (Hour > 11 ? "pm" : "am");
 
-        if (twelveHour >= pmEndTime - 1 && a == "pm" && !endGameCalled)
+        if (twelveHour != 12 && twelveHour >= pmEndTime - 1 && a == "pm" && !endGameCalled)
         {
             callEndGameEvent();
         }

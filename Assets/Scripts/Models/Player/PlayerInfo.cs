@@ -287,7 +287,14 @@ public class PlayerInfo
             case FormQuestionType.Address:
                 return address;
             case FormQuestionType.Phone:
-                return phone;
+                if (string.IsNullOrEmpty(phone))
+                {
+                    return "No phone";
+                }
+                else
+                {
+                    return phone;
+                }
             case FormQuestionType.DOB:
                 return getDOB();
             case FormQuestionType.Num_Children:
@@ -502,7 +509,7 @@ public class PlayerInfo
 
         if(!hasCar && !busPass && startingBusTokens == 0)
         {
-            returnStr = "You do not have a car, bus pass or bus tokens. You can walk in your local neighborhood or purchase a bus pass or bus tokens from the bus driver.";
+            returnStr = "You do not have a car, bus pass or bus tokens to use to navigate. You can walk in your local neighborhood or purchase a bus pass or bus tokens from the bus driver.";
         }
 
         return returnStr;

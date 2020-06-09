@@ -20,7 +20,7 @@ namespace UI
         protected float nextActionTime = 2;
 
         //five minute
-        private uint lossTime = 5;
+        private uint lossTime = 120;
 
         [HideInInspector]
         public bool pauseFilling = false;

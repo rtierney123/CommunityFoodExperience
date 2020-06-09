@@ -12,7 +12,6 @@ namespace UI
         public Player player;
         public NutritionDisplayer nutritionDisplayer;
 
-        public Text makeHomeText;
         public override void reset()
         {
             base.reset();

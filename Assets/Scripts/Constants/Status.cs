@@ -62,7 +62,7 @@ public static class Status
     //Random Event
     public static string freeRideReceived = "A friend has offered to give you a ride to your next location. " +
         "Choose wisely as this will only get you to one place. Redeem by clicking the next location you want to go.";
-    public static string carBrokeDown = "Your car has broken down and you must get it fixed (lose 60 minutes).";
+    public static string carBrokeDown = "Your car has broken down and you must get it fixed (will be repaired in 2 hours).";
     public static string carRepaired = "Your car is fixed. You can take the car again.";
 
 

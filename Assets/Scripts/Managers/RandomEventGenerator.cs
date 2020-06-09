@@ -17,7 +17,8 @@ namespace Manage
         public double chanceFreeRide;
         public double chanceBreakdown;
 
-        private double militaryHourRepaired;
+        private double militaryHourRepaired = -1;
+        private double minutesRepaired = -1;
 
         public void hourBeforeEndGame()
         {
@@ -42,12 +43,16 @@ namespace Manage
                 Debug.Log("car broken down");
                 messageManager.generateMainScreenOnlyErrorMessage(Status.carBrokeDown);
                 player.carBrokenDown = true;
+                militaryHourRepaired = clock.getCurrentMilitaryHour() + 2;
+                minutesRepaired = clock.getCurrentMinutes();
             }
         }
 
         private void checkCarRepaired()
         {
-            if(player.playerInfo.hasCar && player.carBrokenDown)
+            int currentHour = clock.getCurrentMilitaryHour();
+            int currentMin = clock.getCurrentMinutes();
+            if(player.playerInfo.hasCar && player.carBrokenDown && currentHour >= militaryHourRepaired + 2 && currentMin >= minutesRepaired)
             {
                 Debug.Log("car repaired");
                 messageManager.generateMainScreenOnlySuccessMessage(Status.carRepaired);

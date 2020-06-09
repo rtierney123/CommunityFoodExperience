@@ -21,17 +21,14 @@ public class ClockDisplay : MonoBehaviour
     public TimeSpan lossTime;
 	public DateTime pauseStart;
 	public GameManager gameManager;
-
     public Slider runtimeSlider;
 
-    private int currentHour = 0;
+    private int currentMilitaryHour = 0;
     private int currentMin = 0;
     private bool endGameCalled = false;
-	
-    // Start is called before the first frame update
+
     void Start()
     {
-        //resetAnimation();
 
         eventCallers = new List<IClockEventCaller>();
         foreach (GameObject gameObject in clockCallerGameObjects)
@@ -46,11 +43,21 @@ public class ClockDisplay : MonoBehaviour
             }
         }
 	}
+    
+    public int getCurrentMilitaryHour()
+    {
+        return currentMilitaryHour;
+    }
+    
+    public int getCurrentMinutes()
+    {
+        return currentMin;
+    }
 
     public void resetAnimation()
     {
         running = false;
-        currentHour = 0;
+        currentMilitaryHour = 0;
         currentMin = 0;
         lossTime = TimeSpan.Zero;
         pauseTime = TimeSpan.Zero;
@@ -85,10 +92,10 @@ public class ClockDisplay : MonoBehaviour
 
             if (hour != amStartTime)
             {
-                if (currentHour != hour)
+                if (currentMilitaryHour != hour)
                 {
                     updateHourCallers();
-                    currentHour = hour;
+                    currentMilitaryHour = hour;
                 }
             }
 
@@ -98,10 +105,7 @@ public class ClockDisplay : MonoBehaviour
                 currentMin = min;
             }
 
-
-
         }
-
        
 	}
 

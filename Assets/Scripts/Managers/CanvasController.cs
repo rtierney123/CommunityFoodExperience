@@ -56,6 +56,7 @@ namespace Manage
                 pointerData.position = Input.mousePosition;
                 this.raycaster.Raycast(pointerData, results);
 
+                /*
                 bool justBackgroundClicked = true;
                 //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
                 foreach (RaycastResult result in results)
@@ -78,6 +79,7 @@ namespace Manage
 
                     }
                 }
+                */
             }
         }
         
@@ -101,12 +103,10 @@ namespace Manage
         {
             if (popUp == null)
             {
-                Debug.Log("open general queue screen popup");
                 openPopup(gameObject);
             }
             else
             {
-                Debug.Log("enqueue general popup");
                 View view = gameObject.GetComponent<UI.PopUp>();
                 if (view != null)
                 {
@@ -121,11 +121,9 @@ namespace Manage
         {
             if(popUp == null && screenOpen == null && allowMainScreenPopups)
             {
-                Debug.Log("open main screen popup");
                 openPopup(gameObject);
             } else
             {
-                Debug.Log("add to main screen queue");
                 View view = gameObject.GetComponent<UI.PopUp>();
                 if (view != null)
                 {
@@ -137,21 +135,9 @@ namespace Manage
 
         public void dequeueMainScreenPopUpBackLog()
         {
-            if (!allowMainScreenPopups)
-            {
-                Debug.Log("not allowed");
-            }
-            if (popUp != null)
-            {
-                Debug.Log("popup not null");
-            }
-            if (screenOpen != null)
-            {
-                Debug.Log("screen not null");
-            }
+
             if (popUp == null && screenOpen == null && mainScreenOnlyBackLog.Count > 0 && allowMainScreenPopups)
             {
-                Debug.Log("display main screen only");
                 popUp = mainScreenOnlyBackLog.Dequeue();
                 setPopUp(true);
             }
@@ -244,13 +230,11 @@ namespace Manage
             StartCoroutine(WaitAllowOpen(allowWaitTime));
             if (popUpBackLog != null && popUpBackLog.Count > 0)
             {
-                Debug.Log("dequeue standard popup backlog");
                 popUp = popUpBackLog.Dequeue();
                 setPopUp(true);
             }
             else if (screenOpen == null && mainScreenOnlyBackLog.Count > 0)
             {
-                Debug.Log("dequeue from close popup");
                 dequeueMainScreenPopUpBackLog();
             }
             else

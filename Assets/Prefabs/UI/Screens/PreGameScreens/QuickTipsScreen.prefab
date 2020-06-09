@@ -414,13 +414,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4302365292363977512}
-  m_Father: {fileID: 1138502750597180439}
+  m_Father: {fileID: 684182729159185973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 578, y: -232.35}
-  m_SizeDelta: {x: 1156, y: 464.83685}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2886152555649437954
 CanvasRenderer:
@@ -507,7 +507,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1138502750597180439}
+  - {fileID: 7221834621470185328}
   m_Father: {fileID: 3896872218568828320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -533,7 +533,7 @@ MonoBehaviour:
     m_Right: 5
     m_Top: 5
     m_Bottom: 5
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -654,8 +654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21, y: 25.299805}
-  m_SizeDelta: {x: -200, y: -193.53558}
+  m_AnchoredPosition: {x: 21, y: 45.90039}
+  m_SizeDelta: {x: -200, y: -152.29669}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2946617836901518350
 MonoBehaviour:
@@ -682,51 +682,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!1 &6990600615031727123
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1138502750597180439}
-  - component: {fileID: 3111094361390077040}
-  m_Layer: 0
-  m_Name: Contents
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1138502750597180439
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990600615031727123}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7221834621470185328}
-  m_Father: {fileID: 684182729159185973}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!222 &3111094361390077040
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990600615031727123}
-  m_CullTransparentMesh: 0
 --- !u!1 &9104682515439257341
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +720,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 71.674805}
+  m_SizeDelta: {x: 0, y: 115.1944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3494871034183908193
 MonoBehaviour:
@@ -974,9 +929,9 @@ PrefabInstance:
     - target: {fileID: 8334289145173547669, guid: 4682d5dfd39b3924abed784375d5d0af,
         type: 3}
       propertyPath: m_Text
-      value: "\tYour goal is to acquire enough food according to MyPlate guidelines
-        and return home. The day starts at 10am and ends at 6pm. Look at the nutrition
-        section of the Notepad to track nutritional requirements.\n"
+      value: "\tYour goal is to acquire enough food according to your specific nutrition
+        guidelines and return home. The day starts at 8am and ends at 6pm. Look at
+        the nutrition section of the Notepad to track nutritional requirements.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8334289145173547669, guid: 4682d5dfd39b3924abed784375d5d0af,
         type: 3}
@@ -986,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 8334289145173547669, guid: 4682d5dfd39b3924abed784375d5d0af,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6713719362400641999, guid: 4682d5dfd39b3924abed784375d5d0af, type: 3}
@@ -1267,17 +1222,17 @@ PrefabInstance:
     - target: {fileID: 5727942502672294070, guid: 49fe2a9abb54c6d479ebf2b5abd006c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openPrevScreen
+      value: openScreen
       objectReference: {fileID: 0}
     - target: {fileID: 5727942502672294070, guid: 49fe2a9abb54c6d479ebf2b5abd006c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5727942502672294070, guid: 49fe2a9abb54c6d479ebf2b5abd006c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5727942502672294070, guid: 49fe2a9abb54c6d479ebf2b5abd006c0,
         type: 3}
@@ -1420,22 +1375,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u2022To get HELP with tips and instructions, to end the day or restart
-        the simulation, Press P or the Pause Symbol on the top left side of the screen
-        at any time!\n\n\u2022Be sure to refer to the Notepad frequently to view
-        Community Member information, nutrional status, and current transportation
-        options.\n\n\u2022You will need to visit the different locations both in
-        your neighborhood and in the community to find the food you need. To navigate
-        from your neighborhood to the community, you will need either use a car or
-        take a bus.\n\n\u2022Use the (i) on food cards to see all nutrition information
-        and food groups to ensure you fulfill your personal nutrition recommendations,
-        which are matched to your health state. \n\n\u2022We encourage you to go
-        through this simulation multiple times to experience up to 15 different community
-        member scenarios. \n\n\n"
+        the simulation, Press P or the Pause Symbol on the top right side of the
+        screen at any time!\n\n\u2022Click on the Notepad to frequently review your
+        Community Member information, nutrition status, and current transportation
+        options.\n\n\u2022Visit the different locations around the community to access
+        the food you need. You will need either a car or ride the bus to get around
+        efficiently.\n\n\u2022Click on the (i) on food cards to see all nutrition
+        information and food groups to ensure you fulfill your personal nutrition
+        recommendations, which are matched to your health state. \n\n\u2022Everything
+        in this simulation is broken down to one person for one day. This means all
+        food items are one serving and all benefits received equal one person\u2019s
+        daily amount. \n\n\u2022We encourage you to go through this simulation multiple
+        times to experience up to 15 different community member scenarios. \n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 3263895835178663914, guid: 34983918e9c5dc24d8e024d09b0326cd,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 24
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3263895835178663914, guid: 34983918e9c5dc24d8e024d09b0326cd,
         type: 3}

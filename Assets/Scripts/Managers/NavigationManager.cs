@@ -167,8 +167,7 @@ namespace Manage
         {
             player.gameObject.SetActive(true);
             player.onBus = false;
-            messageManager.hideHintMessage();
-            disableBusStopHighlights();
+           
             if (location == startLocation)
             {
                 player.setIsHome(true);
@@ -187,7 +186,6 @@ namespace Manage
 
         public void handleChooseStopEvent()
         {
-            messageManager.displayHintMessage(Status.clickStopInstruction);
             player.gameObject.SetActive(false);
             player.onBus = true;
             routeSelected = false;
@@ -197,6 +195,7 @@ namespace Manage
 
         private void disableBusStopHighlights()
         {
+            messageManager.hideHintMessage();
             foreach (Location busStop in locationBusStops)
             {
                 busStop.endManualHighlight();
@@ -205,6 +204,7 @@ namespace Manage
 
         private void enableBusStopHighlights()
         {
+            messageManager.displayHintMessage(Status.clickStopInstruction);
             foreach (Location busStop in locationBusStops)
             {
                 busStop.startManualHighlight();

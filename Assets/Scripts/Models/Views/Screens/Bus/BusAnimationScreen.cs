@@ -4,42 +4,40 @@ using UnityEngine;
 
 namespace UI
 {
-    public class BusAnimationScreen : Screen, IClockEventCaller
+    public class BusAnimationScreen : Screen
     {
         public ProgressBar progressBar;
         public ClockDisplay clock;
         public int chanceBusEvent;
-        bool busDelayed = false;
 
+        bool busDelayed = false;
+        double testDelayedPercent = .1;
         private void OnEnable()
         {
             busDelayed = false;
+            testDelayedPercent = .1;
         }
 
-        public void hourBeforeEndGame()
+        protected virtual void Update()
         {
-            //throw new System.NotImplementedException();
-        }
 
-        public void hourPassed()
-        {
-            //throw new System.NotImplementedException();
-        }
-
-        public void minutePassed()
-        {
-            if (this.gameObject.activeSelf && !busDelayed)
+            if (progressBar.getDecimalDone() > testDelayedPercent && !progressBar.getComplete())
             {
-                float rand = UnityEngine.Random.Range(0, 100);
-                if (rand < chanceBusEvent)
+                if (!busDelayed)
                 {
-                    Debug.Log("bus delay");
-                    busDelayed = true;
-                    clock.addGameMinutes(30);
-                    StartCoroutine(pauseLoadingForMessage());
+                    float rand = UnityEngine.Random.Range(0, 100);
+                    if (rand < chanceBusEvent)
+                    {
+                        Debug.Log("bus delay");
+                        busDelayed = true;
+                        clock.addGameMinutes(30);
+                        StartCoroutine(pauseLoadingForMessage());
+                    }
                 }
+                testDelayedPercent += .1;
             }
         }
+
 
         private IEnumerator pauseLoadingForMessage()
         {

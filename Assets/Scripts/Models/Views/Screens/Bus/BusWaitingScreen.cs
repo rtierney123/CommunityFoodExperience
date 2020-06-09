@@ -6,11 +6,12 @@ using UnityEngine;
 
 namespace UI
 {
-    public class BusWaitingScreen : BusAnimationScreen, IClockEventCaller
+    public class BusWaitingScreen : BusAnimationScreen
     {
 
-        void Update()
+        protected override void Update()
         {
+            base.Update();
             if (progressBar.getComplete() && this.gameObject.activeInHierarchy)
             {
                 if (nextScreen != null)
@@ -33,7 +34,7 @@ namespace UI
             base.onDismiss();
             progressBar.resetLoading();
             progressBar.resumeLoading();
-            canvasController.closeCurrentScreen();
+            canvasController.closeScreen();
         }
 
         public override void onCancelDismiss()

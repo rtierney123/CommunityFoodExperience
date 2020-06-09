@@ -42,7 +42,7 @@ public class ProgressBar : MonoBehaviour
                 float incrementTime = loadTime / displayIntervals;
                 yield return new WaitForSeconds(incrementTime);
                 currentTime += incrementTime;
-                slider.value = (float)(currentTime / loadTime);
+                slider.value = getDecimalDone();
             }
 
             if(currentTime < loadTime)
@@ -53,9 +53,19 @@ public class ProgressBar : MonoBehaviour
 
     }
 
+    public float getDecimalDone()
+    {
+        return (float)(currentTime / loadTime);
+    }
+
     public bool getComplete()
     {
         return currentTime >= loadTime;
+    }
+
+    public bool isPaused()
+    {
+        return pause;
     }
 
     public void resetLoading()

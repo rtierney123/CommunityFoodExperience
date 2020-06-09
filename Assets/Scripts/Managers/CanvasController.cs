@@ -66,7 +66,7 @@ namespace Manage
                         justBackgroundClicked = false;
                     }
                 }
-
+                /*
                 if (justBackgroundClicked)
                 {
                     if (popUp != null)
@@ -78,6 +78,7 @@ namespace Manage
 
                     }
                 }
+                */
             }
         }
         
@@ -137,7 +138,6 @@ namespace Manage
 
         public void dequeueMainScreenPopUpBackLog()
         {
-            Debug.Log("called dequeue main screen");
             if (!allowMainScreenPopups)
             {
                 Debug.Log("not allowed");
@@ -303,7 +303,7 @@ namespace Manage
         public void closeScreen()
         {
             closeCurrentScreen();
-            dequeueMainScreenPopUpBackLog();
+            //dequeueMainScreenPopUpBackLog();
         }
 
 
@@ -315,7 +315,6 @@ namespace Manage
                 screenOpen.SetActive(false);
                 screenOpen = null;
                 closePopUp();
-               
             }
         }
 

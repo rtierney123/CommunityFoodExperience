@@ -9,8 +9,9 @@ namespace UI
     {
         public NavigationManager navigationManager;
 
-        void Update()
+        protected override void Update()
         {
+            base.Update();
             if (progressBar.getComplete() && this.gameObject.activeInHierarchy)
             {
 

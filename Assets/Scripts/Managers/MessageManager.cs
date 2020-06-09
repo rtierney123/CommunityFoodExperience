@@ -51,6 +51,8 @@ namespace Manage
             return obj;
         }
 
+
+
         public GameObject generateStandardSuccessMessage(string message, View view)
         {
 
@@ -87,7 +89,6 @@ namespace Manage
             canvasController.addToMainScreenPopUpBackLog(obj);
             return obj;
         }
-
 
     }
 }

@@ -509,7 +509,7 @@ public class PlayerInfo
 
         if(!hasCar && !busPass && startingBusTokens == 0)
         {
-            returnStr = "You do not have a car, bus pass or bus tokens to use to navigate. You can walk in your local neighborhood or purchase a bus pass or bus tokens from the bus driver.";
+            returnStr = "You do not have a car, bus pass or bus tickets. You may purchase bus tickets from the bus driver or walk (though walking may take a long time).";
         }
 
         return returnStr;

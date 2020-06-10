@@ -131,7 +131,6 @@ namespace Manage{
         public void endGame()
         {
             hideIcons();
-            canvasController.clearBacklog();
             canvasController.closePopUp();
             canvasController.endGame = true;
             canvasController.openPostGameScreen(endScreen);

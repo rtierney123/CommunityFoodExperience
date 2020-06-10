@@ -39,10 +39,10 @@ public static class Status
         "However, you do not qualify for EITC. Income must be wages from a job, so income from social security and unemployment is ineligible.";
     public static string justEitc = "Your application has been approved for EITC. " +
         "For a household of {0} and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tokens. " +
-        "However, you do not have any children or income is too high, so do not qualify for CTC benefits.";
+        "However, you do not have any children and do not qualify for CTC benefits.";
     public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +
         "Income must be wages from a job, so income from social security and unemployment is ineligible. " +
-        "You do not have any children or income is too high, and do not qualify for CTC benefits.";
+        "You do not have any children and do not qualify for CTC benefits.";
 
     //Food Pantry
     public static string enterFoodPantry = "This food pantry can only serve individuals living in the 30317 or 30307 zip code due to our limited supply of food. " +

@@ -20,14 +20,9 @@ namespace Manage
         private uint hourRepaired = 0;
         private static int carBreakDownDuration = 3;
 
-        private bool carBrokeDownInRun = false;
-        private bool receivedFreeRideInRun = false;
-
         public override void reset()
         {
             base.reset();
-            carBrokeDownInRun = false;
-            receivedFreeRideInRun = false;
             hourRepaired = 0;
         }
 
@@ -38,15 +33,8 @@ namespace Manage
         public void hourPassed()
         {
             checkCarRepaired();
-            if (!carBrokeDownInRun)
-            {
-                checkCarBreakDown();
-            }
-            if (!receivedFreeRideInRun)
-            {
-                checkFreeRide();
-            }
-            
+            checkCarBreakDown();
+            checkFreeRide();
         }
 
         public void minutePassed()
@@ -61,7 +49,6 @@ namespace Manage
                 messageManager.generateMainScreenOnlyErrorMessage(Status.carBrokeDown);
                 hourRepaired =(uint) (clock.getCurrentMilitaryHour() + carBreakDownDuration) % 24;
                 player.carBrokenDown = true;
-                carBrokeDownInRun = true;
                 Debug.Log("car breakdown");
             }
         }
@@ -86,7 +73,6 @@ namespace Manage
                 {
                     player.setFreeRide(true);
                     messageManager.generateMainScreenOnlySuccessMessage(Status.freeRideReceived);
-                    receivedFreeRideInRun = true;
                     Debug.Log("free ride");
                 }
             }

@@ -303,15 +303,10 @@ namespace Manage
 
         public override void reset()
         {
-            clearBacklog();
-            closePopUp();
-            closeScreen();
-        }
-
-        public void clearBacklog()
-        {
             mainScreenOnlyBackLog = new Queue<GameObject>();
             popUpBackLog = new Queue<GameObject>();
+            closePopUp();
+            closeScreen();
         }
 
 

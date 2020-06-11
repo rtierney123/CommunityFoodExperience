@@ -65,6 +65,12 @@ namespace UI
             }
         }
 
+        protected override uint getProcessTimeInMinutes()
+        {
+            return 120;
+        }
+
+
         protected override void successAction()
         {
             string successString = String.Format(Status.wicApproved, playerInfo.numInHouse, FormatText.formatCost(playerInfo.getTotalIncome()));

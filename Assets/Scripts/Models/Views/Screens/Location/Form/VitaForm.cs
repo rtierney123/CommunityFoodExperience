@@ -17,21 +17,21 @@ namespace UI
         public double eitcAmtMoreThreeChild;
         public CurrencyManager currencyManager;
 
-        public float chanceTaxSeason;
+        //public float chanceTaxSeason;
         public float chanceVolunteerThere;
 
         bool ctcEligibility;
         bool eitcEligbility;
-        bool isTaxSeason = false;
+       // bool isTaxSeason = false;
         bool isVolunteer = false;
 
 
-        public override void reset()
+        public override void onStart()
         {
-            base.reset();
+            base.onStart();
             float rand = UnityEngine.Random.Range(0, 100);
-            isTaxSeason = (rand < chanceTaxSeason);
-            rand = UnityEngine.Random.Range(0, 100);
+           // isTaxSeason = (rand < chanceTaxSeason);
+            //rand = UnityEngine.Random.Range(0, 100);
             isVolunteer = (rand < chanceVolunteerThere);
         }
 
@@ -43,14 +43,18 @@ namespace UI
 
         public override bool checkCanEnter()
         {
+            /*
             if (!isTaxSeason)
             {
                 cannotEnterStr = Status.vitaNotTaxSeason;
-            } else if (!isVolunteer)
+            } else 
+            
+            */
+            if (!isVolunteer)
             {
                 cannotEnterStr = Status.vitaNoVolunteer;
             }
-            return (isTaxSeason && isVolunteer);
+            return  isVolunteer;
         }
 
         public override bool checkValid()
@@ -68,6 +72,11 @@ namespace UI
             {
                 return false;
             }
+        }
+
+        protected override uint getProcessTimeInMinutes()
+        {
+            return 60;
         }
 
         private bool checkEITCEligibility()

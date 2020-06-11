@@ -31,9 +31,9 @@ namespace UI
         private int mealRemaining;
         private int ticketsRemaining;
 
-        public override void reset()
+        public override void onStart()
         {
-            base.reset();
+            base.onStart();
             numMealsText.text = mealRemaining.ToString();
             ticketsRemaining = startTickets;
             mealRemaining = startMeals;

@@ -22,8 +22,6 @@ namespace UI
 
         protected float nextActionTime = 2;
 
-        private uint lossTime = 180;
-
         [HideInInspector]
         public bool pauseFilling = false;
 
@@ -64,6 +62,11 @@ namespace UI
         public void resumeFillingOut()
         {
             pauseFilling = false;
+        }
+
+        protected virtual uint getProcessTimeInMinutes()
+        {
+            return 0;
         }
 
         private IEnumerator fillOutForm()
@@ -127,7 +130,8 @@ namespace UI
             {
                 failureAction();
             }
-            clock.addGameMinutes(lossTime);
+            uint processTime = getProcessTimeInMinutes();
+            clock.addGameMinutes(processTime);
             signButton.disable();
         }
         public virtual bool checkValid()

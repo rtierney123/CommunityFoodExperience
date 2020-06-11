@@ -94,6 +94,7 @@ namespace Manage{
             foreach(BaseLocationScreen screen in locationScreens)
             {
                 screen.reset();
+                screen.onStart();
             }
 
             navigationManager.reset();
@@ -178,6 +179,7 @@ namespace Manage{
             foreach (BaseLocationScreen screen in locationScreens)
             {
                 screen.reset();
+                screen.onStart();
             }
         }
 

@@ -41,6 +41,11 @@ namespace UI
 
         }
 
+        public virtual void onStart()
+        {
+
+        }
+
         public virtual void close()
         {
 

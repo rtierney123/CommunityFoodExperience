@@ -43,9 +43,7 @@ public static class Status
     public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +
         "Income must be wages from a job, so income from social security and unemployment is ineligible. " +
         "You do not have any children or income is too high, and do not qualify for CTC benefits.";
-    public static string vitaNotTaxSeason = "Unfortunately, VITA Services is only available in April, " +
-        "and it is not currently that month. You cannot enter this location today.";
-    public static string vitaNoVolunteer = "Unfortunately, the Volunteer Tax Preparer for VITA Services is not available. You cannot enter this location today.";
+    public static string vitaNoVolunteer = "Unfortunately, the Volunteer Tax Preparer for VITA Services is not available today.";
 
     //Food Pantry
     public static string enterFoodPantry = "This food pantry can only serve individuals living in the 30317 or 30307 zip code due to our limited supply of food. " +

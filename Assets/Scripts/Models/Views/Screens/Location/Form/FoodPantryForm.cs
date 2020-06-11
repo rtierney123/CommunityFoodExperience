@@ -31,6 +31,11 @@ namespace UI
             }
         }
 
+        protected override uint getProcessTimeInMinutes()
+        {
+            return 120;
+        }
+
         protected override void successAction()
         {
             signButton.gameObject.SetActive(false);

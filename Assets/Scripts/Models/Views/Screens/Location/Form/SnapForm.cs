@@ -73,6 +73,12 @@ namespace UI
             return valid;
         }
 
+        protected override uint getProcessTimeInMinutes()
+        {
+            return 180;
+        }
+
+
         protected override void successAction()
         {
             double monthlyIncome = playerInfo.getTotalIncome();

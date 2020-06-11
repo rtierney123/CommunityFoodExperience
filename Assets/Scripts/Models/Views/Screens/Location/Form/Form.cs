@@ -15,12 +15,14 @@ namespace UI
         public List<FormWrapper> formItems;
         public ClockDisplay clock;
         public DisableableButton signButton;
-        
+
+        [HideInInspector]
+        public string cannotEnterStr = "";
+
 
         protected float nextActionTime = 2;
 
-        //five minute
-        private uint lossTime = 120;
+        private uint lossTime = 180;
 
         [HideInInspector]
         public bool pauseFilling = false;
@@ -47,6 +49,11 @@ namespace UI
         public virtual bool checkAlreadyEntered()
         {
             return false;
+        }
+
+        public virtual bool checkCanEnter()
+        {
+            return true;
         }
 
         public void pauseFillingOut()

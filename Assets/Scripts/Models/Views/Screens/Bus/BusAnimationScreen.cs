@@ -11,11 +11,11 @@ namespace UI
         public int chanceBusEvent;
 
         bool busDelayed = false;
-        double testDelayedPercent = .1;
+        double testDelayedPercent = .2;
         private void OnEnable()
         {
             busDelayed = false;
-            testDelayedPercent = .1;
+            testDelayedPercent = .2;
         }
 
         protected virtual void Update()
@@ -26,9 +26,8 @@ namespace UI
                 if (!busDelayed)
                 {
                     float rand = UnityEngine.Random.Range(0, 100);
-                    if (rand < chanceBusEvent)
+                    if (rand <= chanceBusEvent)
                     {
-                        Debug.Log("bus delay");
                         busDelayed = true;
                         clock.addGameMinutes(30);
                         StartCoroutine(pauseLoadingForMessage());

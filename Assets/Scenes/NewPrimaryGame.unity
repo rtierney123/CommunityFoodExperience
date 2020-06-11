@@ -7058,7 +7058,7 @@ PrefabInstance:
     - target: {fileID: 3093166291617969702, guid: 586e1929d8b514ac08de6302185e99fc,
         type: 3}
       propertyPath: m_Text
-      value: Process (2 hours)
+      value: Process (3 hours)
       objectReference: {fileID: 0}
     - target: {fileID: 3108073740768098314, guid: 586e1929d8b514ac08de6302185e99fc,
         type: 3}
@@ -9344,6 +9344,16 @@ PrefabInstance:
       propertyPath: contentsLayout
       value: 
       objectReference: {fileID: 1056321938}
+    - target: {fileID: 6853016755971145917, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
+        type: 3}
+      propertyPath: chanceTaxSeason
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853016755971145917, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
+        type: 3}
+      propertyPath: chanceVolunteerThere
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7080678395313962452, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -9377,7 +9387,7 @@ PrefabInstance:
     - target: {fileID: 7199029296039383012, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
       propertyPath: m_Text
-      value: Process (2 hours)
+      value: Process (3 hours)
       objectReference: {fileID: 0}
     - target: {fileID: 7652900272810006462, guid: a0db0ef1f35c8f84bbd7a11a7b616111,
         type: 3}
@@ -10688,7 +10698,15 @@ MonoBehaviour:
   clock: {fileID: 1362943300}
   footer: {fileID: 281314814}
   pauseButton: {fileID: 962897398}
-  communityKitchen: {fileID: 751542995}
+  locationScreens:
+  - {fileID: 1070336260}
+  - {fileID: 1992922412}
+  - {fileID: 1467993691}
+  - {fileID: 646318562}
+  - {fileID: 7529735718578076004}
+  - {fileID: 1555038344}
+  - {fileID: 50133236499330197}
+  - {fileID: 751542995}
   randomGenerator: {fileID: 778393598}
   forms:
   - {fileID: 1467993691}
@@ -19045,6 +19063,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 611379641}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1992922412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8093121057220550542, guid: 7ab52aae5e851a64c972f2d2477a95c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 611379641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992922411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971602766682ea54a8d8a52d489fd9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2021982190
 GameObject:
   m_ObjectHideFlags: 0
@@ -21408,7 +21438,7 @@ PrefabInstance:
     - target: {fileID: 1082466634003799010, guid: 6b07186103b39144eaaf7b9a51621ade,
         type: 3}
       propertyPath: m_Name
-      value: SnapForm_New
+      value: SnapForm
       objectReference: {fileID: 0}
     - target: {fileID: 1082466634003799010, guid: 6b07186103b39144eaaf7b9a51621ade,
         type: 3}
@@ -22049,7 +22079,7 @@ PrefabInstance:
     - target: {fileID: 2857973865989708993, guid: 6b07186103b39144eaaf7b9a51621ade,
         type: 3}
       propertyPath: m_Text
-      value: Process (2 hours)
+      value: Process (3 hours)
       objectReference: {fileID: 0}
     - target: {fileID: 2938839954514176838, guid: 6b07186103b39144eaaf7b9a51621ade,
         type: 3}
@@ -27664,7 +27694,7 @@ PrefabInstance:
     - target: {fileID: 323185517074903588, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
       propertyPath: m_Text
-      value: Process (2 hours)
+      value: Process (3 hours)
       objectReference: {fileID: 0}
     - target: {fileID: 579083965142331283, guid: 8229dec9bc2199b428960e35f81222ac,
         type: 3}
@@ -35275,6 +35305,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1147045006447038332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7529735718578076004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3739904386729056311, guid: d29c94bb31e335644af619e65bcec51c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147045006447038332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529735718578076003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e792233fe89eb545933e1b0853133f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7765660989910119232
 GameObject:
   m_ObjectHideFlags: 0
@@ -36976,7 +37018,7 @@ PrefabInstance:
     - target: {fileID: 7386769219898530024, guid: 7a2104cf2fcc44875abd3958a2f53d2a,
         type: 3}
       propertyPath: allowChoosePlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7523961265512212806, guid: 7a2104cf2fcc44875abd3958a2f53d2a,
         type: 3}

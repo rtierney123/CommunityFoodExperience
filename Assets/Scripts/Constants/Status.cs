@@ -32,17 +32,20 @@ public static class Status
 
     //VITA
     public static string bothEitcCTC = "Your application has been approved. " +
-        "For {0} children in household and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tickets. " +
+        "For {0} child household and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tickets. " +
         "You have also received $2.74 in CTC benefits and can be used to purchase food.";
     public static string justCtc = "Your application has been approved for CTC. " +
-        "For {0} children in household and monthly income of {1}, you have received $2.74 in CTC benefits and can be used to purchase food. " +
+        "For {0} child household and monthly income of {1}, you have received $2.74 in CTC benefits and can be used to purchase food. " +
         "However, you do not qualify for EITC. Income must be wages from a job, so income from social security and unemployment is ineligible.";
     public static string justEitc = "Your application has been approved for EITC. " +
-        "For {0} children in household and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tokens. " +
+        "For {0} child household and monthly income of {1}, you have received {2} in EITC benefits that can be used to purchase food or bus tokens. " +
         "However, you do not have any children or income is too high, so do not qualify for CTC benefits.";
     public static string neitherEitcCTC = "Your application has been denied. You do not qualify for EITC. " +
         "Income must be wages from a job, so income from social security and unemployment is ineligible. " +
         "You do not have any children or income is too high, and do not qualify for CTC benefits.";
+    public static string vitaNotTaxSeason = "Unfortunately, VITA Services is only available in April, " +
+        "and it is not currently that month. You cannot enter this location today.";
+    public static string vitaNoVolunteer = "Unfortunately, the Volunteer Tax Preparer for VITA Services is not available. You cannot enter this location today.";
 
     //Food Pantry
     public static string enterFoodPantry = "This food pantry can only serve individuals living in the 30317 or 30307 zip code due to our limited supply of food. " +
@@ -93,5 +96,6 @@ public static class Status
 
     //Hints
     public static string clickStopInstruction = "Click on a bus stop to have the bus drop you off where you want to go.";
+
 
 }

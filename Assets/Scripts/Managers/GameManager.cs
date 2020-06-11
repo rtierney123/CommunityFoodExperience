@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Food;
 using UI;
+using Model;
 
 namespace Manage{
     //does logic for determining when the endgame is and when the player has satified all goals
@@ -25,7 +26,9 @@ namespace Manage{
         public ClockDisplay clock;
         public GameObject footer;
         public GameObject pauseButton;
-        public CommunityKitchenScreen communityKitchen;
+
+        public BaseLocationScreen[] locationScreens;
+        //public CommunityKitchenScreen communityKitchen;
         public RandomEventGenerator randomGenerator;
 
         public Form[] forms;
@@ -88,6 +91,11 @@ namespace Manage{
             {
                 form.resumeFillingOut();
             }
+            foreach(BaseLocationScreen screen in locationScreens)
+            {
+                screen.reset();
+            }
+
             navigationManager.reset();
             nutritionManager.reset();
             randomGenerator.reset();
@@ -167,7 +175,10 @@ namespace Manage{
             player.resetPlayer();
             clock.resetAnimation();
             navigationManager.reset();
-            communityKitchen.reset();
+            foreach (BaseLocationScreen screen in locationScreens)
+            {
+                screen.reset();
+            }
         }
 
         public void hourPassed()

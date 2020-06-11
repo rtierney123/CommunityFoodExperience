@@ -17,13 +17,40 @@ namespace UI
         public double eitcAmtMoreThreeChild;
         public CurrencyManager currencyManager;
 
+        public float chanceTaxSeason;
+        public float chanceVolunteerThere;
+
         bool ctcEligibility;
         bool eitcEligbility;
+        bool isTaxSeason = false;
+        bool isVolunteer = false;
+
+
+        public override void reset()
+        {
+            base.reset();
+            float rand = UnityEngine.Random.Range(0, 100);
+            isTaxSeason = (rand < chanceTaxSeason);
+            rand = UnityEngine.Random.Range(0, 100);
+            isVolunteer = (rand < chanceVolunteerThere);
+        }
 
 
         public override bool checkAlreadyEntered()
         {
             return player.usedVita;
+        }
+
+        public override bool checkCanEnter()
+        {
+            if (!isTaxSeason)
+            {
+                cannotEnterStr = Status.vitaNotTaxSeason;
+            } else if (!isVolunteer)
+            {
+                cannotEnterStr = Status.vitaNoVolunteer;
+            }
+            return (isTaxSeason && isVolunteer);
         }
 
         public override bool checkValid()

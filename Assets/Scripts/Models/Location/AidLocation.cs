@@ -36,6 +36,9 @@ namespace Model
                     messageManager.generateStandardErrorMessage(reenterAfterDeny);
                 }
                
+            } else if (!form.checkCanEnter())
+            {
+                messageManager.generateStandardErrorMessage(form.cannotEnterStr);
             }
             else
             {
@@ -57,6 +60,10 @@ namespace Model
                     messageManager.generateStandardErrorMessage(reenterAfterDeny);
                 }
 
+            }
+            else if (!form.checkCanEnter())
+            {
+                messageManager.generateStandardErrorMessage(form.cannotEnterStr);
             }
             else
             {

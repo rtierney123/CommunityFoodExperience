@@ -76,19 +76,19 @@ public class ClockDisplay : MonoBehaviour
 		if (!this.running) {
 			return;
 		}
-		TimeSpan time = (DateTime.Now - startTime - this.pauseTime + lossTime);
-		float runTimeRatio = (float)time.TotalMilliseconds / runtimeMiliSeconds;
+		
+        float runTimeRatio = getRuntimeRatio();
         runtimeSlider.value = runTimeRatio;
 
-		if (runTimeRatio >= 1f) {
+        if (endGameCondition()) {
             gameManager.endGame();
 		} else
         {
             string result = runTimeToDayTime(runTimeRatio);
             txt.text = result;
 
-            uint hour = (uint)(Math.Floor((pmEndTime + 12 - amStartTime) * runTimeRatio) + amStartTime);
-            uint min = (uint)(Math.Floor(((pmEndTime + 12f - amStartTime) * runTimeRatio) * 60f) % 60f);
+            uint hour = getHourFromRatio(runTimeRatio);
+            uint min = getMinFromRatio(runTimeRatio);
 
             if (hour != amStartTime)
             {
@@ -109,21 +109,24 @@ public class ClockDisplay : MonoBehaviour
        
 	}
 
-    string runTimeToDayTime(float run)
+    public bool endGameCondition()
     {
-        int Hour = (int)(Math.Floor((pmEndTime + 12 - amStartTime) * run) + amStartTime);
-        int twelveHour = (Hour > 12 ? (Hour - 12) : Hour);
-        int Minutes = (int)(Math.Floor(((pmEndTime + 12f - amStartTime) * run) * 60f) % 60f);
+        float runTimeRatio = getRuntimeRatio();
+        return (runTimeRatio >= 1f && !endGameCalled);
+    }
+
+    string runTimeToDayTime(float ratio)
+    {
+        uint Hour = getHourFromRatio(ratio);
+        uint twelveHour = convertHourToTwelveHour(Hour);
+        uint Minutes = getMinFromRatio(ratio);
         string h = twelveHour.ToString();
         if (h.Length == 1) h = "0" + h;
         string m = Minutes.ToString();
         if (m.Length == 1) m = "0" + m;
         string a = (Hour > 11 ? "pm" : "am");
 
-        if (twelveHour != 12 && twelveHour >= pmEndTime - 1 && a == "pm" && !endGameCalled)
-        {
-            callEndGameEvent();
-        }
+
 
         return h + ":" + m + a;
 
@@ -175,6 +178,11 @@ public class ClockDisplay : MonoBehaviour
         double gameHourstoMilliseconds = (runtimeMiliSeconds / numberHours)*hour;
         TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameHourstoMilliseconds);
         lossTime = lossTime.Add(lossSpan);
+
+        if (endGameCondition())
+        {
+            gameManager.endGame();
+        }
     }
 
     public void addGameMinutes(double min)
@@ -182,8 +190,13 @@ public class ClockDisplay : MonoBehaviour
         uint numberMins = getTotalInGameMinutes();
         double gameMinutestoMilliseconds = (runtimeMiliSeconds / numberMins)*min;
         TimeSpan lossSpan = TimeSpan.FromMilliseconds(gameMinutestoMilliseconds);
-       
         lossTime = lossTime.Add(lossSpan);
+
+        if (endGameCondition())
+        {
+            gameManager.endGame();
+        }
+
     }
 
     public float convertGameMinutestoSeconds(uint min)
@@ -198,5 +211,29 @@ public class ClockDisplay : MonoBehaviour
         uint inGameMinutes = (12 - amStartTime + pmEndTime) * 60;
         return inGameMinutes;
     }
+
+    private uint convertHourToTwelveHour(uint hour)
+    {
+        return (uint) (hour > 12 ? (hour - 12) : hour);
+    }
+
+    private uint getHourFromRatio(float ratio)
+    {
+       return (uint)(Math.Floor((pmEndTime + 12 - amStartTime) * ratio) + amStartTime);
+    }
+
+    private uint getMinFromRatio(float ratio)
+    {
+        return (uint)(Math.Floor(((pmEndTime + 12f - amStartTime) * ratio) * 60f) % 60f);
+    }
+
+    private float getRuntimeRatio()
+    {
+        TimeSpan time = (DateTime.Now - startTime - pauseTime + lossTime);
+        return (float)time.TotalMilliseconds / runtimeMiliSeconds;
+    }
+
+
+
 
 }

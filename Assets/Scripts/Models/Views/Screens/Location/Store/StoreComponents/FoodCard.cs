@@ -105,7 +105,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
             int index_c2 = fixedPath.IndexOf('/', index_c + 1);
             string fixedPath_c = fixedPath.Substring(0, index_c + 1) + "Food Cards";
             string name = fixedPath.Substring(index_c2, fixedPath.Length - index_c2) + "_c";
-            //Debug.Log(fixedPath_c);
 
             if (ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name, 40) == null)
             {
@@ -125,7 +124,6 @@ public class FoodCard : MonoBehaviour, UnityEngine.EventSystems.IDragHandler, IE
                     fixedPath_c += "/fp";
                     appendix = "_fp";
                 }
-                Debug.Log(name);
                 ResourceHandler.setImage(shelf.foodImage_c, fixedPath_c + name + appendix, 40);
             }
             canvasController.openPopup(shelf.detailPopup);

@@ -10,7 +10,6 @@ namespace Manage
     //does logic for navigating the map and showing navigation related pop-ups
     public class NavigationManager : Manager { 
         public Player player;
-        
 
         public CanvasController canvasController;
         public MessageManager messageManager;
@@ -72,7 +71,8 @@ namespace Manage
                 {
                     possibleDestination = location;
 
-                    navigationPopup.walkText.text = "Walk (" + formatTime(getPotentialTravelTime(TravelType.Walk)) + ")";
+                    string walkString = formatTime(getWalkTravelTime(currentLocation, possibleDestination));
+                    navigationPopup.walkText.text = "Walk (" + walkString+ ")";
 
                     if (player.hasTemporaryRide || (player.playerInfo.hasCar && !player.carBrokenDown))
                     {
@@ -85,7 +85,8 @@ namespace Manage
 
                     navigationPopup.title.text = location.locationTitle;
                     navigationPopup.description.text = location.locationDescription;
-                    navigationPopup.carText.text = "Car (" + formatTime( getPotentialTravelTime(TravelType.Car)) + ")";
+                    string carString = formatTime(getCarTravelTime(currentLocation, possibleDestination));
+                    navigationPopup.carText.text = "Car (" + carString + ")";
 
                     GameObject gameObject = navigationPopup.gameObject;
                     canvasController.openPopup(gameObject);
@@ -145,24 +146,70 @@ namespace Manage
             canvasController.disableMainPopups();
             canvasController.closeScreen();
             canvasController.closePopUp();
-            double travelTime = getPotentialTravelTime(travelType);
+
+            double travelTime = 0;
+            if(travelType == TravelType.Walk)
+            {
+                travelTime = getWalkTravelTime(currentLocation, possibleDestination);
+            }
+            else if(travelType == TravelType.Car)
+            {
+                travelTime = getCarTravelTime(currentLocation, possibleDestination);
+            }
+            else if(travelType == TravelType.Bus)
+            {
+                travelTime = getBusTravelTime(currentLocation, possibleDestination);
+            }
+
+            clock.addGameMinutes(travelTime);
+
+
             currentLocation = possibleDestination;
 
             dropPlayerOff(currentLocation);
-            clock.addGameMinutes(travelTime);
 
             player.setFreeRide(false);
 
-            if (travelType != TravelType.Bus)
+            if (!clock.endGameCondition())
             {
-                currentLocation.onDelayedEnter();
-            } else
-            {
-                canvasController.enableMainPopups();
-                canvasController.dequeueMainScreenPopUpBackLog();
+                if (travelType != TravelType.Bus)
+                {
+                    currentLocation.onDelayedEnter();
+                }
+                else
+                {
+                    canvasController.enableMainPopups();
+                    canvasController.dequeueMainScreenPopUpBackLog();
+                }
+
             }
 
+
         }
+
+        private double getWalkTravelTime(Location start, Location end)
+        {
+            double travelTime = travelCalculator.calculateTravelTime(start.locationId, end.locationId, TravelType.Walk);
+            if (start.neighborhood != end.neighborhood)
+            {
+                travelTime = 2 * travelTime;
+            }
+
+            return travelTime;
+        }
+
+        private double getCarTravelTime(Location start, Location end)
+        {
+            double travelTime = travelCalculator.calculateTravelTime(start.locationId, end.locationId, TravelType.Car);
+            return travelTime;
+        }
+
+        private double getBusTravelTime(Location start, Location end)
+        {
+            double travelTime = travelCalculator.calculateTravelTime(start.locationId, end.locationId, TravelType.Bus);
+            return travelTime;
+        }
+
 
         private void dropPlayerOff(Location location)
         {
@@ -178,13 +225,6 @@ namespace Manage
             player.gameObject.SetActive(true);
             player.transform.position = new Vector3(location.playerDropoff.position.x, location.playerDropoff.position.y, 0);
         }
-
-        private double getPotentialTravelTime(TravelType travelType)
-        {
-            return travelCalculator.calculateTravelTime(currentLocation.locationId, possibleDestination.locationId, travelType);
-        }
-
-
  
 
         private void disableBusStopHighlights()

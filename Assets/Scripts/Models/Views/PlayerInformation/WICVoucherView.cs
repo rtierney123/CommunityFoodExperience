@@ -16,8 +16,10 @@ namespace UI
         public GameObject grainCheck;
         public GameObject dairyCheck;
 
-        public Color activeColor;
-        public Color inactiveColor;
+        public GameObject deactivatedImage;
+
+        //public Color activeColor;
+        //public Color inactiveColor;
 
         [HideInInspector]
         public bool activeVoucher = false;
@@ -30,15 +32,13 @@ namespace UI
         public void activateVoucher()
         {
             activeVoucher = true;
-            Image image = this.gameObject.GetComponent<Image>();
-            image.color = activeColor;
+            deactivatedImage.SetActive(false);
         }
 
         public void deactivateVoucher()
         {
             activeVoucher = false;
-            Image image = this.gameObject.GetComponent<Image>();
-            image.color = inactiveColor;
+            deactivatedImage.SetActive(true);
         }
 
 
@@ -110,11 +110,11 @@ namespace UI
 
             if (voucher.active)
             {
-                setColor(this.gameObject, activeColor);
+                deactivatedImage.SetActive(false);
             }
             else
             {
-                setColor(this.gameObject, inactiveColor);
+                deactivatedImage.SetActive(true);
             }
         }
 

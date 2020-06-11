@@ -23,10 +23,13 @@ namespace UI {
         public DisableableButton wicButton;
         public GameObject purchaseButton;
 
+        public ScrollRect shelfRect;
+
         public override void reset()
         {
             base.reset();
             purchaseButton.SetActive(false);
+            shelfRect.normalizedPosition = new Vector2(0, 1);
         }
 
         public override void enter()

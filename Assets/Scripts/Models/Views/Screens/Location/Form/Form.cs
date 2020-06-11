@@ -88,21 +88,14 @@ namespace UI
                     item.fillOut();
                     yield return new WaitForSeconds((float).5);
                     yield return new WaitUntil(() => item.doneWithFillingOut);
-                    Debug.Log("filled out");
                 }
-                else
-                {
-                    Debug.Log("skip");
-                }
-                
+
                 while (pauseFilling)
                 {
-                    Debug.Log("paused filling out");
                     yield return new WaitForSeconds((float).5);
                 }
                 
             }
-            Debug.Log("done");
             onFormFilled();
 
         }

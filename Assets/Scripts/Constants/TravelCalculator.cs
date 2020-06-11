@@ -7,7 +7,7 @@ public class TravelCalculator
 {
 
     private static Dictionary<Tuple<LocationID, LocationID>, double> locationmap;
-    private static double walkScale = 6;
+    private static double walkScale = 7;
     private static double carScale = 1;
     //TODO:FIX THIS!!
 

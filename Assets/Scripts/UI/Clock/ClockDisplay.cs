@@ -25,7 +25,7 @@ public class ClockDisplay : MonoBehaviour
 
     private uint currentHour = 0;
     private uint currentMin = 0;
-    private bool endGameCalled = false;
+    private bool hourBeforeEndCalled = false;
 
     void Start()
     {
@@ -43,7 +43,8 @@ public class ClockDisplay : MonoBehaviour
             }
         }
 	}
-    
+
+
     public uint getCurrentMilitaryHour()
     {
         return currentHour;
@@ -65,6 +66,7 @@ public class ClockDisplay : MonoBehaviour
 
     public void startAnimation() {
         running = true;
+        hourBeforeEndCalled = false;
         startTime = DateTime.Now;
         pauseTime = TimeSpan.Zero;
         Debug.Log("start clock");
@@ -96,6 +98,10 @@ public class ClockDisplay : MonoBehaviour
                 {
                     currentHour = hour;
                     updateHourCallers();
+                    if(currentHour == pmEndTime + 11)
+                    {
+                        callHourBeforeEndGameEvent();
+                    } 
                 }
             }
 
@@ -112,7 +118,7 @@ public class ClockDisplay : MonoBehaviour
     public bool endGameCondition()
     {
         float runTimeRatio = getRuntimeRatio();
-        return (runTimeRatio >= 1f && !endGameCalled);
+        return runTimeRatio >= 1f;
     }
 
     string runTimeToDayTime(float ratio)
@@ -126,11 +132,7 @@ public class ClockDisplay : MonoBehaviour
         if (m.Length == 1) m = "0" + m;
         string a = (Hour > 11 ? "pm" : "am");
 
-
-
-        return h + ":" + m + a;
-
-       
+        return h + ":" + m + a;      
     }
 
     private void updateHourCallers()
@@ -149,15 +151,15 @@ public class ClockDisplay : MonoBehaviour
         }
     }
 
-    private void callEndGameEvent()
+    private void callHourBeforeEndGameEvent()
     {
-        if (!endGameCalled)
+        if (!hourBeforeEndCalled)
         {
             foreach (IClockEventCaller caller in eventCallers)
              {
                 caller.hourBeforeEndGame();
             }
-            endGameCalled = true;
+            hourBeforeEndCalled = true;
 
         }
     }

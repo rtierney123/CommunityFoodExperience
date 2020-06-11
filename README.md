@@ -10,14 +10,14 @@
   + Clock running, gameplay lasts 15 minutes.
 - Bug fixes made since the last release:
   + None.
-- Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
+- Known bugs and defects:
   + Drag and drop can duplicate items in store.
   + Clock misbehaves after traveling to some locations.
 - Future features:
   + End game scene after player finishing the game with the survey link to ask player for opinion.
   + Tutorial scene to walk players through most complicated game logic.
  
-### Build 2 (current)
+### Build 2 
 - New software features for this release 
   + A new map design has been implemented. 
   + The tutorial page is now available to players. 
@@ -27,12 +27,25 @@
   + The drag and drop functionality at store no longer incorrectly duplicates elements when dragged on the wrong side of the shop. 
   + The bus animation has been cleaned up and does not clip through any other 3d models in the map scene. 
   + The clock will not pass its max orange fill color and continue on forever. With the addition of the ending screen, the clock stops at 6pm and lines up with the orange pie chart fill. 
-- Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
+- Known bugs and defects:
   + Some food card information is known to be incorrect or inconsistent. Certain elements like prices are important to match, but others like saturated fats or cholesterols are unimportant. 
   + The end-game information about nutrition is not as comprehensive as the data we were supplied with (ie. no breakdown of cholesterols, fats, etc… and does not handle special dietary and health cases like diabetes
   + The information and up to date accuracy of financial aid programs was not portrayed in as much detail as we expected. 
   + There will not be tracking of users of this game, other than an external survey that a user can elect to participate in at the end of the game.
   + The embedded video conclusion/debriefing was never created, but in the future, this could easily be linked to a webpage on the foodbank’s site.
+  
+   
+### Build 3(current)
+- New software features for this release 
+  + A new map design has been implemented with buildings closer together.
+  + New bus system.
+  + New UI designs including new location screens and control panel.
+- Bug fixes made since the last release:
+  + Fixed food items to display the correct information.
+  + Fixed random events to always to be displayed properly.
+  + Fixed clock to subtract correct amount of time.
+- Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
+  + It is too easy to acheive nutritional requirements with most community members. Game is supposed to be more challenging to complete successfully.
 
 ## Install Guide  
 ### Pre-requisites: 

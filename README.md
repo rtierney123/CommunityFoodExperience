@@ -45,7 +45,7 @@
   + Fixed random events to always to be displayed properly.
   + Fixed clock to subtract correct amount of time.
 - Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
-  + It is too easy to acheive nutritional requirements with most community members. Game is supposed to be more challenging to complete successfully.
+  + Word text currently filling out in form continues even on pause.
 
 ## Install Guide  
 ### Pre-requisites: 

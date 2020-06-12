@@ -46,6 +46,8 @@
   + Fixed clock to subtract correct amount of time.
 - Known bugs and defects -- you should also include here any functionality you promised the customer but is missing in the release:
   + Word text currently filling out in form continues even on pause.
+  + Additional nutrition information such as sodium, cholesterol, etc not displayed.
+  + No in game tutorial beyond the help screen.
 
 ## Install Guide  
 ### Pre-requisites: 

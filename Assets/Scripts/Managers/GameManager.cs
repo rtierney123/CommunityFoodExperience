@@ -45,6 +45,7 @@ namespace Manage{
             if (openStartScreenOnPlay)
             {
                 canvasController.openScreen(startScreen);
+                navigationManager.reset();
                 Debug.Log("START");
                 hideIcons();
                 pause();

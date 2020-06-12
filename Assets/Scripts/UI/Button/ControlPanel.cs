@@ -52,6 +52,8 @@ namespace UI
 
         public void openNotepadScreen()
         {
+            Wallet wallet = notepadScreen.GetComponent<Wallet>();
+            wallet.reset();
             gameManager.pauseGame();
             notepadScreen.SetActive(true);
             pauseScreenOpen = true;

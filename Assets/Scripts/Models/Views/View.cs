@@ -41,7 +41,7 @@ namespace UI
 
         }
 
-        public virtual void onStart()
+        public virtual void onStartGame()
         {
 
         }

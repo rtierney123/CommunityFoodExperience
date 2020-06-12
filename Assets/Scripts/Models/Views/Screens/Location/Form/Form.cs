@@ -100,6 +100,7 @@ namespace UI
                     yield return new WaitUntil(() => item.doneWithFillingOut);
                 }
 
+
                 while (pauseFilling)
                 {
                     yield return new WaitForSeconds((float).5);

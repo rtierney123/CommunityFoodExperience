@@ -8,7 +8,7 @@ using Utility;
 
 namespace UI
 {
-    public class Wallet : PopUp
+    public class Wallet : View
     {
         public Player player;
         [HideInInspector]

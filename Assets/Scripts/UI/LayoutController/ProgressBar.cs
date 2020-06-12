@@ -13,10 +13,9 @@ public class ProgressBar : MonoBehaviour
     private float currentTime = 0;
     private bool loading = false;
     private bool pause = false;
-    void Start()
-    {
-        
-    }
+
+
+
     void Update()
     {
         if (this.gameObject.activeInHierarchy && !loading)
@@ -24,11 +23,6 @@ public class ProgressBar : MonoBehaviour
             loading = true;
             StartCoroutine(Load());
             
-        }
-        else if(!this.gameObject.activeInHierarchy)
-        {
-            resetLoading();
-            Debug.Log("Not Active");
         }
 
     }

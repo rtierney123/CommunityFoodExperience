@@ -26,9 +26,9 @@ namespace UI
         bool isVolunteer = false;
 
 
-        public override void onStart()
+        public override void onStartGame()
         {
-            base.onStart();
+            base.onStartGame();
             float rand = UnityEngine.Random.Range(0, 100);
            // isTaxSeason = (rand < chanceTaxSeason);
             //rand = UnityEngine.Random.Range(0, 100);

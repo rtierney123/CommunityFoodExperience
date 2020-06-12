@@ -10,6 +10,8 @@ public class FormWrapper : MonoBehaviour
     public bool doneWithFillingOut;
     [HideInInspector]
     public bool initialized = false;
+    [HideInInspector]
+    public bool pauseFillingOut = false;
 
     public FormQuestionType questionType;
     protected string contents = "";

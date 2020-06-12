@@ -16,7 +16,6 @@ namespace Manage{
         public GameObject pauseScreen;
         public GameObject startScreen;
         public GameObject endScreen;
-        public GameObject credits;
 
         public CanvasController canvasController;
         public NavigationManager navigationManager;
@@ -28,17 +27,16 @@ namespace Manage{
         public GameObject pauseButton;
 
         public BaseLocationScreen[] locationScreens;
-        //public CommunityKitchenScreen communityKitchen;
+        public ControlPanel controlPanel;
         public RandomEventGenerator randomGenerator;
 
         public Form[] forms;
-
-        //TODO set when appropriate
-        bool gameStarted = false;
-
-        public float randChildSick = 20;
+        public BusAnimationScreen[] busProgressScreen;
 
         public bool openStartScreenOnPlay;
+
+        [HideInInspector]
+        public bool gameStarted = false;
 
         void Start()
         {
@@ -57,14 +55,6 @@ namespace Manage{
 
             
 
-        }
-
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P) == true)
-            {
-                pauseGame();
-            }
         }
 
         public void displayIcons()
@@ -95,21 +85,25 @@ namespace Manage{
             foreach(BaseLocationScreen screen in locationScreens)
             {
                 screen.reset();
-                screen.onStart();
+                screen.onStartGame();
             }
-
+            controlPanel.reset();
             navigationManager.reset();
             nutritionManager.reset();
             randomGenerator.reset();
+            gameStarted = true;
         }
 
         public void pauseGame()
         {
             pause();
-            pauseScreen.SetActive(true);
             foreach(Form form in forms)
             {
                 form.pauseFillingOut();
+            }
+            foreach(BusAnimationScreen busScreen in busProgressScreen)
+            {
+                busScreen.pauseScreen();
             }
         }
 
@@ -119,6 +113,10 @@ namespace Manage{
             foreach (Form form in forms)
             {
                 form.resumeFillingOut();
+            }
+            foreach (BusAnimationScreen busScreen in busProgressScreen)
+            {
+                busScreen.resumeScreen();
             }
         }
 
@@ -146,12 +144,7 @@ namespace Manage{
             canvasController.endGame = true;
             canvasController.openPostGameScreen(endScreen);
             pause();
-            
-        }
-
-        public void displayCredits()
-        {
-            canvasController.openScreen(credits);
+            gameStarted = false;
         }
 
         public void restartGame()
@@ -169,6 +162,7 @@ namespace Manage{
             canvasController.openScreen(startScreen);
             pause();
             hideIcons();
+            gameStarted = false;
 
         }
         public void resetGameComponents()
@@ -180,7 +174,7 @@ namespace Manage{
             foreach (BaseLocationScreen screen in locationScreens)
             {
                 screen.reset();
-                screen.onStart();
+                screen.onStartGame();
             }
         }
 
